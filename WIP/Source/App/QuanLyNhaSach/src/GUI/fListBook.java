@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlynhasach;
+package GUI;
+
+import BLL.BookBLL;
+import Utilties.ControlFormat;
+
+
 
 /**
  *
@@ -14,8 +19,11 @@ public class fListBook extends javax.swing.JInternalFrame {
     /**
      * Creates new form fListBook
      */
+    ControlFormat control = new ControlFormat();
+    BookBLL bookbll = new BookBLL();
     public fListBook() {
         initComponents();
+        control.bindingBook(jTableBookInfo, bookbll.layDanhSach());
     }
 
     /**
@@ -54,7 +62,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         txfIDBookInfo = new javax.swing.JTextField();
-        cbIDBookCategogyBookInfo = new javax.swing.JComboBox<>();
+        cbNameCategogyBookInfo = new javax.swing.JComboBox<String>();
         txfNameBookInfo = new javax.swing.JTextField();
         txfPublisherBookInfo = new javax.swing.JTextField();
         txfPublishingYearBookInfo = new javax.swing.JTextField();
@@ -63,7 +71,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfCostBookInfo = new javax.swing.JTextField();
         txfPriceBookInfo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txfAuthorBookInfo = new javax.swing.JTextField();
+        txfSumInventory = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnAddBookInfo = new javax.swing.JButton();
         btnEditBookInfo = new javax.swing.JButton();
@@ -228,12 +236,12 @@ public class fListBook extends javax.swing.JInternalFrame {
         jLabel21.setText("Tổng sách tồn");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel22.setText("Mã thể loại");
+        jLabel22.setText("Tên thể loại:");
 
         txfIDBookInfo.setEditable(false);
         txfIDBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        cbIDBookCategogyBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cbNameCategogyBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfNameBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
@@ -250,9 +258,9 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfPriceBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel11.setText("Tác giả");
+        jLabel11.setText("Tổng sách tồn:");
 
-        txfAuthorBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfSumInventory.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -269,22 +277,22 @@ public class fListBook extends javax.swing.JInternalFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel10)
                             .addComponent(jLabel20)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10))
                         .addGap(38, 38, 38)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfPriceBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfSumInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txfCostBookInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                                .addComponent(txfPriceBookInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                                 .addComponent(txfIDBookInfo)
-                                .addComponent(cbIDBookCategogyBookInfo, 0, 186, Short.MAX_VALUE)
+                                .addComponent(cbNameCategogyBookInfo, 0, 186, Short.MAX_VALUE)
                                 .addComponent(txfNameBookInfo)
                                 .addComponent(txfPublisherBookInfo)
-                                .addComponent(txfPublishingYearBookInfo)
-                                .addComponent(txfAuthorBookInfo)))))
+                                .addComponent(txfPublishingYearBookInfo)))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -296,7 +304,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbIDBookCategogyBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbNameCategogyBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -310,26 +318,26 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txfPublishingYearBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfAuthorBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(33, 33, 33)
                         .addComponent(jLabel8))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txfCostBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addGap(20, 20, 20)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10)
+                    .addComponent(txfPriceBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfPriceBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(374, 374, 374)
+                    .addComponent(txfSumInventory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(365, 365, 365)
                 .addComponent(jLabel21)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -380,6 +388,8 @@ public class fListBook extends javax.swing.JInternalFrame {
                 "Mã sách", "Mã thể loại sách", "Tên sách", "Nhà xuất bản", "Năm xuất bản", "Tóm tắt", "Giá nhập", "Giá bán"
             }
         ));
+        jTableBookInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTableBookInfo.setMaximumSize(new java.awt.Dimension(2147483647, 70));
         jScrollPane3.setViewportView(jTableBookInfo);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -397,9 +407,9 @@ public class fListBook extends javax.swing.JInternalFrame {
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(91, 91, 91)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,13 +418,12 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(jScrollPane3)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
@@ -447,7 +456,7 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDelBookInfo;
     private javax.swing.JButton btnEditBookCategogy;
     private javax.swing.JButton btnEditBookInfo;
-    private javax.swing.JComboBox<String> cbIDBookCategogyBookInfo;
+    private javax.swing.JComboBox<String> cbNameCategogyBookInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -475,7 +484,6 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTableBookCategory;
     private javax.swing.JTable jTableBookInfo;
     private javax.swing.JTextArea txaBriefBookInfo;
-    private javax.swing.JTextField txfAuthorBookInfo;
     private javax.swing.JTextField txfCostBookInfo;
     private javax.swing.JTextField txfIDBookCategogy;
     private javax.swing.JTextField txfIDBookInfo;
@@ -484,5 +492,6 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfPriceBookInfo;
     private javax.swing.JTextField txfPublisherBookInfo;
     private javax.swing.JTextField txfPublishingYearBookInfo;
+    private javax.swing.JTextField txfSumInventory;
     // End of variables declaration//GEN-END:variables
 }

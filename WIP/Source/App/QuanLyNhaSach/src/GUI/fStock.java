@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlynhasach;
+package GUI;
 
 /**
  *
@@ -61,7 +61,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         txfIDStock = new javax.swing.JTextField();
         jDateChooserStock = new com.toedter.calendar.JDateChooser();
-        cbIDDistributorStock = new javax.swing.JComboBox<>();
+        cbIDDistributorStock = new javax.swing.JComboBox<String>();
         txfTotalStock = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txfNameDistributor = new javax.swing.JTextField();
@@ -83,7 +83,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         txfIDBookStockInfo = new javax.swing.JTextField();
         txfAmountStockInfo = new javax.swing.JTextField();
-        cbIDStockInfo = new javax.swing.JComboBox<>();
+        cbIDStockInfo = new javax.swing.JComboBox<String>();
         jPanel12 = new javax.swing.JPanel();
         btnAddStockInfo = new javax.swing.JButton();
         btnEditStockInfo = new javax.swing.JButton();

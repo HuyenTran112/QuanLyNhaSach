@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlynhasach;
+package GUI;
 
 /**
  *
@@ -35,7 +35,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jTableBill = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        cbIDStaffBill = new javax.swing.JComboBox<>();
+        cbIDStaffBill = new javax.swing.JComboBox<String>();
         txfIDCustomerBill = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnAddBill = new javax.swing.JButton();
@@ -46,14 +46,14 @@ public class fSales extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        cbIDBill_BillInfo = new javax.swing.JComboBox<>();
+        cbIDBill_BillInfo = new javax.swing.JComboBox<String>();
         txfIDBookBillInfo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnAddBillInfo = new javax.swing.JButton();
         btnEditBillInfo = new javax.swing.JButton();
         btnDelBillInfo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        cbAmountBillInfo = new javax.swing.JComboBox<>();
+        cbAmountBillInfo = new javax.swing.JComboBox<String>();
         jLabel8 = new javax.swing.JLabel();
         txfTotalPriceBillInfo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();

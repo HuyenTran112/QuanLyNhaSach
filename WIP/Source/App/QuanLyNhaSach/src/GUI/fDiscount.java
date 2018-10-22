@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlynhasach;
+package GUI;
 
 /**
  *
@@ -41,7 +41,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jDChFinishDiscount = new com.toedter.calendar.JDateChooser();
-        cbDiscount = new javax.swing.JComboBox<>();
+        cbDiscount = new javax.swing.JComboBox<String>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDiscount = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -83,7 +83,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel8.setText("- Ngày kết thúc");
 
         cbDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cbDiscount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50" }));
+        cbDiscount.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "15", "20", "25", "30", "35", "40", "45", "50" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

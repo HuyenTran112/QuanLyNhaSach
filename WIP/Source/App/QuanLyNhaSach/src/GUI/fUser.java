@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quanlynhasach;
+package GUI;
 
 /**
  *
@@ -40,7 +40,7 @@ public class fUser extends javax.swing.JInternalFrame {
         txfNewPass = new javax.swing.JTextField();
         txfReNewPass = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        cbAccountCategogy = new javax.swing.JComboBox<>();
+        cbAccountCategogy = new javax.swing.JComboBox<String>();
         jPanel2 = new javax.swing.JPanel();
         btnEditAcount = new javax.swing.JButton();
         btnDelAccount = new javax.swing.JButton();
