@@ -7,7 +7,12 @@ package GUI;
 
 import BLL.BookBLL;
 import Utilties.ControlFormat;
-
+import java.util.Locale;
+import Entity.*;
+import DAL.*;
+import BLL.*;
+import javax.swing.JOptionPane;
+import sun.org.mozilla.javascript.internal.Token;
 
 
 /**
@@ -21,10 +26,20 @@ public class fListBook extends javax.swing.JInternalFrame {
      */
     ControlFormat control = new ControlFormat();
     BookBLL bookbll = new BookBLL();
+    BookCategogyBLL categogyBLL=new BookCategogyBLL();
+    int flag=0;
     public fListBook() {
         initComponents();
-        control.bindingBook(jTableBookInfo, bookbll.layDanhSach());
+        control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+        control.bindingBookCategogy(jTableBookCategory, categogyBLL.getAllCategogy());
+        cbNameCategogyBookInfo.removeAllItems();
+        for(BookCategogy bookCategogy: categogyBLL.getAllCategogy())
+        {
+            cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
+        }
+        //cbNameCategogyBookInfo.addItem("Sách cố tích");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +62,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnAddBookCategogy = new javax.swing.JButton();
         btnEditBookCategogy = new javax.swing.JButton();
         btnDelBookCategogy = new javax.swing.JButton();
+        btnSaveBookCategogy = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBookCategory = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -72,12 +88,12 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfPriceBookInfo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txfSumInventory = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableBookInfo = new javax.swing.JTable();
         btnAddBookInfo = new javax.swing.JButton();
         btnEditBookInfo = new javax.swing.JButton();
         btnDelBookInfo = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableBookInfo = new javax.swing.JTable();
+        btnSaveBookInfo = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -128,12 +144,25 @@ public class fListBook extends javax.swing.JInternalFrame {
 
         btnAddBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnAddBookCategogy.setText("THÊM");
+        btnAddBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddBookCategogyActionPerformed(evt);
+            }
+        });
 
         btnEditBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnEditBookCategogy.setText("CẬP NHẬT");
 
         btnDelBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnDelBookCategogy.setText("XÓA");
+
+        btnSaveBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveBookCategogy.setText("LƯU");
+        btnSaveBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveBookCategogyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -142,11 +171,13 @@ public class fListBook extends javax.swing.JInternalFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddBookCategogy)
-                .addGap(46, 46, 46)
+                .addGap(26, 26, 26)
                 .addComponent(btnEditBookCategogy)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(btnDelBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(btnSaveBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +186,8 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddBookCategogy)
                     .addComponent(btnEditBookCategogy)
-                    .addComponent(btnDelBookCategogy))
+                    .addComponent(btnDelBookCategogy)
+                    .addComponent(btnSaveBookCategogy))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -170,6 +202,11 @@ public class fListBook extends javax.swing.JInternalFrame {
                 "Mã thể loại sách", "Tên thể loại sách"
             }
         ));
+        jTableBookCategory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBookCategoryMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableBookCategory);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,7 +240,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Thể loại sách", jPanel1);
@@ -293,7 +330,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                                 .addComponent(txfNameBookInfo)
                                 .addComponent(txfPublisherBookInfo)
                                 .addComponent(txfPublishingYearBookInfo)))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,40 +379,6 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnAddBookInfo.setText("THÊM");
-
-        btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnEditBookInfo.setText("CẬP NHẬT");
-
-        btnDelBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnDelBookInfo.setText("XÓA");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAddBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEditBookInfo)
-                .addGap(18, 18, 18)
-                .addComponent(btnDelBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEditBookInfo)
-                        .addComponent(btnDelBookInfo))
-                    .addComponent(btnAddBookInfo))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableBookInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -390,42 +393,87 @@ public class fListBook extends javax.swing.JInternalFrame {
         ));
         jTableBookInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableBookInfo.setMaximumSize(new java.awt.Dimension(2147483647, 70));
+        jTableBookInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBookInfoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTableBookInfo);
+
+        btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnAddBookInfo.setText("THÊM");
+        btnAddBookInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddBookInfoActionPerformed(evt);
+            }
+        });
+
+        btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnEditBookInfo.setText("CẬP NHẬT");
+        btnEditBookInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditBookInfoActionPerformed(evt);
+            }
+        });
+
+        btnDelBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnDelBookInfo.setText("XÓA");
+        btnDelBookInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelBookInfoActionPerformed(evt);
+            }
+        });
+
+        btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveBookInfo.setText("LƯU");
+        btnSaveBookInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveBookInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(387, 387, 387)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)))))
-                .addContainerGap())
+                        .addComponent(btnAddBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnEditBookInfo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSaveBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(227, 227, 227))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addContainerGap()
                 .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane3)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAddBookInfo)
+                            .addComponent(btnDelBookInfo)
+                            .addComponent(btnEditBookInfo)
+                            .addComponent(btnSaveBookInfo))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Thông tin sách", jPanel2);
@@ -448,6 +496,208 @@ public class fListBook extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTableBookCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBookCategoryMouseClicked
+        // TODO add your handling code here:
+        int row =jTableBookCategory.getSelectedRow();
+        txfIDBookCategogy.setText(jTableBookCategory.getValueAt(row, 0).toString());
+        txfNameBookCategogy.setText(jTableBookCategory.getValueAt(row, 1).toString());
+    }//GEN-LAST:event_jTableBookCategoryMouseClicked
+    public void ClearTextBookInfo()
+    {
+        txfIDBookInfo.setText("");
+        txfNameBookCategogy.setText("");
+        txfNameBookInfo.setText("");
+        txfPublisherBookInfo.setText("");
+        txfPublishingYearBookInfo.setText("");
+        txfPublishingYearBookInfo.setText("");
+        txfCostBookInfo.setText("");
+        txfPriceBookInfo.setText("");
+        txfSumInventory.setText("");
+    }
+    public void InsertBook()
+    {
+        String BookName =txfNameBookInfo.getText();
+            String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
+            String PublisherBook=txfPublisherBookInfo.getText();
+            int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
+            String Brief=txaBriefBookInfo.getText();
+            //if(Brief.equals(""))
+                //Brief=null;
+            float Cost =Float.parseFloat(txfCostBookInfo.getText());
+            float Price =Float.parseFloat(txfPriceBookInfo.getText());
+            int SumInventory=Integer.parseInt(txfSumInventory.getText());
+            int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
+            if(BookName.equals("") )
+            JOptionPane.showMessageDialog(this, "Tên sách là trường bắt buộc");
+            else
+            if(CategogyName.equals(""))
+            JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+            else
+            {
+                if(bookbll.InsertBook(BookName, PublisherBook, PublishingYearBook, Brief,Cost, Price, SumInventory,IDBookCategogy))
+                JOptionPane.showMessageDialog(this,"Thêm thành công sách");
+                else
+                JOptionPane.showMessageDialog(this, "Thêm sách thất bại");
+                //JOptionPane.showMessageDialog(this,BookName+"," +PublisherBook+","+ PublishingYearBook+" " +Brief+ "" +Cost+" "+ Price+"" +SumInventory+""+IDBookCategogy );
+                
+        }
+    }
+    public void UpdateBook()
+    {
+        String BookName =txfNameBookInfo.getText();
+            String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
+            String PublisherBook=txfPublisherBookInfo.getText();
+            int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
+            String Brief=txaBriefBookInfo.getText();
+            //if(Brief.equals(""))
+                //Brief=null;
+            float Cost =Float.parseFloat(txfCostBookInfo.getText());
+            float Price =Float.parseFloat(txfPriceBookInfo.getText());
+            int SumInventory=Integer.parseInt(txfSumInventory.getText());
+            int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
+            int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
+            if(BookName.equals("") )
+            JOptionPane.showMessageDialog(this, "Tên sách là trường bắt buộc");
+            else
+            if(CategogyName.equals(""))
+            JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+            else
+            {
+                if(bookbll.UpdateBook(IDBookName, BookName, PublisherBook, PublishingYearBook, Brief, Cost, Price, SumInventory, IDBookCategogy))
+                        JOptionPane.showMessageDialog(this,"Cập nhật thành công sách");
+                else
+                JOptionPane.showMessageDialog(this, "Cập nhật sách thất bại");
+                //JOptionPane.showMessageDialog(this,BookName+"," +PublisherBook+","+ PublishingYearBook+" " +Brief+ "" +Cost+" "+ Price+"" +SumInventory+""+IDBookCategogy );
+                
+        }
+    }
+    public void DeleteBook()
+    {
+        int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
+         if(bookbll.DeleteBook(IDBookName))
+                        JOptionPane.showMessageDialog(this,"Xóa sách thành công");
+                else
+                JOptionPane.showMessageDialog(this, "Xóa sách thất bại");
+    }
+    public void InsertBookCategogy()
+    {
+        String NameBookCategogy=txfNameBookCategogy.getText();
+        if(categogyBLL.InsertBookCategogy(NameBookCategogy))
+            JOptionPane.showMessageDialog(this, "Thêm thành công loại sách");
+        else
+            JOptionPane.showMessageDialog(this, "Thêm thất bại loại sách");
+    }
+    private void btnSaveBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBookInfoActionPerformed
+        // TODO add your handling code here:
+        if(flag==1)
+        {
+            InsertBook();
+            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            btnAddBookInfo.setEnabled(true);
+            btnDelBookInfo.setEnabled(true);
+            btnEditBookInfo.setEnabled(true);
+            btnSaveBookInfo.setEnabled(false);
+        }
+        if(flag==2)
+        {
+            UpdateBook();
+            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            btnAddBookInfo.setEnabled(true);
+            btnDelBookInfo.setEnabled(true);
+            btnEditBookInfo.setEnabled(true);
+            btnSaveBookInfo.setEnabled(false);
+        }
+        if(flag==3)
+        {
+            DeleteBook();
+            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            btnAddBookInfo.setEnabled(true);
+            btnDelBookInfo.setEnabled(true);
+            btnEditBookInfo.setEnabled(true);
+            btnSaveBookInfo.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnSaveBookInfoActionPerformed
+
+    private void btnAddBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookInfoActionPerformed
+        // TODO add your handling code here:
+        ClearTextBookInfo();
+        jTableBookInfo.clearSelection();
+        btnAddBookInfo.setEnabled(false);
+        btnEditBookInfo.setEnabled(false);
+        btnDelBookInfo.setEnabled(false);
+        btnSaveBookInfo.setEnabled(true);
+        flag=1;
+
+    }//GEN-LAST:event_btnAddBookInfoActionPerformed
+
+    private void jTableBookInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBookInfoMouseClicked
+        // TODO add your handling code here:
+        int row=jTableBookInfo.getSelectedRow();
+        txfIDBookInfo.setText(jTableBookInfo.getValueAt(row, 0).toString());
+        String bookcategogy =jTableBookInfo.getValueAt(row, 1).toString();
+        if(jTableBookInfo.getValueAt(row, 1).toString().equals(bookcategogy))
+        cbNameCategogyBookInfo.setSelectedItem(bookcategogy);
+
+        //cbNameCategogyBookInfo.setItem(jTableBookInfo.getValueAt(row, 1).toString());
+        txfNameBookInfo.setText(jTableBookInfo.getValueAt(row, 2).toString());
+        txfPublisherBookInfo.setText(jTableBookInfo.getValueAt(row, 3).toString());
+        txfPublishingYearBookInfo.setText(jTableBookInfo.getValueAt(row, 4).toString());
+        // txaBriefBookInfo.setText(jTableBookInfo.getValueAt(row, 5).toString());
+        if(jTableBookInfo.getValueAt(row, 5)==null)
+        txaBriefBookInfo.setText("");
+        else
+        txaBriefBookInfo.setText(jTableBookInfo.getValueAt(row, 5).toString());
+        txfCostBookInfo.setText(jTableBookInfo.getValueAt(row, 6).toString());
+        txfPriceBookInfo.setText(jTableBookInfo.getValueAt(row, 7).toString());
+        txfSumInventory.setText(jTableBookInfo.getValueAt(row, 8).toString());
+    }//GEN-LAST:event_jTableBookInfoMouseClicked
+
+    private void btnEditBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookInfoActionPerformed
+        // TODO add your handling code here:
+        btnAddBookInfo.setEnabled(false);
+        btnDelBookInfo.setEnabled(false);
+        btnEditBookInfo.setEnabled(false);
+        btnSaveBookInfo.setEnabled(true);
+        flag=2;
+    }//GEN-LAST:event_btnEditBookInfoActionPerformed
+
+    private void btnDelBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelBookInfoActionPerformed
+        // TODO add your handling code here:
+        btnAddBookInfo.setEnabled(false);
+        btnDelBookInfo.setEnabled(false);
+        btnEditBookInfo.setEnabled(false);
+        btnSaveBookInfo.setEnabled(true);
+        flag=3;
+    }//GEN-LAST:event_btnDelBookInfoActionPerformed
+    public void ClearTextBookCategogy()
+    {
+        txfIDBookCategogy.setText("");
+        txfNameBookCategogy.setText("");
+    }
+    private void btnAddBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookCategogyActionPerformed
+        // TODO add your handling code here:
+        ClearTextBookCategogy();
+        btnAddBookCategogy.setEnabled(false);
+        btnDelBookCategogy.setEnabled(false);
+        btnEditBookCategogy.setEnabled(false);
+        btnSaveBookCategogy.setEnabled(true);
+        flag=4;
+    }//GEN-LAST:event_btnAddBookCategogyActionPerformed
+
+    private void btnSaveBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBookCategogyActionPerformed
+        // TODO add your handling code here:
+        if(flag==4)
+        {
+            InsertBookCategogy();
+            btnAddBookCategogy.setEnabled(true);
+            btnDelBookCategogy.setEnabled(true);
+            btnEditBookCategogy.setEnabled(true);
+            btnSaveBookCategogy.setEnabled(false);
+            control.bindingBookCategogy(jTableBookCategory, categogyBLL.getAllCategogy());
+            
+        }
+    }//GEN-LAST:event_btnSaveBookCategogyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddBookCategogy;
@@ -456,6 +706,8 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDelBookInfo;
     private javax.swing.JButton btnEditBookCategogy;
     private javax.swing.JButton btnEditBookInfo;
+    private javax.swing.JButton btnSaveBookCategogy;
+    private javax.swing.JButton btnSaveBookInfo;
     private javax.swing.JComboBox<String> cbNameCategogyBookInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -473,7 +725,6 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

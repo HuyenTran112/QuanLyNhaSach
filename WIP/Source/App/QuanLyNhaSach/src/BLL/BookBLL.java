@@ -15,9 +15,22 @@ import Entity.*;
 public class BookBLL {
     BookDAL DAL=new BookDAL();
     //Lấy danh sách SACH
-    public ArrayList<Book> layDanhSach()
+    public ArrayList<Book> LoadBook()
     {
        //BookDAL DAL=new BookDAL();
-        return DAL.layDanhSach();
+        return DAL.LoadBook();
     }
+    public boolean InsertBook(String BookName , String PublisherBook, int PublishingYear, String Brief, float Cost , float Price, int SumInventory,int IDBookCategogy )
+    {
+        return DAL.InsertBook(BookName, PublisherBook, PublishingYear, Brief, Cost, Price, SumInventory,IDBookCategogy);
+    }
+    public boolean  UpdateBook(int IDBookName, String BookName , String PublisherBook, int PublishingYear, String Brief, float Cost , float Price, int SumInventory, int IDBookCategogy)
+    {
+        return DAL.UpdateBook(IDBookName, BookName, PublisherBook, PublishingYear, Brief, Cost, Price, SumInventory, IDBookCategogy);
+    }
+    public boolean  DeleteBook(int IDBookName)
+    {
+        return DAL.DeleteBook(IDBookName);
+    }
+    
 }

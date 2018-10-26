@@ -6,9 +6,11 @@
 package Utilties;
 
 import Entity.Book;
+import Entity.BookCategogy;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +18,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Bui Thi Huyen Tran
  */
 public class ControlFormat {
-    public void bindingBook(JTable tenBang, ArrayList<Book> arrBook)
+    //Lấy dữ liệu lên bảng Sách
+    public void bindingBook(JTable name, ArrayList<Book> arrBook)
     {
         Vector header = new Vector();
         header.add("Mã sách");
@@ -50,6 +53,29 @@ public class ControlFormat {
                 return false;
             }
         };
-        tenBang.setModel(dtm);      
+        name.setModel(dtm);      
     }
+    public void bindingBookCategogy(JTable name , ArrayList<BookCategogy> arrBookCategogy )
+    {
+        Vector header =new Vector();
+        header.add("Mã thể loại");
+        header.add("Tên thể loại");
+        Vector data = new Vector();
+        for(BookCategogy categogy : arrBookCategogy)
+        {
+            Vector row =new Vector();
+            row.add(categogy.getIDBookCategogy());
+            row.add(categogy.getNameBookCategogy());
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
+    
 }
