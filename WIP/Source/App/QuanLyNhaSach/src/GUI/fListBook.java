@@ -31,9 +31,9 @@ public class fListBook extends javax.swing.JInternalFrame {
     public fListBook() {
         initComponents();
         control.bindingBook(jTableBookInfo, bookbll.LoadBook());
-        control.bindingBookCategogy(jTableBookCategory, categogyBLL.getAllCategogy());
+        control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
         cbNameCategogyBookInfo.removeAllItems();
-        for(BookCategogy bookCategogy: categogyBLL.getAllCategogy())
+        for(BookCategogy bookCategogy: categogyBLL.LoaBookCategogy())
         {
             cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
         }
@@ -152,9 +152,19 @@ public class fListBook extends javax.swing.JInternalFrame {
 
         btnEditBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnEditBookCategogy.setText("CẬP NHẬT");
+        btnEditBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditBookCategogyActionPerformed(evt);
+            }
+        });
 
         btnDelBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnDelBookCategogy.setText("XÓA");
+        btnDelBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelBookCategogyActionPerformed(evt);
+            }
+        });
 
         btnSaveBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSaveBookCategogy.setText("LƯU");
@@ -587,6 +597,25 @@ public class fListBook extends javax.swing.JInternalFrame {
         else
             JOptionPane.showMessageDialog(this, "Thêm thất bại loại sách");
     }
+    public void UpdateBookCategpgy()
+    {
+        String NameBookCategogy=txfNameBookCategogy.getText();
+        int IDBookCategogy=Integer.parseInt(txfIDBookCategogy.getText());
+        if(categogyBLL.UpdateBookCategogy(IDBookCategogy, NameBookCategogy))
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công thể loại sách");
+        else
+            JOptionPane.showMessageDialog(this, "Cập nhật thất bại thể loại sách");
+    }
+    public void DeleteBookCategogy()
+    {
+        int IDBookCategogy =Integer.parseInt(txfIDBookCategogy.getText());
+        if(categogyBLL.DeleteBookCategogy(IDBookCategogy))
+            JOptionPane.showMessageDialog(this, "Xóa thành công thể loại sách");
+        else
+            JOptionPane.showMessageDialog(this, "Xóa thất bại");
+            
+            
+    }
     private void btnSaveBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBookInfoActionPerformed
         // TODO add your handling code here:
         if(flag==1)
@@ -597,6 +626,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
             btnSaveBookInfo.setEnabled(false);
+            ClearTextBookInfo();
         }
         if(flag==2)
         {
@@ -606,6 +636,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
             btnSaveBookInfo.setEnabled(false);
+            ClearTextBookInfo();
         }
         if(flag==3)
         {
@@ -615,6 +646,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
             btnSaveBookInfo.setEnabled(false);
+            ClearTextBookInfo();
         }
     }//GEN-LAST:event_btnSaveBookInfoActionPerformed
 
@@ -693,10 +725,48 @@ public class fListBook extends javax.swing.JInternalFrame {
             btnDelBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
             btnSaveBookCategogy.setEnabled(false);
-            control.bindingBookCategogy(jTableBookCategory, categogyBLL.getAllCategogy());
-            
+            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
+            ClearTextBookCategogy();
+        }
+        if(flag==5)
+        {
+            UpdateBookCategpgy();
+            btnAddBookCategogy.setEnabled(true);
+            btnDelBookCategogy.setEnabled(true);
+            btnEditBookCategogy.setEnabled(true);
+            btnSaveBookCategogy.setEnabled(false);
+            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
+            ClearTextBookCategogy();
+        }
+        if(flag==6)
+        {
+            DeleteBookCategogy();
+            btnAddBookCategogy.setEnabled(true);
+            btnDelBookCategogy.setEnabled(true);
+            btnEditBookCategogy.setEnabled(true);
+            btnSaveBookCategogy.setEnabled(false);
+            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
+            ClearTextBookCategogy();
         }
     }//GEN-LAST:event_btnSaveBookCategogyActionPerformed
+
+    private void btnEditBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookCategogyActionPerformed
+        // TODO add your handling code here:
+        btnAddBookCategogy.setEnabled(false);
+        btnEditBookCategogy.setEnabled(false);
+        btnDelBookCategogy.setEnabled(false);
+        btnSaveBookCategogy.setEnabled(true);
+        flag=5;
+    }//GEN-LAST:event_btnEditBookCategogyActionPerformed
+
+    private void btnDelBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelBookCategogyActionPerformed
+        // TODO add your handling code here:
+        btnAddBookCategogy.setEnabled(false);
+        btnEditBookCategogy.setEnabled(false);
+        btnDelBookCategogy.setEnabled(false);
+        btnSaveBookCategogy.setEnabled(true);
+        flag=6;
+    }//GEN-LAST:event_btnDelBookCategogyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

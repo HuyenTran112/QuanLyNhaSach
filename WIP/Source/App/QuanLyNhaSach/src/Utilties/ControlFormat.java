@@ -7,6 +7,7 @@ package Utilties;
 
 import Entity.Book;
 import Entity.BookCategogy;
+import Entity.Discount;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -55,6 +56,7 @@ public class ControlFormat {
         };
         name.setModel(dtm);      
     }
+    //Lấy dữ liệu lên bảng thể loại sách
     public void bindingBookCategogy(JTable name , ArrayList<BookCategogy> arrBookCategogy )
     {
         Vector header =new Vector();
@@ -66,6 +68,37 @@ public class ControlFormat {
             Vector row =new Vector();
             row.add(categogy.getIDBookCategogy());
             row.add(categogy.getNameBookCategogy());
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
+    //Lấy dữ liệu lên bảng khuyến mãi
+    public void bindingDiscount(JTable name , ArrayList<Discount> arrDiscount)
+    {
+        Vector header =new Vector();
+        header.add("Mã khuyến mãi");
+        header.add("Tên khuyến mãi");
+        header.add("Hệ số khuyến mãi");
+        header.add("Mức tiền");
+        header.add("Ngày bắt đầu");
+        header.add("Ngày hết hạn");
+        Vector data =new Vector();
+        for(Discount discount:arrDiscount)
+        {
+            Vector row = new Vector();
+            row.add(discount.getIDDiscount());
+            row.add(discount.getNameDiscount());
+            row.add(discount.getDiscount());
+            row.add(discount.getMoney());
+            row.add(discount.getStartDate());
+            row.add(discount.getFinishDate());
             data.add(row);
         }
         DefaultTableModel dtm = new DefaultTableModel(data , header)

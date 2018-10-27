@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class BookCategogyDAL extends  DataAccessHelper{
     //Lấy thông tin tất cả thể loại sách
-    public ArrayList<BookCategogy> getAllCategogy()
+    public ArrayList<BookCategogy> LoadBookCategogy()
     {
         String SQL = "EXEC SP_LOADBOOKCATEGOGY";
         ArrayList<BookCategogy> temp = new ArrayList<BookCategogy>();
@@ -81,6 +81,36 @@ public class BookCategogyDAL extends  DataAccessHelper{
             e.printStackTrace();
         }
 
+        return false;
+    }
+    //Cập nhật thể loại
+    public boolean  UpdateBookCategogy(int IDBookCategogy,String NameBookCategogy)
+    {
+        String SQL="SP_UPDATEBOOKCATEGOGY '"+IDBookCategogy+"',N'"+NameBookCategogy+"'";
+        try {
+            getConnect();
+            Statement st=conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs>0)
+                return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    //Xóa thể loại sách
+    public boolean  DeleteBookCategogy(int IDBookCategogy)
+    {
+        String SQL="SP_DELETEBOOKCATEGOGY '"+IDBookCategogy+"'";
+        try {
+            getConnect();
+            Statement st=conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs>0)
+                return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

@@ -14,9 +14,9 @@ import  Entity.*;
  */
 public class BookCategogyBLL {
     BookCategogyDAL DAL = new BookCategogyDAL();
-    public ArrayList <BookCategogy> getAllCategogy()
+    public ArrayList <BookCategogy> LoaBookCategogy()
     {
-        return DAL.getAllCategogy();
+        return DAL.LoadBookCategogy();
     }
     public int getIDBookCategogy(String NameBookCategogy)
     {
@@ -29,5 +29,13 @@ public class BookCategogyBLL {
     public boolean InsertBookCategogy(String NameBookCategogy)
     {
         return DAL.InsertBookCategogy(NameBookCategogy);
+    }
+    public boolean  UpdateBookCategogy(int IDBookCategogy,String NameBookCategogy)
+    {
+        return DAL.UpdateBookCategogy(IDBookCategogy, NameBookCategogy);
+    }
+    public boolean DeleteBookCategogy(int IDBookCategogy)
+    {
+        return DAL.DeleteBookCategogy(IDBookCategogy);
     }
 }
