@@ -7,6 +7,7 @@ package Utilties;
 
 import Entity.Book;
 import Entity.BookCategogy;
+import Entity.Customer;
 import Entity.Discount;
 import javax.swing.JTable;
 import java.util.ArrayList;
@@ -101,6 +102,42 @@ public class ControlFormat {
             row.add(discount.getFinishDate());
             data.add(row);
         }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
+    
+    //Lấy dữ liệu lên bảng khách hàng
+    public void BindingCustomer(JTable name, ArrayList<Customer> arrCustomer)
+    {
+        Vector header = new Vector();
+        header.add("Mã khách hàng");
+        header.add("Tên khách hàng");
+        header.add("Địa chỉ");
+        header.add("Số điện thoại");
+        header.add("Ngày sinh");
+        header.add("Ngày đăng ký");
+        header.add("Doanh số");
+        
+        Vector data = new Vector();
+        for(Customer customer : arrCustomer)
+        {
+           Vector row = new Vector();
+           row.add(customer.getIDCustomer());
+           row.add(customer.getNameCustomer());
+           row.add(customer.getAddressCustomer());
+           row.add(customer.getPhoneCustomer());
+           row.add(customer.getBirthdayCutomer());
+           row.add(customer.getRegisDateCutomer());
+           row.add(customer.getTurnoverCustomer());
+           data.add(row);
+        }
+        
         DefaultTableModel dtm = new DefaultTableModel(data , header)
         {
             public boolean isCellEditable(int row , int column)
