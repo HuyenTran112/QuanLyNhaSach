@@ -61,7 +61,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         txfIDStock = new javax.swing.JTextField();
         jDateChooserStock = new com.toedter.calendar.JDateChooser();
-        cbIDDistributorStock = new javax.swing.JComboBox<String>();
+        cbIDDistributorStock = new javax.swing.JComboBox<>();
         txfTotalStock = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txfNameDistributor = new javax.swing.JTextField();
@@ -81,9 +81,9 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txfIDBookStockInfo = new javax.swing.JTextField();
         txfAmountStockInfo = new javax.swing.JTextField();
-        cbIDStockInfo = new javax.swing.JComboBox<String>();
+        cbIDStockInfo = new javax.swing.JComboBox<>();
+        cbIDBookStockInfo = new javax.swing.JComboBox<>();
         jPanel12 = new javax.swing.JPanel();
         btnAddStockInfo = new javax.swing.JButton();
         btnEditStockInfo = new javax.swing.JButton();
@@ -522,11 +522,12 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel16.setText("Số lượng");
 
-        txfIDBookStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
         txfAmountStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         cbIDStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        cbIDBookStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cbIDBookStockInfo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -540,9 +541,9 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addComponent(jLabel16))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txfIDBookStockInfo)
                     .addComponent(txfAmountStockInfo)
-                    .addComponent(cbIDStockInfo, 0, 214, Short.MAX_VALUE))
+                    .addComponent(cbIDStockInfo, 0, 214, Short.MAX_VALUE)
+                    .addComponent(cbIDBookStockInfo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -553,11 +554,12 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel15))
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(cbIDBookStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(cbIDStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txfIDBookStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
@@ -685,6 +687,7 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSearchDistributorStock;
     private javax.swing.JButton btnSearchStock;
     private javax.swing.JButton btnSearchStockInfo;
+    private javax.swing.JComboBox<String> cbIDBookStockInfo;
     private javax.swing.JComboBox<String> cbIDDistributorStock;
     private javax.swing.JComboBox<String> cbIDStockInfo;
     private com.toedter.calendar.JDateChooser jDateChooserStock;
@@ -726,7 +729,6 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfAddressDistributorInfo;
     private javax.swing.JTextField txfAmountStockInfo;
     private javax.swing.JTextField txfEmailDistributorInfo;
-    private javax.swing.JTextField txfIDBookStockInfo;
     private javax.swing.JTextField txfIDDistributorInfo;
     private javax.swing.JTextField txfIDStock;
     private javax.swing.JTextField txfNameDistributor;
