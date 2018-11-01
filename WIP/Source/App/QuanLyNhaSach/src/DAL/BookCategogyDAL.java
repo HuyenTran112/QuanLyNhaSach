@@ -113,4 +113,26 @@ public class BookCategogyDAL extends  DataAccessHelper{
         }
         return false;
     }
+    //Tra cứu thể loại sách
+    public ArrayList<BookCategogy> SearchBookCategogy(String key)
+    {
+        String SQL = "EXEC SP_SEARCHBOOKCATEGOGY N'"+key+"'";
+        ArrayList<BookCategogy> temp = new ArrayList<BookCategogy>();
+        try{
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs!=null)
+                while(rs.next()){
+                    BookCategogy categogy = new BookCategogy();
+                    categogy.setIDBookCategogy(rs.getInt("MATHELOAI"));
+                    categogy.setNameBookCategogy(rs.getString("TENTHELOAI"));
+                    temp.add(categogy);
+                }
+            getClose();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+    }
 }

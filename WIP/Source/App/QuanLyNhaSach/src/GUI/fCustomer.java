@@ -95,6 +95,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
         txfPhoneCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jDChBirthdayCustomer.setDateFormatString("dd-MM-yyyy");
         jDChBirthdayCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfTurnoverCustomer.setEditable(false);
@@ -103,6 +104,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel8.setText("Ngày đăng kí");
 
+        jDChRegisDateCustomer.setDateFormatString("dd-MM-yyyy");
         jDChRegisDateCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

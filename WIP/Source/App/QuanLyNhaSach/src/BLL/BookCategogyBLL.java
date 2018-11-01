@@ -38,4 +38,8 @@ public class BookCategogyBLL {
     {
         return DAL.DeleteBookCategogy(IDBookCategogy);
     }
+    public ArrayList<BookCategogy> SearchBookCategogy(String key)
+    {
+        return DAL.SearchBookCategogy(key);
+    }
 }

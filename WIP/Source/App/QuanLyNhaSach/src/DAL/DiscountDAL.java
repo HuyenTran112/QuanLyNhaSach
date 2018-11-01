@@ -89,4 +89,34 @@ public class DiscountDAL extends DataAccessHelper{
         }
         return false;
     }
+    //Tra cứu khuyến mãi
+    public ArrayList<Discount> SearchDiscount(String key )
+    {
+        ArrayList<Discount> temp=new ArrayList<>();
+        String SQL="EXEC SP_SEARCHDISCOUNT N'"+key+"'";
+        try {
+            getConnect();
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery(SQL);
+            if(rs!=null)
+            {
+                while(rs.next())
+                {
+                    Discount discount=new Discount();
+                    discount.setIDDiscount(rs.getInt("MAKM"));
+                    discount.setNameDiscount(rs.getString("TENKM"));
+                    discount.setDiscount(rs.getFloat("HESOKM"));
+                    discount.setMoney(rs.getFloat("MUCTIEN"));
+                    discount.setStartDate(rs.getDate("NGAYBD"));
+                    discount.setFinishDate(rs.getDate("NGAYKT"));
+                    
+                    temp.add(discount);
+                }
+            }
+            getClose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return temp;
+    }
             }

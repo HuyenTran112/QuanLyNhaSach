@@ -99,4 +99,33 @@ public class BookDAL extends  DataAccessHelper{
         
         return false;
     }
+    //Tìm sách
+    public ArrayList <Book> SearchBook(String key)
+    {
+        ArrayList<Book> temp = new ArrayList<>();
+        String SQL="EXEC SP_SEARCHBOOK N'" + key +"'";
+       try{
+            getConnect();
+             Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs!=null)
+                while(rs.next()){
+                    Book book = new Book();
+                    book.setIDBook(rs.getInt("MASACH"));
+                    book.setNameCategogyBook(rs.getString("TENTHELOAI"));
+                    book.setNameBook(rs.getString("TENSACH"));
+                    book.setPublisherBook(rs.getString("NHAXUATBAN"));
+                    book.setPublishingYear(rs.getInt("NAMXUATBAN"));
+                    book.setBrief(rs.getString("TOMTAT"));
+                    book.setCost(rs.getFloat("GIANHAP"));
+                    book.setPrice(rs.getFloat("GIABAN"));
+                    book.setSumInventory(rs.getInt("TONGSACHTON"));
+                    temp.add(book);
+                }
+            getClose();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+    }
  }

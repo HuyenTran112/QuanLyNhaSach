@@ -20,17 +20,25 @@ public class BookBLL {
        //BookDAL DAL=new BookDAL();
         return DAL.LoadBook();
     }
+    //Thêm sách
     public boolean InsertBook(String BookName , String PublisherBook, int PublishingYear, String Brief, float Cost , float Price, int SumInventory,int IDBookCategogy )
     {
         return DAL.InsertBook(BookName, PublisherBook, PublishingYear, Brief, Cost, Price, SumInventory,IDBookCategogy);
     }
+    //Cập nhật sách
     public boolean  UpdateBook(int IDBookName, String BookName , String PublisherBook, int PublishingYear, String Brief, float Cost , float Price, int SumInventory, int IDBookCategogy)
     {
         return DAL.UpdateBook(IDBookName, BookName, PublisherBook, PublishingYear, Brief, Cost, Price, SumInventory, IDBookCategogy);
     }
+    //Xóa sách
     public boolean  DeleteBook(int IDBookName)
     {
         return DAL.DeleteBook(IDBookName);
+    }
+    //Tra cứu sách
+    public ArrayList<Book> SearchBook(String key)
+    {
+        return DAL.SearchBook(key);
     }
     
 }

@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package GUI;
-
+import BLL.BookBLL;
+import BLL.BookCategogyBLL;
+import Utilties.ControlFormat;
+import java.text.DateFormat;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 /**
  *
  * @author STIREN
@@ -14,8 +20,14 @@ public class fSearchBook extends javax.swing.JInternalFrame {
     /**
      * Creates new form fSearchBook
      */
+    ControlFormat control = new ControlFormat();
+    BookBLL bookbll =new BookBLL();
+    BookCategogyBLL categogybll =new BookCategogyBLL();
     public fSearchBook() {
         initComponents();
+        control.bindingBookCategogy(jTableSearchBookCategogy,categogybll.LoaBookCategogy());
+        control.bindingBook(jTableSearchBookInfo, bookbll.LoadBook());
+        
     }
 
     /**
@@ -37,7 +49,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         txfSearchBookInfo = new javax.swing.JTextField();
         btnSearchBookInfo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableSearchBook = new javax.swing.JTable();
+        jTableSearchBookCategogy = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableSearchBookInfo = new javax.swing.JTable();
 
@@ -54,6 +66,11 @@ public class fSearchBook extends javax.swing.JInternalFrame {
 
         btnSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSearchBookCategogy.setText("Tìm kiếm");
+        btnSearchBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchBookCategogyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,6 +105,11 @@ public class fSearchBook extends javax.swing.JInternalFrame {
 
         btnSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSearchBookInfo.setText("Tìm kiếm");
+        btnSearchBookInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchBookInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,8 +137,8 @@ public class fSearchBook extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableSearchBook.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTableSearchBook.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTableSearchBookCategogy.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -127,7 +149,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
                 "Mã thể loại", "Tên thể loại"
             }
         ));
-        jScrollPane1.setViewportView(jTableSearchBook);
+        jScrollPane1.setViewportView(jTableSearchBookCategogy);
 
         jTableSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableSearchBookInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,6 +206,20 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSearchBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookCategogyActionPerformed
+        // TODO add your handling code here:
+        String key =txfSearchBookCategogy.getText();
+        control.bindingBookCategogy(jTableSearchBookCategogy, categogybll.SearchBookCategogy(key));
+        txfSearchBookCategogy.setText("");
+    }//GEN-LAST:event_btnSearchBookCategogyActionPerformed
+
+    private void btnSearchBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookInfoActionPerformed
+        // TODO add your handling code here:
+        String key =txfSearchBookInfo.getText();
+        control.bindingBook(jTableSearchBookInfo, bookbll.SearchBook(key));
+        txfSearchBookInfo.setText("");
+    }//GEN-LAST:event_btnSearchBookInfoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearchBookCategogy;
@@ -195,7 +231,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTableSearchBook;
+    private javax.swing.JTable jTableSearchBookCategogy;
     private javax.swing.JTable jTableSearchBookInfo;
     private javax.swing.JTextField txfSearchBookCategogy;
     private javax.swing.JTextField txfSearchBookInfo;

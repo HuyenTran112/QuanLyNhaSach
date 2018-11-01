@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package GUI;
+import  DAL.DiscountDAL;
+import BLL.DiscountBLL;
+import Utilties.ControlFormat;
 
 /**
  *
@@ -14,8 +17,11 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
     /**
      * Creates new form fSearchDiscount
      */
+    public ControlFormat control =new ControlFormat();
+    public DiscountBLL discountBLL=new DiscountBLL();
     public fSearchDiscount() {
         initComponents();
+        control.bindingDiscount(jTableSearchDiscount, discountBLL.LoadDiscount());
     }
 
     /**
@@ -40,6 +46,11 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
 
         btnSearchDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSearchDiscount.setText("Tìm kiếm");
+        btnSearchDiscount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchDiscountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,6 +120,13 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSearchDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDiscountActionPerformed
+        // TODO add your handling code here:
+        String key =txfSearchDiscount.getText();
+        control.bindingDiscount(jTableSearchDiscount, discountBLL.SearchDiscount(key));
+        txfSearchDiscount.setText("");
+    }//GEN-LAST:event_btnSearchDiscountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

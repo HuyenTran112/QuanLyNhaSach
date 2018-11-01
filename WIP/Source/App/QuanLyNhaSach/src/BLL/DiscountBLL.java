@@ -31,4 +31,8 @@ public class DiscountBLL {
     {
         return DAL.DeleteDiscount(IDDiscount);
     }
+    public ArrayList<Discount> SearchDiscount(String key )
+    {
+        return DAL.SearchDiscount(key);
+    }
 }
