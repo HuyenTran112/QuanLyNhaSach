@@ -25,7 +25,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
     BookCategogyBLL categogybll =new BookCategogyBLL();
     public fSearchBook() {
         initComponents();
-        control.bindingBookCategogy(jTableSearchBookCategogy,categogybll.LoaBookCategogy());
+        control.bindingBookCategogy(jTableSearchBookCategogy,categogybll.LoadBookCategogy());
         control.bindingBook(jTableSearchBookInfo, bookbll.LoadBook());
         
     }

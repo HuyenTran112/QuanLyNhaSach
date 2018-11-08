@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/BLL/BookBLL.java</file>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/GUI/fStock.java</file>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/DAL/BookStockDetailDAL.java</file>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/Utilties/ControlFormat.java</file>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/DAL/BookStockDAL.java</file>
-            <file>file:/D:/NAM_3/HOC_KY_1/Java/DOAN/QuanLyNhaSach/src/GUI/fManagement.java</file>
+            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fSearchDiscount.java</file>
+            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fStock.java</file>
+            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fSearchBook.java</file>
         </group>
     </open-files>
 </project-private>
