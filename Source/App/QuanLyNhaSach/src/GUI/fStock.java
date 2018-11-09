@@ -36,6 +36,8 @@ public class fStock extends javax.swing.JInternalFrame {
         control.bindingDistributor(jTableDistributorInfo,distributorBLL.LoadDistributor());
         control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
         control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
+        Date date =new Date();
+        jDateChooserStock.setDate(date);
         cbNameDistributorStock.removeAllItems();
         for(Distributor distributor: distributorBLL.LoadDistributor())
         {

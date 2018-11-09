@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import BLL.StaffBLL;
+import Utilties.ControlFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author STIREN
@@ -14,8 +20,12 @@ public class fStaff extends javax.swing.JInternalFrame {
     /**
      * Creates new form fStaff
      */
+    ControlFormat control =new ControlFormat();
+    StaffBLL staffBLL=new StaffBLL();
+    private int flag=0;
     public fStaff() {
         initComponents();
+        control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
     }
 
     /**
@@ -53,6 +63,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         btnAddStaff = new javax.swing.JButton();
         btnEditStaff = new javax.swing.JButton();
         btnDelStaff = new javax.swing.JButton();
+        btnSaveStaff = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableStaff = new javax.swing.JTable();
 
@@ -65,6 +76,11 @@ public class fStaff extends javax.swing.JInternalFrame {
 
         btnSearchStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSearchStaff.setText("Tìm kiếm");
+        btnSearchStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchStaffActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,12 +230,35 @@ public class fStaff extends javax.swing.JInternalFrame {
 
         btnAddStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnAddStaff.setText("THÊM");
+        btnAddStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStaffActionPerformed(evt);
+            }
+        });
 
         btnEditStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnEditStaff.setText("CẬP NHẬT");
+        btnEditStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditStaffActionPerformed(evt);
+            }
+        });
 
         btnDelStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnDelStaff.setText("XÓA");
+        btnDelStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelStaffActionPerformed(evt);
+            }
+        });
+
+        btnSaveStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveStaff.setText("LƯU");
+        btnSaveStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveStaffActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -230,9 +269,11 @@ public class fStaff extends javax.swing.JInternalFrame {
                 .addComponent(btnAddStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(btnEditStaff)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(btnDelStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(btnSaveStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,6 +282,7 @@ public class fStaff extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddStaff)
                     .addComponent(btnEditStaff)
+                    .addComponent(btnSaveStaff)
                     .addComponent(btnDelStaff))
                 .addContainerGap())
         );
@@ -257,6 +299,11 @@ public class fStaff extends javax.swing.JInternalFrame {
                 "Mã nhân viên", "Tên nhân viên", "Ngày sinh", "Giới tính", "Địa chỉ", "Điện thoại", "Ngày vào làm "
             }
         ));
+        jTableStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableStaffMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableStaff);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,7 +324,7 @@ public class fStaff extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -301,11 +348,208 @@ public class fStaff extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTableStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStaffMouseClicked
+        // TODO add your handling code here:
+        int row =jTableStaff.getSelectedRow();
+        txfIDStaff.setText(jTableStaff.getValueAt(row, 0).toString());
+        txfNameStaff.setText(jTableStaff.getValueAt(row, 1).toString());
+        jDChBirthdayStaff.setDate((Date)jTableStaff.getModel().getValueAt(row, 2));
+        String sex =jTableStaff.getValueAt(row, 3).toString();
+        if(sex.equals("Nam"))
+        {
+            rbMaleStaff.setSelected(true);
+            rbFemaleStaff.setSelected(false);
+        }
+        else
+        {
+            rbFemaleStaff.setSelected(true);
+            rbMaleStaff.setSelected(false);
+        }
+        txfAddressStaff.setText(jTableStaff.getValueAt(row, 4).toString());
+        txfPhoneStaff.setText(jTableStaff.getValueAt(row, 5).toString());
+        jDChStartStaff.setDate((Date)jTableStaff.getModel().getValueAt(row, 6));
+    }//GEN-LAST:event_jTableStaffMouseClicked
+
+    private void btnAddStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStaffActionPerformed
+        // TODO add your handling code here:
+         Cleartext();
+        btnEditStaff.setEnabled(false);
+        btnAddStaff.setEnabled(false);
+        btnDelStaff.setEnabled(false);
+        btnSaveStaff.setEnabled(true);
+        flag=1;
+    }//GEN-LAST:event_btnAddStaffActionPerformed
+
+    private void btnEditStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditStaffActionPerformed
+        // TODO add your handling code here:
+        btnEditStaff.setEnabled(false);
+        btnAddStaff.setEnabled(false);
+        btnDelStaff.setEnabled(false);
+        btnSaveStaff.setEnabled(true);
+        flag=2;
+    }//GEN-LAST:event_btnEditStaffActionPerformed
+
+    private void btnDelStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelStaffActionPerformed
+        // TODO add your handling code here:
+        btnEditStaff.setEnabled(false);
+        btnAddStaff.setEnabled(false);
+        btnDelStaff.setEnabled(false);
+        btnSaveStaff.setEnabled(true);
+        flag =3;
+    }//GEN-LAST:event_btnDelStaffActionPerformed
+
+    private void btnSaveStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStaffActionPerformed
+        // TODO add your handling code here:
+        if(flag==1)
+        {
+            if(InsertStaff())
+            {
+                Cleartext();
+                btnSaveStaff.setEnabled(false);
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+            }
+            btnAddStaff.setEnabled(true);
+            btnEditStaff.setEnabled(true);
+            btnDelStaff.setEnabled(true);
+        
+        }
+        if(flag==2)
+        {
+            if(UpdateStaff())
+            {
+                Cleartext();
+                btnSaveStaff.setEnabled(false);
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+            }
+            btnAddStaff.setEnabled(true);
+            btnEditStaff.setEnabled(true);
+            btnDelStaff.setEnabled(true);
+        
+        }
+        if(flag==3)
+        {
+            if(DeleteStaff())
+            {
+                Cleartext();
+                btnSaveStaff.setEnabled(false);
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+            }
+            btnAddStaff.setEnabled(true);
+            btnEditStaff.setEnabled(true);
+            btnDelStaff.setEnabled(true);
+        
+        }
+        
+    }//GEN-LAST:event_btnSaveStaffActionPerformed
+
+    private void btnSearchStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStaffActionPerformed
+        // TODO add your handling code here:
+        String key=txfSearchStaff.getText().toString();
+        control.bindingStaff(jTableStaff, staffBLL.arrSearchStaff(key));
+        txfSearchStaff.setText("");
+    }//GEN-LAST:event_btnSearchStaffActionPerformed
+    //Xóa text
+    public void Cleartext()
+    {
+        txfIDStaff.setText("");
+        txfNameStaff.setText("");
+        txfAddressStaff.setText("");
+        txfPhoneStaff.setText("");
+        jDChBirthdayStaff.setDate(null);
+        jDChStartStaff.setDate(null);
+        rbFemaleStaff.setSelected(false);
+        rbMaleStaff.setSelected(false);
+    }
+    //Thêm nhân viên
+    public boolean InsertStaff()
+    {
+        String name =txfNameStaff.getText().toString();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date birthday =jDChBirthdayStaff.getDate();
+        String str_birthday =formatter.format(birthday);
+        Date startdate =jDChStartStaff.getDate();
+        String str_startdate =formatter.format(startdate);
+        String address=txfAddressStaff.getText().toString();
+        String phonenumber =txfPhoneStaff.getText().toString();
+        String sex="";
+        if(rbFemaleStaff.isSelected())
+            sex="Nữ";
+        if(rbMaleStaff.isSelected())
+            sex="Nam";
+        if(name.equals("") || str_birthday.equals("") || address.equals("") ||phonenumber.equals("")||str_startdate.equals("")||sex.equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Thông tin bạn nhập chưa đầy đủ. Vui lòng nhập lại");
+            return false;
+        }
+        else{
+            if(staffBLL.InsertStaff(name, str_birthday, sex, address, phonenumber, str_startdate))
+            {
+                JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công");
+                return true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Thêm nhân viên thất bại");
+                return false;
+            }
+        }
+    }
+    //Cập nhật nhân viên
+    public boolean UpdateStaff()
+    {
+        int id =Integer.parseInt(txfIDStaff.getText().toString());
+        String name =txfNameStaff.getText().toString();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date birthday =jDChBirthdayStaff.getDate();
+        String str_birthday =formatter.format(birthday);
+        Date startdate =jDChStartStaff.getDate();
+        String str_startdate =formatter.format(startdate);
+        String address=txfAddressStaff.getText().toString();
+        String phonenumber =txfPhoneStaff.getText().toString();
+        String sex="";
+        if(rbFemaleStaff.isSelected())
+            sex="Nữ";
+        if(rbMaleStaff.isSelected())
+            sex="Nam";
+        if(name.equals("") || str_birthday.equals("") || address.equals("") ||phonenumber.equals("")||str_startdate.equals("")||sex.equals(""))
+        {
+            JOptionPane.showMessageDialog(null,"Thông tin bạn nhập chưa đầy đủ. Vui lòng nhập lại");
+            return false;
+        }
+        else{
+            if(staffBLL.UpdateStaff(id,name, str_birthday, sex, address, phonenumber, str_startdate))
+            {
+                JOptionPane.showMessageDialog(this, "Cập nhật nhân viên thành công");
+                return true;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Cập nhật nhân viên thất bại");
+                return false;
+            }
+        }
+    }
+    //Xóa nhân viên
+    public  boolean  DeleteStaff()
+    {
+        int id=Integer.parseInt(txfIDStaff.getText());
+        if(staffBLL.DeleteStaff(id))
+        {
+            JOptionPane.showMessageDialog(this, "Xóa nhân viên thành công");
+            return true;
+        }
+         else
+        {
+            JOptionPane.showMessageDialog(this, "Xóa nhân viên thất bại");
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddStaff;
     private javax.swing.JButton btnDelStaff;
     private javax.swing.JButton btnEditStaff;
+    private javax.swing.JButton btnSaveStaff;
     private javax.swing.JButton btnSearchStaff;
     private javax.swing.ButtonGroup buttonGroup1;
     private com.toedter.calendar.JDateChooser jDChBirthdayStaff;
