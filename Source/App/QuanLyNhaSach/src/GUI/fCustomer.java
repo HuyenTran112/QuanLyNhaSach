@@ -27,6 +27,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
     public fCustomer() {
         initComponents();
         control.BindingCustomer(jTableCustomer, customerBLL.LoadCustomer());
+        jDChRegisDateCustomer.setDate(Today);
     }
 
     /**
@@ -87,9 +88,15 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel7.setText("Doanh số");
 
+        txfIDCustomer.setEditable(false);
         txfIDCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfNameCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfNameCustomer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txfNameCustomerKeyPressed(evt);
+            }
+        });
 
         txfAddressCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
@@ -296,7 +303,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,9 +311,9 @@ public class fCustomer extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addContainerGap(107, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71))))
         );
@@ -315,6 +322,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //METHODS
+    Date Today = new java.util.Date();
+    
     public void ClearTextCustomer()
     {
         txfIDCustomer.setText("");
@@ -322,9 +331,10 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfAddressCustomer.setText("");
         txfPhoneCustomer.setText("");
         jDChBirthdayCustomer.setDate(null);
-        jDChRegisDateCustomer.setDate(null);
+        jDChRegisDateCustomer.setDate(Today);
     }
     
+  
     
     //Thêm khách hàng
     public boolean InsertCustomer()
@@ -471,6 +481,11 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChRegisDateCustomer.setDate((Date) jTableCustomer.getModel().getValueAt(row, 5));
         txfTurnoverCustomer.setText(jTableCustomer.getValueAt(row, 6).toString());
     }//GEN-LAST:event_jTableCustomerMouseClicked
+
+    private void txfNameCustomerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameCustomerKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txfNameCustomerKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

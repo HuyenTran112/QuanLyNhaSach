@@ -5,6 +5,7 @@
  */
 package Utilties;
 
+import Entity.Bill;
 import Entity.Book;
 import Entity.BookCategogy;
 import Entity.BookStock;
@@ -232,6 +233,41 @@ public class ControlFormat {
         };
         name.setModel(dtm);
         
+    }
+    //Lấy dữ liệu lên bảng hóa đơn
+    public void bindingBill(JTable name, ArrayList<Bill> arrBill)
+    {
+        Vector header = new Vector();
+        header.add("Số hóa đơn");
+        header.add("Ngày hóa đơn");
+        header.add("Mã khách hàng");
+        header.add("Mã nhân viên");
+        header.add("Thuế VAT");
+        header.add("Trị giá");
+        header.add("Tổng tiền");
+        
+        Vector data = new Vector();
+        for(Bill bill : arrBill)
+        {
+            Vector row = new Vector();
+            row.add(bill.getIDBill());
+            row.add(bill.getBillDate());
+            row.add(bill.getIDCustomer());
+            row.add(bill.getIDStaff());
+            row.add(bill.getVAT());
+            row.add(bill.getTotalPrice());
+            row.add(bill.getTotalPay());
+            
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
     }
     
 }

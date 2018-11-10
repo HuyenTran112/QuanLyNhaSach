@@ -7,7 +7,7 @@ package BLL;
 
 import DAL.CustomerDAL;
 import Entity.Customer;
-import java.sql.Date;
+//import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -38,5 +38,9 @@ public class CustomerBLL {
     public ArrayList<Customer> SearchCustomer(String key){
         return DAL.SearchCustomer(key);
     }
-    
+    //Lấy danh sách mã nhân viên
+    public String getNameCustomerByID(int IDCustomer)
+    {
+        return DAL.getNameCustomerByID(IDCustomer);
+    }
 }

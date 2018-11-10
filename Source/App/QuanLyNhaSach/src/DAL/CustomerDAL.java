@@ -6,14 +6,14 @@
 package DAL;
 
 import Entity.Customer;
-import java.sql.Date;
+//import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  *
@@ -77,9 +77,9 @@ public class CustomerDAL extends  DataAccessHelper{
         String SQL = "EXEC SP_UPDATECUSTOMER " + IDCustomer + ", N'" + NameCustomer + "', N'" + AddressCustomer + "', N'" + PhoneCustomer + "', '" + BirthdayCustomer + "', '" + RegisdateCustomer + "'";
         try {
             getConnect();
-            Statement st =conn.createStatement();
+            Statement st = conn.createStatement();
             int rs=st.executeUpdate(SQL);
-            if(rs>0)
+            if(rs > 0)
                 return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,6 +115,22 @@ public class CustomerDAL extends  DataAccessHelper{
             e.printStackTrace();
         }
         return temp;
+    }
+    
+    //Lấy danh sách mã nhân viên
+    public String getNameCustomerByID(int IDCustomer)
+    {
+        String SQL = "SELECT TENKH FROM KHACHHANG WHERE MAKH = " + IDCustomer;
+        try {
+            getConnect();
+            PreparedStatement ps=conn.prepareStatement(SQL);
+            ResultSet rs=ps.executeQuery();
+            if(rs!=null && rs.next())
+                return rs.getString("TENKH");
+            getClose();
+        } catch (Exception e) {
+        }
+        return "";
     }
 }
 
