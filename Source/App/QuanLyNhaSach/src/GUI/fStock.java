@@ -36,6 +36,8 @@ public class fStock extends javax.swing.JInternalFrame {
         control.bindingDistributor(jTableDistributorInfo,distributorBLL.LoadDistributor());
         control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
         control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
+        Date date =new Date();
+        jDateChooserStock.setDate(date);
         cbNameDistributorStock.removeAllItems();
         for(Distributor distributor: distributorBLL.LoadDistributor())
         {
@@ -839,34 +841,34 @@ public class fStock extends javax.swing.JInternalFrame {
         {
             if(InsertDistributor()==true)
             {
-                btnAddDistributorInfo.setEnabled(true);
-                btnEditDistributorInfo.setEnabled(true);
-                btnDelDistributorInfo.setEnabled(true);
-                btnSaveDistributorInfo.setEnabled(false);
                 control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
             }
+            btnAddDistributorInfo.setEnabled(true);
+            btnEditDistributorInfo.setEnabled(true);
+            btnDelDistributorInfo.setEnabled(true);
+            btnSaveDistributorInfo.setEnabled(false);
         }
         if(flag==2)
         {
             if(UpdateDistributor()==true)
             {
-                btnAddDistributorInfo.setEnabled(true);
-                btnEditDistributorInfo.setEnabled(true);
-                btnDelDistributorInfo.setEnabled(true);
-                btnSaveDistributorInfo.setEnabled(false);
                 control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
             }
+            btnAddDistributorInfo.setEnabled(true);
+            btnEditDistributorInfo.setEnabled(true);
+            btnDelDistributorInfo.setEnabled(true);
+            btnSaveDistributorInfo.setEnabled(false);
         }
         if(flag==3)
         {
             if(DeleteDistributor()==true)
             {
-                btnAddDistributorInfo.setEnabled(true);
-                btnEditDistributorInfo.setEnabled(true);
-                btnDelDistributorInfo.setEnabled(true);
-                btnSaveDistributorInfo.setEnabled(false);
                 control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
             }
+            btnAddDistributorInfo.setEnabled(true);
+            btnEditDistributorInfo.setEnabled(true);
+            btnDelDistributorInfo.setEnabled(true);
+            btnSaveDistributorInfo.setEnabled(false);
         }
     }//GEN-LAST:event_btnSaveDistributorInfoActionPerformed
 
@@ -940,35 +942,34 @@ public class fStock extends javax.swing.JInternalFrame {
         {
             if(InsertBookStock()==true)
             {
+            control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
+            }
             btnAddStock.setEnabled(true);
             btnEditStock.setEnabled(true);
             btnDelStock.setEnabled(true);
             btnSaveStock.setEnabled(false);
-            control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
-            
-            }
         }
         if(flag==5)
         {
             if(UpdateBookStock()==true)
             {
+            control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
+            }
             btnAddStock.setEnabled(true);
             btnEditStock.setEnabled(true);
             btnDelStock.setEnabled(true);
             btnSaveStock.setEnabled(false);
-            control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
-            }
         }
         if(flag==6)
         {
             if(DeleteBookStock()==true)
             {
-                 btnAddStock.setEnabled(true);
-                btnEditStock.setEnabled(true);
-                btnDelStock.setEnabled(true);
-                btnSaveStock.setEnabled(false);
                 control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
             }
+            btnAddStock.setEnabled(true);
+            btnEditStock.setEnabled(true);
+            btnDelStock.setEnabled(true);
+            btnSaveStock.setEnabled(false);
            
         }
     }//GEN-LAST:event_btnSaveStockActionPerformed
@@ -1036,37 +1037,37 @@ public class fStock extends javax.swing.JInternalFrame {
         {
             if(InsertBookStockDetail()==true)
             {
-                btnAddStockInfo.setEnabled(true);
-                btnEditStockInfo.setEnabled(true);
-                btnDelStockInfo.setEnabled(true);
-                btnSaveStockInfo.setEnabled(false);
                 control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
                 control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
             }
+            btnAddStockInfo.setEnabled(true);
+            btnEditStockInfo.setEnabled(true);
+            btnDelStockInfo.setEnabled(true);
+            btnSaveStockInfo.setEnabled(false);
         }
         if(flag==8)
         {
             if(UpdateBookStockDetail()==true)
             {
-                btnAddStockInfo.setEnabled(true);
-                btnEditStockInfo.setEnabled(true);
-                btnDelStockInfo.setEnabled(true);
-                btnSaveStockInfo.setEnabled(false);
                 control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
                 control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
             }
+            btnAddStockInfo.setEnabled(true);
+            btnEditStockInfo.setEnabled(true);
+            btnDelStockInfo.setEnabled(true);
+            btnSaveStockInfo.setEnabled(false);
         }
         if(flag==9)
         {
             if(DeleteBookStockDetail()==true)
             {
-                btnAddStockInfo.setEnabled(true);
-                btnEditStockInfo.setEnabled(true);
-                btnDelStockInfo.setEnabled(true);
-                btnSaveStockInfo.setEnabled(false);
                 control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
                 control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
             }
+            btnAddStockInfo.setEnabled(true);
+            btnEditStockInfo.setEnabled(true);
+            btnDelStockInfo.setEnabled(true);
+            btnSaveStockInfo.setEnabled(false);
         }
     }//GEN-LAST:event_btnSaveStockInfoActionPerformed
 

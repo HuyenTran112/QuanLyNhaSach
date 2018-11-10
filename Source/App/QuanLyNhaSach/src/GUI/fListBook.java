@@ -31,9 +31,9 @@ public class fListBook extends javax.swing.JInternalFrame {
     public fListBook() {
         initComponents();
         control.bindingBook(jTableBookInfo, bookbll.LoadBook());
-        control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
+        control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
         cbNameCategogyBookInfo.removeAllItems();
-        for(BookCategogy bookCategogy: categogyBLL.LoaBookCategogy())
+        for(BookCategogy bookCategogy: categogyBLL.LoadBookCategogy())
         {
             cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
         }
@@ -524,95 +524,134 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfPriceBookInfo.setText("");
         txfSumInventory.setText("");
     }
-    public void InsertBook()
+    public boolean InsertBook()
     {
         String BookName =txfNameBookInfo.getText();
             String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
             String PublisherBook=txfPublisherBookInfo.getText();
             int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
             String Brief=txaBriefBookInfo.getText();
-            //if(Brief.equals(""))
-                //Brief=null;
             float Cost =Float.parseFloat(txfCostBookInfo.getText());
             float Price =Float.parseFloat(txfPriceBookInfo.getText());
             int SumInventory=Integer.parseInt(txfSumInventory.getText());
             int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
             if(BookName.equals("") )
-            JOptionPane.showMessageDialog(this, "Tên sách là trường bắt buộc");
-            else
+            {
+                JOptionPane.showMessageDialog(this, "Tên sách là trường bắt buộc");
+                return false;
+            }
             if(CategogyName.equals(""))
-            JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+            {
+                JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+                return false;
+            }
+
+            if(bookbll.InsertBook(BookName, PublisherBook, PublishingYearBook, Brief,Cost, Price, SumInventory,IDBookCategogy))
+            {
+                JOptionPane.showMessageDialog(this,"Thêm thành công sách");
+                return true;
+            }
+
             else
             {
-                if(bookbll.InsertBook(BookName, PublisherBook, PublishingYearBook, Brief,Cost, Price, SumInventory,IDBookCategogy))
-                JOptionPane.showMessageDialog(this,"Thêm thành công sách");
-                else
                 JOptionPane.showMessageDialog(this, "Thêm sách thất bại");
-                //JOptionPane.showMessageDialog(this,BookName+"," +PublisherBook+","+ PublishingYearBook+" " +Brief+ "" +Cost+" "+ Price+"" +SumInventory+""+IDBookCategogy );
-                
-        }
+                return false;
+            }
+        
     }
-    public void UpdateBook()
+    public boolean UpdateBook()
     {
         String BookName =txfNameBookInfo.getText();
             String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
             String PublisherBook=txfPublisherBookInfo.getText();
             int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
             String Brief=txaBriefBookInfo.getText();
-            //if(Brief.equals(""))
-                //Brief=null;
             float Cost =Float.parseFloat(txfCostBookInfo.getText());
             float Price =Float.parseFloat(txfPriceBookInfo.getText());
             int SumInventory=Integer.parseInt(txfSumInventory.getText());
             int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
             int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
             if(BookName.equals("") )
+            {
             JOptionPane.showMessageDialog(this, "Tên sách là trường bắt buộc");
-            else
+            return false;
+            }
             if(CategogyName.equals(""))
-            JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+            {
+                JOptionPane.showMessageDialog(this,"Mã thể loại là trường bắt buộc");
+                return false;
+            }
             else
             {
                 if(bookbll.UpdateBook(IDBookName, BookName, PublisherBook, PublishingYearBook, Brief, Cost, Price, SumInventory, IDBookCategogy))
-                        JOptionPane.showMessageDialog(this,"Cập nhật thành công sách");
+                {
+                    JOptionPane.showMessageDialog(this,"Cập nhật thành công sách");
+                    return true;
+                }
                 else
-                JOptionPane.showMessageDialog(this, "Cập nhật sách thất bại");
-                //JOptionPane.showMessageDialog(this,BookName+"," +PublisherBook+","+ PublishingYearBook+" " +Brief+ "" +Cost+" "+ Price+"" +SumInventory+""+IDBookCategogy );
+                {
+                    JOptionPane.showMessageDialog(this, "Cập nhật sách thất bại");
+                    return false;
+                }
                 
         }
     }
-    public void DeleteBook()
+    public boolean DeleteBook()
     {
         int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
          if(bookbll.DeleteBook(IDBookName))
-                        JOptionPane.showMessageDialog(this,"Xóa sách thành công");
-                else
-                JOptionPane.showMessageDialog(this, "Xóa sách thất bại");
+         {
+             JOptionPane.showMessageDialog(this,"Xóa sách thành công");
+             return true;
+         }
+         else
+         {
+             JOptionPane.showMessageDialog(this, "Xóa sách thất bại");
+             return false;
+         }
     }
-    public void InsertBookCategogy()
+    public boolean InsertBookCategogy()
     {
         String NameBookCategogy=txfNameBookCategogy.getText();
         if(categogyBLL.InsertBookCategogy(NameBookCategogy))
+        {
             JOptionPane.showMessageDialog(this, "Thêm thành công loại sách");
+            return true;
+        }
         else
+        {
             JOptionPane.showMessageDialog(this, "Thêm thất bại loại sách");
+            return false;
+        }
     }
-    public void UpdateBookCategpgy()
+    public boolean UpdateBookCategpgy()
     {
         String NameBookCategogy=txfNameBookCategogy.getText();
         int IDBookCategogy=Integer.parseInt(txfIDBookCategogy.getText());
         if(categogyBLL.UpdateBookCategogy(IDBookCategogy, NameBookCategogy))
+        {
             JOptionPane.showMessageDialog(this, "Cập nhật thành công thể loại sách");
+            return true;
+        }
         else
+        {
             JOptionPane.showMessageDialog(this, "Cập nhật thất bại thể loại sách");
+            return false;
+        }
     }
-    public void DeleteBookCategogy()
+    public boolean DeleteBookCategogy()
     {
         int IDBookCategogy =Integer.parseInt(txfIDBookCategogy.getText());
         if(categogyBLL.DeleteBookCategogy(IDBookCategogy))
+        {
             JOptionPane.showMessageDialog(this, "Xóa thành công thể loại sách");
+            return true;
+        }
         else
+        {
             JOptionPane.showMessageDialog(this, "Xóa thất bại");
+            return false;
+        }
             
             
     }
@@ -620,33 +659,40 @@ public class fListBook extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(flag==1)
         {
-            InsertBook();
-            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            if(InsertBook()==true);
+            {
+                control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+                ClearTextBookInfo();
+                btnSaveBookInfo.setEnabled(false);
+            }
             btnAddBookInfo.setEnabled(true);
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
-            btnSaveBookInfo.setEnabled(false);
-            ClearTextBookInfo();
         }
         if(flag==2)
         {
-            UpdateBook();
-            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            if(UpdateBook()==true)
+            {
+                control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+                btnSaveBookInfo.setEnabled(false);
+                ClearTextBookInfo();
+            }
             btnAddBookInfo.setEnabled(true);
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
-            btnSaveBookInfo.setEnabled(false);
-            ClearTextBookInfo();
+            
         }
         if(flag==3)
         {
-            DeleteBook();
-            control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+            if(DeleteBook()==true)
+            {
+                control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+                btnSaveBookInfo.setEnabled(false);
+                ClearTextBookInfo();
+            }
             btnAddBookInfo.setEnabled(true);
             btnDelBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
-            btnSaveBookInfo.setEnabled(false);
-            ClearTextBookInfo();
         }
     }//GEN-LAST:event_btnSaveBookInfoActionPerformed
 
@@ -720,33 +766,42 @@ public class fListBook extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(flag==4)
         {
-            InsertBookCategogy();
+            if(InsertBookCategogy())
+            {
+                btnSaveBookCategogy.setEnabled(false);
+                control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
+                ClearTextBookCategogy();
+            }
             btnAddBookCategogy.setEnabled(true);
             btnDelBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
-            btnSaveBookCategogy.setEnabled(false);
-            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
-            ClearTextBookCategogy();
+            
         }
         if(flag==5)
         {
-            UpdateBookCategpgy();
+            if(UpdateBookCategpgy()==true)
+            {
+                btnSaveBookCategogy.setEnabled(false);
+                control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
+                ClearTextBookCategogy();
+            }
             btnAddBookCategogy.setEnabled(true);
             btnDelBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
-            btnSaveBookCategogy.setEnabled(false);
-            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
-            ClearTextBookCategogy();
+            
         }
         if(flag==6)
         {
-            DeleteBookCategogy();
+            if(DeleteBookCategogy()==true)
+            {
+                btnSaveBookCategogy.setEnabled(false);
+                control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
+                ClearTextBookCategogy();
+            }
             btnAddBookCategogy.setEnabled(true);
             btnDelBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
-            btnSaveBookCategogy.setEnabled(false);
-            control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoaBookCategogy());
-            ClearTextBookCategogy();
+            
         }
     }//GEN-LAST:event_btnSaveBookCategogyActionPerformed
 

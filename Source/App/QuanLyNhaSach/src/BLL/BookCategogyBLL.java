@@ -14,7 +14,7 @@ import  Entity.*;
  */
 public class BookCategogyBLL {
     BookCategogyDAL DAL = new BookCategogyDAL();
-    public ArrayList <BookCategogy> LoaBookCategogy()
+    public ArrayList <BookCategogy> LoadBookCategogy()
     {
         return DAL.LoadBookCategogy();
     }

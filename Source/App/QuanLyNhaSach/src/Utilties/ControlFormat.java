@@ -13,6 +13,7 @@ import Entity.BookStockDetail;
 import Entity.Customer;
 import Entity.Discount;
 import Entity.Distributor;
+import Entity.Staff;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -234,6 +235,7 @@ public class ControlFormat {
         name.setModel(dtm);
         
     }
+<<<<<<< HEAD
     //Lấy dữ liệu lên bảng hóa đơn
     public void bindingBill(JTable name, ArrayList<Bill> arrBill)
     {
@@ -261,6 +263,33 @@ public class ControlFormat {
             data.add(row);
         }
         DefaultTableModel dtm = new DefaultTableModel(data , header)
+=======
+    //Lấy dữ liệu nhân viên
+    public void bindingStaff(JTable name ,ArrayList<Staff> arrStaff)
+    {
+        Vector header =new Vector();
+        header.add("Mã nhân viên");
+        header.add("Tên nhân viên");
+        header.add("Ngày sinh");
+        header.add("Giới tính");
+        header.add("Địa chỉ");
+        header.add("Số điện thoại");
+        header.add("Ngày vào làm");
+        Vector data =new Vector();
+        for(Staff staff: arrStaff)
+        {
+            Vector row =new Vector();
+            row.add(staff.getID());
+            row.add(staff.getName());
+            row.add(staff.getBirthDay());
+            row.add(staff.getSex());
+            row.add(staff.getAddress());
+            row.add(staff.getPhoneNumber());
+            row.add(staff.getStartDate());
+            data.add(row);
+        }
+         DefaultTableModel dtm = new DefaultTableModel(data , header)
+>>>>>>> a415825debae1f4ddcce64b1dd8991673fed3400
         {
             public boolean isCellEditable(int row , int column)
             {

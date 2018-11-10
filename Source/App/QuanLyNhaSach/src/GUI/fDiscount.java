@@ -278,33 +278,40 @@ public class fDiscount extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(flag==1)
         {
-            InsertDiscount(); 
+            if(InsertDiscount())
+            {
+                btnSaveDiscount.setEnabled(false);
+                control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
+                ClearText();
+            }
             btnAddDiscount.setEnabled(true);
             btnEditDiscount.setEnabled(true);
             btnDelDiscount.setEnabled(true);
-            btnSaveDiscount.setEnabled(false);
-            control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
-            ClearText();
+            
         }
         if(flag==2)
         {
-            UpdateDiscount();
+            if(UpdateDiscount())
+            {
+                btnSaveDiscount.setEnabled(false);
+                control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
+                ClearText();
+            }
             btnAddDiscount.setEnabled(true);
             btnEditDiscount.setEnabled(true);
             btnDelDiscount.setEnabled(true);
-            btnSaveDiscount.setEnabled(false);
-            control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
-            ClearText();
         }
         if(flag==3)
         {
-            DeleteDiscount();
-            btnAddDiscount.setEnabled(true);
-            btnEditDiscount.setEnabled(true);
-            btnDelDiscount.setEnabled(true);
-            btnSaveDiscount.setEnabled(false);
+            if(DeleteDiscount())
+            {
+                btnSaveDiscount.setEnabled(false);
             control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
             ClearText();
+            }
+            btnAddDiscount.setEnabled(true);
+            btnEditDiscount.setEnabled(true);
+            btnDelDiscount.setEnabled(true); 
         }
     }//GEN-LAST:event_btnSaveDiscountActionPerformed
 
@@ -355,7 +362,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jDChStartDiscount.setDate(null);
         jDChFinishDiscount.setDate(null);
     }
-    public void InsertDiscount()
+    public boolean InsertDiscount()
     {
         //ClearText();
         //int IDDiscount=Integer.parseInt(txfIDDiscount.getText());
@@ -368,24 +375,45 @@ public class fDiscount extends javax.swing.JInternalFrame {
         Date FinishDate=jDChFinishDiscount.getDate();
         String strFinishDate =formatter.format(FinishDate);
          if(NameDiscount.equals(""))
-            JOptionPane.showMessageDialog(this,"Tên khuyến mãi bắt buộc phải có");
+         {
+             JOptionPane.showMessageDialog(this,"Tên khuyến mãi bắt buộc phải có");
+             return false;
+         }
         if(txfMinMoneyDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Mức tiền tối thiểu khuyến mãi bắt buộc hải có");
+            return false;
+        }
         if(txfDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Hệ số khuyến mãi bắt buộc phải có");
+            return false;
+        }
         if(jDChFinishDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Ngày bắt đầu khuyến mãi phải có");
+            return false;
+        }
         if(jDChFinishDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Ngày kết thúc khuyến mãi phải có");
+            return false;
+        }
         else
             if(discountBLL.InsertDiscount(NameDiscount, Discount, MinMoney, strStartDate, strFinishDate))
+            {
                 JOptionPane.showMessageDialog(this, "Thêm thành công khuyến mãi");
+                return true;
+            }
             else
+            {
                 JOptionPane.showMessageDialog(this, "Thêm thất bại khuyến mãi");
+                return true;
+            }
             
         
     }
-    public void UpdateDiscount()
+    public boolean UpdateDiscount()
     {
         int IDDiscount=Integer.parseInt(txfIDDiscount.getText());
         String NameDiscount=txfNameDiscount.getText();
@@ -397,33 +425,58 @@ public class fDiscount extends javax.swing.JInternalFrame {
         Date FinishDate=jDChFinishDiscount.getDate();
         String strFinishDate =formatter.format(FinishDate);
         if(NameDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this,"Tên khuyến mãi bắt buộc phải có");
+            return false;
+        }
         if(txfMinMoneyDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Mức tiền tối thiểu khuyến mãi bắt buộc hải có");
+            return false;
+        }
         if(txfDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Hệ số khuyến mãi bắt buộc phải có");
+            return false;
+        }
         if(jDChFinishDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Ngày bắt đầu khuyến mãi phải có");
+            return false;
+        }
         if(jDChFinishDiscount.equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Ngày kết thúc khuyến mãi phải có");
+            return false;
+        }
         else
-            
             {
-                
                 if(discountBLL.UpdateDiscount(IDDiscount, NameDiscount, Discount, MinMoney, strStartDate, strFinishDate))
-                     JOptionPane.showMessageDialog(this, "Cập nhật thành công khuyến mãi");
+                {
+                    JOptionPane.showMessageDialog(this, "Cập nhật thành công khuyến mãi");
+                    return true;
+                }
                 else
+                {
                     JOptionPane.showMessageDialog(this, "Cập nhật thất bại khuyến mãi");
+                    return false;
+                }
             }
         
     }
-    public void DeleteDiscount()
+    public boolean DeleteDiscount()
     {
         int IDDiscount=Integer.parseInt(txfIDDiscount.getText());
         if(discountBLL.DeleteDiscount(IDDiscount))
+        {
             JOptionPane.showMessageDialog(this, "Xóa thành công khuyến mãi");
+            return true;
+        }
         else
+        {
             JOptionPane.showMessageDialog(this, "Xóa thất bại khuyến mãi");
+            return false;
+        }
             
     }
    
