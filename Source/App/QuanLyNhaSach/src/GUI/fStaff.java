@@ -26,6 +26,7 @@ public class fStaff extends javax.swing.JInternalFrame {
     public fStaff() {
         initComponents();
         control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+        jDChStartStaff.setDate(new Date());
     }
 
     /**
@@ -129,6 +130,7 @@ public class fStaff extends javax.swing.JInternalFrame {
 
         txfNameStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jDChBirthdayStaff.setDateFormatString("dd-MM-yyyy");
         jDChBirthdayStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         buttonGroup1.add(rbFemaleStaff);
@@ -163,6 +165,7 @@ public class fStaff extends javax.swing.JInternalFrame {
 
         txfPhoneStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jDChStartStaff.setDateFormatString("dd-MM-yyyy");
         jDChStartStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -459,6 +462,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         jDChStartStaff.setDate(null);
         rbFemaleStaff.setSelected(false);
         rbMaleStaff.setSelected(false);
+        jDChStartStaff.setDate(new Date());
     }
     //Thêm nhân viên
     public boolean InsertStaff()

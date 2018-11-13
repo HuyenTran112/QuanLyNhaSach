@@ -1002,6 +1002,8 @@ public class fStock extends javax.swing.JInternalFrame {
         cbNameBookStockInfo.setSelectedIndex(0);
         txfAmountStockInfo.setText("");
         txfAmount.setText("");
+        Date date =new Date();
+        jDateChooserStock.setDate(date);
     }
     private void btnAddStockInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStockInfoActionPerformed
         // TODO add your handling code here:
