@@ -32,11 +32,11 @@ public class ControlFormat {
         header.add("Mã sách");
         header.add("Tên thể loại");
         header.add("Tên sách");
+        header.add("Tác giả");
         header.add("Nhà xuất bản");
         header.add("Năm xuất bản");
         header.add("Tóm tắt");
         header.add("Giá nhập");
-        header.add("Giá bán");
         header.add("Tổng sách tồn");
         Vector data = new Vector();
         for(Book book: arrBook)
@@ -45,11 +45,11 @@ public class ControlFormat {
             row.add(book.getIDBook());
             row.add(book.getNameCategogyBook());
             row.add(book.getNameBook());
+            row.add(book.getAuthor());
             row.add(book.getPublisherBook());
             row.add(book.getPublishingYear());
             row.add(book.getBrief());
             row.add(book.getCost());
-            row.add(book.getPrice());
             row.add(book.getSumInventory());
             data.add(row);
         }
@@ -235,7 +235,6 @@ public class ControlFormat {
         name.setModel(dtm);
         
     }
-
     //Lấy dữ liệu lên bảng hóa đơn
     public void bindingBill(JTable name, ArrayList<Bill> arrBill)
     {
@@ -262,8 +261,7 @@ public class ControlFormat {
             
             data.add(row);
         }
-         DefaultTableModel dtm = new DefaultTableModel(data , header)
-
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
         {
             public boolean isCellEditable(int row , int column)
             {
@@ -283,6 +281,7 @@ public class ControlFormat {
         header.add("Địa chỉ");
         header.add("Số điện thoại");
         header.add("Ngày vào làm");
+        header.add("Trạng thái");
         Vector data =new Vector();
         for(Staff staff: arrStaff)
         {
@@ -297,7 +296,6 @@ public class ControlFormat {
             data.add(row);
         }
          DefaultTableModel dtm = new DefaultTableModel(data , header)
-
         {
             public boolean isCellEditable(int row , int column)
             {

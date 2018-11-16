@@ -19,19 +19,14 @@ public class StaffBLL {
         return DAL.LoadStaff();
     }
     //Thêm nhân viên
-    public boolean InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate)
+    public boolean InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate,int status)
     {
-        return  DAL.InsertStaff(name, birthday, sex, address, phonenumber, startdate);
+        return  DAL.InsertStaff(name, birthday, sex, address, phonenumber, startdate,status);
     }
     //Cập nhật nhân viên
-    public boolean UpdateStaff(int id,String name ,String birthday , String sex ,String address , String phonenumber , String startdate)
+    public boolean UpdateStaff(int id,String name ,String birthday , String sex ,String address , String phonenumber , String startdate,int status)
     {
-        return DAL.UpdateStaff(id, name, birthday, sex, address, phonenumber, startdate);
-    }
-    //Xóa nhân viên
-    public boolean DeleteStaff(int id)
-    {
-        return DAL.DeleteStaff(id);
+        return DAL.UpdateStaff(id, name, birthday, sex, address, phonenumber, startdate,status);
     }
     //Tra cứu thông tin nhân viên
     public ArrayList<Staff> arrSearchStaff(String KEY)
