@@ -3,25 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fReportInventory.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/DAL/DataAccessHelper.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fCustomer.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/BLL/BillBLL.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/DAL/BookDAL.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fSales.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fStaff.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/Utilties/ControlFormat.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/DAL/BillDAL.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/BLL/DiscountBLL.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fListBook.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/Entity/Bill.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/DAL/DiscountDAL.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fManagement.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fStock.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fReportRevenue.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/DAL/BookCategogyDAL.java</file>
             <file>file:/C:/Users/ADMIN/Documents/GitHub/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fDiscount.java</file>
-=======
-            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fSearchDiscount.java</file>
-            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fStock.java</file>
-            <file>file:/E:/QuanLyNhaSach/Source/App/QuanLyNhaSach/src/GUI/fSearchBook.java</file>
->>>>>>> a415825debae1f4ddcce64b1dd8991673fed3400
         </group>
     </open-files>
 </project-private>

@@ -47,7 +47,7 @@ public class DiscountDAL extends DataAccessHelper{
     //Thêm khuyến mãi
     public boolean  InsertDiscount(String NameDiscount , float Discount, float Money, String StartDate , String FinishDate)
     {
-        String SQL="EXEC SP_INSERTDISCOUNT N'"+NameDiscount+"','"+Discount+"','"+Money+"','"+StartDate+"','"+FinishDate+"'";
+        String SQL="EXEC SP_INSERTDISCOUNT N'"+NameDiscount+"',"+Discount+",'"+Money+"','"+StartDate+"','"+FinishDate+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
@@ -62,7 +62,7 @@ public class DiscountDAL extends DataAccessHelper{
     //Cập nhật khuyến mãi
     public boolean  UpdateDiscount(int IDDiscount,String NameDiscount , float Discount, float Money, String StartDate , String FinishDate)
     {
-        String SQL="EXEC SP_UPDATEDISCOUNT '"+IDDiscount+"', N'"+NameDiscount+"','"+Discount+"','"+Money+"','"+StartDate+"','"+FinishDate+"'";
+        String SQL="EXEC SP_UPDATEDISCOUNT '"+IDDiscount+"', N'"+NameDiscount+"',"+Discount+",'"+Money+"','"+StartDate+"','"+FinishDate+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
