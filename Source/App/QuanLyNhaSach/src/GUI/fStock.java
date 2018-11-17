@@ -85,7 +85,6 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         btnAddDistributorInfo = new javax.swing.JButton();
         btnEditDistributorInfo = new javax.swing.JButton();
-        btnDelDistributorInfo = new javax.swing.JButton();
         btnSaveDistributorInfo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDistributorInfo = new javax.swing.JTable();
@@ -124,6 +123,8 @@ public class fStock extends javax.swing.JInternalFrame {
         cbNameBookStockInfo = new javax.swing.JComboBox<String>();
         jLabel17 = new javax.swing.JLabel();
         txfAmount = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txfCost = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         btnAddStockInfo = new javax.swing.JButton();
         btnEditStockInfo = new javax.swing.JButton();
@@ -250,14 +251,6 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnDelDistributorInfo.setText("XÓA");
-        btnDelDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelDistributorInfoActionPerformed(evt);
-            }
-        });
-
         btnSaveDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnSaveDistributorInfo.setText("LƯU");
         btnSaveDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -275,11 +268,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addComponent(btnAddDistributorInfo)
                 .addGap(42, 42, 42)
                 .addComponent(btnEditDistributorInfo)
-                .addGap(28, 28, 28)
-                .addComponent(btnDelDistributorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addComponent(btnSaveDistributorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,14 +278,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddDistributorInfo)
-                    .addComponent(btnEditDistributorInfo))
-                .addContainerGap())
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelDistributorInfo)
+                    .addComponent(btnEditDistributorInfo)
                     .addComponent(btnSaveDistributorInfo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTableDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -335,7 +321,7 @@ public class fStock extends javax.swing.JInternalFrame {
                             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(102, 102, 102)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -635,6 +621,11 @@ public class fStock extends javax.swing.JInternalFrame {
         txfAmount.setEditable(false);
         txfAmount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel18.setText("Giá nhập");
+
+        txfCost.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -645,13 +636,16 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
                 .addGap(24, 24, 24)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txfAmountStockInfo)
-                    .addComponent(cbIDStockInfo, 0, 216, Short.MAX_VALUE)
-                    .addComponent(cbNameBookStockInfo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txfAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txfCost, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txfAmountStockInfo)
+                        .addComponent(cbIDStockInfo, 0, 216, Short.MAX_VALUE)
+                        .addComponent(cbNameBookStockInfo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txfAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -672,11 +666,15 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
                     .addComponent(txfAmountStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txfAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel18)
+                    .addComponent(txfCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addContainerGap())
         );
 
         btnAddStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -773,9 +771,9 @@ public class fStock extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
+                                .addGap(8, 8, 8)
                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(152, 152, 152)
+                        .addGap(160, 160, 160)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -789,11 +787,11 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Chi tiết phiếu nhập sách", jPanel3);
@@ -830,7 +828,6 @@ public class fStock extends javax.swing.JInternalFrame {
         ClearTextDistibutor();
         btnAddDistributorInfo.setEnabled(false);
         btnEditDistributorInfo.setEnabled(false);
-        btnDelDistributorInfo.setEnabled(false);
         btnSaveDistributorInfo.setEnabled(true);
         flag=1;
     }//GEN-LAST:event_btnAddDistributorInfoActionPerformed
@@ -845,7 +842,6 @@ public class fStock extends javax.swing.JInternalFrame {
             }
             btnAddDistributorInfo.setEnabled(true);
             btnEditDistributorInfo.setEnabled(true);
-            btnDelDistributorInfo.setEnabled(true);
             btnSaveDistributorInfo.setEnabled(false);
         }
         if(flag==2)
@@ -856,18 +852,6 @@ public class fStock extends javax.swing.JInternalFrame {
             }
             btnAddDistributorInfo.setEnabled(true);
             btnEditDistributorInfo.setEnabled(true);
-            btnDelDistributorInfo.setEnabled(true);
-            btnSaveDistributorInfo.setEnabled(false);
-        }
-        if(flag==3)
-        {
-            if(DeleteDistributor()==true)
-            {
-                control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
-            }
-            btnAddDistributorInfo.setEnabled(true);
-            btnEditDistributorInfo.setEnabled(true);
-            btnDelDistributorInfo.setEnabled(true);
             btnSaveDistributorInfo.setEnabled(false);
         }
     }//GEN-LAST:event_btnSaveDistributorInfoActionPerformed
@@ -876,19 +860,9 @@ public class fStock extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         btnAddDistributorInfo.setEnabled(false);
         btnEditDistributorInfo.setEnabled(false);
-        btnDelDistributorInfo.setEnabled(false);
         btnSaveDistributorInfo.setEnabled(true);
         flag=2;
     }//GEN-LAST:event_btnEditDistributorInfoActionPerformed
-
-    private void btnDelDistributorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelDistributorInfoActionPerformed
-        // TODO add your handling code here:
-        btnAddDistributorInfo.setEnabled(false);
-        btnEditDistributorInfo.setEnabled(false);
-        btnDelDistributorInfo.setEnabled(false);
-        btnSaveDistributorInfo.setEnabled(true);
-        flag=3;
-    }//GEN-LAST:event_btnDelDistributorInfoActionPerformed
 
     private void btnSearchDistributorStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDistributorStockActionPerformed
         // TODO add your handling code here:
@@ -992,7 +966,8 @@ public class fStock extends javax.swing.JInternalFrame {
         if(jTableStockInfo.getValueAt(row, 1).equals(NameBook))
             cbNameBookStockInfo.setSelectedItem(NameBook);
         txfAmountStockInfo.setText(jTableStockInfo.getValueAt(row, 2).toString());
-        txfAmount.setText(jTableStockInfo.getValueAt(row, 3).toString());
+        txfCost.setText(jTableStockInfo.getValueAt(row, 3).toString());
+        txfAmount.setText(jTableStockInfo.getValueAt(row, 4).toString());
         
     }//GEN-LAST:event_jTableStockInfoMouseClicked
 
@@ -1001,9 +976,8 @@ public class fStock extends javax.swing.JInternalFrame {
         cbIDStockInfo.setSelectedIndex(0);
         cbNameBookStockInfo.setSelectedIndex(0);
         txfAmountStockInfo.setText("");
+        txfCost.setText("");
         txfAmount.setText("");
-        Date date =new Date();
-        jDateChooserStock.setDate(date);
     }
     private void btnAddStockInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStockInfoActionPerformed
         // TODO add your handling code here:
@@ -1137,22 +1111,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         }
     }
-    //Xóa nhà cung cấp
-    public boolean DeleteDistributor()
-    {
-        int IDDistributor=Integer.parseInt(txfIDDistributorInfo.getText().toString());
-         if(distributorBLL.DeleteDistributor(IDDistributor))
-            {
-                JOptionPane.showMessageDialog(this, "Xóa thành công nhà cung cấp");
-                return true;
-            }   
-                else
-            {
-                JOptionPane.showMessageDialog(this, "Xóa thất bại");
-                return false;
-            }
-    }
-    public void ClearTextBookStock()
+      public void ClearTextBookStock()
     {
         txfIDStock.setText("");
         txfTotalStock.setText("");
@@ -1236,15 +1195,15 @@ public class fStock extends javax.swing.JInternalFrame {
         String NameBook =cbNameBookStockInfo.getSelectedItem().toString();
         int IDBook=bookbll.getIDBook(NameBook);
         int AmountStock=Integer.parseInt(txfAmountStockInfo.getText().toString());
-        //float Amount =Float.parseFloat(txfAmount.getText().toString());
-        if(String.valueOf(IDBookStock).equals("")|| NameBook.equals(""))
+        float Cost =Float.parseFloat(txfCost.getText().toString());
+        if(String.valueOf(IDBookStock).equals("")|| NameBook.equals("") ||txfAmountStockInfo.equals("")|| txfCost.equals(""))
         {
-            JOptionPane.showMessageDialog(this, "Số phiếu nhập, tên sách, số lượng là bắt buộc");
+            JOptionPane.showMessageDialog(this, "Nhập thông tin chưa đầy đủ");
             return false;
         }
        else
         {
-            if(bookStockDetailBLL.InsertBookStockDetail(IDBookStock, IDBook, AmountStock))
+            if(bookStockDetailBLL.InsertBookStockDetail(IDBookStock, IDBook, AmountStock,Cost))
             {
                 JOptionPane.showMessageDialog(this, "Thêm thành công chi tiết phiếu nhập sách");
                 return true;
@@ -1261,16 +1220,16 @@ public class fStock extends javax.swing.JInternalFrame {
         int IDBookStock=Integer.parseInt(cbIDStockInfo.getSelectedItem().toString());
         String NameBook =cbNameBookStockInfo.getSelectedItem().toString();
         int IDBook=bookbll.getIDBook(NameBook);
-        int AmountStock=Integer.parseInt(txfAmountStockInfo.getText().toString());
-        //float Amount =Float.parseFloat(txfAmount.getText().toString());
-        if(String.valueOf(IDBookStock).equals("")|| NameBook.equals(""))
+        int AmountStock=Integer.parseInt(txfAmountStockInfo.getText());
+        float Cost=Float.parseFloat(txfCost.getText());
+        if(String.valueOf(IDBookStock).equals("")|| NameBook.equals("")||txfAmountStockInfo.equals("")|| txfCost.equals(""))
         {
-            JOptionPane.showMessageDialog(this, "Số phiếu nhập, tên sách, số lượng là bắt buộc");
+            JOptionPane.showMessageDialog(this, "Nhập thông tin chưa đầy đủ");
             return false;
         }
        else
         {
-            if(bookStockDetailBLL.UpdateBookStockDetail(IDBookStock, IDBook, AmountStock))
+            if(bookStockDetailBLL.UpdateBookStockDetail(IDBookStock, IDBook, AmountStock,Cost))
             {
                 JOptionPane.showMessageDialog(this, "Cập nhật thành công chi tiết phiếu nhập sách");
                 return true;
@@ -1304,7 +1263,6 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAddDistributorInfo;
     private javax.swing.JButton btnAddStock;
     private javax.swing.JButton btnAddStockInfo;
-    private javax.swing.JButton btnDelDistributorInfo;
     private javax.swing.JButton btnDelStock;
     private javax.swing.JButton btnDelStockInfo;
     private javax.swing.JButton btnEditDistributorInfo;
@@ -1329,6 +1287,7 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1357,6 +1316,7 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfAddressDistributorInfo;
     private javax.swing.JTextField txfAmount;
     private javax.swing.JTextField txfAmountStockInfo;
+    private javax.swing.JTextField txfCost;
     private javax.swing.JTextField txfIDDistributorInfo;
     private javax.swing.JTextField txfIDStock;
     private javax.swing.JTextField txfNameDistributorInfo;

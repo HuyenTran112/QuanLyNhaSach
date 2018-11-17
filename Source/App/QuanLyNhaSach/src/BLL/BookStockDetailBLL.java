@@ -19,15 +19,15 @@ public class BookStockDetailBLL {
         return DAL.LoadBookStockDetail();
     }
     //thêm chi tiết phiếu nhập sách
-    public boolean InsertBookStockDetail(int IDBookStock ,int IDBook ,int AmoutStock)
+    public boolean InsertBookStockDetail(int IDBookStock ,int IDBook ,int AmoutStock,float cost)
     {
-        return DAL.InsertBookStockDetail(IDBookStock, IDBook, AmoutStock);
+        return DAL.InsertBookStockDetail(IDBookStock, IDBook, AmoutStock,cost);
         
     }
     //cập nhật chi tiết phiếu nhập sách
-    public boolean  UpdateBookStockDetail(int IDBookStock ,int IDBook ,int AmoutStock)
+    public boolean  UpdateBookStockDetail(int IDBookStock ,int IDBook,int AmoutStock,float cost)
     {
-        return DAL.UpdateBookStockDetail(IDBookStock, IDBook, AmoutStock);
+        return DAL.UpdateBookStockDetail(IDBookStock, IDBook, AmoutStock,cost);
     }
     //xóa chi tiết phiếu nhập sách
     public boolean  DeleteBookStockDetail(int IDBookStock,int IDBook)

@@ -235,10 +235,6 @@ public class ControlFormat {
         name.setModel(dtm);
         
     }
-<<<<<<< HEAD
-//<<<<<<< HEAD
-=======
->>>>>>> 421aeaefbd9b217cc7faff1ce273634205ea9fdd
     //Lấy dữ liệu lên bảng hóa đơn
     public void bindingBill(JTable name, ArrayList<Bill> arrBill)
     {
@@ -274,10 +270,6 @@ public class ControlFormat {
         };
         name.setModel(dtm);
     }
-<<<<<<< HEAD
-//=======
-=======
->>>>>>> 421aeaefbd9b217cc7faff1ce273634205ea9fdd
     //Lấy dữ liệu nhân viên
     public void bindingStaff(JTable name ,ArrayList<Staff> arrStaff)
     {
@@ -304,10 +296,6 @@ public class ControlFormat {
             data.add(row);
         }
          DefaultTableModel dtm = new DefaultTableModel(data , header)
-<<<<<<< HEAD
-//>>>>>>> a415825debae1f4ddcce64b1dd8991673fed3400
-=======
->>>>>>> 421aeaefbd9b217cc7faff1ce273634205ea9fdd
         {
             public boolean isCellEditable(int row , int column)
             {

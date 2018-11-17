@@ -18,6 +18,11 @@ public class StaffBLL {
     {
         return DAL.LoadStaff();
     }
+    //Hiện thị danh sách nhân viên hiện tại
+    public ArrayList <Staff> LoadStaffNow()
+    {
+        return DAL.LoadStaffNow();
+    }
     //Thêm nhân viên
     public boolean InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate,int status)
     {

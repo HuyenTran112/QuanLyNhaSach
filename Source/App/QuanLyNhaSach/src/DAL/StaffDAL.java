@@ -44,6 +44,36 @@ public class StaffDAL extends  DataAccessHelper{
         }
         return temp;
     }
+    //Hiện thị thông tin nhân viên
+    public ArrayList<Staff> LoadStaffNow()
+    {
+        ArrayList<Staff> temp =new ArrayList<Staff>();
+        String SQL="EXEC SP_LOADSTAFFNOW";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            ResultSet rs =st.executeQuery(SQL);
+            if(rs!=null)
+            {
+                while(rs.next())
+                {
+                    Staff staff =new Staff();
+                    staff.setID(rs.getInt("MANV"));
+                    staff.setName(rs.getString("TENNV"));
+                    staff.setBirthDay(rs.getDate("NGAYSINH"));
+                    staff.setSex(rs.getString("GIOITINH"));
+                    staff.setAddress(rs.getString("DIACHI"));
+                    staff.setPhoneNumber(rs.getString("SODT"));
+                    staff.setStartDate(rs.getDate("NGAYVL"));
+                    staff.setStatus(rs.getInt("TRANGTHAI"));
+                    temp.add(staff);
+                }
+            }
+            getClose();
+        } catch (Exception e) {
+        }
+        return temp;
+    }
     //Thêm nhân viên
     public boolean  InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate,int status)
     {

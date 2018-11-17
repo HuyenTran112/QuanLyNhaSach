@@ -32,6 +32,7 @@ public class BookStockDetailDAL extends DataAccessHelper{
                     bookstockdetail.setIDBookStock(rs.getInt("SOPHIEUNHAP"));
                     bookstockdetail.setNameBook(rs.getString("TENSACH"));
                     bookstockdetail.setAmountStock(rs.getInt("SOLUONGNHAP"));
+                    bookstockdetail.setCost(rs.getFloat("GIANHAP"));
                     bookstockdetail.setAmount(rs.getFloat("THANHTIEN"));
                     temp.add(bookstockdetail);
                 }
@@ -42,9 +43,9 @@ public class BookStockDetailDAL extends DataAccessHelper{
         return temp;
     }
     //thêm chi tiết phiếu nhập sách
-    public boolean  InsertBookStockDetail(int IDBookStock ,int IDBook, int AmountStock )
+    public boolean  InsertBookStockDetail(int IDBookStock ,int IDBook,int AmountStock,float cost )
     {
-        String SQL="EXEC SP_INSERTBOOKSTOCKDETAIL '"+IDBookStock+"','"+IDBook+"','"+AmountStock+"'";
+        String SQL="EXEC SP_INSERTBOOKSTOCKDETAIL '"+IDBookStock+"','"+IDBook+"','"+AmountStock+"','"+cost+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
@@ -57,9 +58,9 @@ public class BookStockDetailDAL extends DataAccessHelper{
         return false;
     }
     //Cập nhật chi tiết phiếu nhập sách
-    public boolean UpdateBookStockDetail(int IDBookStock ,int IDBook, int AmountStock)
+    public boolean UpdateBookStockDetail(int IDBookStock ,int IDBook,int AmountStock,float Cost)
     {
-        String SQL="EXEC SP_UPDATEBOOKSTOCKDETAIL '"+IDBookStock+"','"+IDBook+"','"+AmountStock+"'";
+        String SQL="EXEC SP_UPDATEBOOKSTOCKDETAIL '"+IDBookStock+"','"+IDBook+"','"+AmountStock+"','"+Cost+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
@@ -102,6 +103,7 @@ public class BookStockDetailDAL extends DataAccessHelper{
                     bookstockdetail.setIDBookStock(rs.getInt("SOPHIEUNHAP"));
                     bookstockdetail.setNameBook(rs.getString("TENSACH"));
                     bookstockdetail.setAmountStock(rs.getInt("SOLUONGNHAP"));
+                    bookstockdetail.setCost(rs.getFloat("GIANHAP"));
                     bookstockdetail.setAmount(rs.getFloat("THANHTIEN"));
                     temp.add(bookstockdetail);
                 }

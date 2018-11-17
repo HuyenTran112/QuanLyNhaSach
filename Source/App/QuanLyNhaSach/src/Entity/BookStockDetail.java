@@ -13,6 +13,7 @@ public class BookStockDetail {
     private int IDBookStock;
     private String NameBook;
     private int AmountStock;
+    private float Cost;
     private float Amount;
 
     /**
@@ -69,6 +70,20 @@ public class BookStockDetail {
      */
     public void setAmount(float Amount) {
         this.Amount = Amount;
+    }
+
+    /**
+     * @return the Cost
+     */
+    public float getCost() {
+        return Cost;
+    }
+
+    /**
+     * @param Cost the Cost to set
+     */
+    public void setCost(float Cost) {
+        this.Cost = Cost;
     }
     
 }
