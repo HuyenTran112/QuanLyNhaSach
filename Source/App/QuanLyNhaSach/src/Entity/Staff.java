@@ -19,6 +19,7 @@ public class Staff {
     private String Address;
     private String PhoneNumber;
     private Date StartDate ;
+    private int Status;
 
     /**
      * @return the ID
@@ -116,6 +117,20 @@ public class Staff {
      */
     public void setStartDate(Date StartDate) {
         this.StartDate = StartDate;
+    }
+
+    /**
+     * @return the Status
+     */
+    public int getStatus() {
+        return Status;
+    }
+
+    /**
+     * @param Status the Status to set
+     */
+    public void setStatus(int Status) {
+        this.Status = Status;
     }
     
 }

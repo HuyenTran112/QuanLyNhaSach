@@ -11,13 +11,13 @@ package Entity;
  */
 public class Book {
    private int IDBook;
-   private String NameBook;
    private String NameCategogyBook;
+   private String NameBook;
+   private String Author;
    private String PublisherBook;
    private int PublishingYear;
    private String Brief ;
    private float Cost;
-   private float Price;
    private int SumInventory;
 
     /**
@@ -117,21 +117,6 @@ public class Book {
     public void setCost(float Cost) {
         this.Cost = Cost;
     }
-
-    /**
-     * @return the Price
-     */
-    public float getPrice() {
-        return Price;
-    }
-
-    /**
-     * @param Price the Price to set
-     */
-    public void setPrice(float Price) {
-        this.Price = Price;
-    }
-
     /**
      * @return the SumInventory
      */
@@ -154,7 +139,21 @@ public class Book {
        PublishingYear=0;
        Brief="" ;
        Cost=0;
-       Price=0;
+       Author="";
        SumInventory=0;
    }
+
+    /**
+     * @return the Author
+     */
+    public String getAuthor() {
+        return Author;
+    }
+
+    /**
+     * @param Author the Author to set
+     */
+    public void setAuthor(String Author) {
+        this.Author = Author;
+    }
 }

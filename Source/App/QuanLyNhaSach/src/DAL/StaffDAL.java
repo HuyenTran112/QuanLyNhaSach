@@ -35,6 +35,7 @@ public class StaffDAL extends  DataAccessHelper{
                     staff.setAddress(rs.getString("DIACHI"));
                     staff.setPhoneNumber(rs.getString("SODT"));
                     staff.setStartDate(rs.getDate("NGAYVL"));
+                    staff.setStatus(rs.getInt("TRANGTHAI"));
                     temp.add(staff);
                 }
             }
@@ -44,9 +45,9 @@ public class StaffDAL extends  DataAccessHelper{
         return temp;
     }
     //Thêm nhân viên
-    public boolean  InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate)
+    public boolean  InsertStaff(String name ,String birthday , String sex ,String address , String phonenumber , String startdate,int status)
     {
-        String SQL="SP_INSERTSTAFF N'"+name+"',N'"+birthday+"',N'"+sex+"',N'"+address+"',N'"+phonenumber+"',N'"+startdate+"'";
+        String SQL="SP_INSERTSTAFF N'"+name+"',N'"+birthday+"',N'"+sex+"',N'"+address+"',N'"+phonenumber+"',N'"+startdate+"','"+status+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
@@ -59,28 +60,13 @@ public class StaffDAL extends  DataAccessHelper{
         return false;
     }
     //Cập nhật nhân viên
-    public boolean UpdateStaff(int id , String name , String birthday ,String sex ,String address, String phonenumber , String startdate)
+    public boolean UpdateStaff(int id , String name , String birthday ,String sex ,String address, String phonenumber , String startdate, int status)
     {
-        String SQL="SP_UPDATESTAFF '"+id+"',N'"+name+"',N'"+birthday+"',N'"+sex+"',N'"+address+"',N'"+phonenumber+"',N'"+startdate+"'";
+        String SQL="SP_UPDATESTAFF '"+id+"',N'"+name+"',N'"+birthday+"',N'"+sex+"',N'"+address+"',N'"+phonenumber+"',N'"+startdate+"','"+status+"'";
         try {
             getConnect();
             Statement st =conn.createStatement();
             int rs=st.executeUpdate(SQL);
-            if(rs>0)
-                return true;
-            getClose();
-        } catch (Exception e) {
-        }
-        return false;
-    }
-    //Xóa nhân viên
-    public boolean  DeleteStaff(int id)
-    {
-        String SQL="DELETE FROM NHANVIEN WHERE MANV='"+id+"'";
-        try {
-            getConnect();
-            Statement st =conn.createStatement();
-            int rs =st.executeUpdate(SQL);
             if(rs>0)
                 return true;
             getClose();
@@ -109,6 +95,7 @@ public class StaffDAL extends  DataAccessHelper{
                     staff.setAddress(rs.getString("DIACHI"));
                     staff.setPhoneNumber(rs.getString("SODT"));
                     staff.setStartDate(rs.getDate("NGAYVL"));
+                    staff.setStatus(rs.getInt("TRANGTHAI"));
                     temp.add(staff);
                 }
             }
