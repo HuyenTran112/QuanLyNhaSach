@@ -18,7 +18,7 @@ public class fLogin extends javax.swing.JFrame {
      */
     public fLogin() {
         initComponents();
-        
+        this.setLocationRelativeTo(null); 
     }
 
     /**
@@ -31,86 +31,69 @@ public class fLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPasswordField2 = new javax.swing.JPasswordField();
-        panel1 = new java.awt.Panel();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        textField1 = new java.awt.TextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
         button1 = new java.awt.Button();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jPasswordField2.setText("jPasswordField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Đăng nhập");
+        setTitle("QUẢN LÝ NHÀ SÁCH");
+        setMaximumSize(new java.awt.Dimension(450, 340));
+        setMinimumSize(new java.awt.Dimension(450, 340));
         setName("fLogin"); // NOI18N
+        getContentPane().setLayout(null);
 
-        label1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        label1.setText("Tên đăng nhập");
-
-        label2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        label2.setText("Mật khẩu");
-
-        textField1.setFont(new java.awt.Font("Dialog", 0, 20)); // NOI18N
-        textField1.setName("txfUserName"); // NOI18N
-
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jPasswordField1.setName("pwfPassWord"); // NOI18N
-
-        button1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        button1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         button1.setLabel("Đăng nhập");
         button1.setName("btnLogin"); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button1);
+        button1.setBounds(240, 180, 100, 29);
 
-        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
-        panel1.setLayout(panel1Layout);
-        panel1Layout.setHorizontalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel1.setText("Tên đăng nhập:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(30, 80, 140, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setText("Mật khẩu:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(30, 130, 100, 20);
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(180, 80, 240, 26);
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(180, 130, 240, 26);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("ĐĂNG NHẬP");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(210, 30, 170, 30);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AnhBiaLogin.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(-6, 0, 480, 340);
+
+        getAccessibleContext().setAccessibleName("Quản lý nhà sách");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +126,9 @@ public class fLogin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                fLogin aLogin=new fLogin();
+                aLogin.pack();
+                aLogin.setLocationRelativeTo(null);
                 new fLogin().setVisible(true);
             }
         });
@@ -152,12 +138,13 @@ public class fLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField2;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Panel panel1;
-    private java.awt.TextField textField1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
 
