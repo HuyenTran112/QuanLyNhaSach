@@ -6,6 +6,8 @@
 package GUI;
 
 import java.awt.MenuItem;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,7 +19,14 @@ public class fManagement extends javax.swing.JFrame {
      * Creates new form fManagement
      */
     public fManagement() {
-        initComponents();
+        initComponents(); 
+        setResizable(false);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        Toolkit tk =Toolkit.getDefaultToolkit();
+        int x=(int) tk.getScreenSize().getWidth();
+        int y=(int)tk.getScreenSize().getHeight();
+        setSize(x, y);
     }
 
     /**
@@ -253,7 +262,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustomerActionPerformed
         // TODO add your handling code here:
         fCustomer f = new fCustomer();
-        this.jDesktopPane1.add(f);
+        //this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemCustomerActionPerformed
 
@@ -345,6 +354,9 @@ public class fManagement extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(fManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
