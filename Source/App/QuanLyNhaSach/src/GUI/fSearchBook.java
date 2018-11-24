@@ -52,19 +52,27 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         jTableSearchBookCategogy = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableSearchBookInfo = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("TRA CỨU THÔNG TIN SÁCH");
+        getContentPane().setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("TRA CỨU THÔNG TIN SÁCH");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(358, 53, 411, 37);
 
+        jPanel1.setOpaque(false);
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel2.setText("Tra cứu thể loại sách");
 
         txfSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchBookCategogy.setText("Tìm kiếm");
         btnSearchBookCategogy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,12 +106,18 @@ public class fSearchBook extends javax.swing.JInternalFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(34, 137, 395, 93);
+
+        jPanel2.setOpaque(false);
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setText("Tra cứu thông tin sách");
 
         txfSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchBookInfo.setText("Tìm kiếm");
         btnSearchBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,9 +135,9 @@ public class fSearchBook extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txfSearchBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(btnSearchBookInfo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +151,10 @@ public class fSearchBook extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(720, 150, 426, 93);
+
+        jTableSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableSearchBookCategogy.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -151,7 +168,10 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableSearchBookCategogy);
 
-        jTableSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(34, 266, 452, 257);
+
+        jTableSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableSearchBookInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -165,43 +185,12 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jTableSearchBookInfo);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(358, 358, 358)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(720, 270, 480, 257);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 0, 1470, 750);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,6 +216,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

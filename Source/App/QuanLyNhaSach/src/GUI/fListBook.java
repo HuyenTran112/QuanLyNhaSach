@@ -12,6 +12,8 @@ import Entity.*;
 import DAL.*;
 import BLL.*;
 import javax.swing.JOptionPane;
+import GUI.fManagement;
+import java.awt.Toolkit;
 //import sun.org.mozilla.javascript.internal.Token;
 
 
@@ -27,9 +29,18 @@ public class fListBook extends javax.swing.JInternalFrame {
     ControlFormat control = new ControlFormat();
     BookBLL bookbll = new BookBLL();
     BookCategogyBLL categogyBLL=new BookCategogyBLL();
+    //fManagement a = new fManagement();
     int flag=0;
     public fListBook() {
+        
         initComponents();
+        Toolkit tk =Toolkit.getDefaultToolkit();
+        int x=(int) tk.getScreenSize().getWidth();
+        int y=(int)tk.getScreenSize().getHeight();
+        jPanel1.setSize(x, y);
+        jPanel2.setSize(x,y);
+        jLabel12.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
+        jLabel14.setSize((int)jPanel2.getSize().getWidth(),(int)jPanel2.getSize().getHeight());
         control.bindingBook(jTableBookInfo, bookbll.LoadBook());
         control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
         cbNameCategogyBookInfo.removeAllItems();
@@ -51,19 +62,6 @@ public class fListBook extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txfIDBookCategogy = new javax.swing.JTextField();
-        txfNameBookCategogy = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        btnAddBookCategogy = new javax.swing.JButton();
-        btnEditBookCategogy = new javax.swing.JButton();
-        btnSaveBookCategogy = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableBookCategory = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -77,7 +75,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         txfIDBookInfo = new javax.swing.JTextField();
-        cbNameCategogyBookInfo = new javax.swing.JComboBox<String>();
+        cbNameCategogyBookInfo = new javax.swing.JComboBox<>();
         txfNameBookInfo = new javax.swing.JTextField();
         txfPublisherBookInfo = new javax.swing.JTextField();
         txfPublishingYearBookInfo = new javax.swing.JTextField();
@@ -92,184 +90,61 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnAddBookInfo = new javax.swing.JButton();
         btnEditBookInfo = new javax.swing.JButton();
         btnSaveBookInfo = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txfIDBookCategogy = new javax.swing.JTextField();
+        txfNameBookCategogy = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        btnAddBookCategogy = new javax.swing.JButton();
+        btnEditBookCategogy = new javax.swing.JButton();
+        btnSaveBookCategogy = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableBookCategory = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
 
         setClosable(true);
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel1.setText("QUẢN LÝ THỂ LOẠI SÁCH");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel2.setText("Mã thể loại sách");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel3.setText("Tên thể loại sách");
-
-        txfIDBookCategogy.setEditable(false);
-        txfIDBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        txfNameBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfNameBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txfNameBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        btnAddBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnAddBookCategogy.setText("THÊM");
-        btnAddBookCategogy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddBookCategogyActionPerformed(evt);
-            }
-        });
-
-        btnEditBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnEditBookCategogy.setText("CẬP NHẬT");
-        btnEditBookCategogy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditBookCategogyActionPerformed(evt);
-            }
-        });
-
-        btnSaveBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnSaveBookCategogy.setText("LƯU");
-        btnSaveBookCategogy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveBookCategogyActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(btnAddBookCategogy)
-                .addGap(26, 26, 26)
-                .addComponent(btnEditBookCategogy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(btnSaveBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditBookCategogy)
-                    .addComponent(btnAddBookCategogy)
-                    .addComponent(btnSaveBookCategogy))
-                .addContainerGap())
-        );
-
-        jTableBookCategory.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Mã thể loại sách", "Tên thể loại sách"
-            }
-        ));
-        jTableBookCategory.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableBookCategoryMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableBookCategory);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(262, 262, 262))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Thể loại sách", jPanel1);
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel4.setText("QUẢN LÝ THÔNG TIN SÁCH");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(413, 11, 410, 37);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel6.setOpaque(false);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Mã sách");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Tên sách");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Nhà xuất bản");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Năm xuất bản");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Tóm tắt");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Tác giả");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("Giá nhập");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel21.setText("Tổng sách tồn");
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("Tên thể loại:");
 
         txfIDBookInfo.setEditable(false);
@@ -289,7 +164,7 @@ public class fListBook extends javax.swing.JInternalFrame {
 
         txfAuthorBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Tổng sách tồn:");
 
         txfCostBookInfo.setEditable(false);
@@ -333,7 +208,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                                 .addComponent(txfCostBookInfo)
                                 .addComponent(txfSumInventory))))
                     .addComponent(jLabel7))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel11)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -388,7 +263,10 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel2.add(jPanel6);
+        jPanel6.setBounds(28, 59, 425, 454);
+
+        jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -409,88 +287,190 @@ public class fListBook extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTableBookInfo);
 
-        btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(470, 70, 569, 568);
+
+        btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBookInfo.setText("THÊM");
         btnAddBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddBookInfoActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAddBookInfo);
+        btnAddBookInfo.setBounds(53, 533, 100, 25);
 
-        btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditBookInfo.setText("CẬP NHẬT");
         btnEditBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditBookInfoActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEditBookInfo);
+        btnEditBookInfo.setBounds(185, 533, 110, 25);
 
-        btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveBookInfo.setText("LƯU");
         btnSaveBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveBookInfoActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSaveBookInfo);
+        btnSaveBookInfo.setBounds(328, 533, 90, 25);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(btnAddBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnEditBookInfo)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnSaveBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(227, 227, 227))
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(0, 0, 1350, 680);
+
+        jTabbedPane1.addTab("Thông tin sách", jPanel2);
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setText("QUẢN LÝ THỂ LOẠI SÁCH");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(376, 50, 380, 37);
+
+        jPanel4.setOpaque(false);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Mã thể loại sách");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Tên thể loại sách");
+
+        txfIDBookCategogy.setEditable(false);
+        txfIDBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        txfNameBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txfNameBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txfNameBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(27, 119, 452, 113);
+
+        jPanel5.setOpaque(false);
+
+        btnAddBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddBookCategogy.setText("THÊM");
+        btnAddBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddBookCategogyActionPerformed(evt);
+            }
+        });
+
+        btnEditBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditBookCategogy.setText("CẬP NHẬT");
+        btnEditBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditBookCategogyActionPerformed(evt);
+            }
+        });
+
+        btnSaveBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveBookCategogy.setText("LƯU");
+        btnSaveBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveBookCategogyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSaveBookInfo)
-                            .addComponent(btnEditBookInfo)
-                            .addComponent(btnAddBookInfo))
-                        .addGap(0, 36, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3))
+                .addComponent(btnAddBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnEditBookCategogy)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(btnSaveBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditBookCategogy)
+                    .addComponent(btnAddBookCategogy)
+                    .addComponent(btnSaveBookCategogy))
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Thông tin sách", jPanel2);
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(27, 265, 391, 60);
+
+        jTableBookCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTableBookCategory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Mã thể loại sách", "Tên thể loại sách"
+            }
+        ));
+        jTableBookCategory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBookCategoryMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableBookCategory);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(480, 100, 580, 550);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(-10, 0, 1360, 680);
+
+        jTabbedPane1.addTab("Thể loại sách", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -733,6 +713,8 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

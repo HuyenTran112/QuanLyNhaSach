@@ -5,20 +5,25 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
  * @author STIREN
  */
 public class fLogin extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Login
      */
     public fLogin() {
         initComponents();
-        this.setLocationRelativeTo(null); 
+       this.setLocationRelativeTo(null); 
+       
     }
 
     /**
@@ -31,24 +36,24 @@ public class fLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPasswordField2 = new javax.swing.JPasswordField();
+        textArea1 = new java.awt.TextArea();
         button1 = new java.awt.Button();
-        jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        textField1 = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jPasswordField2.setText("jPasswordField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("QUẢN LÝ NHÀ SÁCH");
-        setMaximumSize(new java.awt.Dimension(450, 340));
-        setMinimumSize(new java.awt.Dimension(450, 340));
+        setTitle("Đăng nhập");
+        setMaximumSize(new java.awt.Dimension(500, 340));
+        setMinimumSize(new java.awt.Dimension(500, 340));
         setName("fLogin"); // NOI18N
         getContentPane().setLayout(null);
 
-        button1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        button1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         button1.setLabel("Đăng nhập");
         button1.setName("btnLogin"); // NOI18N
         button1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,36 +62,32 @@ public class fLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(button1);
-        button1.setBounds(240, 180, 100, 29);
+        button1.setBounds(250, 170, 91, 27);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setText("Tên đăng nhập:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 80, 140, 20);
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPasswordField1.setName("pwfPassWord"); // NOI18N
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(180, 120, 250, 23);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setText("Mật khẩu:");
+        textField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        textField1.setName("txfUserName"); // NOI18N
+        getContentPane().add(textField1);
+        textField1.setBounds(180, 70, 250, 23);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Tên đăng nhập");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 130, 100, 20);
+        jLabel2.setBounds(40, 70, 104, 17);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(180, 80, 240, 26);
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(180, 130, 240, 26);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("ĐĂNG NHẬP");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Mật khẩu");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(210, 30, 170, 30);
+        jLabel3.setBounds(40, 120, 64, 17);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AnhBiaLogin.jpg"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(-6, 0, 480, 340);
-
-        getAccessibleContext().setAccessibleName("Quản lý nhà sách");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AnhBiaLogin.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 500, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,10 +142,10 @@ public class fLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private java.awt.TextArea textArea1;
+    private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }
 

@@ -7,6 +7,7 @@ package GUI;
 import  DAL.DiscountDAL;
 import BLL.DiscountBLL;
 import Utilties.ControlFormat;
+import java.awt.Toolkit;
 
 /**
  *
@@ -21,6 +22,11 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
     public DiscountBLL discountBLL=new DiscountBLL();
     public fSearchDiscount() {
         initComponents();
+        Toolkit tk =Toolkit.getDefaultToolkit();
+        int x=(int) tk.getScreenSize().getWidth();
+        int y=(int)tk.getScreenSize().getHeight();  
+        setSize(x, y);
+        jLabel2.setSize(x,y);
         control.bindingDiscount(jTableSearchDiscount, discountBLL.LoadDiscount());
     }
 
@@ -39,12 +45,16 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableSearchDiscount = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
+        getContentPane().setLayout(null);
+
+        jPanel1.setOpaque(false);
 
         txfSearchDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchDiscount.setText("Tìm kiếm");
         btnSearchDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +83,9 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(101, 140, 515, 71);
+
         jTableSearchDiscount.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -86,37 +99,17 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTableSearchDiscount);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(42, 254, 914, 291);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("TRA CỨU KHUYẾN MÃI");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(349, 39, 344, 37);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 914, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(349, 349, 349)
-                        .addComponent(jLabel1)))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jLabel1)
-                .addGap(64, 64, 64)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(-10, 0, 1120, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,6 +125,7 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearchDiscount;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableSearchDiscount;

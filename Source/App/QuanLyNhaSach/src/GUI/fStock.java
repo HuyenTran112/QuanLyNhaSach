@@ -13,6 +13,7 @@ import BLL.BookStockBLL;
 import BLL.BookStockDetailBLL;
 import Entity.Book;
 import Entity.BookStock;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -33,6 +34,15 @@ public class fStock extends javax.swing.JInternalFrame {
     BookStockDetailBLL bookStockDetailBLL =new BookStockDetailBLL();
     public fStock() {
         initComponents();
+        Toolkit tk =Toolkit.getDefaultToolkit();
+        int x=(int) tk.getScreenSize().getWidth();
+        int y=(int)tk.getScreenSize().getHeight();
+        jPanel1.setSize(x, y);
+        jPanel2.setSize(x,y);
+        jPanel3.setSize(x, y);
+        jLabel6.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
+        jLabel9.setSize((int)jPanel3.getSize().getWidth(), (int)jPanel3.getSize().getHeight());
+        jLabel19.setSize((int)jPanel2.getSize().getWidth(), (int)jPanel2.getSize().getHeight());
         control.bindingDistributor(jTableDistributorInfo,distributorBLL.LoadDistributor());
         control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
         control.bindingBookStockDetail(jTableStockInfo, bookStockDetailBLL.LoadBookStockDetail());
@@ -88,6 +98,7 @@ public class fStock extends javax.swing.JInternalFrame {
         btnSaveDistributorInfo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDistributorInfo = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -98,7 +109,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         txfIDStock = new javax.swing.JTextField();
         jDateChooserStock = new com.toedter.calendar.JDateChooser();
-        cbNameDistributorStock = new javax.swing.JComboBox<String>();
+        cbNameDistributorStock = new javax.swing.JComboBox<>();
         txfTotalStock = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -109,6 +120,7 @@ public class fStock extends javax.swing.JInternalFrame {
         btnSaveStock = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStock = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -119,8 +131,8 @@ public class fStock extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         txfAmountStockInfo = new javax.swing.JTextField();
-        cbIDStockInfo = new javax.swing.JComboBox<String>();
-        cbNameBookStockInfo = new javax.swing.JComboBox<String>();
+        cbIDStockInfo = new javax.swing.JComboBox<>();
+        cbNameBookStockInfo = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         txfAmount = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -132,18 +144,25 @@ public class fStock extends javax.swing.JInternalFrame {
         btnSaveStockInfo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableStockInfo = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("QUẢN LÝ NHẬP SÁCH");
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("QUẢN LÍ THÔNG TIN NHÀ CUNG CẤP SÁCH");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(159, 53, 647, 37);
+
+        jPanel4.setOpaque(false);
 
         txfSearchDistributorStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchDistributorStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchDistributorStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchDistributorStock.setText("Tìm kiếm");
         btnSearchDistributorStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,19 +188,24 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnSearchDistributorStock)
                     .addComponent(txfSearchDistributorStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(10, 101, 387, 66);
+
+        jPanel5.setOpaque(false);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Mã nhà cung cấp");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Tên nhà cung cấp");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Địa chỉ");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Số điện thoại");
 
         txfIDDistributorInfo.setEditable(false);
@@ -201,11 +225,11 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txfIDDistributorInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                     .addComponent(txfNameDistributorInfo)
@@ -235,7 +259,12 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        btnAddDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(10, 193, 428, 201);
+
+        jPanel6.setOpaque(false);
+
+        btnAddDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddDistributorInfo.setText("THÊM");
         btnAddDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,7 +272,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEditDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnEditDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditDistributorInfo.setText("CẬP NHẬT");
         btnEditDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +280,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSaveDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveDistributorInfo.setText("LƯU");
         btnSaveDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,7 +299,7 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addComponent(btnEditDistributorInfo)
                 .addGap(61, 61, 61)
                 .addComponent(btnSaveDistributorInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,6 +311,9 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addComponent(btnSaveDistributorInfo))
                 .addContainerGap())
         );
+
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(39, 447, 399, 47);
 
         jTableDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableDistributorInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -302,54 +334,28 @@ public class fStock extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableDistributorInfo);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(102, 102, 102)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(176, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(540, 193, 515, 407);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(-30, 0, 1280, 710);
 
         jTabbedPane1.addTab("Nhà cung cấp sách", jPanel1);
 
+        jPanel2.setLayout(null);
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel7.setText("QUẢN LÝ PHIẾU NHẬP SÁCH");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(423, 57, 430, 37);
 
         jPanel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel7.setOpaque(false);
 
         txfSearchStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchStock.setText("Tìm kiếm");
         btnSearchStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,13 +381,18 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfSearchStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchStock))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel2.add(jPanel7);
+        jPanel7.setBounds(10, 112, 451, 54);
+
+        jPanel8.setOpaque(false);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Ngày nhập");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Tổng tiền");
 
         txfIDStock.setEditable(false);
@@ -395,10 +406,10 @@ public class fStock extends javax.swing.JInternalFrame {
         txfTotalStock.setEditable(false);
         txfTotalStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Tên nhà cung cấp");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Số phiếu nhập");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -421,7 +432,7 @@ public class fStock extends javax.swing.JInternalFrame {
                                 .addComponent(jDateChooserStock, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                                 .addComponent(cbNameDistributorStock, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addComponent(jLabel10))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,10 +455,15 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(txfTotalStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        btnAddStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel2.add(jPanel8);
+        jPanel8.setBounds(10, 197, 393, 243);
+
+        jPanel9.setOpaque(false);
+
+        btnAddStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddStock.setText("THÊM");
         btnAddStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -455,7 +471,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEditStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnEditStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditStock.setText("CẬP NHẬT");
         btnEditStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -463,7 +479,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnDelStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelStock.setText("XÓA");
         btnDelStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,7 +487,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSaveStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveStock.setText("LƯU");
         btnSaveStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,6 +522,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.add(jPanel9);
+        jPanel9.setBounds(10, 458, 426, 47);
+
         jTableStock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -524,53 +543,27 @@ public class fStock extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTableStock);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(423, 423, 423)
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        jPanel2.add(jScrollPane2);
+        jScrollPane2.setBounds(652, 197, 554, 402);
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel2.add(jLabel19);
+        jLabel19.setBounds(-20, 0, 1260, 690);
 
         jTabbedPane1.addTab("Phiếu nhập sách", jPanel2);
 
+        jPanel3.setLayout(null);
+
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel13.setText("QUẢN LÍ CHI TIẾT PHIẾU NHẬP SÁCH");
+        jPanel3.add(jLabel13);
+        jLabel13.setBounds(417, 55, 570, 37);
+
+        jPanel10.setOpaque(false);
 
         txfSearchStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchStockInfo.setText("Tìm kiếm");
         btnSearchStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -596,16 +589,21 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchStockInfo))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel3.add(jPanel10);
+        jPanel10.setBounds(10, 110, 360, 57);
+
+        jPanel11.setOpaque(false);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("Số phiếu nhập");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Tên sách");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Số lượng");
 
         txfAmountStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -613,15 +611,15 @@ public class fStock extends javax.swing.JInternalFrame {
         cbIDStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         cbNameBookStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cbNameBookStockInfo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbNameBookStockInfo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Thành tiền");
 
         txfAmount.setEditable(false);
         txfAmount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Giá nhập");
 
         txfCost.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -646,7 +644,7 @@ public class fStock extends javax.swing.JInternalFrame {
                         .addComponent(cbIDStockInfo, 0, 216, Short.MAX_VALUE)
                         .addComponent(cbNameBookStockInfo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txfAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,7 +675,12 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btnAddStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel3.add(jPanel11);
+        jPanel11.setBounds(10, 185, 374, 200);
+
+        jPanel12.setOpaque(false);
+
+        btnAddStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddStockInfo.setText("THÊM");
         btnAddStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,7 +688,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEditStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnEditStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditStockInfo.setText("CẬP NHẬT");
         btnEditStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -693,7 +696,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnDelStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelStockInfo.setText("XÓA");
         btnDelStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -701,7 +704,7 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSaveStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSaveStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveStockInfo.setText("LƯU");
         btnSaveStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -722,7 +725,7 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addComponent(btnDelStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSaveStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -735,6 +738,9 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addComponent(btnSaveStockInfo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel3.add(jPanel12);
+        jPanel12.setBounds(18, 403, 438, 47);
 
         jTableStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableStockInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -755,44 +761,12 @@ public class fStock extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTableStockInfo);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
-                .addGap(244, 244, 244))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(160, 160, 160)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(88, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(616, 185, 527, 402);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(-10, 0, 1240, 700);
 
         jTabbedPane1.addTab("Chi tiết phiếu nhập sách", jPanel3);
 
@@ -800,15 +774,11 @@ public class fStock extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
 
         pack();
@@ -1288,12 +1258,15 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

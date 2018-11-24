@@ -18,14 +18,22 @@ public class fManagement extends javax.swing.JFrame {
     /**
      * Creates new form fManagement
      */
+    Toolkit tk =Toolkit.getDefaultToolkit();
+    public int getSizeX()
+    {
+        return (int)jDesktopPane1.getSize().getWidth();
+    }
+    public int getSizeY()
+    {
+        return (int)jDesktopPane1.getSize().getHeight();
+    }
     public fManagement() {
         initComponents(); 
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        Toolkit tk =Toolkit.getDefaultToolkit();
         int x=(int) tk.getScreenSize().getWidth();
-        int y=(int)tk.getScreenSize().getHeight();
+        int y=(int)tk.getScreenSize().getHeight();  
         setSize(x, y);
     }
 
@@ -249,6 +257,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaleActionPerformed
         // TODO add your handling code here:
         fSales f = new fSales();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
         
@@ -262,13 +271,15 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustomerActionPerformed
         // TODO add your handling code here:
         fCustomer f = new fCustomer();
-        //this.jDesktopPane1.add(f);
+        f.setSize(this.getSizeX(), this.getSizeY());
+        this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemCustomerActionPerformed
 
     private void jMenuItemListBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListBookActionPerformed
         // TODO add your handling code here:
         fListBook f = new fListBook();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemListBookActionPerformed
@@ -276,6 +287,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSearchBookActionPerformed
         // TODO add your handling code here:
         fSearchBook f = new fSearchBook();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemSearchBookActionPerformed
@@ -283,13 +295,15 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDiscountActionPerformed
         // TODO add your handling code here:
         fDiscount f = new fDiscount();
-        this.jDesktopPane1.add(f);
+        f.setSize(this.getSizeX(), this.getSizeY());
+        jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemDiscountActionPerformed
 
     private void jMenuItemSearchDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSearchDiscountActionPerformed
         // TODO add your handling code here:
         fSearchDiscount f = new fSearchDiscount();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemSearchDiscountActionPerformed
@@ -297,6 +311,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStockActionPerformed
         // TODO add your handling code here:
         fStock f = new fStock();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemStockActionPerformed
@@ -304,6 +319,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemReportRevenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReportRevenueActionPerformed
         // TODO add your handling code here:
         fReportRevenue f = new fReportRevenue();
+       f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemReportRevenueActionPerformed
@@ -311,6 +327,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemInventoryActionPerformed
         // TODO add your handling code here:
         fReportInventory f = new fReportInventory();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemInventoryActionPerformed
@@ -318,6 +335,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItemStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStaffActionPerformed
         // TODO add your handling code here:
         fStaff f = new fStaff();
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemStaffActionPerformed
@@ -325,6 +343,7 @@ public class fManagement extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         fUser f = new fUser();
+       f.setSize(this.getSizeX(), this.getSizeY());;
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -354,6 +373,10 @@ public class fManagement extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(fManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
