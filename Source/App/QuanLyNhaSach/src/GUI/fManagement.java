@@ -66,7 +66,7 @@ public class fManagement extends javax.swing.JFrame {
         jMenuStaff = new javax.swing.JMenu();
         jMenuItemStaff = new javax.swing.JMenuItem();
         jMenuUser = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemUser = new javax.swing.JMenuItem();
         jMenuRule = new javax.swing.JMenu();
         jMenuItemRule = new javax.swing.JMenuItem();
 
@@ -227,14 +227,9 @@ public class fManagement extends javax.swing.JFrame {
         jMenuUser.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jMenuUser.setName("jMenuUser"); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItem1.setText("Người dùng");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenuUser.add(jMenuItem1);
+        jMenuItemUser.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jMenuItemUser.setText("Người dùng");
+        jMenuUser.add(jMenuItemUser);
 
         jMenuBar1.add(jMenuUser);
 
@@ -356,14 +351,6 @@ public class fManagement extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemStaffActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        fUser f = new fUser();
-       f.setSize(this.getSizeX(), this.getSizeY());;
-        this.jDesktopPane1.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItemRuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRuleActionPerformed
         // TODO add your handling code here:
         fRule f = new fRule();
@@ -421,7 +408,6 @@ public class fManagement extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCustomer;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCustomer;
     private javax.swing.JMenuItem jMenuItemDiscount;
     private javax.swing.JMenuItem jMenuItemInventory;
@@ -433,6 +419,7 @@ public class fManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSearchDiscount;
     private javax.swing.JMenuItem jMenuItemStaff;
     private javax.swing.JMenuItem jMenuItemStock;
+    private javax.swing.JMenuItem jMenuItemUser;
     private javax.swing.JMenu jMenuListBook;
     private javax.swing.JMenu jMenuRule;
     private javax.swing.JMenu jMenuStaff;
