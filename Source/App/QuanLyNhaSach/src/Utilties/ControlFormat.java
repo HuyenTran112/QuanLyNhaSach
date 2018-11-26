@@ -6,6 +6,7 @@
 package Utilties;
 
 import Entity.Bill;
+import Entity.BillInfo;
 import Entity.Book;
 import Entity.BookCategogy;
 import Entity.BookStock;
@@ -13,6 +14,7 @@ import Entity.BookStockDetail;
 import Entity.Customer;
 import Entity.Discount;
 import Entity.Distributor;
+import Entity.Rule;
 import Entity.Staff;
 import javax.swing.JTable;
 import java.util.ArrayList;
@@ -242,8 +244,11 @@ public class ControlFormat {
         header.add("Số hóa đơn");
         header.add("Ngày hóa đơn");
         header.add("Mã khách hàng");
+        header.add("Tên khách hàng");
         header.add("Mã nhân viên");
-        header.add("Thuế VAT");
+        header.add("Tên nhân viên");
+        header.add("VAT");
+        header.add("Hệ số khuyến mãi");
         header.add("Trị giá");
         header.add("Tổng tiền");
         
@@ -254,11 +259,47 @@ public class ControlFormat {
             row.add(bill.getIDBill());
             row.add(bill.getBillDate());
             row.add(bill.getIDCustomer());
+            row.add(bill.getNameCustomer());
             row.add(bill.getIDStaff());
+            row.add(bill.getNameStaff());
             row.add(bill.getVAT());
+            row.add(bill.getDiscount());
             row.add(bill.getTotalPrice());
             row.add(bill.getTotalPay());
             
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
+    
+    //Lấy dữ liệu chi tiết hóa đơn
+    public void bindingBillInfo(JTable name, ArrayList<BillInfo> arrBillInfo)
+    {
+        Vector header = new Vector();
+        header.add("Số hóa đơn");
+        header.add("Mã sách");
+        header.add("Tên sách");
+        header.add("Giá bán");
+        header.add("Số lượng");       
+        header.add("Thành tiền");
+        
+        Vector data = new Vector();
+        for(BillInfo billinfo : arrBillInfo)
+        {
+            Vector row = new Vector();
+            row.add(billinfo.getIDBill());
+            row.add(billinfo.getIDBook());
+            row.add(billinfo.getNameBook());
+            row.add(billinfo.getPriceBook());
+            row.add(billinfo.getAmount());           
+            row.add(billinfo.getPriceBillInfo());
             data.add(row);
         }
         DefaultTableModel dtm = new DefaultTableModel(data , header)
@@ -304,5 +345,36 @@ public class ControlFormat {
         };
         name.setModel(dtm);
     }
-    
+    //Lấy dữ liệu quy định
+    public void bindingRule(JTable name ,ArrayList<Rule> arrRule)
+    {
+        Vector header = new Vector();
+        header.add("Số lượng tồn tối đa");
+        header.add("Số lượng tồn tối thiểu");
+        header.add("Tỉ lệ tính giá bán");
+        header.add("Số lượng nhập tối đa");
+        header.add("Số lượng nhập tối thiểu");
+        header.add("VAT");
+        
+        Vector data = new Vector();
+        for(Rule rule : arrRule)
+        {
+            Vector row = new Vector();
+            row.add(rule.getMaxInventoryNum());
+            row.add(rule.getMinInventoryNum());
+            row.add(rule.getPriceRatio());
+            row.add(rule.getMaxStockNum());
+            row.add(rule.getMinStockNum());
+            row.add(rule.getVAT());
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
 }

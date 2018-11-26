@@ -31,8 +31,11 @@ public class BillDAL extends DataAccessHelper{
                     bill.setIDBill(rs.getInt("SOHD"));
                     bill.setBillDate(rs.getDate("NGAYHD"));
                     bill.setIDCustomer(rs.getInt("MAKH"));
+                    bill.setNameCustomer(rs.getString("TENKH"));
                     bill.setIDStaff(rs.getInt("MANV"));
+                    bill.setNameStaff(rs.getString("TENNV"));
                     bill.setVAT(rs.getFloat("VAT"));
+                    bill.setDiscount(rs.getFloat("HESOKM"));
                     bill.setTotalPrice(rs.getFloat("TRIGIA"));
                     bill.setTotalPay(rs.getFloat("TONGTIEN"));
                     
@@ -46,9 +49,9 @@ public class BillDAL extends DataAccessHelper{
     }
     
     //Thêm hóa đơn
-    public boolean  InsertBill(String BillDate, int IDCustomer, int IDStaff, float VAT)
+    public boolean  InsertBill(String BillDate, int IDCustomer, int IDStaff)
      {
-         String SQL = "EXEC SP_INSERTBILL '" + BillDate + "', " + IDCustomer + ", " + IDStaff + ", " + VAT;
+         String SQL = "EXEC SP_INSERTBILL '" + BillDate + "', " + IDCustomer + ", " + IDStaff;
           try{
             getConnect();
             Statement st = conn.createStatement();
@@ -63,15 +66,16 @@ public class BillDAL extends DataAccessHelper{
      }
     
     //Cập nhật hóa đơn
-    public boolean UpdateBill(int IDBill, String BillDate, int IDCustomer, int IDStaff, float VAT)
+    public boolean UpdateBill(int IDBill, String BillDate, int IDCustomer, int IDStaff)
     {
-        String SQL = "EXEC SP_UPDATEBILL " + IDBill + ", " + "'" + BillDate + "', " + IDCustomer + ", " + IDStaff + ", " + VAT;
+        String SQL = "EXEC SP_UPDATEBILL " + IDBill + ", " + "'" + BillDate + "', " + IDCustomer + ", " + IDStaff;
         try {
             getConnect();
             Statement st = conn.createStatement();
             int rs=st.executeUpdate(SQL);
             if(rs > 0)
                 return true;
+            getClose();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -88,6 +92,7 @@ public class BillDAL extends DataAccessHelper{
             int rs=st.executeUpdate(SQL);
             if(rs>0)
                 return true;
+            getClose();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,8 +113,11 @@ public class BillDAL extends DataAccessHelper{
                     bill.setIDBill(rs.getInt("SOHD"));
                     bill.setBillDate(rs.getDate("NGAYHD"));
                     bill.setIDCustomer(rs.getInt("MAKH"));
+                    bill.setNameCustomer(rs.getString("TENKH"));
                     bill.setIDStaff(rs.getInt("MANV"));
+                    bill.setNameStaff(rs.getString("TENNV"));
                     bill.setVAT(rs.getFloat("VAT"));
+                    bill.setDiscount(rs.getFloat("HESOKM"));
                     bill.setTotalPrice(rs.getFloat("TRIGIA"));
                     bill.setTotalPay(rs.getFloat("TONGTIEN"));
                     
@@ -120,6 +128,112 @@ public class BillDAL extends DataAccessHelper{
             e.printStackTrace();
         }
         return temp;
+    }
+    
+    //Lấy trị giá hóa đơn theo số HD
+    public float getTotalPriceByIDBill(int IDBill)
+    {
+        String SQL = "SELECT TRIGIA FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getFloat("TRIGIA");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //Lấy tổng tiền hóa đơn theo số hóa đơn
+    public float getTotalPayByIDBill(int IDBill)
+    {
+        String SQL = "SELECT TONGTIEN FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getFloat("TONGTIEN");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //Lấy Hệ số khuyến mãi hóa đơn theo số hóa đơn
+    public float getDiscountByIDBill(int IDBill)
+    {
+        String SQL = "SELECT HESOKM FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getFloat("HESOKM");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //Lấy VAT hóa đơn theo số hóa đơn
+    public float getVATByIDBill(int IDBill)
+    {
+        String SQL = "SELECT VAT FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getFloat("VAT");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //Lấy mã khách hàng theo số hóa đơn
+    public int getIDCustomerByIDBill(int IDBill)
+    {
+        String SQL = "SELECT MAKH FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getInt("MAKH");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //Lấy tên nhân viên thu ngân theo số hóa đơn
+    public String getNameStaffByIDBill(int IDBill)
+    {
+        String SQL = "EXEC SP_GETNAMESTAFFBYIDBILL " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getString("TENNV");
+            getClose();
+        } catch (Exception e) {
+        }
+        return "";
+    }
+    //Lấy ngày hóa đơn theo số hóa đơn
+    public String getDateBillByIDBill(int IDBill)
+    {
+        String SQL = "SELECT NGAYHD FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getString("NGAYHD");
+            getClose();
+        } catch (Exception e) {
+        }
+        return "";
     }
     
 }

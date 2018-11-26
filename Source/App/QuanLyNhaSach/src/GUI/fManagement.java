@@ -67,6 +67,8 @@ public class fManagement extends javax.swing.JFrame {
         jMenuItemStaff = new javax.swing.JMenuItem();
         jMenuUser = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuRule = new javax.swing.JMenu();
+        jMenuItemRule = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
@@ -236,6 +238,20 @@ public class fManagement extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuUser);
 
+        jMenuRule.setText("Quy định");
+        jMenuRule.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+
+        jMenuItemRule.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jMenuItemRule.setText("Quy định");
+        jMenuItemRule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRuleActionPerformed(evt);
+            }
+        });
+        jMenuRule.add(jMenuItemRule);
+
+        jMenuBar1.add(jMenuRule);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -348,6 +364,14 @@ public class fManagement extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItemRuleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRuleActionPerformed
+        // TODO add your handling code here:
+        fRule f = new fRule();
+        f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItemRuleActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -403,12 +427,14 @@ public class fManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemInventory;
     private javax.swing.JMenuItem jMenuItemListBook;
     private javax.swing.JMenuItem jMenuItemReportRevenue;
+    private javax.swing.JMenuItem jMenuItemRule;
     private javax.swing.JMenuItem jMenuItemSale;
     private javax.swing.JMenuItem jMenuItemSearchBook;
     private javax.swing.JMenuItem jMenuItemSearchDiscount;
     private javax.swing.JMenuItem jMenuItemStaff;
     private javax.swing.JMenuItem jMenuItemStock;
     private javax.swing.JMenu jMenuListBook;
+    private javax.swing.JMenu jMenuRule;
     private javax.swing.JMenu jMenuStaff;
     private javax.swing.JMenu jMenuStock;
     private javax.swing.JMenu jMenuUser;
