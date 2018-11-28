@@ -16,6 +16,7 @@ import Entity.Discount;
 import Entity.Distributor;
 import Entity.Rule;
 import Entity.Staff;
+import Entity.User;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -334,6 +335,7 @@ public class ControlFormat {
             row.add(staff.getAddress());
             row.add(staff.getPhoneNumber());
             row.add(staff.getStartDate());
+            row.add(staff.getStatus());
             data.add(row);
         }
          DefaultTableModel dtm = new DefaultTableModel(data , header)
@@ -366,6 +368,35 @@ public class ControlFormat {
             row.add(rule.getMaxStockNum());
             row.add(rule.getMinStockNum());
             row.add(rule.getVAT());
+            data.add(row);
+        }
+        DefaultTableModel dtm = new DefaultTableModel(data , header)
+        {
+            public boolean isCellEditable(int row , int column)
+            {
+                return false;
+            }
+        };
+        name.setModel(dtm);
+    }
+    //Lấy dữ liệu người dùng
+    public void bindingUser(JTable name ,ArrayList<User> arr)
+    {
+        Vector header = new Vector();
+        header.add("Tên nhóm");
+        header.add("Tên nhân viên");
+        header.add("Tên đăng nhập");
+        header.add("Tên hiện thị");
+        header.add("Mật khẩu");
+        Vector data = new Vector();
+        for(User user : arr)
+        {
+            Vector row = new Vector();
+            row.add(user.getNameCategogy());
+            row.add(user.getNameStaff());
+            row.add(user.getUserName());
+            row.add(user.getDisplayName());
+            row.add(user.getPassWord());
             data.add(row);
         }
         DefaultTableModel dtm = new DefaultTableModel(data , header)

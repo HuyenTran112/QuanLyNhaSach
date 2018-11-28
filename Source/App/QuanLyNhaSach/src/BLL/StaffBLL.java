@@ -38,4 +38,9 @@ public class StaffBLL {
     {
         return DAL.arrSearchStaff(KEY);
     }
+    //Lấy mã nhân viên theo tên nhân viên
+    public int getIDStaff(String NameStaff)
+    {
+        return DAL.getIDStaff(NameStaff);
+    }
 }

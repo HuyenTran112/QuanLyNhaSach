@@ -229,6 +229,11 @@ public class fManagement extends javax.swing.JFrame {
 
         jMenuItemUser.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jMenuItemUser.setText("Người dùng");
+        jMenuItemUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUserActionPerformed(evt);
+            }
+        });
         jMenuUser.add(jMenuItemUser);
 
         jMenuBar1.add(jMenuUser);
@@ -358,6 +363,14 @@ public class fManagement extends javax.swing.JFrame {
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemRuleActionPerformed
+
+    private void jMenuItemUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUserActionPerformed
+        // TODO add your handling code here:
+        fUser f =new fUser();
+        f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUserActionPerformed
 
     /**
      * @param args the command line arguments

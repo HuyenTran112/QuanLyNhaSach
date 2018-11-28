@@ -6,34 +6,109 @@
 package DAL;
 
 import Entity.User;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
  * @author Bui Thi Huyen Tran
  */
-public class UserDAL {
+public class UserDAL extends  DataAccessHelper{
     //Load danh sách người dung
     public ArrayList<User> LoadUser()
     {
         ArrayList <User> temp= new ArrayList<>();
-        String SQL="";
-        
+        String SQL="EXEC SP_LOADUSER";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs!=null)
+                while(rs.next())
+                {
+                    User user =new User();
+                    user.setNameCategogy(rs.getString("TENNHOM"));
+                    user.setNameStaff(rs.getString("TENNV"));
+                    user.setUserName(rs.getString("TENDANGNHAP"));
+                    user.setDisplayName(rs.getString("TENHIENTHI"));
+                    user.setPassWord(rs.getString("MATKHAU"));
+                    temp.add(user);
+                }
+            getClose();
+        } catch (Exception e) {
+        }
         return temp;
     }
     //Thêm người dùng
-    public boolean  InsertUser()
+    public boolean  InsertUser(int IDCategogy ,int IDStaff)
     {
+        String SQL="EXEC SP_INSERTUSER '"+IDCategogy+"','"+IDStaff+"'";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs>0)
+                return true;
+            getClose();
+        } catch (Exception e) {
+        }
         return false;
     }
     //Cập nhật người dùng
-    public boolean UpdateUser()
+    public boolean UpdateUser(int IDCategogy , int IDStaff ,String PassWord )
     {
+        String SQL="EXEC SP_UPDATEUSER '"+IDCategogy+"','"+IDStaff+"',N'"+PassWord+"'";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs>0)
+                return true;
+            getClose();
+        } catch (Exception e) {
+        }
         return false;
     }
     //Xóa người dùng
-    public boolean DeleteUser()
+    public boolean DeleteUser(int IDStaff)
     {
+        String SQL ="EXEC SP_DELETEUSER '"+IDStaff+"'";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs>0)
+                return true;
+            getClose();
+        } catch (Exception e) {
+        }
         return false;
     }
+    //Tìm người dùng theo mã nhân viên
+      public ArrayList<User> SerachUser(String KEY)
+    {
+        ArrayList <User> temp= new ArrayList<>();
+        String SQL="EXEC SP_SEAECHLOADUSER N'"+KEY+"'";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs!=null)
+                while(rs.next())
+                {
+                    User user =new User();
+                    user.setNameCategogy(rs.getString("TENNHOM"));
+                    user.setNameStaff(rs.getString("TENNV"));
+                    user.setUserName(rs.getString("TENDANGNHAP"));
+                    user.setDisplayName(rs.getString("TENHIENTHI"));
+                    user.setPassWord(rs.getString("MATKHAU"));
+                    temp.add(user);
+                }
+            getClose();
+        } catch (Exception e) {
+        }
+        return temp;
+    }
+    
 }

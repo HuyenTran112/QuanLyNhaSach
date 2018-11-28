@@ -134,7 +134,22 @@ public class StaffDAL extends  DataAccessHelper{
         }
         return temp;
     }
-    
+   //Lấy mã nhân viên theo tên nhân viên
+    public int getIDStaff(String NameStaff)
+    {
+        String SQL="SELECT MANV FROM NHANVIEN WHERE TENNV=N'"+NameStaff+"'";
+        try {
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs =st.executeQuery(SQL);
+            if(rs!=null &&rs.next() )
+                return rs.getInt("MANV");
+            getClose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
    
 }

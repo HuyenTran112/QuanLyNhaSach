@@ -19,5 +19,20 @@ public class UserBLL {
     {
         return DAL.LoadUser();
     }
-    
+    public boolean  InsertUser(int IDCategogy ,int IDStaff)
+    {
+        return DAL.InsertUser(IDCategogy, IDStaff);
+    }
+    public boolean UpdateUser(int IDCategogy , int IDStaff ,String PassWord)
+    {
+        return DAL.UpdateUser(IDCategogy, IDStaff, PassWord);
+    }
+    public boolean DeleteUser(int IDStaff)
+    {
+        return DAL.DeleteUser(IDStaff);
+    }
+    public ArrayList<User> SearchUser(String key)
+    {
+        return DAL.SerachUser(key);
+    }
 }
