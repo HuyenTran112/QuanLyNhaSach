@@ -35,4 +35,12 @@ public class UserBLL {
     {
         return DAL.SerachUser(key);
     }
+     public boolean Login(String username ,String password )
+    {
+        return DAL.Login(username, password);
+    }
+      public String getCategogyUser(String username )
+    {
+        return DAL.getCategogyUser(username);
+    }
 }

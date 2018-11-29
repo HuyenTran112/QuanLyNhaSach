@@ -49,12 +49,9 @@ public class fManagement extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItemSale = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItemDiscount = new javax.swing.JMenuItem();
         jMenuItemSearchDiscount = new javax.swing.JMenuItem();
-        jMenuCustomer = new javax.swing.JMenu();
-        jMenuItemCustomer = new javax.swing.JMenuItem();
         jMenuListBook = new javax.swing.JMenu();
         jMenuItemListBook = new javax.swing.JMenuItem();
         jMenuItemSearchBook = new javax.swing.JMenuItem();
@@ -84,19 +81,9 @@ public class fManagement extends javax.swing.JFrame {
             .addGap(0, 373, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Bán hàng");
+        jMenu1.setText("Khuyến mãi");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jMenu1.setName("jMenuSale"); // NOI18N
-
-        jMenuItemSale.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItemSale.setText("Bán hàng");
-        jMenuItemSale.setName("jMenuItemSale"); // NOI18N
-        jMenuItemSale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSaleActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemSale);
 
         jMenu2.setText("Khuyến mãi");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -122,26 +109,6 @@ public class fManagement extends javax.swing.JFrame {
         jMenu1.add(jMenu2);
 
         jMenuBar1.add(jMenu1);
-
-        jMenuCustomer.setText("Khách hàng");
-        jMenuCustomer.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jMenuCustomer.setName("jMenuCustomer"); // NOI18N
-        jMenuCustomer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuCustomerActionPerformed(evt);
-            }
-        });
-
-        jMenuItemCustomer.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItemCustomer.setText("Khách hàng");
-        jMenuItemCustomer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemCustomerActionPerformed(evt);
-            }
-        });
-        jMenuCustomer.add(jMenuItemCustomer);
-
-        jMenuBar1.add(jMenuCustomer);
 
         jMenuListBook.setText("Danh mục sách");
         jMenuListBook.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -269,28 +236,6 @@ public class fManagement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaleActionPerformed
-        // TODO add your handling code here:
-        fSales f = new fSales();
-        f.setSize(this.getSizeX(), this.getSizeY());
-        this.jDesktopPane1.add(f);
-        f.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItemSaleActionPerformed
-
-    private void jMenuCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCustomerActionPerformed
-        
-        
-    }//GEN-LAST:event_jMenuCustomerActionPerformed
-
-    private void jMenuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustomerActionPerformed
-        // TODO add your handling code here:
-        fCustomer f = new fCustomer();
-        f.setSize(this.getSizeX(), this.getSizeY());
-        this.jDesktopPane1.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItemCustomerActionPerformed
 
     private void jMenuItemListBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListBookActionPerformed
         // TODO add your handling code here:
@@ -420,14 +365,11 @@ public class fManagement extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuCustomer;
-    private javax.swing.JMenuItem jMenuItemCustomer;
     private javax.swing.JMenuItem jMenuItemDiscount;
     private javax.swing.JMenuItem jMenuItemInventory;
     private javax.swing.JMenuItem jMenuItemListBook;
     private javax.swing.JMenuItem jMenuItemReportRevenue;
     private javax.swing.JMenuItem jMenuItemRule;
-    private javax.swing.JMenuItem jMenuItemSale;
     private javax.swing.JMenuItem jMenuItemSearchBook;
     private javax.swing.JMenuItem jMenuItemSearchDiscount;
     private javax.swing.JMenuItem jMenuItemStaff;

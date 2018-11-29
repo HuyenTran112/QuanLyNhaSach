@@ -6,6 +6,7 @@
 package DAL;
 
 import Entity.User;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -110,5 +111,35 @@ public class UserDAL extends  DataAccessHelper{
         }
         return temp;
     }
-    
+    //Đăng nhập
+     public boolean Login(String username ,String password )
+    {
+        String SQL="EXEC SP_LOGIN N'"+username+"',N'"+password+"'";
+        try {
+            getConnect();
+            PreparedStatement ps =conn.prepareStatement(SQL);
+            ResultSet rs=ps.executeQuery();
+            if(rs!=null)
+                return true;
+            getClose();
+        } catch (Exception e) {
+        }
+        return false;
+    } 
+     //Lấy tên nhóm theo tên đăng nhập
+     public String getCategogyUser(String username )
+    {
+        String SQL="EXEC SP_GETCATEGOGYUSER N'"+username+"'";
+        try {
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs =st.executeQuery(SQL);
+            if(rs!=null &&rs.next() )
+                return rs.getString("TENNHOM");
+            getClose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 }

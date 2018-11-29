@@ -5,11 +5,13 @@
  */
 package GUI;
 
+import BLL.UserBLL;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,9 +22,11 @@ public class fLogin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    UserBLL userBLL =new UserBLL();
     public fLogin() {
         initComponents();
        this.setLocationRelativeTo(null); 
+       
        
     }
 
@@ -37,64 +41,110 @@ public class fLogin extends javax.swing.JFrame {
 
         jPasswordField2 = new javax.swing.JPasswordField();
         textArea1 = new java.awt.TextArea();
-        button1 = new java.awt.Button();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        textField1 = new java.awt.TextField();
+        btnExit = new java.awt.Button();
+        txfUserName = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        txfPassWord = new javax.swing.JPasswordField();
+        btnLogin = new java.awt.Button();
+        jLabel4 = new javax.swing.JLabel();
 
         jPasswordField2.setText("jPasswordField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Đăng nhập");
-        setMaximumSize(new java.awt.Dimension(500, 340));
         setMinimumSize(new java.awt.Dimension(500, 340));
         setName("fLogin"); // NOI18N
         getContentPane().setLayout(null);
 
-        button1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        button1.setLabel("Đăng nhập");
-        button1.setName("btnLogin"); // NOI18N
-        button1.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnExit.setLabel("Thoát");
+        btnExit.setName("btnLogin"); // NOI18N
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button1ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(button1);
-        button1.setBounds(250, 170, 91, 27);
+        getContentPane().add(btnExit);
+        btnExit.setBounds(340, 170, 90, 27);
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPasswordField1.setName("pwfPassWord"); // NOI18N
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(180, 120, 250, 23);
-
-        textField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        textField1.setName("txfUserName"); // NOI18N
-        getContentPane().add(textField1);
-        textField1.setBounds(180, 70, 250, 23);
+        txfUserName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txfUserName.setName("txfUserName"); // NOI18N
+        getContentPane().add(txfUserName);
+        txfUserName.setBounds(180, 80, 250, 23);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Tên đăng nhập");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 70, 104, 17);
+        jLabel2.setBounds(40, 80, 104, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Mật khẩu");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 120, 64, 17);
+        jLabel3.setBounds(40, 130, 64, 17);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AnhBiaLogin.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 500, 310);
+        txfPassWord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        getContentPane().add(txfPassWord);
+        txfPassWord.setBounds(180, 120, 250, 23);
+
+        btnLogin.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnLogin.setLabel("Đăng nhập");
+        btnLogin.setName("btnLogin"); // NOI18N
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLogin);
+        btnLogin.setBounds(170, 170, 91, 27);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AnhBiaLogin.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 500, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        // TODO add your handling code here:
+        String username=txfUserName.getText().toString();
+        String password =txfPassWord.getText().toString();
+        if(username.equals("") || password.equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Bạn nhập thông tin chưa đầy đủ");
+        }
+        else{
+        if(userBLL.Login(username, password))
+        {
+            if(userBLL.getCategogyUser(username).equals("Nhân viên quản lý"))
+            {
+                fManagement f = new fManagement();
+                f.setVisible(true);
+                this.setVisible(false);
+            }
+            else
+            {
+                if(userBLL.getCategogyUser(username).equals("Nhân viên bán hàng"))
+                {
+                    fManagement1 f = new fManagement1();
+                     f.setVisible(true);
+                 this.setVisible(false);
+                }
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Bạn nhập thông tin đăng nhập chưa chính xác vui lòng nhập lại");
+            txfPassWord.setText("");
+            txfUserName.setText("");
+        }
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,14 +188,15 @@ public class fLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private javax.swing.JLabel jLabel1;
+    private java.awt.Button btnExit;
+    private java.awt.Button btnLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField2;
     private java.awt.TextArea textArea1;
-    private java.awt.TextField textField1;
+    private javax.swing.JPasswordField txfPassWord;
+    private java.awt.TextField txfUserName;
     // End of variables declaration//GEN-END:variables
 }
 
