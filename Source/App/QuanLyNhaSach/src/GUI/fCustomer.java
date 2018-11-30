@@ -70,11 +70,19 @@ public class fCustomer extends javax.swing.JInternalFrame {
         btnSaveCustomer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCustomer = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+
+        setClosable(true);
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("QUẢN LÝ KHÁCH HÀNG");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(276, 27, 350, 37);
 
         txfSearchCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(txfSearchCustomer);
+        txfSearchCustomer.setBounds(10, 91, 275, 25);
 
         btnSearchCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnSearchCustomer.setText("Tìm kiếm");
@@ -83,15 +91,23 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnSearchCustomerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSearchCustomer);
+        btnSearchCustomer.setBounds(314, 90, 120, 27);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Mã khách hàng:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 151, 110, 17);
 
         txfIDCustomer.setEditable(false);
         txfIDCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(txfIDCustomer);
+        txfIDCustomer.setBounds(140, 151, 260, 25);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setText("Tên khách hàng:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 201, 120, 19);
 
         txfNameCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfNameCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -107,14 +123,22 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 txfNameCustomerKeyTyped(evt);
             }
         });
+        getContentPane().add(txfNameCustomer);
+        txfNameCustomer.setBounds(140, 201, 260, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel4.setText("Địa chỉ:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(10, 241, 106, 19);
 
         txfAddressCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(txfAddressCustomer);
+        txfAddressCustomer.setBounds(140, 244, 260, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel5.setText("Số điện thoại:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 281, 106, 19);
 
         txfPhoneCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfPhoneCustomer.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -122,24 +146,38 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 txfPhoneCustomerKeyTyped(evt);
             }
         });
+        getContentPane().add(txfPhoneCustomer);
+        txfPhoneCustomer.setBounds(140, 281, 260, 25);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel6.setText("Ngày sinh:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(10, 331, 79, 19);
 
         jDChBirthdayCustomer.setDateFormatString("dd-MM-yyyy");
         jDChBirthdayCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(jDChBirthdayCustomer);
+        jDChBirthdayCustomer.setBounds(140, 321, 260, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel8.setText("Ngày đăng kí:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(10, 371, 106, 26);
 
         jDChRegisDateCustomer.setDateFormatString("dd-MM-yyyy");
         jDChRegisDateCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(jDChRegisDateCustomer);
+        jDChRegisDateCustomer.setBounds(140, 371, 260, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel7.setText("Doanh số:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(10, 419, 73, 19);
 
         txfTurnoverCustomer.setEditable(false);
         txfTurnoverCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(txfTurnoverCustomer);
+        txfTurnoverCustomer.setBounds(140, 419, 260, 25);
 
         btnAddCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnAddCustomer.setText("THÊM");
@@ -148,6 +186,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnAddCustomerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddCustomer);
+        btnAddCustomer.setBounds(19, 497, 89, 27);
 
         btnEditCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnEditCustomer.setText("CẬP NHẬT");
@@ -156,6 +196,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnEditCustomerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEditCustomer);
+        btnEditCustomer.setBounds(149, 497, 130, 27);
 
         btnSaveCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnSaveCustomer.setText("LƯU");
@@ -164,6 +206,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnSaveCustomerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSaveCustomer);
+        btnSaveCustomer.setBounds(313, 497, 70, 27);
 
         jTableCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,115 +228,12 @@ public class fCustomer extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableCustomer);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txfSearchCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(btnSearchCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(txfIDCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(txfNameCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(txfAddressCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(txfPhoneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(51, 51, 51)
-                                        .addComponent(jDChBirthdayCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7))
-                                        .addGap(24, 24, 24)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txfTurnoverCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jDChRegisDateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(btnAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(41, 41, 41)
-                                        .addComponent(btnEditCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(btnSaveCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(144, 144, 144)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 697, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfSearchCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchCustomer))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(txfIDCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txfNameCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txfAddressCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(txfPhoneCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel6))
-                            .addComponent(jDChBirthdayCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDChRegisDateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(txfTurnoverCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddCustomer)
-                    .addComponent(btnEditCustomer)
-                    .addComponent(btnSaveCustomer))
-                .addContainerGap(60, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(540, 90, 750, 490);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(-10, 0, 1360, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -422,9 +363,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
     private void txfNameCustomerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameCustomerKeyPressed
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if(!(Character.isLetter(c) || (c == KeyEvent.VK_SPACE)))
-            evt.consume();
+        
     }//GEN-LAST:event_txfNameCustomerKeyPressed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
@@ -489,6 +428,9 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
     private void txfPhoneCustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfPhoneCustomerKeyTyped
         // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfPhoneCustomer.getText().length() >= 10)
+            evt.consume();
     }//GEN-LAST:event_txfPhoneCustomerKeyTyped
 
 
@@ -507,6 +449,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCustomer;
     private javax.swing.JTextField txfAddressCustomer;

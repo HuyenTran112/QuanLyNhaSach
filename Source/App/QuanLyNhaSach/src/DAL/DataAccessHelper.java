@@ -19,7 +19,7 @@ public class DataAccessHelper {
     public void getConnect() throws SQLException{
         try {
             Class.forName(driver);
-             conn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-JLJ2TBG;databaseName=QUANLYNHASACH", "sa", "1234");//integratedSecurity=True
+             conn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-5785KSJ;databaseName=QUANLYNHASACH", "sa", "sa");//integratedSecurity=True
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DataAccessHelper.class.getName()).log(Level.SEVERE, null, ex);
         }        

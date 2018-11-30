@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import GUI.fManagement;
+import java.awt.event.KeyEvent;
 /**
  *
  * @author STIREN
@@ -82,7 +83,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel3.setText("Tên khuyến mãi");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("Hệ số khuyến mãi (%)");
+        jLabel4.setText("Hệ số khuyến mãi ");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Mức tiền hưởng khuyến mãi");
@@ -106,8 +107,18 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jDChFinishDiscount.setDateFormatString("dd-MM-yyyy");
 
         txfMinMoneyDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfMinMoneyDiscount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfMinMoneyDiscountKeyTyped(evt);
+            }
+        });
 
         txfDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfDiscount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfDiscountKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,7 +183,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 120, 540, 357);
+        jPanel1.setBounds(10, 120, 540, 363);
 
         btnAddDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddDiscount.setText("THÊM");
@@ -242,7 +253,12 @@ public class fDiscount extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public String chuanHoa(String str) {
+        str = str.trim();
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
     private void btnSaveDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDiscountActionPerformed
         // TODO add your handling code here:
         if(flag==1)
@@ -322,6 +338,41 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jDChStartDiscount.setDate((Date)jTableDiscount.getModel().getValueAt(row, 4));
         jDChFinishDiscount.setDate((Date)jTableDiscount.getModel().getValueAt(row, 5));
     }//GEN-LAST:event_jTableDiscountMouseClicked
+       boolean dot = false;
+    private void txfMinMoneyDiscountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfMinMoneyDiscountKeyTyped
+        // TODO add your handling code here:
+         char vChar = evt.getKeyChar();
+        if (txfMinMoneyDiscount.getText().equals(""))
+            dot = false;
+        if (dot == false){
+            if (vChar == '.') 
+                dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE))) 
+                evt.consume();
+        } 
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+                evt.consume();
+        }
+        
+    }//GEN-LAST:event_txfMinMoneyDiscountKeyTyped
+
+    private void txfDiscountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfDiscountKeyTyped
+        // TODO add your handling code here:
+         char vChar = evt.getKeyChar();
+        if (txfDiscount.getText().equals(""))
+            dot = false;
+        if (dot == false){
+            if (vChar == '.') 
+                dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE))) 
+                evt.consume();
+        } 
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+                evt.consume();
+        }
+    }//GEN-LAST:event_txfDiscountKeyTyped
     public void ClearText()
     {
         txfIDDiscount.setText("");
@@ -368,7 +419,8 @@ public class fDiscount extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Ngày kết thúc khuyến mãi phải có");
             return false;
         }
-        else
+        else{
+             NameDiscount=chuanHoa(NameDiscount);
             if(discountBLL.InsertDiscount(NameDiscount, Discount, MinMoney, strStartDate, strFinishDate))
             {
                 JOptionPane.showMessageDialog(this, "Thêm thành công khuyến mãi");
@@ -380,7 +432,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
                 return true;
             }
             
-        
+        }
     }
     public boolean UpdateDiscount()
     {
@@ -420,6 +472,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         }
         else
             {
+                NameDiscount=chuanHoa(NameDiscount);
                 if(discountBLL.UpdateDiscount(IDDiscount, NameDiscount, Discount, MinMoney, strStartDate, strFinishDate))
                 {
                     JOptionPane.showMessageDialog(this, "Cập nhật thành công khuyến mãi");

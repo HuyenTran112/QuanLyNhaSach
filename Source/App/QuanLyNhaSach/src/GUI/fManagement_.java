@@ -18,22 +18,23 @@ public class fManagement_ extends javax.swing.JFrame {
     /**
      * Creates new form fManagement
      */
-    Toolkit tk =Toolkit.getDefaultToolkit();
-    public int getSizeX()
-    {
-        return (int)jDesktopPane1.getSize().getWidth();
+    Toolkit tk = Toolkit.getDefaultToolkit();
+
+    public int getSizeX() {
+        return (int) jDesktopPane1.getSize().getWidth();
     }
-    public int getSizeY()
-    {
-        return (int)jDesktopPane1.getSize().getHeight();
+
+    public int getSizeY() {
+        return (int) jDesktopPane1.getSize().getHeight();
     }
+
     public fManagement_() {
-        initComponents(); 
+        initComponents();
         setResizable(false);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        int x=(int) tk.getScreenSize().getWidth();
-        int y=(int)tk.getScreenSize().getHeight();  
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        int x = (int) tk.getScreenSize().getWidth();
+        int y = (int) tk.getScreenSize().getHeight();
         setSize(x, y);
     }
 
@@ -226,9 +227,19 @@ public class fManagement_ extends javax.swing.JFrame {
         jMenuUser.setText("Thông tin tài khoản");
         jMenuUser.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jMenuUser.setName("jMenuUser"); // NOI18N
+        jMenuUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuUserActionPerformed(evt);
+            }
+        });
 
         jMenuItemUser.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jMenuItemUser.setText("Người dùng");
+        jMenuItemUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUserActionPerformed(evt);
+            }
+        });
         jMenuUser.add(jMenuItemUser);
 
         jMenuBar1.add(jMenuUser);
@@ -271,12 +282,12 @@ public class fManagement_ extends javax.swing.JFrame {
         f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
-        
+
     }//GEN-LAST:event_jMenuItemSaleActionPerformed
 
     private void jMenuCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCustomerActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_jMenuCustomerActionPerformed
 
     private void jMenuItemCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCustomerActionPerformed
@@ -330,7 +341,7 @@ public class fManagement_ extends javax.swing.JFrame {
     private void jMenuItemReportRevenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReportRevenueActionPerformed
         // TODO add your handling code here:
         fReportRevenue f = new fReportRevenue();
-       f.setSize(this.getSizeX(), this.getSizeY());
+        f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemReportRevenueActionPerformed
@@ -358,6 +369,19 @@ public class fManagement_ extends javax.swing.JFrame {
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemRuleActionPerformed
+
+    private void jMenuUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUserActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuUserActionPerformed
+
+    private void jMenuItemUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUserActionPerformed
+        // TODO add your handling code here:
+        fUser f =new fUser();
+        f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItemUserActionPerformed
 
     /**
      * @param args the command line arguments

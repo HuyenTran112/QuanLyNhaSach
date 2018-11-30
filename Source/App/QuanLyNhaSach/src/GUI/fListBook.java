@@ -14,6 +14,7 @@ import BLL.*;
 import javax.swing.JOptionPane;
 import GUI.fManagement;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 //import sun.org.mozilla.javascript.internal.Token;
 
 
@@ -157,6 +158,11 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfPublisherBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfPublishingYearBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfPublishingYearBookInfo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfPublishingYearBookInfoKeyTyped(evt);
+            }
+        });
 
         txaBriefBookInfo.setColumns(20);
         txaBriefBookInfo.setRows(5);
@@ -494,6 +500,11 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfCostBookInfo.setText("0");
         txfSumInventory.setText("0");
     }
+    public String chuanHoa(String str) {
+        str = str.trim();
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
     public boolean InsertBook()
     {
         String BookName =txfNameBookInfo.getText();
@@ -513,6 +524,10 @@ public class fListBook extends javax.swing.JInternalFrame {
         }
         else
         {
+            BookName=chuanHoa(BookName);
+            PublisherBook=chuanHoa(PublisherBook);
+            Brief=chuanHoa(Brief);
+            Author=chuanHoa(Author);
             if(bookbll.InsertBook(BookName, Author, PublisherBook, PublishingYearBook, Brief, Cost, SumInventory, IDBookCategogy))
             {
                 JOptionPane.showMessageDialog(this,"Thêm thành thành công sách");
@@ -545,6 +560,10 @@ public class fListBook extends javax.swing.JInternalFrame {
         }
         else
         {
+            BookName=chuanHoa(BookName);
+            PublisherBook=chuanHoa(PublisherBook);
+            Brief=chuanHoa(Brief);
+            Author=chuanHoa(Author);
             if(bookbll.UpdateBook(IDBookName, BookName, Author, PublisherBook, PublishingYearBook, Brief, Cost, SumInventory, IDBookCategogy))
             {
                 JOptionPane.showMessageDialog(this,"Cập nhật thành công sách");
@@ -561,6 +580,7 @@ public class fListBook extends javax.swing.JInternalFrame {
     public boolean InsertBookCategogy()
     {
         String NameBookCategogy=txfNameBookCategogy.getText();
+        NameBookCategogy=chuanHoa(NameBookCategogy);
         if(categogyBLL.InsertBookCategogy(NameBookCategogy))
         {
             JOptionPane.showMessageDialog(this, "Thêm thành công loại sách");
@@ -576,6 +596,7 @@ public class fListBook extends javax.swing.JInternalFrame {
     {
         String NameBookCategogy=txfNameBookCategogy.getText();
         int IDBookCategogy=Integer.parseInt(txfIDBookCategogy.getText());
+         NameBookCategogy=chuanHoa(NameBookCategogy);
         if(categogyBLL.UpdateBookCategogy(IDBookCategogy, NameBookCategogy))
         {
             JOptionPane.showMessageDialog(this, "Cập nhật thành công thể loại sách");
@@ -700,6 +721,23 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnSaveBookCategogy.setEnabled(true);
         flag=5;
     }//GEN-LAST:event_btnEditBookCategogyActionPerformed
+      boolean dot = false;
+    private void txfPublishingYearBookInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfPublishingYearBookInfoKeyTyped
+        // TODO add your handling code here:
+        char vChar = evt.getKeyChar();
+        if (txfPublishingYearBookInfo.getText().equals(""))
+            dot = false;
+        if (dot == false){
+            if (vChar == '.') 
+                dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE))) 
+                evt.consume();
+        } 
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+                evt.consume();
+        }
+    }//GEN-LAST:event_txfPublishingYearBookInfoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

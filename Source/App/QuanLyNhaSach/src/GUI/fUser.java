@@ -205,7 +205,7 @@ public class fUser extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
         jPanel5.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1320, 750);
+        jLabel1.setBounds(0, 0, 1380, 750);
 
         getContentPane().add(jPanel5);
         jPanel5.setBounds(0, 0, 1350, 750);

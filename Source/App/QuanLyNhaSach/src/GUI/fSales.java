@@ -89,6 +89,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jDChSearchBill = new com.toedter.calendar.JDateChooser();
         btnSearchBill = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -131,18 +132,25 @@ public class fSales extends javax.swing.JInternalFrame {
         jTableBillInfo = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         txaBill = new javax.swing.JTextArea();
+        jLabel31 = new javax.swing.JLabel();
 
         setClosable(true);
         getContentPane().setLayout(null);
 
         jTabbedPane1.setToolTipText("");
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jTabbedPane1.setName(""); // NOI18N
+
+        jPanel3.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel2.setText("HÓA ĐƠN");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(486, 0, 147, 37);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel5.setOpaque(false);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Mã nhân viên");
 
         txfIDCustomerBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -153,31 +161,31 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Mã khách hàng");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setText("Tên khách hàng");
 
         txfNameCustomerBill.setEditable(false);
         txfNameCustomerBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("Thuế VAT");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Trị giá");
 
         txfTotalPriceBill.setEditable(false);
         txfTotalPriceBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Tổng tiền");
 
         txfTotalPayBill.setEditable(false);
         txfTotalPayBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("Số hóa đơn");
 
         txfIDBill.setEditable(false);
@@ -189,25 +197,25 @@ public class fSales extends javax.swing.JInternalFrame {
         cbIDStaffBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         cbIDStaffBill.setName("cbIDStaffBill"); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("Ngày hóa đơn");
 
         txfVATBill.setEditable(false);
         txfVATBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("Khuyến mãi");
 
         txfDiscountBill.setEditable(false);
         txfDiscountBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel23.setText("Tên nhân viên");
 
         txfNameStaffBill.setEditable(false);
         txfNameStaffBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel27.setText("Trạng thái");
 
         txfStatusBill.setEditable(false);
@@ -317,6 +325,12 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
+        jPanel3.add(jPanel5);
+        jPanel5.setBounds(10, 39, 379, 484);
+
+        jPanel7.setOpaque(false);
+
+        btnAddBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBill.setText("THÊM");
         btnAddBill.setName("btnAddBill"); // NOI18N
         btnAddBill.addActionListener(new java.awt.event.ActionListener() {
@@ -325,6 +339,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEditBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditBill.setText("CẬP NHẬT");
         btnEditBill.setName("btnEditBill"); // NOI18N
         btnEditBill.addActionListener(new java.awt.event.ActionListener() {
@@ -333,6 +348,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
+        btnSaveBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveBill.setText("LƯU");
         btnSaveBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,13 +361,13 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(38, 38, 38)
                 .addComponent(btnAddBill, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(btnEditBill)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(btnSaveBill, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,6 +379,9 @@ public class fSales extends javax.swing.JInternalFrame {
                     .addComponent(btnSaveBill))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel3.add(jPanel7);
+        jPanel7.setBounds(10, 546, 427, 36);
 
         jTableBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -383,13 +402,18 @@ public class fSales extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTableBill);
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(486, 197, 742, 385);
+
+        jPanel4.setOpaque(false);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setText("Tìm hóa đơn theo ngày");
 
         jDChSearchBill.setDateFormatString("dd-MM-yyyy");
         jDChSearchBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        btnSearchBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchBill.setText("TÌM KIẾM");
         btnSearchBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,53 +448,28 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(87, 87, 87))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(486, 87, 479, 70);
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel3.add(jLabel29);
+        jLabel29.setBounds(0, 0, 1350, 660);
 
         jTabbedPane1.addTab("Hóa đơn", jPanel3);
 
+        jPanel1.setLayout(null);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel1.setText("CHI TIẾT HÓA ĐƠN");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(486, 30, 292, 37);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel6.setOpaque(false);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Số hóa đơn");
 
-        cbIDBill_BillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cbIDBill_BillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbIDBill_BillInfo.setName("cbIDBill_BillInfo"); // NOI18N
         cbIDBill_BillInfo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -478,7 +477,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        txfIDBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfIDBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfIDBookBillInfo.setName("txfIDBookBillInfo"); // NOI18N
         txfIDBookBillInfo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -486,9 +485,10 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Mã sách");
 
+        btnAddBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBillInfo.setText("THÊM");
         btnAddBillInfo.setName("btnAddBillInfo"); // NOI18N
         btnAddBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -497,6 +497,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEditBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditBillInfo.setText("CẬP NHẬT");
         btnEditBillInfo.setName("btnEditBillInfo"); // NOI18N
         btnEditBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -505,6 +506,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
+        btnDelBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelBillInfo.setText("XÓA");
         btnDelBillInfo.setName("btnDelIfoBill"); // NOI18N
         btnDelBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -513,51 +515,57 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Số lượng");
 
+        cbAmountBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbAmountBillInfo.setName("cbAmountBillInfo"); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Thành tiền");
 
         txfTotalPriceBillInfo.setEditable(false);
+        txfTotalPriceBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfTotalPriceBillInfo.setText("0");
         txfTotalPriceBillInfo.setName("txfTotalPriceBillInfo"); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Trị giá");
 
         txfPriceBillInfo.setEditable(false);
+        txfPriceBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfPriceBillInfo.setText("0");
         txfPriceBillInfo.setName("txfPriceBillInfo"); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Chiết khấu");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Tiền mặt thanh toán");
         jLabel11.setName(""); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Tiền trả lại");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 0, 0));
         jLabel13.setText("Tổng tiền");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("Thuế VAT");
 
         txfTotalPayBillInfo.setEditable(false);
+        txfTotalPayBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfTotalPayBillInfo.setText("0");
         txfTotalPayBillInfo.setName("txfTotalPayBillInfo"); // NOI18N
 
         txfDiscountBillInfo.setEditable(false);
+        txfDiscountBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfDiscountBillInfo.setText("0");
         txfDiscountBillInfo.setName("txfDiscountBillInfo"); // NOI18N
 
         txfVATBillInfo.setEditable(false);
+        txfVATBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfVATBillInfo.setText("0");
         txfVATBillInfo.setName("txfVATBillInfo"); // NOI18N
 
@@ -565,10 +573,10 @@ public class fSales extends javax.swing.JInternalFrame {
         txfRepayBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfRepayBillInfo.setName("txfRepayBillInfo"); // NOI18N
 
-        txfCashBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfCashBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txfCashBillInfo.setName("txfCashBillInfo"); // NOI18N
 
-        btnPayBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnPayBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPayBillInfo.setText("Thanh toán");
         btnPayBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -576,6 +584,7 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
+        btnSaveBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveBillInfo.setText("LƯU");
         btnSaveBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -583,17 +592,17 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setText("Giá bán");
 
         txfPriceBookBillInfo.setEditable(false);
-        txfPriceBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfPriceBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("Tên sách");
 
         txfNameBook.setEditable(false);
-        txfNameBook.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfNameBook.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel28.setText("____________________________________________________________");
 
@@ -608,7 +617,7 @@ public class fSales extends javax.swing.JInternalFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txfTotalPriceBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
@@ -635,11 +644,11 @@ public class fSales extends javax.swing.JInternalFrame {
                                             .addComponent(txfIDBookBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txfNameBook, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(121, 121, 121)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnEditBillInfo)
-                                            .addComponent(btnAddBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnDelBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSaveBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnEditBillInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnAddBillInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnDelBillInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnSaveBillInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -704,7 +713,7 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(txfPriceBillInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -734,7 +743,12 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29))
         );
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(10, 77, 587, 570);
+
+        jPanel8.setOpaque(false);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setText("Tìm chi tiết hóa đơn theo ngày");
 
         jDChSearchBillInfo.setDateFormatString("dd-MM-yyyy");
@@ -773,13 +787,18 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        btnPrintBillInfo.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jPanel1.add(jPanel8);
+        jPanel8.setBounds(637, 85, 395, 80);
+
+        btnPrintBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnPrintBillInfo.setText("IN HÓA ĐƠN");
         btnPrintBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintBillInfoActionPerformed(evt);
             }
         });
+        jPanel1.add(btnPrintBillInfo);
+        btnPrintBillInfo.setBounds(637, 171, 125, 25);
 
         jTableBillInfo.setBorder(new javax.swing.border.MatteBorder(null));
         jTableBillInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -801,61 +820,24 @@ public class fSales extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTableBillInfo);
 
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(637, 225, 685, 359);
+
         txaBill.setColumns(20);
         txaBill.setRows(5);
         jScrollPane4.setViewportView(txaBill);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(486, 486, 486)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(192, 192, 192))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPrintBillInfo)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 21, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPrintBillInfo)
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(1093, 85, 37, 18);
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel1.add(jLabel31);
+        jLabel31.setBounds(0, 10, 1350, 650);
 
         jTabbedPane1.addTab("Chi tiết hóa đơn", jPanel1);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(0, 0, 1320, 680);
+        jTabbedPane1.setBounds(-10, 0, 1340, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1183,19 +1165,19 @@ public class fSales extends javax.swing.JInternalFrame {
         txfRepayBillInfo.setText("");
     }//GEN-LAST:event_jTableBillInfoMouseClicked
 
-    private void txfIDCustomerBillKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDCustomerBillKeyTyped
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if (((c < '0') || (c > '9')) || txfIDCustomerBill.getText().length() >= 10)
-            evt.consume();
-    }//GEN-LAST:event_txfIDCustomerBillKeyTyped
-
     private void txfIDBookBillInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDBookBillInfoKeyTyped
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) || txfIDBookBillInfo.getText().length() >= 10)
             evt.consume();
     }//GEN-LAST:event_txfIDBookBillInfoKeyTyped
+
+    private void txfIDCustomerBillKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDCustomerBillKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfIDCustomerBill.getText().length() >= 10)
+        evt.consume();
+    }//GEN-LAST:event_txfIDCustomerBillKeyTyped
     Date Today = new java.util.Date();
     public void ClearTextBill()
     {
@@ -1432,7 +1414,9 @@ public class fSales extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

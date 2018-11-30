@@ -204,6 +204,9 @@
             </Property>
             <Property name="name" type="java.lang.String" value="jMenuUser" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuUserActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemUser">
               <Properties>
@@ -212,6 +215,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ng&#x1b0;&#x1edd;i d&#xf9;ng"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemUserActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

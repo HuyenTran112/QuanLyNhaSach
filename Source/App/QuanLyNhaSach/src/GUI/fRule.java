@@ -251,7 +251,7 @@ public class fRule extends javax.swing.JInternalFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(-10, 0, 1280, 630);
+        jLabel8.setBounds(-10, 0, 1380, 730);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

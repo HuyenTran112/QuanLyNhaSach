@@ -148,6 +148,11 @@ public class fStaff extends javax.swing.JInternalFrame {
         jDChBirthdayStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfPhoneStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfPhoneStaff.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfPhoneStaffKeyTyped(evt);
+            }
+        });
 
         jDChStartStaff.setDateFormatString("dd-MM-yyyy");
         jDChStartStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -328,7 +333,24 @@ public class fStaff extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Hàm chuẩn hóa tên
+    public String chuanHoa(String str) {
+        str = str.trim();
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
+ 
+    public String chuanHoaDanhTuRieng(String str) {
+        str = chuanHoa(str.toLowerCase());
+        String temp[] = str.split(" ");
+        str = ""; // ? ^-^
+        for (int i = 0; i < temp.length; i++) {
+            str += String.valueOf(temp[i].charAt(0)).toUpperCase() + temp[i].substring(1);
+            if (i < temp.length - 1) // ? ^-^
+                str += " ";
+        }
+        return str;
+    } 
     private void jTableStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStaffMouseClicked
         // TODO add your handling code here:
         int row =jTableStaff.getSelectedRow();
@@ -408,6 +430,13 @@ public class fStaff extends javax.swing.JInternalFrame {
         control.bindingStaff(jTableStaff, staffBLL.arrSearchStaff(key));
         txfSearchStaff.setText("");
     }//GEN-LAST:event_btnSearchStaffActionPerformed
+
+    private void txfPhoneStaffKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfPhoneStaffKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfPhoneStaff.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfPhoneStaffKeyTyped
     //Xóa text
     public void Cleartext()
     {
@@ -448,6 +477,8 @@ public class fStaff extends javax.swing.JInternalFrame {
             return false;
         }
         else{
+            name=chuanHoaDanhTuRieng(name);
+            address=chuanHoa(address);
             if(staffBLL.InsertStaff(name, str_birthday, sex, address, phonenumber, str_startdate, status_))
             {
                 JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công");
@@ -489,6 +520,8 @@ public class fStaff extends javax.swing.JInternalFrame {
             return false;
         }
         else{
+            name=chuanHoaDanhTuRieng(name);
+            address=chuanHoa(address);
             if(staffBLL.UpdateStaff(id,name, str_birthday, sex, address, phonenumber, str_startdate,status_))
             {
                 JOptionPane.showMessageDialog(this, "Cập nhật nhân viên thành công");
