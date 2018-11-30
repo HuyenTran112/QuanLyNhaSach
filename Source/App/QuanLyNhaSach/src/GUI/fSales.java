@@ -7,6 +7,7 @@ package GUI;
 
 import BLL.BillBLL;
 import BLL.BillInfoBLL;
+import BLL.BookBLL;
 import BLL.CustomerBLL;
 import BLL.StaffBLL;
 import Entity.Bill;
@@ -31,45 +32,16 @@ public class fSales extends javax.swing.JInternalFrame {
      */
     private int flag = 0;
     ControlFormat control = new ControlFormat();
-    BillBLL billBILL = new BillBLL();
+    BillBLL billBLL = new BillBLL();
     BillInfoBLL billinfoBLL = new BillInfoBLL();
     StaffBLL staffBLL = new StaffBLL();
+    CustomerBLL customerBLL = new CustomerBLL();
+    BookBLL bookBLL = new BookBLL();
     
     public fSales() {
         initComponents();
         txaBill.setVisible(false);
-        btnPrintBillInfo.setVisible(false);
-        control.bindingBill(jTableBill, billBILL.LoadBill());
-        
-        int idbill;
-        if(cbIDBill_BillInfo.getSelectedItem() == null)
-            idbill = 0;
-        else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
-        control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
-        
-        //Lấy giá trị hóa đơn theo số hóa đơn trong CTHD
-        txfTotalPriceBillInfo.setText(String.valueOf(billBILL.getTotalPriceByIDBill(idbill)));
-        txfDiscountBillInfo.setText(String.valueOf(billBILL.getDiscountByIDBill(idbill)));
-        txfVATBillInfo.setText(String.valueOf(billBILL.getVATByIDBill(idbill)));
-        txfTotalPayBillInfo.setText(String.valueOf(billBILL.getTotalPayByIDBill(idbill)));
-        
-        jDChBillDate.setDate(Today);
-        cbIDStaffBill.removeAllItems();
-        cbIDBill_BillInfo.removeAllItems();
-        cbAmountBillInfo.removeAllItems();
-        
-        for(Staff staff : staffBLL.LoadStaff())
-        {
-            cbIDStaffBill.addItem(String.valueOf(staff.getID()));
-        }
-        for(Bill bill : billBILL.LoadBill())
-        {
-            cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
-        }
-        
-        for(int i=1; i<=20; i++)
-            cbAmountBillInfo.addItem(String.valueOf(i));
-        
+        Load();
     }
 
     /**
@@ -105,10 +77,11 @@ public class fSales extends javax.swing.JInternalFrame {
         txfDiscountBill = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         txfNameStaffBill = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        txfStatusBill = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         btnAddBill = new javax.swing.JButton();
         btnEditBill = new javax.swing.JButton();
-        btnDelBill = new javax.swing.JButton();
         btnSaveBill = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBill = new javax.swing.JTable();
@@ -174,6 +147,11 @@ public class fSales extends javax.swing.JInternalFrame {
 
         txfIDCustomerBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfIDCustomerBill.setName("txfIDCustomerBill"); // NOI18N
+        txfIDCustomerBill.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfIDCustomerBillKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel4.setText("Mã khách hàng");
@@ -229,6 +207,13 @@ public class fSales extends javax.swing.JInternalFrame {
         txfNameStaffBill.setEditable(false);
         txfNameStaffBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel27.setText("Trạng thái");
+
+        txfStatusBill.setEditable(false);
+        txfStatusBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfStatusBill.setText("Chưa thanh toán");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -241,26 +226,9 @@ public class fSales extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txfIDBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDChBillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txfIDCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(txfNameCustomerBill))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txfNameStaffBill)
-                                    .addComponent(cbIDStaffBill, 0, 203, Short.MAX_VALUE)))))
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(txfNameStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -277,9 +245,26 @@ public class fSales extends javax.swing.JInternalFrame {
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txfVATBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txfNameCustomerBill, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cbIDStaffBill, javax.swing.GroupLayout.Alignment.TRAILING, 0, 203, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txfIDCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDChBillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txfStatusBill)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -290,30 +275,30 @@ public class fSales extends javax.swing.JInternalFrame {
                     .addComponent(jLabel19)
                     .addComponent(txfIDBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDChBillDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
-                .addGap(23, 23, 23)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfStatusBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(txfIDCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDChBillDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txfIDCustomerBill, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txfNameCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txfNameCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbIDStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txfNameStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                    .addComponent(jLabel3)
+                    .addComponent(cbIDStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfNameStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txfVATBill, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,14 +333,6 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelBill.setText("XÓA");
-        btnDelBill.setName("btnDelBill"); // NOI18N
-        btnDelBill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelBillActionPerformed(evt);
-            }
-        });
-
         btnSaveBill.setText("LƯU");
         btnSaveBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,10 +350,8 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnEditBill)
                 .addGap(18, 18, 18)
-                .addComponent(btnDelBill, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(btnSaveBill)
-                .addGap(20, 20, 20))
+                .addComponent(btnSaveBill, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,7 +360,6 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddBill)
                     .addComponent(btnEditBill)
-                    .addComponent(btnDelBill)
                     .addComponent(btnSaveBill))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -455,39 +429,37 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(427, 427, 427)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(87, 87, 87))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Hóa đơn", jPanel3);
@@ -508,6 +480,11 @@ public class fSales extends javax.swing.JInternalFrame {
 
         txfIDBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfIDBookBillInfo.setName("txfIDBookBillInfo"); // NOI18N
+        txfIDBookBillInfo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfIDBookBillInfoKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel6.setText("Mã sách");
@@ -883,11 +860,45 @@ public class fSales extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void Load()
+    {
+        int idbill;
+        if(cbIDBill_BillInfo.getSelectedItem() == null)
+            idbill = 0;
+        else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        control.bindingBill(jTableBill, billBLL.LoadBill());
+        //control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
+        
+        //Lấy giá trị hóa đơn theo số hóa đơn trong CTHD
+        txfTotalPriceBillInfo.setText(String.valueOf(billBLL.getTotalPriceByIDBill(idbill)));
+        txfDiscountBillInfo.setText(String.valueOf(billBLL.getDiscountByIDBill(idbill)));
+        txfVATBillInfo.setText(String.valueOf(billBLL.getVATByIDBill(idbill)));
+        txfTotalPayBillInfo.setText(String.valueOf(billBLL.getTotalPayByIDBill(idbill)));
+        
+        jDChBillDate.setDate(Today);
+        cbIDStaffBill.removeAllItems();
+        cbIDBill_BillInfo.removeAllItems();
+        cbAmountBillInfo.removeAllItems();
+        
+        for(Staff staff : staffBLL.LoadStaff())
+        {
+            cbIDStaffBill.addItem(String.valueOf(staff.getID()));
+        }
+        for(Bill bill : billBLL.LoadIDBill())
+        {
+            cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
+        }
+        
+        
+        for(int i=1; i<=20; i++)
+            cbAmountBillInfo.addItem(String.valueOf(i));
+        
+    }
+    
     private void btnAddBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillActionPerformed
         // TODO add your handling code here:
         ClearTextBill();
         btnAddBill.setEnabled(false);
-        btnDelBill.setEnabled(false);
         btnEditBill.setEnabled(false);
         btnSaveBill.setEnabled(true);
         flag=1;
@@ -896,20 +907,10 @@ public class fSales extends javax.swing.JInternalFrame {
     private void btnEditBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBillActionPerformed
         // TODO add your handling code here:
         btnAddBill.setEnabled(false);
-        btnDelBill.setEnabled(false);
         btnEditBill.setEnabled(false);
         btnSaveBill.setEnabled(true);
         flag = 2;
     }//GEN-LAST:event_btnEditBillActionPerformed
-
-    private void btnDelBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelBillActionPerformed
-        // TODO add your handling code here:
-        btnAddBill.setEnabled(false);
-        btnDelBill.setEnabled(false);
-        btnEditBill.setEnabled(false);
-        btnSaveBill.setEnabled(true);
-        flag = 3;
-    }//GEN-LAST:event_btnDelBillActionPerformed
 
     private void btnSaveBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBillActionPerformed
         // TODO add your handling code here:
@@ -918,9 +919,11 @@ public class fSales extends javax.swing.JInternalFrame {
             InsertBill();
             btnAddBill.setEnabled(true);
             btnEditBill.setEnabled(true);
-            btnDelBill.setEnabled(true);
             btnSaveBill.setEnabled(false);
-            control.bindingBill(jTableBill, billBILL.LoadBill());
+            control.bindingBill(jTableBill, billBLL.LoadBill());
+            cbIDBill_BillInfo.removeAllItems();
+            for(Bill bill : billBLL.LoadIDBill())
+                cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
             ClearTextBill();
         }
         if(flag == 2)
@@ -928,19 +931,8 @@ public class fSales extends javax.swing.JInternalFrame {
             UpdateBill();
             btnAddBill.setEnabled(true);
             btnEditBill.setEnabled(true);
-            btnDelBill.setEnabled(true);
             btnSaveBill.setEnabled(false);
-            control.bindingBill(jTableBill, billBILL.LoadBill());
-            ClearTextBill();
-        }
-        if(flag == 3)
-        {
-            DeleteBill();
-            btnAddBill.setEnabled(true);
-            btnEditBill.setEnabled(true);
-            btnDelBill.setEnabled(true);
-            btnSaveBill.setEnabled(false);
-            control.bindingBill(jTableBill, billBILL.LoadBill());
+            control.bindingBill(jTableBill, billBLL.LoadBill());
             ClearTextBill();
         }
     }//GEN-LAST:event_btnSaveBillActionPerformed
@@ -953,16 +945,17 @@ public class fSales extends javax.swing.JInternalFrame {
         //
         int row = jTableBill.getSelectedRow();
         txfIDBill.setText(jTableBill.getValueAt(row, 0).toString());
-        jDChBillDate.setDate((Date) jTableBill.getModel().getValueAt(row, 1));
-        txfIDCustomerBill.setText(jTableBill.getValueAt(row, 2).toString());
-        txfNameCustomerBill.setText(jTableBill.getValueAt(row, 3).toString());
+        txfStatusBill.setText(jTableBill.getValueAt(row, 1).toString());
+        jDChBillDate.setDate((Date) jTableBill.getModel().getValueAt(row, 2));
+        txfIDCustomerBill.setText(jTableBill.getValueAt(row, 3).toString());
+        txfNameCustomerBill.setText(jTableBill.getValueAt(row, 4).toString());
 
-        cbIDStaffBill.setSelectedItem(jTableBill.getValueAt(row, 4).toString());
-        txfNameStaffBill.setText(jTableBill.getValueAt(row, 5).toString());
-        txfVATBill.setText(jTableBill.getValueAt(row, 6).toString());
-        txfDiscountBill.setText(jTableBill.getValueAt(row, 7).toString());
-        txfTotalPriceBill.setText(jTableBill.getValueAt(row, 8).toString());
-        txfTotalPayBill.setText(jTableBill.getValueAt(row, 9).toString());
+        cbIDStaffBill.setSelectedItem(jTableBill.getValueAt(row, 5).toString());
+        txfNameStaffBill.setText(jTableBill.getValueAt(row, 6).toString());
+        txfVATBill.setText(jTableBill.getValueAt(row, 7).toString());
+        txfDiscountBill.setText(jTableBill.getValueAt(row, 8).toString());
+        txfTotalPriceBill.setText(jTableBill.getValueAt(row, 9).toString());
+        txfTotalPayBill.setText(jTableBill.getValueAt(row, 10).toString());
     }//GEN-LAST:event_jTableBillMouseClicked
 
     private void btnSearchBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBillActionPerformed
@@ -974,7 +967,7 @@ public class fSales extends javax.swing.JInternalFrame {
         key = "";
         else
         key = formatter.format(search);
-        control.bindingBill(jTableBill, billBILL.SearchBill(key));
+        control.bindingBill(jTableBill, billBLL.SearchBill(key));
         jDChSearchBill.setDate(null);
     }//GEN-LAST:event_btnSearchBillActionPerformed
 
@@ -982,14 +975,14 @@ public class fSales extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int idbill;
         if(cbIDBill_BillInfo.getSelectedItem() == null)
-        idbill = 0;
+            idbill = 0;
         else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
-        control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
+        //control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
         //Xét lại các giá trị của hóa đơn khi thay đổi số hóa đơn tại cb số hóa đơn trong CTHD
-        txfTotalPriceBillInfo.setText(String.valueOf(billBILL.getTotalPriceByIDBill(idbill)));
-        txfDiscountBillInfo.setText(String.valueOf(billBILL.getDiscountByIDBill(idbill)));
-        txfVATBillInfo.setText(String.valueOf(billBILL.getVATByIDBill(idbill)));
-        txfTotalPayBillInfo.setText(String.valueOf(billBILL.getTotalPayByIDBill(idbill)));
+        txfTotalPriceBillInfo.setText(String.valueOf(billBLL.getTotalPriceByIDBill(idbill)));
+        txfDiscountBillInfo.setText(String.valueOf(billBLL.getDiscountByIDBill(idbill)));
+        txfVATBillInfo.setText(String.valueOf(billBLL.getVATByIDBill(idbill)));
+        txfTotalPayBillInfo.setText(String.valueOf(billBLL.getTotalPayByIDBill(idbill)));
     }//GEN-LAST:event_cbIDBill_BillInfoItemStateChanged
 
     private void btnAddBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillInfoActionPerformed
@@ -1022,6 +1015,11 @@ public class fSales extends javax.swing.JInternalFrame {
 
     private void btnPayBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayBillInfoActionPerformed
         // TODO add your handling code here:
+        int idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
+        if(billBLL.getStatusBill(idbill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Hóa đơn này đã thanh toán");
+        else{ 
         if(txfCashBillInfo.getText().equals(""))
         JOptionPane.showMessageDialog(this, "Vui lòng nhập tiền mặt khách trả");
         else{
@@ -1031,8 +1029,13 @@ public class fSales extends javax.swing.JInternalFrame {
             else
             {
                 txfRepayBillInfo.setText(String.valueOf(Repay));
-                btnPrintBillInfo.setVisible(true);
+                UpdateStatusBill();
+                control.bindingBill(jTableBill, billBLL.LoadBill());
+                cbIDBill_BillInfo.removeAllItems();
+                for(Bill bill : billBLL.LoadIDBill())
+                    cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
             }
+        }
         }
     }//GEN-LAST:event_btnPayBillInfoActionPerformed
 
@@ -1051,11 +1054,11 @@ public class fSales extends javax.swing.JInternalFrame {
                 idbill = 0;
                 else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
                 control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
-                control.bindingBill(jTableBill, billBILL.LoadBill());
+                control.bindingBill(jTableBill, billBLL.LoadBill());
                 //Xét lại các giá trị của hóa đơn khi thêm CTHD
-                txfTotalPayBillInfo.setText(String.valueOf(billBILL.getTotalPayByIDBill(idbill)));
-                txfDiscountBillInfo.setText(String.valueOf(billBILL.getDiscountByIDBill(idbill)));
-                txfTotalPriceBillInfo.setText(String.valueOf(billBILL.getTotalPriceByIDBill(idbill)));
+                txfTotalPayBillInfo.setText(String.valueOf(billBLL.getTotalPayByIDBill(idbill)));
+                txfDiscountBillInfo.setText(String.valueOf(billBLL.getDiscountByIDBill(idbill)));
+                txfTotalPriceBillInfo.setText(String.valueOf(billBLL.getTotalPriceByIDBill(idbill)));
                 ClearTextBillInfo();
             }
         }
@@ -1072,11 +1075,11 @@ public class fSales extends javax.swing.JInternalFrame {
                 idbill = 0;
                 else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
                 control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
-                control.bindingBill(jTableBill, billBILL.LoadBill());
+                control.bindingBill(jTableBill, billBLL.LoadBill());
                 //Xét lại các giá trị của hóa đơn khi sửa CTHD
-                txfTotalPayBillInfo.setText(String.valueOf(billBILL.getTotalPayByIDBill(idbill)));
-                txfDiscountBillInfo.setText(String.valueOf(billBILL.getDiscountByIDBill(idbill)));
-                txfTotalPriceBillInfo.setText(String.valueOf(billBILL.getTotalPriceByIDBill(idbill)));
+                txfTotalPayBillInfo.setText(String.valueOf(billBLL.getTotalPayByIDBill(idbill)));
+                txfDiscountBillInfo.setText(String.valueOf(billBLL.getDiscountByIDBill(idbill)));
+                txfTotalPriceBillInfo.setText(String.valueOf(billBLL.getTotalPriceByIDBill(idbill)));
                 ClearTextBillInfo();
             }
         }
@@ -1092,11 +1095,11 @@ public class fSales extends javax.swing.JInternalFrame {
             idbill = 0;
             else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
             control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
-            control.bindingBill(jTableBill, billBILL.LoadBill());
+            control.bindingBill(jTableBill, billBLL.LoadBill());
             //Xét lại các giá trị của hóa đơn khi xóa CTHD
-            txfTotalPayBillInfo.setText(String.valueOf(billBILL.getTotalPayByIDBill(idbill)));
-            txfDiscountBillInfo.setText(String.valueOf(billBILL.getDiscountByIDBill(idbill)));
-            txfTotalPriceBillInfo.setText(String.valueOf(billBILL.getTotalPriceByIDBill(idbill)));
+            txfTotalPayBillInfo.setText(String.valueOf(billBLL.getTotalPayByIDBill(idbill)));
+            txfDiscountBillInfo.setText(String.valueOf(billBLL.getDiscountByIDBill(idbill)));
+            txfTotalPriceBillInfo.setText(String.valueOf(billBLL.getTotalPriceByIDBill(idbill)));
             ClearTextBillInfo();
         }
     }//GEN-LAST:event_btnSaveBillInfoActionPerformed
@@ -1127,26 +1130,31 @@ public class fSales extends javax.swing.JInternalFrame {
         idbill = 0;
         else idbill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
 
-        if(billBILL.getIDCustomerByIDBill(idbill) == 0)
+        if(billBLL.getIDCustomerByIDBill(idbill) == 0)
         txaBill.append("Mã khách hàng: \n");
         else
-        txaBill.append("Mã khách hàng: " + billBILL.getIDCustomerByIDBill(idbill) + "\n");
-        txaBill.append("Nhân viên thu ngân: " + billBILL.getNameStaffByIDBill(idbill) + "\n");
-        txaBill.append("Ngày hóa đơn: " + billBILL.getDateBillByIDBill(idbill) + "\n");
+        txaBill.append("Mã khách hàng: " + billBLL.getIDCustomerByIDBill(idbill) + "\n");
+        txaBill.append("Nhân viên thu ngân: " + billBLL.getNameStaffByIDBill(idbill) + "\n");
+        txaBill.append("Ngày hóa đơn: " + billBLL.getDateBillByIDBill(idbill) + "\n");
         txaBill.append("Số hóa đơn: " + idbill + "\n \n");
-        txaBill.append("--------------------------------------------------------------------------------------------------------\n");
-        txaBill.append("Mã sách \t Tên sách \t Giá bán \t Số lượng \t Thành tiền \n");
-        txaBill.append("--------------------------------------------------------------------------------------------------------\n");
+        txaBill.append("--------------------------------------------------------------------------------------------------------------------------------\n");
+        txaBill.append("Mã sách \t Tên sách \t\t Giá bán \t Số lượng \t Thành tiền \n");
+        txaBill.append("--------------------------------------------------------------------------------------------------------------------------------\n");
 
+         control.bindingBillInfo(jTableBillInfo, billinfoBLL.LoadBillInfo(idbill));
         int row = jTableBillInfo.getRowCount();
         int column = jTableBillInfo.getColumnCount();
         for(int i=0; i < row; i++)
         {
             for(int j=1; j < column; j++)
-            txaBill.append(jTableBillInfo.getValueAt(i, j).toString() + "\t");
+            {
+                txaBill.append(jTableBillInfo.getValueAt(i, j).toString() + "\t");
+                if(j == 2)
+                    txaBill.append("\t");
+            }
             txaBill.append("\n");
         }
-        txaBill.append("--------------------------------------------------------------------------------------------------------\n");
+        txaBill.append("--------------------------------------------------------------------------------------------------------------------------------\n");
         txaBill.append("\nTrị giá: " + txfTotalPriceBillInfo.getText() + "\n" +
             "Chiết khấu: " + txfDiscountBillInfo.getText() + "\n" +
             "VAT: " + txfVATBillInfo.getText() + "\n" +
@@ -1170,7 +1178,24 @@ public class fSales extends javax.swing.JInternalFrame {
         txfPriceBookBillInfo.setText(jTableBillInfo.getValueAt(row, 3).toString());
         cbAmountBillInfo.setSelectedItem(jTableBillInfo.getValueAt(row, 4).toString());
         txfPriceBillInfo.setText(jTableBillInfo.getValueAt(row, 5).toString());
+        
+        txfCashBillInfo.setText("");
+        txfRepayBillInfo.setText("");
     }//GEN-LAST:event_jTableBillInfoMouseClicked
+
+    private void txfIDCustomerBillKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDCustomerBillKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfIDCustomerBill.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfIDCustomerBillKeyTyped
+
+    private void txfIDBookBillInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDBookBillInfoKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfIDBookBillInfo.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfIDBookBillInfoKeyTyped
     Date Today = new java.util.Date();
     public void ClearTextBill()
     {
@@ -1198,13 +1223,18 @@ public class fSales extends javax.swing.JInternalFrame {
         
         int IDStaff = Integer.parseInt(cbIDStaffBill.getSelectedItem().toString());
         
-        if(billBILL.InsertBill(BillDate, IDCustomer, IDStaff))
-        {
-            JOptionPane.showMessageDialog(this, "Thêm thành công hóa đơn");
-        }
+        if(customerBLL.TestIDCustomer(IDCustomer) == false)
+            JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại");
         else
         {
-            JOptionPane.showMessageDialog(this, "Thêm thất bại hóa đơn");
+            if(billBLL.InsertBill(BillDate, IDCustomer, IDStaff))
+            {
+                //JOptionPane.showMessageDialog(this, "Thêm thành công hóa đơn");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Thêm thất bại hóa đơn");
+            }
         }
     }
     //Cập nhật hóa đơn
@@ -1221,25 +1251,35 @@ public class fSales extends javax.swing.JInternalFrame {
         
         int IDStaff = Integer.parseInt(cbIDStaffBill.getSelectedItem().toString());
         
-        if(billBILL.UpdateBill(IDBill, BillDate, IDCustomer, IDStaff))
-        {
-            JOptionPane.showMessageDialog(this, "Cập nhật thành công hóa đơn");
-        }
+        if(billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Không được cập nhật hóa đơn đã thanh toán");
         else
         {
-            JOptionPane.showMessageDialog(this, "Cập nhật thất bại hóa đơn");
+            if(customerBLL.TestIDCustomer(IDCustomer) == false)
+                JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại");
+            else
+            {
+                if(billBLL.UpdateBill(IDBill, BillDate, IDCustomer, IDStaff))
+                {
+                    JOptionPane.showMessageDialog(this, "Cập nhật thành công hóa đơn");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Cập nhật thất bại hóa đơn");
+                }
+            }                        
         }
+    }
+    //Cập nhật trạng thái hóa đơn sau khi thanh toán
+    public void UpdateStatusBill()
+    {       
+        int IDBill;
+        if(cbIDBill_BillInfo.getSelectedItem() == null)
+            IDBill = 0;
+        else IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        billBLL.UpdateStatusBill(IDBill);
     }
     
-    //Xóa hóa đơn
-    public void DeleteBill()
-    {
-        int IDBill = Integer.parseInt(txfIDBill.getText());
-        if(billBILL.DeleteBill(IDBill))
-            JOptionPane.showMessageDialog(this, "Xóa thành công hóa đơn");
-        else
-            JOptionPane.showMessageDialog(this, "Xóa thất bại");
-    }
     //Xóa dữ liệu trong ô nhập CTHD
     public void ClearTextBillInfo()
     {
@@ -1260,23 +1300,38 @@ public class fSales extends javax.swing.JInternalFrame {
             IDBook = Integer.parseInt(txfIDBookBillInfo.getText());
         int Amount = Integer.parseInt(cbAmountBillInfo.getSelectedItem().toString());
         
+        
+        
         if(txfIDBookBillInfo.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this, "Mã sách bắt buộc có");
             return false;
         }
+        else if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+        {
+            JOptionPane.showMessageDialog(this, "Không được thêm khi hóa đơn đã thanh toán");
+            return true;
+        }
         else
         {
-            if(billinfoBLL.InsertBillInfo(IDBill, IDBook, Amount))
+            if(bookBLL.TestIDBook(IDBook) == false)
             {
-                JOptionPane.showMessageDialog(this, "Thêm thành công chi tiết hóa đơn");
-                return true;
+                JOptionPane.showMessageDialog(this, "Mã sách không tồn tại");
+                return false;
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Thêm thất bại chi tiết hóa đơn");
-                return false;
-            }
+                if(billinfoBLL.InsertBillInfo(IDBill, IDBook, Amount))
+                {
+                    //JOptionPane.showMessageDialog(this, "Thêm thành công chi tiết hóa đơn");
+                    return true;
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Thêm thất bại chi tiết hóa đơn");
+                    return false;
+                }
+            }                       
         }
     }
     //Cập nhật CTHD
@@ -1294,6 +1349,11 @@ public class fSales extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(this, "Mã sách bắt buộc có");
             return false;
+        }
+        else if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+        {
+            JOptionPane.showMessageDialog(this, "Không được cập nhật khi hóa đơn đã thanh toán");
+            return true;
         }
         else
         {
@@ -1313,22 +1373,29 @@ public class fSales extends javax.swing.JInternalFrame {
     //Xóa CTHD
     public void DeleteBillInfo()
     {
-        if(cbIDBill_BillInfo.getSelectedItem().toString().equals("") == false && txfIDBookBillInfo.getText().equals("") == false)
+        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        
+        if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
         {
-            int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(this, "Không được xóa khi hóa đơn đã thanh toán");
+        }
+        else
+        {
+            if(cbIDBill_BillInfo.getSelectedItem().toString().equals("") == false && txfIDBookBillInfo.getText().equals("") == false)
+        {
             int IDBook = Integer.parseInt(txfIDBookBillInfo.getText());
             if(billinfoBLL.DeleteBillInfo(IDBill, IDBook))
                 JOptionPane.showMessageDialog(this, "Xóa thành công hóa đơn");
         }
         else
             JOptionPane.showMessageDialog(this, "Xóa thất bại");
+        }
     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddBill;
     private javax.swing.JButton btnAddBillInfo;
-    private javax.swing.JButton btnDelBill;
     private javax.swing.JButton btnDelBillInfo;
     private javax.swing.JButton btnEditBill;
     private javax.swing.JButton btnEditBillInfo;
@@ -1363,6 +1430,7 @@ public class fSales extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1397,6 +1465,7 @@ public class fSales extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfPriceBillInfo;
     private javax.swing.JTextField txfPriceBookBillInfo;
     private javax.swing.JTextField txfRepayBillInfo;
+    private javax.swing.JTextField txfStatusBill;
     private javax.swing.JTextField txfTotalPayBill;
     private javax.swing.JTextField txfTotalPayBillInfo;
     private javax.swing.JTextField txfTotalPriceBill;

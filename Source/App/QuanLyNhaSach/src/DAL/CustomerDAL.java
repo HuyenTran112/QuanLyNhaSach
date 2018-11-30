@@ -132,5 +132,20 @@ public class CustomerDAL extends  DataAccessHelper{
         }
         return "";
     }
+    //Kiểm tra mã khách hàng
+    public boolean TestIDCustomer(int IDCustomer)
+    {
+        String SQL = "SELECT COUNT(*) AS [C] FROM KHACHHANG WHERE MAKH = " + IDCustomer;
+        try {
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs=st.executeQuery(SQL);
+            if(rs!=null && rs.next() && rs.getInt("C") > 0)
+                return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 

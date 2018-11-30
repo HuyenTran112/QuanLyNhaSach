@@ -8,6 +8,7 @@ package GUI;
 import BLL.CustomerBLL;
 import Utilties.ControlFormat;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -102,6 +103,9 @@ public class fCustomer extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txfNameCustomerKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfNameCustomerKeyTyped(evt);
+            }
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -113,6 +117,11 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jLabel5.setText("Số điện thoại:");
 
         txfPhoneCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfPhoneCustomer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfPhoneCustomerKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel6.setText("Ngày sinh:");
@@ -297,7 +306,24 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChBirthdayCustomer.setDate(null);
         jDChRegisDateCustomer.setDate(Today);
     }
-    
+    //Hàm chuẩn hóa tên
+    public String chuanHoa(String str) {
+        str = str.trim();
+        str = str.replaceAll("\\s+", " ");
+        return str;
+    }
+ 
+    public String chuanHoaDanhTuRieng(String str) {
+        str = chuanHoa(str.toLowerCase());
+        String temp[] = str.split(" ");
+        str = ""; // ? ^-^
+        for (int i = 0; i < temp.length; i++) {
+            str += String.valueOf(temp[i].charAt(0)).toUpperCase() + temp[i].substring(1);
+            if (i < temp.length - 1) // ? ^-^
+                str += " ";
+        }
+        return str;
+    } 
     //Thêm khách hàng
     public boolean InsertCustomer()
     {        
@@ -323,6 +349,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
             
         else
         {
+            fCustomer f = new fCustomer();
+            NameCustomer = f.chuanHoaDanhTuRieng(NameCustomer);
         
             if(customerBLL.InsertCustomer(NameCustomer, AddressCustomer, PhoneCustomer, strBirthdayCustomer, strRegisDateCustomer))
             {
@@ -364,6 +392,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
             
         else
         {
+            fCustomer f = new fCustomer();
+            NameCustomer = f.chuanHoaDanhTuRieng(NameCustomer);
         
             if(customerBLL.UpdateCustomer(IDCustomer, NameCustomer, AddressCustomer, PhoneCustomer, strBirthdayCustomer, strRegisDateCustomer))
             {
@@ -392,6 +422,9 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
     private void txfNameCustomerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameCustomerKeyPressed
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isLetter(c) || (c == KeyEvent.VK_SPACE)))
+            evt.consume();
     }//GEN-LAST:event_txfNameCustomerKeyPressed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
@@ -449,6 +482,14 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChRegisDateCustomer.setDate((Date) jTableCustomer.getModel().getValueAt(row, 5));
         txfTurnoverCustomer.setText(jTableCustomer.getValueAt(row, 6).toString());
     }//GEN-LAST:event_jTableCustomerMouseClicked
+
+    private void txfNameCustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameCustomerKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfNameCustomerKeyTyped
+
+    private void txfPhoneCustomerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfPhoneCustomerKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfPhoneCustomerKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

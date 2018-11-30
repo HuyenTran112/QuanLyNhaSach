@@ -43,4 +43,9 @@ public class CustomerBLL {
     {
         return DAL.getNameCustomerByID(IDCustomer);
     }
+    //Kiểm tra mã khách hàng
+    public boolean TestIDCustomer(int IDCustomer)
+    {
+        return DAL.TestIDCustomer(IDCustomer);
+    }
 }

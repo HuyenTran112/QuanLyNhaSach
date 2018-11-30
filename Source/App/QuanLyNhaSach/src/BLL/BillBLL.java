@@ -20,6 +20,11 @@ public class BillBLL {
     {
         return DAL.LoadBill();
     }
+    //Lấy danh sách số hóa đơn
+    public ArrayList<Bill> LoadIDBill()
+    {
+        return DAL.LoadIDBill();
+    }
     //Thêm hóa đơn
     public boolean InsertBill(String BillDate, int IDCustomer, int IDStaff)
     {
@@ -30,11 +35,7 @@ public class BillBLL {
     {
         return DAL.UpdateBill(IDBill, BillDate, IDCustomer, IDStaff);
     }
-    //Xóa hóa đơn
-    public boolean DeleteBill(int IDBill)
-    {
-        return DAL.DeleteBill(IDBill);
-    }
+    
     //Tìm hóa đơn
     public ArrayList<Bill> SearchBill(String BillDate)
     {
@@ -74,6 +75,17 @@ public class BillBLL {
     public String getDateBillByIDBill(int IDBill)
     {
         return DAL.getDateBillByIDBill(IDBill);
+    }
+    //Lấy trạng thái hóa đơn
+    public String getStatusBill(int IDBill)
+    {
+        return DAL.getStatusBill(IDBill);
+    }
+    
+    //Cập nhật trạng thái hóa đơn sau khi thanh toán
+    public boolean UpdateStatusBill(int IDBill)
+    {
+        return DAL.UpdateStatusBill(IDBill);
     }
     
 }

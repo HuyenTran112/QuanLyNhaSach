@@ -20,7 +20,7 @@ public class BillDAL extends DataAccessHelper{
     //Hiển thị danh sách hóa đơn
     public ArrayList<Bill> LoadBill(){
         ArrayList<Bill> temp = new ArrayList<>();
-        String SQL="EXEC SP_LOADBILL";
+        String SQL="EXEC SP_LOADUNPAIDBILL";
         try{
             getConnect();
              Statement st = conn.createStatement();
@@ -29,6 +29,10 @@ public class BillDAL extends DataAccessHelper{
                 while(rs.next()){
                     Bill bill = new Bill();
                     bill.setIDBill(rs.getInt("SOHD"));
+                    if(rs.getInt("TRANGTHAI") == 0)
+                        bill.setStatus("Chưa thanh toán");
+                    else 
+                        bill.setStatus("Đã thanh toán");
                     bill.setBillDate(rs.getDate("NGAYHD"));
                     bill.setIDCustomer(rs.getInt("MAKH"));
                     bill.setNameCustomer(rs.getString("TENKH"));
@@ -47,6 +51,28 @@ public class BillDAL extends DataAccessHelper{
         }
         return temp;
     }
+    //Hiển thị danh sách SOHD
+    public ArrayList<Bill> LoadIDBill()
+    {
+        ArrayList<Bill> temp = new ArrayList<>();
+        String SQL = "SELECT SOHD FROM HOADON ORDER BY SOHD DESC";
+        try{
+            getConnect();
+             Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs!=null)
+                while(rs.next()){
+                    Bill bill = new Bill();
+                    bill.setIDBill(rs.getInt("SOHD")); 
+                    temp.add(bill);
+                }
+            getClose();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+    }
+    
     
     //Thêm hóa đơn
     public boolean  InsertBill(String BillDate, int IDCustomer, int IDStaff)
@@ -82,22 +108,6 @@ public class BillDAL extends DataAccessHelper{
         return false;
     }
     
-    //Xóa hóa đơn
-    public boolean  DeleteBill(int IDBill)
-    {
-        String SQL="EXEC SP_DELETEBILL " + IDBill;
-        try {
-            getConnect();
-            Statement st =conn.createStatement();
-            int rs=st.executeUpdate(SQL);
-            if(rs>0)
-                return true;
-            getClose();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
     //Tìm hóa đơn theo ngày
     public ArrayList<Bill> SearchBill(String BillDate)
     {
@@ -111,6 +121,10 @@ public class BillDAL extends DataAccessHelper{
                 while(rs.next()){
                     Bill bill = new Bill();
                     bill.setIDBill(rs.getInt("SOHD"));
+                    if(rs.getInt("TRANGTHAI") == 0)
+                        bill.setStatus("Chưa thanh toán");
+                    else 
+                        bill.setStatus("Đã thanh toán");
                     bill.setBillDate(rs.getDate("NGAYHD"));
                     bill.setIDCustomer(rs.getInt("MAKH"));
                     bill.setNameCustomer(rs.getString("TENKH"));
@@ -235,5 +249,40 @@ public class BillDAL extends DataAccessHelper{
         }
         return "";
     }
+    //Lấy trạng thái hóa đơn
+    public String getStatusBill(int IDBill)
+    {
+        String SQL = "SELECT TRANGTHAI FROM HOADON WHERE SOHD = " + IDBill;
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+            {
+                if(rs.getInt("TRANGTHAI") == 0)
+                    return "Chưa thanh toán";
+                else return "Đã thanh toán";
+            }
+            getClose();
+        } catch (Exception e) {
+        }
+        return "";
+    }
     
+    //Cập nhật trạng thái hóa đơn sau khi thanh toán
+    public boolean UpdateStatusBill(int IDBill)
+    {
+        String SQL = "EXEC SP_STATUSBILL " + IDBill;
+        try {
+            getConnect();
+            Statement st = conn.createStatement();
+            int rs=st.executeUpdate(SQL);
+            if(rs > 0)
+                return true;
+            getClose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

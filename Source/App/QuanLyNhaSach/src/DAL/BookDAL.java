@@ -138,5 +138,20 @@ public class BookDAL extends  DataAccessHelper{
         }
         return 0;
     }
-   
- }
+    //Kiểm tra mã sách
+   public boolean TestIDBook(int IDBook)
+   {
+       String SQL = "SELECT COUNT(*) AS [C] FROM SACH WHERE MASACH = " + IDBook; 
+        try {
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs =st.executeQuery(SQL);
+            if(rs!=null &&rs.next() &&rs.getInt("C") > 0)
+                return true;
+            getClose();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+   }
+}

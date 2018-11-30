@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Bill {
     private int IDBill;
+    private String Status;
     private Date BillDate;    
     private int IDCustomer;
     private String NameCustomer;
@@ -25,6 +26,7 @@ public class Bill {
 
     public Bill() {
         this.IDBill = 0;
+        this.Status = "";
         this.BillDate = BillDate;
         this.IDCustomer = 0;
         this.NameCustomer = "";
@@ -34,6 +36,10 @@ public class Bill {
         this.Discount = 0;
         this.TotalPrice = 0;
         this.TotalPay = 0;
+    }
+
+    public String getStatus() {
+        return Status;
     }
 
     public int getIDBill() {
@@ -78,6 +84,10 @@ public class Bill {
 
     public void setIDBill(int IDBill) {
         this.IDBill = IDBill;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
     }
 
     public void setBillDate(Date BillDate) {

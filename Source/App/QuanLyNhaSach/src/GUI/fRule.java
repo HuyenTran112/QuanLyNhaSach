@@ -6,6 +6,7 @@
 package GUI;
 import BLL.RuleBLL;
 import Utilties.ControlFormat;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 /**
  *
@@ -84,16 +85,46 @@ public class fRule extends javax.swing.JInternalFrame {
         jLabel7.setText("VAT");
 
         txfMaxInventoryNum.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfMaxInventoryNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfMaxInventoryNumKeyTyped(evt);
+            }
+        });
 
         txfMinInventoryNum.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfMinInventoryNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfMinInventoryNumKeyTyped(evt);
+            }
+        });
 
         txfPriceRatio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfPriceRatio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfPriceRatioKeyTyped(evt);
+            }
+        });
 
         txfMaxStockNum.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfMaxStockNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfMaxStockNumKeyTyped(evt);
+            }
+        });
 
         txfMinStockNum.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfMinStockNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfMinStockNumKeyTyped(evt);
+            }
+        });
 
         txfVAT.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfVAT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfVATKeyTyped(evt);
+            }
+        });
 
         jTableRule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -326,6 +357,68 @@ public class fRule extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnSaveRuleActionPerformed
+
+    private void txfMaxInventoryNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfMaxInventoryNumKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfMaxInventoryNum.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfMaxInventoryNumKeyTyped
+    
+    private void txfMinInventoryNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfMinInventoryNumKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfMinInventoryNum.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfMinInventoryNumKeyTyped
+    boolean dot = false;
+    private void txfPriceRatioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfPriceRatioKeyTyped
+        // TODO add your handling code here:
+        char vChar = evt.getKeyChar();
+        if (txfPriceRatio.getText().equals(""))
+            dot = false;
+        if (dot == false){
+            if (vChar == '.') 
+                dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE))) 
+                evt.consume();
+        } 
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+                evt.consume();
+        }
+    }//GEN-LAST:event_txfPriceRatioKeyTyped
+
+    private void txfMaxStockNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfMaxStockNumKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfMaxStockNum.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfMaxStockNumKeyTyped
+
+    private void txfMinStockNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfMinStockNumKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (((c < '0') || (c > '9')) || txfMinStockNum.getText().length() >= 10)
+            evt.consume();
+    }//GEN-LAST:event_txfMinStockNumKeyTyped
+
+    private void txfVATKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfVATKeyTyped
+        // TODO add your handling code here:
+        char vChar = evt.getKeyChar();
+        if (txfVAT.getText().equals(""))
+            dot = false;
+        if (dot == false){
+            if (vChar == '.') 
+                dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE))) 
+                evt.consume();
+        } 
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+                evt.consume();
+        }
+    }//GEN-LAST:event_txfVATKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

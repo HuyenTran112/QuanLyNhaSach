@@ -39,4 +39,9 @@ public class BookBLL {
     {
         return DAL.getIDBook(NameBook);
     }
+    //Kiểm tra mã sách
+    public boolean TestIDBook(int IDBook)
+    {
+        return DAL.TestIDBook(IDBook);
+    }
 }
