@@ -126,6 +126,21 @@ public class UserDAL extends  DataAccessHelper{
         }
         return false;
     } 
+     //Cập nhật tài khoản (mật khẩu)
+      public boolean UpdateAccount(String username ,String password,String newpassword)
+    {
+        String SQL="EXEC SP_UPDATEPASSWORD N'"+username+"',N'"+password+"',N'"+newpassword+"'";
+        try {
+            getConnect();
+            PreparedStatement ps =conn.prepareStatement(SQL);
+            ResultSet rs=ps.executeQuery();
+            if(rs!=null)
+                return true;
+            getClose();
+        } catch (Exception e) {
+        }
+        return false;
+    } 
      //Lấy tên nhóm theo tên đăng nhập
      public String getCategogyUser(String username )
     {

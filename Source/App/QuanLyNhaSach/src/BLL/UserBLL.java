@@ -43,4 +43,8 @@ public class UserBLL {
     {
         return DAL.getCategogyUser(username);
     }
+       public boolean UpdateAccount(String username ,String password,String newpassword)
+    {
+        return DAL.UpdateAccount(username, password, newpassword);
+    }
 }

@@ -132,10 +132,9 @@ public class fSales extends javax.swing.JInternalFrame {
         jTableBillInfo = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         txaBill = new javax.swing.JTextArea();
-        jLabel31 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
 
         setClosable(true);
-        getContentPane().setLayout(null);
 
         jTabbedPane1.setToolTipText("");
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -235,7 +234,7 @@ public class fSales extends javax.swing.JInternalFrame {
                         .addComponent(txfIDBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txfNameStaffBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +262,7 @@ public class fSales extends javax.swing.JInternalFrame {
                             .addComponent(cbIDStaffBill, javax.swing.GroupLayout.Alignment.TRAILING, 0, 203, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(txfIDCustomerBill, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel20)
@@ -453,7 +452,7 @@ public class fSales extends javax.swing.JInternalFrame {
 
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
         jPanel3.add(jLabel29);
-        jLabel29.setBounds(0, 0, 1350, 660);
+        jLabel29.setBounds(-10, 0, 1460, 750);
 
         jTabbedPane1.addTab("Hóa đơn", jPanel3);
 
@@ -830,14 +829,22 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane4);
         jScrollPane4.setBounds(1093, 85, 37, 18);
 
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
-        jPanel1.add(jLabel31);
-        jLabel31.setBounds(0, 10, 1350, 650);
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jPanel1.add(jLabel30);
+        jLabel30.setBounds(-10, 0, 1460, 850);
 
         jTabbedPane1.addTab("Chi tiết hóa đơn", jPanel1);
 
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(-10, 0, 1340, 700);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1448, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -877,82 +884,6 @@ public class fSales extends javax.swing.JInternalFrame {
         
     }
     
-    private void btnAddBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillActionPerformed
-        // TODO add your handling code here:
-        ClearTextBill();
-        btnAddBill.setEnabled(false);
-        btnEditBill.setEnabled(false);
-        btnSaveBill.setEnabled(true);
-        flag=1;
-    }//GEN-LAST:event_btnAddBillActionPerformed
-
-    private void btnEditBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBillActionPerformed
-        // TODO add your handling code here:
-        btnAddBill.setEnabled(false);
-        btnEditBill.setEnabled(false);
-        btnSaveBill.setEnabled(true);
-        flag = 2;
-    }//GEN-LAST:event_btnEditBillActionPerformed
-
-    private void btnSaveBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBillActionPerformed
-        // TODO add your handling code here:
-        if(flag == 1)
-        {
-            InsertBill();
-            btnAddBill.setEnabled(true);
-            btnEditBill.setEnabled(true);
-            btnSaveBill.setEnabled(false);
-            control.bindingBill(jTableBill, billBLL.LoadBill());
-            cbIDBill_BillInfo.removeAllItems();
-            for(Bill bill : billBLL.LoadIDBill())
-                cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
-            ClearTextBill();
-        }
-        if(flag == 2)
-        {
-            UpdateBill();
-            btnAddBill.setEnabled(true);
-            btnEditBill.setEnabled(true);
-            btnSaveBill.setEnabled(false);
-            control.bindingBill(jTableBill, billBLL.LoadBill());
-            ClearTextBill();
-        }
-    }//GEN-LAST:event_btnSaveBillActionPerformed
-
-    private void jTableBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBillMouseClicked
-        // TODO add your handling code here:
-        //         String bookcategogy =jTableBookInfo.getValueAt(row, 1).toString();
-        //        if(jTableBookInfo.getValueAt(row, 1).toString().equals(bookcategogy))
-        //        cbNameCategogyBookInfo.setSelectedItem(bookcategogy);
-        //
-        int row = jTableBill.getSelectedRow();
-        txfIDBill.setText(jTableBill.getValueAt(row, 0).toString());
-        txfStatusBill.setText(jTableBill.getValueAt(row, 1).toString());
-        jDChBillDate.setDate((Date) jTableBill.getModel().getValueAt(row, 2));
-        txfIDCustomerBill.setText(jTableBill.getValueAt(row, 3).toString());
-        txfNameCustomerBill.setText(jTableBill.getValueAt(row, 4).toString());
-
-        cbIDStaffBill.setSelectedItem(jTableBill.getValueAt(row, 5).toString());
-        txfNameStaffBill.setText(jTableBill.getValueAt(row, 6).toString());
-        txfVATBill.setText(jTableBill.getValueAt(row, 7).toString());
-        txfDiscountBill.setText(jTableBill.getValueAt(row, 8).toString());
-        txfTotalPriceBill.setText(jTableBill.getValueAt(row, 9).toString());
-        txfTotalPayBill.setText(jTableBill.getValueAt(row, 10).toString());
-    }//GEN-LAST:event_jTableBillMouseClicked
-
-    private void btnSearchBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBillActionPerformed
-        // TODO add your handling code here:
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date search = jDChSearchBill.getDate();
-        String key;
-        if(jDChSearchBill.getDate() == null)
-        key = "";
-        else
-        key = formatter.format(search);
-        control.bindingBill(jTableBill, billBLL.SearchBill(key));
-        jDChSearchBill.setDate(null);
-    }//GEN-LAST:event_btnSearchBillActionPerformed
-
     private void cbIDBill_BillInfoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbIDBill_BillInfoItemStateChanged
         // TODO add your handling code here:
         int idbill;
@@ -1171,6 +1102,82 @@ public class fSales extends javax.swing.JInternalFrame {
         if (((c < '0') || (c > '9')) || txfIDBookBillInfo.getText().length() >= 10)
             evt.consume();
     }//GEN-LAST:event_txfIDBookBillInfoKeyTyped
+
+    private void btnSearchBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBillActionPerformed
+        // TODO add your handling code here:
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date search = jDChSearchBill.getDate();
+        String key;
+        if(jDChSearchBill.getDate() == null)
+        key = "";
+        else
+        key = formatter.format(search);
+        control.bindingBill(jTableBill, billBLL.SearchBill(key));
+        jDChSearchBill.setDate(null);
+    }//GEN-LAST:event_btnSearchBillActionPerformed
+
+    private void jTableBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBillMouseClicked
+        // TODO add your handling code here:
+        //         String bookcategogy =jTableBookInfo.getValueAt(row, 1).toString();
+        //        if(jTableBookInfo.getValueAt(row, 1).toString().equals(bookcategogy))
+        //        cbNameCategogyBookInfo.setSelectedItem(bookcategogy);
+        //
+        int row = jTableBill.getSelectedRow();
+        txfIDBill.setText(jTableBill.getValueAt(row, 0).toString());
+        txfStatusBill.setText(jTableBill.getValueAt(row, 1).toString());
+        jDChBillDate.setDate((Date) jTableBill.getModel().getValueAt(row, 2));
+        txfIDCustomerBill.setText(jTableBill.getValueAt(row, 3).toString());
+        txfNameCustomerBill.setText(jTableBill.getValueAt(row, 4).toString());
+
+        cbIDStaffBill.setSelectedItem(jTableBill.getValueAt(row, 5).toString());
+        txfNameStaffBill.setText(jTableBill.getValueAt(row, 6).toString());
+        txfVATBill.setText(jTableBill.getValueAt(row, 7).toString());
+        txfDiscountBill.setText(jTableBill.getValueAt(row, 8).toString());
+        txfTotalPriceBill.setText(jTableBill.getValueAt(row, 9).toString());
+        txfTotalPayBill.setText(jTableBill.getValueAt(row, 10).toString());
+    }//GEN-LAST:event_jTableBillMouseClicked
+
+    private void btnSaveBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBillActionPerformed
+        // TODO add your handling code here:
+        if(flag == 1)
+        {
+            InsertBill();
+            btnAddBill.setEnabled(true);
+            btnEditBill.setEnabled(true);
+            btnSaveBill.setEnabled(false);
+            control.bindingBill(jTableBill, billBLL.LoadBill());
+            cbIDBill_BillInfo.removeAllItems();
+            for(Bill bill : billBLL.LoadIDBill())
+            cbIDBill_BillInfo.addItem(String.valueOf(bill.getIDBill()));
+            ClearTextBill();
+        }
+        if(flag == 2)
+        {
+            UpdateBill();
+            btnAddBill.setEnabled(true);
+            btnEditBill.setEnabled(true);
+            btnSaveBill.setEnabled(false);
+            control.bindingBill(jTableBill, billBLL.LoadBill());
+            ClearTextBill();
+        }
+    }//GEN-LAST:event_btnSaveBillActionPerformed
+
+    private void btnEditBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBillActionPerformed
+        // TODO add your handling code here:
+        btnAddBill.setEnabled(false);
+        btnEditBill.setEnabled(false);
+        btnSaveBill.setEnabled(true);
+        flag = 2;
+    }//GEN-LAST:event_btnEditBillActionPerformed
+
+    private void btnAddBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillActionPerformed
+        // TODO add your handling code here:
+        ClearTextBill();
+        btnAddBill.setEnabled(false);
+        btnEditBill.setEnabled(false);
+        btnSaveBill.setEnabled(true);
+        flag=1;
+    }//GEN-LAST:event_btnAddBillActionPerformed
 
     private void txfIDCustomerBillKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfIDCustomerBillKeyTyped
         // TODO add your handling code here:
@@ -1416,7 +1423,7 @@ public class fSales extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

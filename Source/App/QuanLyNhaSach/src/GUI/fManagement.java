@@ -35,6 +35,8 @@ public class fManagement extends javax.swing.JFrame {
         int x=(int) tk.getScreenSize().getWidth();
         int y=(int)tk.getScreenSize().getHeight();  
         setSize(x, y);
+        jDesktopPane1.setSize(x, y);
+        jLabel1.setSize(x,y);
     }
 
     /**
@@ -47,6 +49,7 @@ public class fManagement extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -66,20 +69,15 @@ public class fManagement extends javax.swing.JFrame {
         jMenuItemUser = new javax.swing.JMenuItem();
         jMenuRule = new javax.swing.JMenu();
         jMenuItemRule = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItemAccount = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 683, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jDesktopPane1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 720, 370);
 
         jMenu1.setText("Khuyến mãi");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -219,15 +217,32 @@ public class fManagement extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuRule);
 
+        jMenu3.setText("Tài khoản");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+
+        jMenuItemAccount.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jMenuItemAccount.setText("Đổi mật khẩu");
+        jMenuItemAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAccountActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemAccount);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -317,6 +332,18 @@ public class fManagement extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemUserActionPerformed
 
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenuItemAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAccountActionPerformed
+        // TODO add your handling code here:
+        fAccount f =new fAccount();
+         f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAccountActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -361,10 +388,13 @@ public class fManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemAccount;
     private javax.swing.JMenuItem jMenuItemDiscount;
     private javax.swing.JMenuItem jMenuItemInventory;
     private javax.swing.JMenuItem jMenuItemListBook;
