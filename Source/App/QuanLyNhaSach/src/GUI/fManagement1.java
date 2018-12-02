@@ -64,9 +64,12 @@ public class fManagement1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/nhasach.jpg"))); // NOI18N
+        jLabel2.setText("NHÀ SÁCH TYQ");
         jDesktopPane1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 1530, 840);
+        jLabel2.setBounds(0, 0, 1530, 820);
 
         jMenu1.setText("Bán hàng");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N

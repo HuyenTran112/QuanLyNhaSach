@@ -5,9 +5,13 @@
  */
 package GUI;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.MenuItem;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -36,7 +40,8 @@ public class fManagement extends javax.swing.JFrame {
         int y=(int)tk.getScreenSize().getHeight();  
         setSize(x, y);
         jDesktopPane1.setSize(x, y);
-        jLabel1.setSize(x,y);
+        jLabel1.setSize(x, y);
+        
     }
 
     /**
@@ -75,9 +80,10 @@ public class fManagement extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/nhasach.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
         jDesktopPane1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 720, 370);
+        jLabel1.setBounds(0, 0, 720, 320);
 
         jMenu1.setText("Khuyến mãi");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -242,11 +248,11 @@ public class fManagement extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
         );
 
         pack();
