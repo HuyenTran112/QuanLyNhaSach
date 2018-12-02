@@ -60,6 +60,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("TRA CỨU THÔNG TIN SÁCH");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(358, 53, 411, 37);
@@ -68,11 +69,13 @@ public class fSearchBook extends javax.swing.JInternalFrame {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Tra cứu thể loại sách");
 
         txfSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBookCategogy.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchBookCategogy.setText("Tìm kiếm");
         btnSearchBookCategogy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,11 +116,13 @@ public class fSearchBook extends javax.swing.JInternalFrame {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tra cứu thông tin sách");
 
         txfSearchBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBookInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchBookInfo.setText("Tìm kiếm");
         btnSearchBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +193,7 @@ public class fSearchBook extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(720, 270, 480, 257);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, 0, 1470, 750);
 

@@ -109,12 +109,14 @@ public class fListBook extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 204));
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
 
         jPanel2.setOpaque(false);
         jPanel2.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("QUẢN LÝ THÔNG TIN SÁCH");
         jPanel2.add(jLabel4);
         jLabel4.setBounds(413, 11, 410, 37);
@@ -122,30 +124,38 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel6.setOpaque(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Mã sách");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Tên sách");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("Nhà xuất bản");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
         jLabel9.setText("Năm xuất bản");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("Tóm tắt");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 204));
         jLabel10.setText("Tác giả");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 204));
         jLabel20.setText("Giá nhập");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel21.setText("Tổng sách tồn");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 204));
         jLabel22.setText("Tên thể loại:");
 
         txfIDBookInfo.setEditable(false);
@@ -171,6 +181,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         txfAuthorBookInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("Tổng sách tồn:");
 
         txfCostBookInfo.setEditable(false);
@@ -294,9 +305,10 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableBookInfo);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(470, 70, 569, 568);
+        jScrollPane3.setBounds(450, 70, 569, 568);
 
         btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddBookInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBookInfo.setText("THÊM");
         btnAddBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,6 +319,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnAddBookInfo.setBounds(53, 533, 100, 25);
 
         btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditBookInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnEditBookInfo.setText("CẬP NHẬT");
         btnEditBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +330,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnEditBookInfo.setBounds(185, 533, 110, 25);
 
         btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveBookInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveBookInfo.setText("LƯU");
         btnSaveBookInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,7 +340,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel2.add(btnSaveBookInfo);
         btnSaveBookInfo.setBounds(328, 533, 90, 25);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel2.add(jLabel14);
         jLabel14.setBounds(0, 0, 1350, 680);
 
@@ -336,6 +350,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÝ THỂ LOẠI SÁCH");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(376, 50, 380, 37);
@@ -343,9 +358,11 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel4.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Mã thể loại sách");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tên thể loại sách");
 
         txfIDBookCategogy.setEditable(false);
@@ -388,6 +405,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel5.setOpaque(false);
 
         btnAddBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddBookCategogy.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBookCategogy.setText("THÊM");
         btnAddBookCategogy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,6 +414,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         });
 
         btnEditBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditBookCategogy.setForeground(new java.awt.Color(0, 0, 204));
         btnEditBookCategogy.setText("CẬP NHẬT");
         btnEditBookCategogy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,6 +423,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         });
 
         btnSaveBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveBookCategogy.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveBookCategogy.setText("LƯU");
         btnSaveBookCategogy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,9 +480,9 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(480, 100, 580, 550);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(-10, 0, 1360, 680);
+        jLabel12.setBounds(0, 0, 1360, 680);
 
         jTabbedPane1.addTab("Thể loại sách", jPanel1);
 

@@ -117,7 +117,6 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel9 = new javax.swing.JPanel();
         btnAddStock = new javax.swing.JButton();
         btnEditStock = new javax.swing.JButton();
-        btnDelStock = new javax.swing.JButton();
         btnSaveStock = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableStock = new javax.swing.JTable();
@@ -150,11 +149,13 @@ public class fStock extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("QUẢN LÝ NHẬP SÁCH");
 
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 204));
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
 
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÍ THÔNG TIN NHÀ CUNG CẤP SÁCH");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(159, 53, 647, 37);
@@ -164,6 +165,7 @@ public class fStock extends javax.swing.JInternalFrame {
         txfSearchDistributorStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchDistributorStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchDistributorStock.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchDistributorStock.setText("Tìm kiếm");
         btnSearchDistributorStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,15 +200,19 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel5.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Mã nhà cung cấp");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tên nhà cung cấp");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Địa chỉ");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Số điện thoại");
 
         txfIDDistributorInfo.setEditable(false);
@@ -271,6 +277,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel6.setOpaque(false);
 
         btnAddDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddDistributorInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddDistributorInfo.setText("THÊM");
         btnAddDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,6 +286,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnEditDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditDistributorInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnEditDistributorInfo.setText("CẬP NHẬT");
         btnEditDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,6 +295,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnSaveDistributorInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveDistributorInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveDistributorInfo.setText("LƯU");
         btnSaveDistributorInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,15 +352,16 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(510, 120, 550, 450);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(-30, 0, 1370, 730);
+        jLabel6.setBounds(0, 0, 1460, 720);
 
         jTabbedPane1.addTab("Nhà cung cấp sách", jPanel1);
 
         jPanel2.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("QUẢN LÝ PHIẾU NHẬP SÁCH");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(423, 57, 430, 37);
@@ -362,6 +372,7 @@ public class fStock extends javax.swing.JInternalFrame {
         txfSearchStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchStock.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchStock.setText("Tìm kiếm");
         btnSearchStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,9 +407,11 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel8.setOpaque(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("Ngày nhập");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 204));
         jLabel10.setText("Tổng tiền");
 
         txfIDStock.setEditable(false);
@@ -413,9 +426,11 @@ public class fStock extends javax.swing.JInternalFrame {
         txfTotalStock.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("Tên nhà cung cấp");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 204));
         jLabel12.setText("Số phiếu nhập");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -470,6 +485,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel9.setOpaque(false);
 
         btnAddStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddStock.setForeground(new java.awt.Color(0, 0, 204));
         btnAddStock.setText("THÊM");
         btnAddStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -478,6 +494,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnEditStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditStock.setForeground(new java.awt.Color(0, 0, 204));
         btnEditStock.setText("CẬP NHẬT");
         btnEditStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -485,15 +502,8 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
 
-        btnDelStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDelStock.setText("XÓA");
-        btnDelStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelStockActionPerformed(evt);
-            }
-        });
-
         btnSaveStock.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveStock.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveStock.setText("LƯU");
         btnSaveStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -510,11 +520,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addComponent(btnAddStock)
                 .addGap(31, 31, 31)
                 .addComponent(btnEditStock)
-                .addGap(31, 31, 31)
-                .addComponent(btnDelStock, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(60, 60, 60)
                 .addComponent(btnSaveStock, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,13 +531,12 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddStock)
                     .addComponent(btnEditStock)
-                    .addComponent(btnDelStock)
                     .addComponent(btnSaveStock))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel9);
-        jPanel9.setBounds(10, 458, 426, 47);
+        jPanel9.setBounds(20, 430, 390, 47);
 
         jTableStock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -552,15 +559,16 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel2.add(jScrollPane2);
         jScrollPane2.setBounds(652, 197, 554, 402);
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel2.add(jLabel19);
-        jLabel19.setBounds(-20, 0, 1260, 690);
+        jLabel19.setBounds(0, 0, 1260, 690);
 
         jTabbedPane1.addTab("Phiếu nhập sách", jPanel2);
 
         jPanel3.setLayout(null);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 204));
         jLabel13.setText("QUẢN LÍ CHI TIẾT PHIẾU NHẬP SÁCH");
         jPanel3.add(jLabel13);
         jLabel13.setBounds(417, 55, 570, 37);
@@ -570,6 +578,7 @@ public class fStock extends javax.swing.JInternalFrame {
         txfSearchStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchStockInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchStockInfo.setText("Tìm kiếm");
         btnSearchStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -604,12 +613,15 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel11.setOpaque(false);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 204));
         jLabel14.setText("Số phiếu nhập");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 204));
         jLabel15.setText("Tên sách");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 204));
         jLabel16.setText("Số lượng");
 
         txfAmountStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -625,12 +637,14 @@ public class fStock extends javax.swing.JInternalFrame {
         cbNameBookStockInfo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 204));
         jLabel17.setText("Thành tiền");
 
         txfAmount.setEditable(false);
         txfAmount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 204));
         jLabel18.setText("Giá nhập");
 
         txfCost.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -697,6 +711,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel12.setOpaque(false);
 
         btnAddStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddStockInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddStockInfo.setText("THÊM");
         btnAddStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -705,6 +720,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnEditStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditStockInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnEditStockInfo.setText("CẬP NHẬT");
         btnEditStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -713,6 +729,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnDelStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDelStockInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnDelStockInfo.setText("XÓA");
         btnDelStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -721,6 +738,7 @@ public class fStock extends javax.swing.JInternalFrame {
         });
 
         btnSaveStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveStockInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveStockInfo.setText("LƯU");
         btnSaveStockInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -780,9 +798,9 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel3.add(jScrollPane3);
         jScrollPane3.setBounds(616, 185, 527, 402);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(-10, 0, 1240, 700);
+        jLabel9.setBounds(0, 0, 1240, 700);
 
         jTabbedPane1.addTab("Chi tiết phiếu nhập sách", jPanel3);
 
@@ -877,7 +895,6 @@ public class fStock extends javax.swing.JInternalFrame {
         ClearTextBookStock();
         btnAddStock.setEnabled(false);
         btnEditStock.setEnabled(false);
-        btnDelStock.setEnabled(false);
         btnSaveStock.setEnabled(true);
         flag=4;
     }//GEN-LAST:event_btnAddStockActionPerformed
@@ -886,19 +903,9 @@ public class fStock extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         btnAddStock.setEnabled(false);
         btnEditStock.setEnabled(false);
-        btnDelStock.setEnabled(false);
         btnSaveStock.setEnabled(true);
         flag=5;
     }//GEN-LAST:event_btnEditStockActionPerformed
-
-    private void btnDelStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelStockActionPerformed
-        // TODO add your handling code here:
-        btnAddStock.setEnabled(false);
-        btnEditStock.setEnabled(false);
-        btnDelStock.setEnabled(false);
-        btnSaveStock.setEnabled(true);
-        flag=6;
-    }//GEN-LAST:event_btnDelStockActionPerformed
 
     private void btnSaveStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveStockActionPerformed
         // TODO add your handling code here:
@@ -910,7 +917,6 @@ public class fStock extends javax.swing.JInternalFrame {
             }
             btnAddStock.setEnabled(true);
             btnEditStock.setEnabled(true);
-            btnDelStock.setEnabled(true);
             btnSaveStock.setEnabled(false);
         }
         if(flag==5)
@@ -921,21 +927,9 @@ public class fStock extends javax.swing.JInternalFrame {
             }
             btnAddStock.setEnabled(true);
             btnEditStock.setEnabled(true);
-            btnDelStock.setEnabled(true);
             btnSaveStock.setEnabled(false);
         }
-        if(flag==6)
-        {
-            if(DeleteBookStock()==true)
-            {
-                control.bindingBookStock(jTableStock, bookStockBLL.LoadBookStock());
-            }
-            btnAddStock.setEnabled(true);
-            btnEditStock.setEnabled(true);
-            btnDelStock.setEnabled(true);
-            btnSaveStock.setEnabled(false);
-           
-        }
+        
     }//GEN-LAST:event_btnSaveStockActionPerformed
 
     private void btnSearchStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchStockActionPerformed
@@ -1213,20 +1207,7 @@ public class fStock extends javax.swing.JInternalFrame {
         }
         
     }
-    public boolean DeleteBookStock()
-    {
-        int IDBookStock =Integer.parseInt(txfIDStock.getText().toString());
-         if(bookStockBLL.DeleteBookStock(IDBookStock))
-            {
-                JOptionPane.showMessageDialog(this, "Xóa thành công phiếu nhập sách");
-                return true;
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Xóa thất bại");
-                return false;
-            }
-    }
+   
     public boolean InsertBookStockDetail()
     {
         int IDBookStock=Integer.parseInt(cbIDStockInfo.getSelectedItem().toString());
@@ -1301,7 +1282,6 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAddDistributorInfo;
     private javax.swing.JButton btnAddStock;
     private javax.swing.JButton btnAddStockInfo;
-    private javax.swing.JButton btnDelStock;
     private javax.swing.JButton btnDelStockInfo;
     private javax.swing.JButton btnEditDistributorInfo;
     private javax.swing.JButton btnEditStock;

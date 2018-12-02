@@ -60,6 +60,7 @@ public class fRule extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUY ĐỊNH");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(369, 24, 158, 37);
@@ -67,21 +68,27 @@ public class fRule extends javax.swing.JInternalFrame {
         jPanel1.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Số lượng tồn tối đa");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Số lượng tồn tối thiểu");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Tỉ lệ tính giá bán");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Số lượng nhập tối đa");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Số lượng nhập tối thiểu");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("VAT");
 
         txfMaxInventoryNum.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -147,6 +154,7 @@ public class fRule extends javax.swing.JInternalFrame {
         jPanel2.setOpaque(false);
 
         btnEditRule.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditRule.setForeground(new java.awt.Color(0, 0, 204));
         btnEditRule.setText("CẬP NHẬT");
         btnEditRule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +163,7 @@ public class fRule extends javax.swing.JInternalFrame {
         });
 
         btnSaveRule.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveRule.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveRule.setText("LƯU");
         btnSaveRule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,9 +258,9 @@ public class fRule extends javax.swing.JInternalFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(30, 140, 1320, 451);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(-10, 0, 1380, 730);
+        jLabel8.setBounds(0, 0, 1380, 730);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

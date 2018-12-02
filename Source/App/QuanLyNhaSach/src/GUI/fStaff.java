@@ -76,6 +76,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÍ NHÂN VIÊN");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(364, 45, 314, 37);
@@ -85,6 +86,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         txfSearchStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchStaff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchStaff.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchStaff.setText("Tìm kiếm");
         btnSearchStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,24 +121,31 @@ public class fStaff extends javax.swing.JInternalFrame {
         jPanel2.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Mã nhân viên");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tên nhân viên");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Ngày sinh");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Giới tính");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Địa chỉ");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("Điện thoại");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("Ngày vào làm");
 
         txfIDStaff.setEditable(false);
@@ -166,6 +175,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         rbMaleStaff.setText("Nam");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
         jLabel9.setText("Trạng thái");
 
         cbStatus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -178,17 +188,15 @@ public class fStaff extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel9)
                     .addComponent(jLabel8))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,6 +263,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         jPanel4.setOpaque(false);
 
         btnAddStaff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddStaff.setForeground(new java.awt.Color(0, 0, 204));
         btnAddStaff.setText("THÊM");
         btnAddStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +272,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         });
 
         btnEditStaff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditStaff.setForeground(new java.awt.Color(0, 0, 204));
         btnEditStaff.setText("CẬP NHẬT");
         btnEditStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +281,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         });
 
         btnSaveStaff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveStaff.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveStaff.setText("LƯU");
         btnSaveStaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,7 +338,8 @@ public class fStaff extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(470, 120, 720, 510);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel11);
         jLabel11.setBounds(0, 0, 1360, 700);
 

@@ -55,6 +55,7 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
         txfSearchDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchDiscount.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchDiscount.setText("Tìm kiếm");
         btnSearchDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,11 +104,12 @@ public class fSearchDiscount extends javax.swing.JInternalFrame {
         jScrollPane1.setBounds(42, 254, 914, 291);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("TRA CỨU KHUYẾN MÃI");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(349, 39, 344, 37);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(-10, 0, 1120, 600);
 

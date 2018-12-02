@@ -53,22 +53,27 @@ public class fAccount extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("CẬP NHẬT TÀI KHOẢN");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(354, 59, 338, 37);
+        jLabel1.setBounds(450, 70, 338, 37);
 
         jPanel2.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Tên đăng nhập");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Mật khẩu");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Mật khẩu mới:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Nhập lại mật khẩu mới");
 
         txfUserName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -124,11 +129,12 @@ public class fAccount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(331, 154, 455, 169);
+        jPanel2.setBounds(390, 160, 455, 169);
 
         jPanel4.setOpaque(false);
 
         btnUpdateAccount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnUpdateAccount.setForeground(new java.awt.Color(0, 0, 204));
         btnUpdateAccount.setText("CẬP NHẬT");
         btnUpdateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,9 +147,9 @@ public class fAccount extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addComponent(btnUpdateAccount)
-                .addGap(100, 100, 100))
+                .addGap(54, 54, 54))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,15 +160,15 @@ public class fAccount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(341, 334, 412, 49);
+        jPanel4.setBounds(503, 334, 250, 49);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/account.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(46, 127, 242, 256);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(-10, 0, 1350, 720);
+        jLabel8.setBounds(0, 0, 1350, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

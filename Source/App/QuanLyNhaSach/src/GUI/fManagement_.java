@@ -73,12 +73,14 @@ public class fManagement_ extends javax.swing.JFrame {
         jMenuItemUser = new javax.swing.JMenuItem();
         jMenuRule = new javax.swing.JMenu();
         jMenuItemRule = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/nhasach.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia.jpg"))); // NOI18N
         jDesktopPane1.add(jLabel1);
         jLabel1.setBounds(0, 0, 570, 280);
 
@@ -281,6 +283,22 @@ public class fManagement_ extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuRule);
 
+        jMenu3.setForeground(new java.awt.Color(0, 0, 204));
+        jMenu3.setText("Tài khoản");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jMenuItem1.setForeground(new java.awt.Color(0, 0, 204));
+        jMenuItem1.setText("Đổi mật khẩu");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -393,6 +411,14 @@ public class fManagement_ extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemUserActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        fAccount f =new fAccount();
+        f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -464,9 +490,11 @@ public class fManagement_ extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCustomer;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemCustomer;
     private javax.swing.JMenuItem jMenuItemDiscount;
     private javax.swing.JMenuItem jMenuItemInventory;

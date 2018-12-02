@@ -70,6 +70,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÝ KHUYẾN MÃI");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(352, 42, 343, 37);
@@ -77,15 +78,19 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jPanel1.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Mã khuyến mãi");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tên khuyến mãi");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Hệ số khuyến mãi ");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Mức tiền hưởng khuyến mãi");
 
         txfIDDiscount.setEditable(false);
@@ -94,14 +99,17 @@ public class fDiscount extends javax.swing.JInternalFrame {
         txfNameDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Thời hạn áp dụng khuyến mãi");
 
         jDChStartDiscount.setDateFormatString("dd-MM-yyyy");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("- Ngày bắt đầu");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("- Ngày kết thúc");
 
         jDChFinishDiscount.setDateFormatString("dd-MM-yyyy");
@@ -183,9 +191,10 @@ public class fDiscount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 120, 540, 363);
+        jPanel1.setBounds(10, 120, 540, 357);
 
         btnAddDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddDiscount.setForeground(new java.awt.Color(0, 0, 204));
         btnAddDiscount.setText("THÊM");
         btnAddDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +205,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnAddDiscount.setBounds(10, 490, 110, 30);
 
         btnEditDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditDiscount.setForeground(new java.awt.Color(0, 0, 204));
         btnEditDiscount.setText("CẬP NHẬT");
         btnEditDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +216,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnEditDiscount.setBounds(170, 490, 110, 30);
 
         btnDelDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDelDiscount.setForeground(new java.awt.Color(0, 0, 204));
         btnDelDiscount.setText("XÓA");
         btnDelDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +227,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnDelDiscount.setBounds(330, 490, 110, 30);
 
         btnSaveDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveDiscount.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveDiscount.setText("LƯU");
         btnSaveDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,9 +257,9 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableDiscount);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(590, 110, 780, 680);
+        jScrollPane1.setBounds(600, 110, 760, 680);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel9);
         jLabel9.setBounds(0, 0, 1840, 830);
 

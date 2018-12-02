@@ -29,8 +29,6 @@ public class fCustomer extends javax.swing.JInternalFrame {
     
     public fCustomer() {
         initComponents();
-        setResizable(false);
-        setVisible(true); 
         Toolkit tk =Toolkit.getDefaultToolkit();
         int x=(int) tk.getScreenSize().getWidth();
         int y=(int)tk.getScreenSize().getHeight();
@@ -76,6 +74,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("QUẢN LÝ KHÁCH HÀNG");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(276, 27, 350, 37);
@@ -85,6 +84,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfSearchCustomer.setBounds(10, 91, 275, 25);
 
         btnSearchCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSearchCustomer.setForeground(new java.awt.Color(0, 0, 204));
         btnSearchCustomer.setText("Tìm kiếm");
         btnSearchCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +95,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         btnSearchCustomer.setBounds(314, 90, 120, 27);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Mã khách hàng:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 151, 110, 17);
@@ -105,6 +106,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfIDCustomer.setBounds(140, 151, 260, 25);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Tên khách hàng:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(10, 201, 120, 19);
@@ -127,6 +129,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfNameCustomer.setBounds(140, 201, 260, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Địa chỉ:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 241, 106, 19);
@@ -136,6 +139,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfAddressCustomer.setBounds(140, 244, 260, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Số điện thoại:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 281, 106, 19);
@@ -150,6 +154,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfPhoneCustomer.setBounds(140, 281, 260, 25);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Ngày sinh:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(10, 331, 79, 19);
@@ -160,6 +165,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChBirthdayCustomer.setBounds(140, 321, 260, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("Ngày đăng kí:");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(10, 371, 106, 26);
@@ -170,6 +176,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChRegisDateCustomer.setBounds(140, 371, 260, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("Doanh số:");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(10, 419, 73, 19);
@@ -180,6 +187,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfTurnoverCustomer.setBounds(140, 419, 260, 25);
 
         btnAddCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnAddCustomer.setForeground(new java.awt.Color(0, 0, 204));
         btnAddCustomer.setText("THÊM");
         btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,9 +195,10 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAddCustomer);
-        btnAddCustomer.setBounds(19, 497, 89, 27);
+        btnAddCustomer.setBounds(39, 500, 110, 27);
 
         btnEditCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnEditCustomer.setForeground(new java.awt.Color(0, 0, 204));
         btnEditCustomer.setText("CẬP NHẬT");
         btnEditCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,9 +206,10 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditCustomer);
-        btnEditCustomer.setBounds(149, 497, 130, 27);
+        btnEditCustomer.setBounds(190, 500, 130, 27);
 
         btnSaveCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSaveCustomer.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveCustomer.setText("LƯU");
         btnSaveCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +217,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnSaveCustomer);
-        btnSaveCustomer.setBounds(313, 497, 70, 27);
+        btnSaveCustomer.setBounds(360, 500, 120, 27);
 
         jTableCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
@@ -229,11 +239,11 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableCustomer);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(540, 90, 750, 490);
+        jScrollPane1.setBounds(540, 90, 800, 580);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(-10, 0, 1360, 680);
+        jLabel9.setBounds(0, 0, 1360, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

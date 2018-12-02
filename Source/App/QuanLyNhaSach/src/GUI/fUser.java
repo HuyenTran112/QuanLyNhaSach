@@ -75,6 +75,7 @@ public class fUser extends javax.swing.JInternalFrame {
         jPanel5.setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 51, 204));
         jLabel11.setText("QUẢN LÝ NGƯỜI DÙNG");
         jPanel5.add(jLabel11);
         jLabel11.setBounds(432, 39, 352, 37);
@@ -105,16 +106,19 @@ public class fUser extends javax.swing.JInternalFrame {
         txfPassWord.setBounds(209, 409, 242, 26);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 51, 204));
         jLabel15.setText("Tên đăng nhập");
         jPanel5.add(jLabel15);
         jLabel15.setBounds(30, 326, 110, 17);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 51, 204));
         jLabel16.setText("Tên hiển thị");
         jPanel5.add(jLabel16);
         jLabel16.setBounds(30, 369, 90, 17);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 51, 204));
         jLabel14.setText("Tên nhóm");
         jPanel5.add(jLabel14);
         jLabel14.setBounds(30, 229, 80, 17);
@@ -125,11 +129,13 @@ public class fUser extends javax.swing.JInternalFrame {
         cbNameStaff.setBounds(209, 277, 242, 23);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 51, 204));
         jLabel17.setText("Mật khẩu");
         jPanel5.add(jLabel17);
         jLabel17.setBounds(30, 416, 70, 17);
 
         btnAddUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddUser.setForeground(new java.awt.Color(0, 51, 204));
         btnAddUser.setText("THÊM");
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +146,7 @@ public class fUser extends javax.swing.JInternalFrame {
         btnAddUser.setBounds(30, 509, 90, 25);
 
         btnSaveUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveUser.setForeground(new java.awt.Color(0, 51, 204));
         btnSaveUser.setText("LƯU");
         btnSaveUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +162,7 @@ public class fUser extends javax.swing.JInternalFrame {
         txfUserName.setBounds(209, 323, 242, 23);
 
         btnEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditUser.setForeground(new java.awt.Color(0, 51, 204));
         btnEditUser.setText("CẬP NHẬT");
         btnEditUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +173,7 @@ public class fUser extends javax.swing.JInternalFrame {
         btnEditUser.setBounds(149, 509, 110, 25);
 
         btnDelUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDelUser.setForeground(new java.awt.Color(0, 51, 204));
         btnDelUser.setText("XÓA");
         btnDelUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +189,7 @@ public class fUser extends javax.swing.JInternalFrame {
         cbNameUserCategory_User.setBounds(209, 226, 242, 23);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 51, 204));
         jLabel18.setText("Tên nhân viên");
         jPanel5.add(jLabel18);
         jLabel18.setBounds(30, 280, 110, 17);
@@ -194,6 +204,7 @@ public class fUser extends javax.swing.JInternalFrame {
         txfSearchUser.setBounds(10, 129, 330, 23);
 
         btnSeaechUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSeaechUser.setForeground(new java.awt.Color(0, 51, 204));
         btnSeaechUser.setText("Tìm kiếm");
         btnSeaechUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +214,7 @@ public class fUser extends javax.swing.JInternalFrame {
         jPanel5.add(btnSeaechUser);
         btnSeaechUser.setBounds(371, 128, 100, 25);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel5.add(jLabel1);
         jLabel1.setBounds(0, 0, 1380, 750);
 

@@ -143,6 +143,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel3.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("HÓA ĐƠN");
         jPanel3.add(jLabel2);
         jLabel2.setBounds(486, 0, 147, 37);
@@ -150,6 +151,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel5.setOpaque(false);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
         jLabel3.setText("Mã nhân viên");
 
         txfIDCustomerBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -161,30 +163,36 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Mã khách hàng");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 204));
         jLabel15.setText("Tên khách hàng");
 
         txfNameCustomerBill.setEditable(false);
         txfNameCustomerBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 204));
         jLabel16.setText("Thuế VAT");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 204));
         jLabel17.setText("Trị giá");
 
         txfTotalPriceBill.setEditable(false);
         txfTotalPriceBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(0, 0, 204));
         jLabel18.setText("Tổng tiền");
 
         txfTotalPayBill.setEditable(false);
         txfTotalPayBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(0, 0, 204));
         jLabel19.setText("Số hóa đơn");
 
         txfIDBill.setEditable(false);
@@ -197,24 +205,28 @@ public class fSales extends javax.swing.JInternalFrame {
         cbIDStaffBill.setName("cbIDStaffBill"); // NOI18N
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(0, 0, 204));
         jLabel20.setText("Ngày hóa đơn");
 
         txfVATBill.setEditable(false);
         txfVATBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(0, 0, 204));
         jLabel22.setText("Khuyến mãi");
 
         txfDiscountBill.setEditable(false);
         txfDiscountBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(0, 0, 204));
         jLabel23.setText("Tên nhân viên");
 
         txfNameStaffBill.setEditable(false);
         txfNameStaffBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(0, 0, 204));
         jLabel27.setText("Trạng thái");
 
         txfStatusBill.setEditable(false);
@@ -330,6 +342,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel7.setOpaque(false);
 
         btnAddBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddBill.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBill.setText("THÊM");
         btnAddBill.setName("btnAddBill"); // NOI18N
         btnAddBill.addActionListener(new java.awt.event.ActionListener() {
@@ -339,6 +352,7 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         btnEditBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditBill.setForeground(new java.awt.Color(0, 0, 204));
         btnEditBill.setText("CẬP NHẬT");
         btnEditBill.setName("btnEditBill"); // NOI18N
         btnEditBill.addActionListener(new java.awt.event.ActionListener() {
@@ -348,6 +362,7 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         btnSaveBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveBill.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveBill.setText("LƯU");
         btnSaveBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +422,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel4.setOpaque(false);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 204));
         jLabel21.setText("Tìm hóa đơn theo ngày");
 
         jDChSearchBill.setDateFormatString("dd-MM-yyyy");
@@ -450,15 +466,16 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel4);
         jPanel4.setBounds(486, 87, 479, 70);
 
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel3.add(jLabel29);
-        jLabel29.setBounds(-10, 0, 1460, 750);
+        jLabel29.setBounds(0, 0, 1460, 750);
 
         jTabbedPane1.addTab("Hóa đơn", jPanel3);
 
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("CHI TIẾT HÓA ĐƠN");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(486, 30, 292, 37);
@@ -466,6 +483,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel6.setOpaque(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Số hóa đơn");
 
         cbIDBill_BillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -485,9 +503,11 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 204));
         jLabel6.setText("Mã sách");
 
         btnAddBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBillInfo.setText("THÊM");
         btnAddBillInfo.setName("btnAddBillInfo"); // NOI18N
         btnAddBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -497,6 +517,7 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         btnEditBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnEditBillInfo.setText("CẬP NHẬT");
         btnEditBillInfo.setName("btnEditBillInfo"); // NOI18N
         btnEditBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -506,6 +527,7 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         btnDelBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDelBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnDelBillInfo.setText("XÓA");
         btnDelBillInfo.setName("btnDelIfoBill"); // NOI18N
         btnDelBillInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -515,12 +537,14 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 204));
         jLabel7.setText("Số lượng");
 
         cbAmountBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbAmountBillInfo.setName("cbAmountBillInfo"); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
         jLabel8.setText("Thành tiền");
 
         txfTotalPriceBillInfo.setEditable(false);
@@ -529,6 +553,7 @@ public class fSales extends javax.swing.JInternalFrame {
         txfTotalPriceBillInfo.setName("txfTotalPriceBillInfo"); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 204));
         jLabel9.setText("Trị giá");
 
         txfPriceBillInfo.setEditable(false);
@@ -537,13 +562,16 @@ public class fSales extends javax.swing.JInternalFrame {
         txfPriceBillInfo.setName("txfPriceBillInfo"); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 204));
         jLabel10.setText("Chiết khấu");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("Tiền mặt thanh toán");
         jLabel11.setName(""); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 204));
         jLabel12.setText("Tiền trả lại");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -551,6 +579,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jLabel13.setText("Tổng tiền");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 204));
         jLabel14.setText("Thuế VAT");
 
         txfTotalPayBillInfo.setEditable(false);
@@ -576,6 +605,7 @@ public class fSales extends javax.swing.JInternalFrame {
         txfCashBillInfo.setName("txfCashBillInfo"); // NOI18N
 
         btnPayBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnPayBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnPayBillInfo.setText("Thanh toán");
         btnPayBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,6 +614,7 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         btnSaveBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnSaveBillInfo.setText("LƯU");
         btnSaveBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -592,12 +623,14 @@ public class fSales extends javax.swing.JInternalFrame {
         });
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(0, 0, 204));
         jLabel24.setText("Giá bán");
 
         txfPriceBookBillInfo.setEditable(false);
         txfPriceBookBillInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 204));
         jLabel26.setText("Tên sách");
 
         txfNameBook.setEditable(false);
@@ -748,6 +781,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel8.setOpaque(false);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(0, 0, 204));
         jLabel25.setText("Tìm chi tiết hóa đơn theo ngày");
 
         jDChSearchBillInfo.setDateFormatString("dd-MM-yyyy");
@@ -790,6 +824,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel8.setBounds(637, 85, 395, 80);
 
         btnPrintBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnPrintBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnPrintBillInfo.setText("IN HÓA ĐƠN");
         btnPrintBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -829,9 +864,9 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane4);
         jScrollPane4.setBounds(1093, 85, 37, 18);
 
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel30);
-        jLabel30.setBounds(-10, 0, 1460, 850);
+        jLabel30.setBounds(0, 0, 1460, 850);
 
         jTabbedPane1.addTab("Chi tiết hóa đơn", jPanel1);
 
