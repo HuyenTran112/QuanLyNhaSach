@@ -337,7 +337,10 @@ public class ControlFormat {
             row.add(staff.getAddress());
             row.add(staff.getPhoneNumber());
             row.add(staff.getStartDate());
-            row.add(staff.getStatus());
+            if(staff.getStatus()==1)
+                row.add("Làm việc");
+            if(staff.getStatus()==0)
+                row.add("Thôi việc");
             data.add(row);
         }
          DefaultTableModel dtm = new DefaultTableModel(data , header)

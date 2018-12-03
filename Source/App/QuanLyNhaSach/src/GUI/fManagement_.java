@@ -80,7 +80,7 @@ public class fManagement_ extends javax.swing.JFrame {
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/nhasach.jpg"))); // NOI18N
         jDesktopPane1.add(jLabel1);
         jLabel1.setBounds(0, 0, 570, 280);
 

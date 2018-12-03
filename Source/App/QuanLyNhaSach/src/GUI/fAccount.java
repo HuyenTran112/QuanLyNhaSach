@@ -147,7 +147,7 @@ public class fAccount extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(99, Short.MAX_VALUE)
                 .addComponent(btnUpdateAccount)
                 .addGap(54, 54, 54))
         );
@@ -160,7 +160,7 @@ public class fAccount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(503, 334, 250, 49);
+        jPanel4.setBounds(530, 330, 260, 49);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/account.png"))); // NOI18N
         getContentPane().add(jLabel6);

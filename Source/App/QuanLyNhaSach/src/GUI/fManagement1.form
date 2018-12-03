@@ -203,7 +203,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Image/anhbia.jpg"/>
+              <Image iconType="3" name="/Image/nhasach.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="NH&#xc0; S&#xc1;CH TYQ"/>
           </Properties>

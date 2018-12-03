@@ -68,7 +68,7 @@ public class fManagement1 extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/nhasach.jpg"))); // NOI18N
         jLabel2.setText("NHÀ SÁCH TYQ");
         jDesktopPane1.add(jLabel2);
         jLabel2.setBounds(0, 0, 1530, 820);
