@@ -936,29 +936,44 @@ public class fSales extends javax.swing.JInternalFrame {
     private void btnAddBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillInfoActionPerformed
         // TODO add your handling code here:
         ClearTextBillInfo();
-        btnAddBillInfo.setEnabled(false);
-        btnDelBillInfo.setEnabled(false);
-        btnEditBillInfo.setEnabled(false);
-        btnSaveBillInfo.setEnabled(true);
-        flag = 4;
+        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Không được thêm khi hóa đơn đã thanh toán");
+        else{
+            btnAddBillInfo.setEnabled(false);
+            btnDelBillInfo.setEnabled(false);
+            btnEditBillInfo.setEnabled(false);
+            btnSaveBillInfo.setEnabled(true);
+            flag = 4;
+        }
     }//GEN-LAST:event_btnAddBillInfoActionPerformed
 
     private void btnEditBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBillInfoActionPerformed
         // TODO add your handling code here:
-        btnAddBillInfo.setEnabled(false);
-        btnDelBillInfo.setEnabled(false);
-        btnEditBillInfo.setEnabled(false);
-        btnSaveBillInfo.setEnabled(true);
-        flag = 5;
+        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Không được cập nhật khi hóa đơn đã thanh toán");
+        else{
+            btnAddBillInfo.setEnabled(false);
+            btnDelBillInfo.setEnabled(false);
+            btnEditBillInfo.setEnabled(false);
+            btnSaveBillInfo.setEnabled(true);
+            flag = 5;
+        }
     }//GEN-LAST:event_btnEditBillInfoActionPerformed
 
     private void btnDelBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelBillInfoActionPerformed
         // TODO add your handling code here:
-        btnAddBillInfo.setEnabled(false);
-        btnDelBillInfo.setEnabled(false);
-        btnEditBillInfo.setEnabled(false);
-        btnSaveBillInfo.setEnabled(true);
-        flag = 6;
+        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Không được xóa khi hóa đơn đã thanh toán");
+        else{
+            btnAddBillInfo.setEnabled(false);
+            btnDelBillInfo.setEnabled(false);
+            btnEditBillInfo.setEnabled(false);
+            btnSaveBillInfo.setEnabled(true);
+            flag = 6;
+        }
     }//GEN-LAST:event_btnDelBillInfoActionPerformed
 
     private void btnPayBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayBillInfoActionPerformed
@@ -1199,10 +1214,15 @@ public class fSales extends javax.swing.JInternalFrame {
 
     private void btnEditBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBillActionPerformed
         // TODO add your handling code here:
-        btnAddBill.setEnabled(false);
-        btnEditBill.setEnabled(false);
-        btnSaveBill.setEnabled(true);
-        flag = 2;
+        int IDBill = Integer.parseInt(txfIDBill.getText());
+        if(billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
+            JOptionPane.showMessageDialog(this, "Không được cập nhật hóa đơn đã thanh toán");
+        else{
+            btnAddBill.setEnabled(false);
+            btnEditBill.setEnabled(false);
+            btnSaveBill.setEnabled(true);
+            flag = 2;
+        }  
     }//GEN-LAST:event_btnEditBillActionPerformed
 
     private void btnAddBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillActionPerformed
@@ -1273,26 +1293,21 @@ public class fSales extends javax.swing.JInternalFrame {
             IDCustomer = 0;
         else IDCustomer = Integer.parseInt(txfIDCustomerBill.getText());
         
-        int IDStaff = Integer.parseInt(cbIDStaffBill.getSelectedItem().toString());
+        int IDStaff = Integer.parseInt(cbIDStaffBill.getSelectedItem().toString());        
         
-        if(billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
-            JOptionPane.showMessageDialog(this, "Không được cập nhật hóa đơn đã thanh toán");
+        if(customerBLL.TestIDCustomer(IDCustomer) == false)
+            JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại");
         else
         {
-            if(customerBLL.TestIDCustomer(IDCustomer) == false)
-                JOptionPane.showMessageDialog(this, "Mã khách hàng không tồn tại");
+            if(billBLL.UpdateBill(IDBill, BillDate, IDCustomer, IDStaff))
+            {
+                JOptionPane.showMessageDialog(this, "Cập nhật thành công hóa đơn");
+            }
             else
             {
-                if(billBLL.UpdateBill(IDBill, BillDate, IDCustomer, IDStaff))
-                {
-                    JOptionPane.showMessageDialog(this, "Cập nhật thành công hóa đơn");
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(this, "Cập nhật thất bại hóa đơn");
-                }
-            }                        
-        }
+                JOptionPane.showMessageDialog(this, "Cập nhật thất bại hóa đơn");
+            }
+        }                               
     }
     //Cập nhật trạng thái hóa đơn sau khi thanh toán
     public void UpdateStatusBill()
@@ -1330,12 +1345,7 @@ public class fSales extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(this, "Mã sách bắt buộc có");
             return false;
-        }
-        else if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
-        {
-            JOptionPane.showMessageDialog(this, "Không được thêm khi hóa đơn đã thanh toán");
-            return true;
-        }
+        }       
         else
         {
             if(bookBLL.TestIDBook(IDBook) == false)
@@ -1373,12 +1383,7 @@ public class fSales extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(this, "Mã sách bắt buộc có");
             return false;
-        }
-        else if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
-        {
-            JOptionPane.showMessageDialog(this, "Không được cập nhật khi hóa đơn đã thanh toán");
-            return true;
-        }
+        }        
         else
         {
             if(billinfoBLL.UpdateBillInfo(IDBill, IDBook, Amount))
@@ -1397,15 +1402,9 @@ public class fSales extends javax.swing.JInternalFrame {
     //Xóa CTHD
     public void DeleteBillInfo()
     {
-        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());
+        int IDBill = Integer.parseInt(cbIDBill_BillInfo.getSelectedItem().toString());       
         
-        if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
-        {
-            JOptionPane.showMessageDialog(this, "Không được xóa khi hóa đơn đã thanh toán");
-        }
-        else
-        {
-            if(cbIDBill_BillInfo.getSelectedItem().toString().equals("") == false && txfIDBookBillInfo.getText().equals("") == false)
+        if(cbIDBill_BillInfo.getSelectedItem().toString().equals("") == false && txfIDBookBillInfo.getText().equals("") == false)
         {
             int IDBook = Integer.parseInt(txfIDBookBillInfo.getText());
             if(billinfoBLL.DeleteBillInfo(IDBill, IDBook))
@@ -1413,7 +1412,6 @@ public class fSales extends javax.swing.JInternalFrame {
         }
         else
             JOptionPane.showMessageDialog(this, "Xóa thất bại");
-        }
     }
     
 
