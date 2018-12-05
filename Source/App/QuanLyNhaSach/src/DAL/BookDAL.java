@@ -106,6 +106,22 @@ public class BookDAL extends  DataAccessHelper{
         }
         return temp;
     }
+    //Tìm sách
+    public boolean SearchBookKey(String key)
+    {
+        String SQL="EXEC SP_SEARCHBOOK N'" + key +"'";
+       try{
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs=st.executeQuery(SQL);
+            if(rs!=null)
+                return true;
+            getClose();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+      return false;
+    }
     //lấy tên sách theo mã sách
     public String getNameBook(int IDBook)
     {

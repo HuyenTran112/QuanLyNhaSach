@@ -395,7 +395,7 @@ public class fSales extends javax.swing.JInternalFrame {
         );
 
         jPanel3.add(jPanel7);
-        jPanel7.setBounds(10, 546, 427, 36);
+        jPanel7.setBounds(10, 570, 427, 36);
 
         jTableBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

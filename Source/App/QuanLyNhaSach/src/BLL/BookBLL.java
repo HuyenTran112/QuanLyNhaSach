@@ -44,4 +44,9 @@ public class BookBLL {
     {
         return DAL.TestIDBook(IDBook);
     }
+    //Tra cứu sách
+    public boolean  SearchBookKey(String key)
+    {
+        return DAL.SearchBookKey(key);
+    }
 }

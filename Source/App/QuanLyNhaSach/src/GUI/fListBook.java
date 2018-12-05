@@ -200,35 +200,29 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txfAuthorBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel20)
-                                .addComponent(jLabel8))
-                            .addGap(44, 44, 44)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txfIDBookInfo)
-                                    .addComponent(cbNameCategogyBookInfo, 0, 186, Short.MAX_VALUE)
-                                    .addComponent(txfNameBookInfo)
-                                    .addComponent(txfPublisherBookInfo)
-                                    .addComponent(txfPublishingYearBookInfo))
-                                .addComponent(txfCostBookInfo)
-                                .addComponent(txfSumInventory))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txfPublisherBookInfo)
+                            .addComponent(txfPublishingYearBookInfo)
+                            .addComponent(txfCostBookInfo)
+                            .addComponent(txfSumInventory)
+                            .addComponent(txfIDBookInfo)
+                            .addComponent(cbNameCategogyBookInfo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txfNameBookInfo)
+                            .addComponent(txfAuthorBookInfo)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)))
                     .addComponent(jLabel7))
-                .addContainerGap(88, Short.MAX_VALUE))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel11)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,9 +254,10 @@ public class fListBook extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel8)
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -281,9 +276,10 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel2.add(jPanel6);
-        jPanel6.setBounds(28, 59, 425, 454);
+        jPanel6.setBounds(28, 59, 490, 454);
 
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTableBookInfo.setAutoResizeMode(jTableBookInfo.AUTO_RESIZE_OFF);
         jTableBookInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -305,7 +301,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableBookInfo);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(450, 70, 569, 568);
+        jScrollPane3.setBounds(560, 70, 770, 568);
 
         btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -478,7 +474,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableBookCategory);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(480, 100, 580, 550);
+        jScrollPane1.setBounds(480, 110, 680, 550);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel12);
@@ -490,7 +486,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
