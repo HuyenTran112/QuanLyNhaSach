@@ -157,4 +157,34 @@ public class UserDAL extends  DataAccessHelper{
         }
         return "";
     }
+     //Lấy tên nhân viên theo  tên đăng nhập và mật khẩu
+     public String getNameStaff(String username ,String password)
+     {
+         String SQL="EXEC SP_GETNAMESTAFF N'"+username+"',N'"+password+"'";
+         try {
+             getConnect();
+             Statement st =conn.createStatement();
+             ResultSet rs =st.executeQuery(SQL);
+             if(rs!=null && rs.next())
+                 return rs.getString("TENNV");
+             getClose();
+         } catch (Exception e) {
+         }
+         return "";
+     }
+     //Lấy tên đăng nhập theo tên nhân viên
+      public String getUserName(String namestaff)
+     {
+         String SQL="EXEC SP_GETUSERNAME N'"+namestaff+"'";
+         try {
+             getConnect();
+             Statement st =conn.createStatement();
+             ResultSet rs =st.executeQuery(SQL);
+             if(rs!=null && rs.next())
+                 return rs.getString("TENDANGNHAP");
+             getClose();
+         } catch (Exception e) {
+         }
+         return "";
+     }
 }

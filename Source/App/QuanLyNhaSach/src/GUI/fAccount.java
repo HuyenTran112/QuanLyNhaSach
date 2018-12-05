@@ -24,7 +24,10 @@ public class fAccount extends javax.swing.JInternalFrame {
         initComponents();
        
     }
-
+    public void setUserName(String username)
+    {
+        txfUserName.setText(username);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,10 +43,10 @@ public class fAccount extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txfUserName = new javax.swing.JTextField();
         txfPassWord = new javax.swing.JTextField();
         txfNewPassWord_ = new javax.swing.JPasswordField();
         txfNewPassWord = new javax.swing.JPasswordField();
+        txfUserName = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnUpdateAccount = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -76,13 +79,14 @@ public class fAccount extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Nhập lại mật khẩu mới");
 
-        txfUserName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
         txfPassWord.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfNewPassWord_.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         txfNewPassWord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        txfUserName.setEditable(false);
+        txfUserName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,13 +99,13 @@ public class fAccount extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addGap(23, 23, 23)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txfUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(txfPassWord)
+                    .addComponent(txfPassWord, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                     .addComponent(txfNewPassWord_)
-                    .addComponent(txfNewPassWord))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(txfNewPassWord)
+                    .addComponent(txfUserName, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

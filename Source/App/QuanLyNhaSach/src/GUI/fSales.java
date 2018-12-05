@@ -43,7 +43,9 @@ public class fSales extends javax.swing.JInternalFrame {
         txaBill.setVisible(false);
         Load();
     }
-
+    public void setNameStaff(String namestaff){
+         this.txfNameStaffBill.setText(namestaff);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

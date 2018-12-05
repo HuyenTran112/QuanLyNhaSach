@@ -47,4 +47,12 @@ public class UserBLL {
     {
         return DAL.UpdateAccount(username, password, newpassword);
     }
+    public String getNameStaff(String username , String password)
+    {
+        return DAL.getNameStaff(username, password);
+    }
+    public String getUserName(String namestaff)
+    {
+        return DAL.getUserName(namestaff);
+    }
 }

@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import BLL.UserBLL;
 import GUI.*;
 import java.awt.MenuItem;
 import java.awt.Toolkit;
@@ -19,6 +20,7 @@ public class fManagement1 extends javax.swing.JFrame {
     /**
      * Creates new form fManagement
      */
+    UserBLL userBLL=new UserBLL();
     Toolkit tk =Toolkit.getDefaultToolkit();
     public int getSizeX()
     {
@@ -38,7 +40,9 @@ public class fManagement1 extends javax.swing.JFrame {
         setSize(x, y);
         jDesktopPane1.setSize(x, y);
     }
-
+    public void setUserName(String namestaff){
+         this.jMenu3.setText(namestaff);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +61,7 @@ public class fManagement1 extends javax.swing.JFrame {
         jMenuItemCustomer = new javax.swing.JMenuItem();
         jMenuUser = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemAccount = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PHẦN MỀM QUẢN LÍ NHÀ SÁCH");
@@ -117,10 +121,15 @@ public class fManagement1 extends javax.swing.JFrame {
         jMenu3.setText("Tài khoản");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItem1.setForeground(new java.awt.Color(0, 0, 204));
-        jMenuItem1.setText("Đổi mật khẩu");
-        jMenu3.add(jMenuItem1);
+        jMenuItemAccount.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jMenuItemAccount.setForeground(new java.awt.Color(0, 0, 204));
+        jMenuItemAccount.setText("Đổi mật khẩu");
+        jMenuItemAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAccountActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItemAccount);
 
         jMenuBar1.add(jMenu3);
 
@@ -143,6 +152,7 @@ public class fManagement1 extends javax.swing.JFrame {
     private void jMenuItemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaleActionPerformed
         // TODO add your handling code here:
         fSales f = new fSales();
+        f.setNameStaff(jMenu3.getText().toString());
         f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);
@@ -161,6 +171,16 @@ public class fManagement1 extends javax.swing.JFrame {
         this.jDesktopPane1.add(f);
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemCustomerActionPerformed
+
+    private void jMenuItemAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAccountActionPerformed
+        // TODO add your handling code here:
+        fAccount f =new fAccount();
+        String username=userBLL.getUserName(jMenu3.getText().toString());
+        f.setUserName(username);
+         f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAccountActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,7 +239,7 @@ public class fManagement1 extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCustomer;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemAccount;
     private javax.swing.JMenuItem jMenuItemCustomer;
     private javax.swing.JMenuItem jMenuItemSale;
     private javax.swing.JMenu jMenuUser;

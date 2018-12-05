@@ -26,8 +26,7 @@ public class fLogin extends javax.swing.JFrame {
     public fLogin() {
         initComponents();
        this.setLocationRelativeTo(null); 
-       
-       
+        
     }
 
     /**
@@ -109,11 +108,12 @@ public class fLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnExitActionPerformed
-
+    
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String username=txfUserName.getText().toString();
         String password =txfPassWord.getText().toString();
+        String namestaff=userBLL.getNameStaff(username, password);
         if(username.equals("") || password.equals(""))
         {
             JOptionPane.showMessageDialog(this, "Bạn nhập thông tin chưa đầy đủ");
@@ -124,6 +124,7 @@ public class fLogin extends javax.swing.JFrame {
             if(userBLL.getCategogyUser(username).equals("Nhân viên quản lý"))
             {
                 fManagement f = new fManagement();
+                f.setUserName(namestaff);
                 f.setVisible(true);
                 this.setVisible(false);
             }
@@ -132,7 +133,8 @@ public class fLogin extends javax.swing.JFrame {
                 if(userBLL.getCategogyUser(username).equals("Nhân viên bán hàng"))
                 {
                     fManagement1 f = new fManagement1();
-                     f.setVisible(true);
+                    f.setUserName(namestaff);
+                    f.setVisible(true);
                  this.setVisible(false);
                 }
             }
@@ -145,7 +147,7 @@ public class fLogin extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
