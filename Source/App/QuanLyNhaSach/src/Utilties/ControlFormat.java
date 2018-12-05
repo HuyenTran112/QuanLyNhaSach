@@ -216,6 +216,7 @@ public class ControlFormat {
         header.add("Số phiếu nhập");
         header.add("Tên sách");
         header.add("Số lượng nhập");
+        header.add("Giá nhập");
         header.add("Thành tiền");
         Vector data =new Vector();
         for(BookStockDetail bookstockdetail :arrBookStockDetail)
@@ -224,6 +225,7 @@ public class ControlFormat {
             row.add(bookstockdetail.getIDBookStock());
             row.add(bookstockdetail.getNameBook());
             row.add(bookstockdetail.getAmountStock());
+            row.add(bookstockdetail.getCost());
             row.add(bookstockdetail.getAmount());
             data.add(row);
             

@@ -58,11 +58,8 @@ public class fManagement extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItemDiscount = new javax.swing.JMenuItem();
-        jMenuItemSearchDiscount = new javax.swing.JMenuItem();
         jMenuListBook = new javax.swing.JMenu();
         jMenuItemListBook = new javax.swing.JMenuItem();
-        jMenuItemSearchBook = new javax.swing.JMenuItem();
         jMenuStock = new javax.swing.JMenu();
         jMenuItemStock = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -93,27 +90,11 @@ public class fManagement extends javax.swing.JFrame {
         jMenu2.setForeground(new java.awt.Color(0, 0, 204));
         jMenu2.setText("Khuyến mãi");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-
-        jMenuItemDiscount.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItemDiscount.setForeground(new java.awt.Color(0, 0, 204));
-        jMenuItemDiscount.setText("Quản lí khuyến mãi");
-        jMenuItemDiscount.addActionListener(new java.awt.event.ActionListener() {
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDiscountActionPerformed(evt);
+                jMenu2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemDiscount);
-
-        jMenuItemSearchDiscount.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItemSearchDiscount.setForeground(new java.awt.Color(0, 0, 204));
-        jMenuItemSearchDiscount.setText("Tra cứu khuyến mãi");
-        jMenuItemSearchDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSearchDiscountActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItemSearchDiscount);
-
         jMenu1.add(jMenu2);
 
         jMenuBar1.add(jMenu1);
@@ -132,16 +113,6 @@ public class fManagement extends javax.swing.JFrame {
             }
         });
         jMenuListBook.add(jMenuItemListBook);
-
-        jMenuItemSearchBook.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jMenuItemSearchBook.setForeground(new java.awt.Color(0, 0, 204));
-        jMenuItemSearchBook.setText("Tra cứu sách");
-        jMenuItemSearchBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemSearchBookActionPerformed(evt);
-            }
-        });
-        jMenuListBook.add(jMenuItemSearchBook);
 
         jMenuBar1.add(jMenuListBook);
 
@@ -286,30 +257,6 @@ public class fManagement extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemListBookActionPerformed
 
-    private void jMenuItemSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSearchBookActionPerformed
-        // TODO add your handling code here:
-        fSearchBook f = new fSearchBook();
-        f.setSize(this.getSizeX(), this.getSizeY());
-        this.jDesktopPane1.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItemSearchBookActionPerformed
-
-    private void jMenuItemDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDiscountActionPerformed
-        // TODO add your handling code here:
-        fDiscount f = new fDiscount();
-        f.setSize(this.getSizeX(), this.getSizeY());
-        jDesktopPane1.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItemDiscountActionPerformed
-
-    private void jMenuItemSearchDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSearchDiscountActionPerformed
-        // TODO add your handling code here:
-        fSearchDiscount f = new fSearchDiscount();
-        f.setSize(this.getSizeX(), this.getSizeY());
-        this.jDesktopPane1.add(f);
-        f.setVisible(true);
-    }//GEN-LAST:event_jMenuItemSearchDiscountActionPerformed
-
     private void jMenuItemStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStockActionPerformed
         // TODO add your handling code here:
         fStock f = new fStock();
@@ -370,6 +317,14 @@ public class fManagement extends javax.swing.JFrame {
         f.setVisible(true);
     }//GEN-LAST:event_jMenuItemAccountActionPerformed
 
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+        fDiscount f=new fDiscount();
+        f.setSize(this.getSizeX(), this.getSizeY());;
+        this.jDesktopPane1.add(f);
+        f.setVisible(true);
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,13 +376,10 @@ public class fManagement extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemAccount;
-    private javax.swing.JMenuItem jMenuItemDiscount;
     private javax.swing.JMenuItem jMenuItemInventory;
     private javax.swing.JMenuItem jMenuItemListBook;
     private javax.swing.JMenuItem jMenuItemReportRevenue;
     private javax.swing.JMenuItem jMenuItemRule;
-    private javax.swing.JMenuItem jMenuItemSearchBook;
-    private javax.swing.JMenuItem jMenuItemSearchDiscount;
     private javax.swing.JMenuItem jMenuItemStaff;
     private javax.swing.JMenuItem jMenuItemStock;
     private javax.swing.JMenuItem jMenuItemUser;

@@ -41,7 +41,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel1.setSize(x, y);
         jPanel2.setSize(x,y);
         jLabel12.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
-        jLabel14.setSize((int)jPanel2.getSize().getWidth(),(int)jPanel2.getSize().getHeight());
+        jLabel13.setSize((int)jPanel2.getSize().getWidth(),(int)jPanel2.getSize().getHeight());
         control.bindingBook(jTableBookInfo, bookbll.LoadBook());
         control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
         cbNameCategogyBookInfo.removeAllItems();
@@ -91,7 +91,10 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnAddBookInfo = new javax.swing.JButton();
         btnEditBookInfo = new javax.swing.JButton();
         btnSaveBookInfo = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        btnSearchBook = new javax.swing.JButton();
+        txfSearchBook = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -105,6 +108,9 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnSaveBookCategogy = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBookCategory = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        btnSearchBookCategogy = new javax.swing.JButton();
+        txfSearchBookCategogy = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -276,7 +282,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel2.add(jPanel6);
-        jPanel6.setBounds(28, 59, 490, 454);
+        jPanel6.setBounds(40, 130, 490, 420);
 
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookInfo.setAutoResizeMode(jTableBookInfo.AUTO_RESIZE_OFF);
@@ -301,7 +307,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableBookInfo);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(560, 70, 770, 568);
+        jScrollPane3.setBounds(560, 150, 770, 568);
 
         btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -312,7 +318,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnAddBookInfo);
-        btnAddBookInfo.setBounds(53, 533, 100, 25);
+        btnAddBookInfo.setBounds(50, 560, 100, 25);
 
         btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -323,7 +329,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnEditBookInfo);
-        btnEditBookInfo.setBounds(185, 533, 110, 25);
+        btnEditBookInfo.setBounds(190, 560, 110, 25);
 
         btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -334,11 +340,46 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSaveBookInfo);
-        btnSaveBookInfo.setBounds(328, 533, 90, 25);
+        btnSaveBookInfo.setBounds(340, 560, 90, 25);
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
-        jPanel2.add(jLabel14);
-        jLabel14.setBounds(0, 0, 1350, 680);
+        jPanel3.setOpaque(false);
+
+        btnSearchBook.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBook.setForeground(new java.awt.Color(0, 0, 204));
+        btnSearchBook.setText("Tìm kiếm");
+        btnSearchBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchBookActionPerformed(evt);
+            }
+        });
+
+        txfSearchBook.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(txfSearchBook, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearchBook))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearchBook)
+                    .addComponent(txfSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(jPanel3);
+        jPanel3.setBounds(560, 85, 514, 71);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(0, 0, 1350, 680);
 
         jTabbedPane1.addTab("Thông tin sách", jPanel2);
 
@@ -377,9 +418,11 @@ public class fListBook extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txfNameBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(92, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(txfIDBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 82, Short.MAX_VALUE))
+                    .addComponent(txfNameBookCategogy))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -396,7 +439,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(27, 119, 452, 113);
+        jPanel4.setBounds(20, 170, 452, 113);
 
         jPanel5.setOpaque(false);
 
@@ -452,7 +495,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(27, 265, 391, 60);
+        jPanel5.setBounds(50, 290, 391, 60);
 
         jTableBookCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookCategory.setModel(new javax.swing.table.DefaultTableModel(
@@ -474,11 +517,48 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableBookCategory);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(480, 110, 680, 550);
+        jScrollPane1.setBounds(490, 200, 680, 550);
+
+        jPanel7.setOpaque(false);
+
+        btnSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBookCategogy.setForeground(new java.awt.Color(0, 0, 204));
+        btnSearchBookCategogy.setText("Tìm kiếm");
+        btnSearchBookCategogy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchBookCategogyActionPerformed(evt);
+            }
+        });
+
+        txfSearchBookCategogy.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(txfSearchBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSearchBookCategogy)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearchBookCategogy)
+                    .addComponent(txfSearchBookCategogy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel7);
+        jPanel7.setBounds(490, 120, 430, 71);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(0, 0, 1360, 680);
+        jLabel12.setBounds(0, 0, 1340, 670);
 
         jTabbedPane1.addTab("Thể loại sách", jPanel1);
 
@@ -486,7 +566,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -755,6 +835,21 @@ public class fListBook extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txfPublishingYearBookInfoKeyTyped
 
+    private void btnSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookActionPerformed
+        // TODO add your handling code here:
+         // TODO add your handling code here:
+        String key =txfSearchBook.getText();
+        control.bindingBook(jTableBookInfo, bookbll.SearchBook(key));
+        txfSearchBook.setText("");
+    }//GEN-LAST:event_btnSearchBookActionPerformed
+
+    private void btnSearchBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookCategogyActionPerformed
+        // TODO add your handling code here:
+         String key =txfSearchBookCategogy.getText();
+        control.bindingBookCategogy(jTableBookCategory,categogyBLL.LoadBookCategogy() );
+        txfSearchBookCategogy.setText("");
+    }//GEN-LAST:event_btnSearchBookCategogyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddBookCategogy;
@@ -763,12 +858,14 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEditBookInfo;
     private javax.swing.JButton btnSaveBookCategogy;
     private javax.swing.JButton btnSaveBookInfo;
+    private javax.swing.JButton btnSearchBook;
+    private javax.swing.JButton btnSearchBookCategogy;
     private javax.swing.JComboBox<String> cbNameCategogyBookInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -782,9 +879,11 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -800,6 +899,8 @@ public class fListBook extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfNameBookInfo;
     private javax.swing.JTextField txfPublisherBookInfo;
     private javax.swing.JTextField txfPublishingYearBookInfo;
+    private javax.swing.JTextField txfSearchBook;
+    private javax.swing.JTextField txfSearchBookCategogy;
     private javax.swing.JTextField txfSumInventory;
     // End of variables declaration//GEN-END:variables
 }

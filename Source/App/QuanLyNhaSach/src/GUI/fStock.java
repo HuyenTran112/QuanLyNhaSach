@@ -41,6 +41,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel1.setSize(x, y);
         jPanel2.setSize(x,y);
         jPanel3.setSize(x, y);
+        jLabel9.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
         jLabel6.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
         jLabel19.setSize((int)jPanel2.getSize().getWidth(), (int)jPanel2.getSize().getHeight());
         control.bindingDistributor(jTableDistributorInfo,distributorBLL.LoadDistributor());
@@ -145,6 +146,7 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel13 = new javax.swing.JPanel();
         txfSearchStockInfo = new javax.swing.JTextField();
         btnSearchStockInfo1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("QUẢN LÝ NHẬP SÁCH");
@@ -565,9 +567,13 @@ public class fStock extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Phiếu nhập sách", jPanel2);
 
+        jPanel3.setLayout(null);
+
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 204));
         jLabel13.setText("QUẢN LÍ CHI TIẾT PHIẾU NHẬP SÁCH");
+        jPanel3.add(jLabel13);
+        jLabel13.setBounds(417, 55, 570, 37);
 
         jPanel10.setOpaque(false);
 
@@ -602,6 +608,9 @@ public class fStock extends javax.swing.JInternalFrame {
                     .addComponent(btnSearchBook))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        jPanel3.add(jPanel10);
+        jPanel10.setBounds(466, 122, 760, 57);
 
         jPanel11.setOpaque(false);
 
@@ -697,6 +706,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        jPanel3.add(jPanel11);
+        jPanel11.setBounds(10, 185, 410, 200);
+
         jPanel12.setOpaque(false);
 
         btnAddStockInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -762,6 +774,9 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel3.add(jPanel12);
+        jPanel12.setBounds(10, 403, 438, 47);
+
         jTableStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableStockInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -781,6 +796,9 @@ public class fStock extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTableStockInfo);
 
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(470, 520, 760, 130);
+
         jTableBook.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -798,6 +816,9 @@ public class fStock extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane4.setViewportView(jTableBook);
+
+        jPanel3.add(jScrollPane4);
+        jScrollPane4.setBounds(466, 197, 760, 240);
 
         jPanel13.setOpaque(false);
 
@@ -817,9 +838,8 @@ public class fStock extends javax.swing.JInternalFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(btnSearchStockInfo1)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -830,56 +850,15 @@ public class fStock extends javax.swing.JInternalFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchStockInfo1))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(407, 407, 407)
-                                .addComponent(jLabel13))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(470, 470, 470)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        jPanel3.add(jPanel13);
+        jPanel13.setBounds(470, 462, 360, 40);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(0, 0, 920, 730);
 
         jTabbedPane1.addTab("Chi tiết phiếu nhập sách", jPanel3);
 
@@ -1413,6 +1392,7 @@ public class fStock extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

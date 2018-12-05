@@ -64,6 +64,9 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnSaveDiscount = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDiscount = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        txfSearchDiscount = new javax.swing.JTextField();
+        btnSearchDiscount = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -191,7 +194,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 120, 540, 357);
+        jPanel1.setBounds(10, 120, 540, 363);
 
         btnAddDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddDiscount.setForeground(new java.awt.Color(0, 0, 204));
@@ -257,11 +260,47 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableDiscount);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(600, 110, 760, 680);
+        jScrollPane1.setBounds(600, 170, 760, 680);
+
+        jPanel2.setOpaque(false);
+
+        txfSearchDiscount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        btnSearchDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchDiscount.setForeground(new java.awt.Color(0, 0, 204));
+        btnSearchDiscount.setText("Tìm kiếm");
+        btnSearchDiscount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchDiscountActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(txfSearchDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSearchDiscount)
+                .addGap(96, 96, 96))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfSearchDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchDiscount))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(600, 100, 570, 50);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 1840, 830);
+        jLabel9.setBounds(0, 0, 1350, 900);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -385,6 +424,13 @@ public class fDiscount extends javax.swing.JInternalFrame {
                 evt.consume();
         }
     }//GEN-LAST:event_txfDiscountKeyTyped
+
+    private void btnSearchDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDiscountActionPerformed
+        // TODO add your handling code here:
+        String key =txfSearchDiscount.getText();
+        control.bindingDiscount(jTableDiscount, discountBLL.SearchDiscount(key));
+        txfSearchDiscount.setText("");
+    }//GEN-LAST:event_btnSearchDiscountActionPerformed
     public void ClearText()
     {
         txfIDDiscount.setText("");
@@ -519,6 +565,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDelDiscount;
     private javax.swing.JButton btnEditDiscount;
     private javax.swing.JButton btnSaveDiscount;
+    private javax.swing.JButton btnSearchDiscount;
     private com.toedter.calendar.JDateChooser jDChFinishDiscount;
     private com.toedter.calendar.JDateChooser jDChStartDiscount;
     private javax.swing.JLabel jLabel1;
@@ -531,11 +578,13 @@ public class fDiscount extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDiscount;
     private javax.swing.JTextField txfDiscount;
     private java.awt.TextField txfIDDiscount;
     private javax.swing.JTextField txfMinMoneyDiscount;
     private javax.swing.JTextField txfNameDiscount;
+    private javax.swing.JTextField txfSearchDiscount;
     // End of variables declaration//GEN-END:variables
 }
