@@ -15,16 +15,6 @@ import java.util.ArrayList;
  */
 public class BillBLL {
     BillDAL DAL = new BillDAL();
-    //Lấy danh sách hóa đơn
-    public ArrayList<Bill> LoadBill()
-    {
-        return DAL.LoadBill();
-    }
-    //Lấy danh sách số hóa đơn
-    public ArrayList<Bill> LoadIDBill()
-    {
-        return DAL.LoadIDBill();
-    }
     //Thêm hóa đơn
     public boolean InsertBill(String BillDate, int IDCustomer, int IDStaff)
     {
@@ -87,5 +77,9 @@ public class BillBLL {
     {
         return DAL.UpdateStatusBill(IDBill);
     }
-    
+    //Lấy số hóa đơn sau cùng
+    public int getMaxIDBill()
+    {
+        return DAL.getMaxIDBill();
+    }
 }

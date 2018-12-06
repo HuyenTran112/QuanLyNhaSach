@@ -245,7 +245,6 @@ public class ControlFormat {
     {
         Vector header = new Vector();
         header.add("Số hóa đơn");
-        header.add("Trạng thái");
         header.add("Ngày hóa đơn");
         header.add("Mã khách hàng");
         header.add("Tên khách hàng");
@@ -261,7 +260,6 @@ public class ControlFormat {
         {
             Vector row = new Vector();
             row.add(bill.getIDBill());
-            row.add(bill.getStatus());
             row.add(bill.getBillDate());
             row.add(bill.getIDCustomer());
             row.add(bill.getNameCustomer());

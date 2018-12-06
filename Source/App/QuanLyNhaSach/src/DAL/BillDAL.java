@@ -17,63 +17,6 @@ import java.util.Date;
  * @author STIREN
  */
 public class BillDAL extends DataAccessHelper{
-    //Hiển thị danh sách hóa đơn
-    public ArrayList<Bill> LoadBill(){
-        ArrayList<Bill> temp = new ArrayList<>();
-        String SQL="EXEC SP_LOADUNPAIDBILL";
-        try{
-            getConnect();
-             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            if(rs!=null)
-                while(rs.next()){
-                    Bill bill = new Bill();
-                    bill.setIDBill(rs.getInt("SOHD"));
-                    if(rs.getInt("TRANGTHAI") == 0)
-                        bill.setStatus("Chưa thanh toán");
-                    else 
-                        bill.setStatus("Đã thanh toán");
-                    bill.setBillDate(rs.getDate("NGAYHD"));
-                    bill.setIDCustomer(rs.getInt("MAKH"));
-                    bill.setNameCustomer(rs.getString("TENKH"));
-                    bill.setIDStaff(rs.getInt("MANV"));
-                    bill.setNameStaff(rs.getString("TENNV"));
-                    bill.setVAT(rs.getFloat("VAT"));
-                    bill.setDiscount(rs.getFloat("HESOKM"));
-                    bill.setTotalPrice(rs.getFloat("TRIGIA"));
-                    bill.setTotalPay(rs.getFloat("TONGTIEN"));
-                    
-                    temp.add(bill);
-                }
-            getClose();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return temp;
-    }
-    //Hiển thị danh sách SOHD
-    public ArrayList<Bill> LoadIDBill()
-    {
-        ArrayList<Bill> temp = new ArrayList<>();
-        String SQL = "SELECT SOHD FROM HOADON ORDER BY SOHD DESC";
-        try{
-            getConnect();
-             Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(SQL);
-            if(rs!=null)
-                while(rs.next()){
-                    Bill bill = new Bill();
-                    bill.setIDBill(rs.getInt("SOHD")); 
-                    temp.add(bill);
-                }
-            getClose();
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return temp;
-    }
-    
-    
     //Thêm hóa đơn
     public boolean  InsertBill(String BillDate, int IDCustomer, int IDStaff)
      {
@@ -121,10 +64,6 @@ public class BillDAL extends DataAccessHelper{
                 while(rs.next()){
                     Bill bill = new Bill();
                     bill.setIDBill(rs.getInt("SOHD"));
-                    if(rs.getInt("TRANGTHAI") == 0)
-                        bill.setStatus("Chưa thanh toán");
-                    else 
-                        bill.setStatus("Đã thanh toán");
                     bill.setBillDate(rs.getDate("NGAYHD"));
                     bill.setIDCustomer(rs.getInt("MAKH"));
                     bill.setNameCustomer(rs.getString("TENKH"));
@@ -284,5 +223,20 @@ public class BillDAL extends DataAccessHelper{
             e.printStackTrace();
         }
         return false;
+    }
+    //Lấy số hóa đơn sau cùng
+    public int getMaxIDBill()
+    {
+        String SQL = "SELECT MAX(SOHD) AS maxSOHD FROM HOADON";
+        try {
+            getConnect();
+            PreparedStatement ps = conn.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            if(rs != null && rs.next())
+                return rs.getInt("maxSOHD");
+            getClose();
+        } catch (Exception e) {
+        }
+        return 0;
     }
 }
