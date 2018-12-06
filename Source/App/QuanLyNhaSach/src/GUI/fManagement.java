@@ -269,7 +269,7 @@ public class fManagement extends javax.swing.JFrame {
 
     private void jMenuItemStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemStockActionPerformed
         // TODO add your handling code here:
-        fStock f = new fStock();
+        fImportBook f = new fImportBook();
         f.setSize(this.getSizeX(), this.getSizeY());
         this.jDesktopPane1.add(f);
         f.setVisible(true);

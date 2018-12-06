@@ -9,8 +9,8 @@ import Entity.Bill;
 import Entity.BillInfo;
 import Entity.Book;
 import Entity.BookCategogy;
-import Entity.BookStock;
-import Entity.BookStockDetail;
+import Entity.BookReceipt;
+import Entity.BookReceiptInfo;
 import Entity.Customer;
 import Entity.Discount;
 import Entity.Distributor;
@@ -183,7 +183,7 @@ public class ControlFormat {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //Lấy dữ liệu ở phiếu nhập sách
-    public void bindingBookStock(JTable name ,ArrayList<BookStock> arrBookStock )
+    public void bindingBookReceipt(JTable name ,ArrayList<BookReceipt> arrBookReceipt )
     {
         Vector header = new Vector();
         header.add("Số phiếu nhập");
@@ -191,13 +191,13 @@ public class ControlFormat {
         header.add("Tên công ty");
         header.add("Tổng tiền tiền");
         Vector data=new Vector();
-        for(BookStock bookstock :arrBookStock)
+        for(BookReceipt bookstock :arrBookReceipt)
         {
             Vector row = new Vector();
-            row.add(bookstock.getIDBookStock());
-            row.add(bookstock.getDateStock());
+            row.add(bookstock.getIDBookReceipt());
+            row.add(bookstock.getDateReceipt());
             row.add(bookstock.getNameDistributor());
-            row.add(bookstock.getTotalStock());
+            row.add(bookstock.getTotalReceipt());
             data.add(row);
         }
         DefaultTableModel dtm = new DefaultTableModel(data , header)
@@ -210,7 +210,7 @@ public class ControlFormat {
         name.setModel(dtm);
     }
     //Lấy dữ liệu chi tiết phiếu nhập sách
-    public void bindingBookStockDetail(JTable name , ArrayList<BookStockDetail> arrBookStockDetail)
+    public void bindingBookReceiptInfo(JTable name , ArrayList<BookReceiptInfo> arrBookReceiptInfo)
     {
         Vector header =new Vector();
         header.add("Số phiếu nhập");
@@ -219,12 +219,12 @@ public class ControlFormat {
         header.add("Giá nhập");
         header.add("Thành tiền");
         Vector data =new Vector();
-        for(BookStockDetail bookstockdetail :arrBookStockDetail)
+        for(BookReceiptInfo bookstockdetail :arrBookReceiptInfo)
         {
             Vector row =new Vector();
-            row.add(bookstockdetail.getIDBookStock());
+            row.add(bookstockdetail.getIDBookReceipt());
             row.add(bookstockdetail.getNameBook());
-            row.add(bookstockdetail.getAmountStock());
+            row.add(bookstockdetail.getAmountReceipt());
             row.add(bookstockdetail.getCost());
             row.add(bookstockdetail.getAmount());
             data.add(row);
