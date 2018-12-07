@@ -102,6 +102,37 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         txfSearchReceipt = new javax.swing.JTextField();
         btnSearchReceipt = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableReceipt = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        txfSearchBook = new javax.swing.JTextField();
+        btnSearchBook = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTableBook = new javax.swing.JTable();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txfAmountReceiptInfo = new javax.swing.JTextField();
+        cbIDReceiptInfo = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        txfAmount = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txfCost = new javax.swing.JTextField();
+        txfNameBook = new javax.swing.JTextField();
+        btnSaveReceiptInfo = new javax.swing.JButton();
+        btnDelReceiptInfo = new javax.swing.JButton();
+        btnEditReceiptInfo = new javax.swing.JButton();
+        btnAddReceiptInfo = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableReceiptInfo = new javax.swing.JTable();
+        jPanel13 = new javax.swing.JPanel();
+        txfSearchStockInfo = new javax.swing.JTextField();
+        btnSearchReceiptInfo = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -115,38 +146,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
         btnAddReceipt = new javax.swing.JButton();
         btnEditReceipt = new javax.swing.JButton();
         btnSaveReceipt = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableReceipt = new javax.swing.JTable();
-        jLabel19 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        txfSearchBook = new javax.swing.JTextField();
-        btnSearchBook = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        txfAmountReceiptInfo = new javax.swing.JTextField();
-        cbIDReceiptInfo = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
-        txfAmount = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        txfCost = new javax.swing.JTextField();
-        txfNameBook = new javax.swing.JTextField();
-        jPanel12 = new javax.swing.JPanel();
-        btnAddReceiptInfo = new javax.swing.JButton();
-        btnEditReceiptInfo = new javax.swing.JButton();
-        btnDelReceiptInfo = new javax.swing.JButton();
-        btnSaveReceiptInfo = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableReceiptInfo = new javax.swing.JTable();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTableBook = new javax.swing.JTable();
-        jPanel13 = new javax.swing.JPanel();
-        txfSearchStockInfo = new javax.swing.JTextField();
-        btnSearchReceiptInfo = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        txfSearchReceipt1 = new javax.swing.JTextField();
+        btnSearchReceipt1 = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("QUẢN LÝ NHẬP SÁCH");
@@ -406,140 +408,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel2.add(jPanel7);
         jPanel7.setBounds(10, 112, 451, 54);
 
-        jPanel8.setOpaque(false);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel8.setText("Ngày nhập");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel10.setText("Tổng tiền");
-
-        txfIDReceipt.setEditable(false);
-        txfIDReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        jDateChooserReceipt.setDateFormatString("dd-MM-yyyy");
-        jDateChooserReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        cbNameDistributorReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        txfTotalReceipt.setEditable(false);
-        txfTotalReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel11.setText("Tên nhà cung cấp");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel12.setText("Số phiếu nhập");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txfTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txfIDReceipt)
-                                .addComponent(jDateChooserReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                                .addComponent(cbNameDistributorReceipt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addComponent(jLabel10))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txfIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
-                            .addComponent(jDateChooserReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(cbNameDistributorReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel11))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(txfTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel8);
-        jPanel8.setBounds(10, 197, 450, 243);
-
-        jPanel9.setOpaque(false);
-
-        btnAddReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAddReceipt.setForeground(new java.awt.Color(0, 0, 204));
-        btnAddReceipt.setText("THÊM");
-        btnAddReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddReceiptActionPerformed(evt);
-            }
-        });
-
-        btnEditReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditReceipt.setForeground(new java.awt.Color(0, 0, 204));
-        btnEditReceipt.setText("CẬP NHẬT");
-        btnEditReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditReceiptActionPerformed(evt);
-            }
-        });
-
-        btnSaveReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSaveReceipt.setForeground(new java.awt.Color(0, 0, 204));
-        btnSaveReceipt.setText("LƯU");
-        btnSaveReceipt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveReceiptActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAddReceipt)
-                .addGap(31, 31, 31)
-                .addComponent(btnEditReceipt)
-                .addGap(60, 60, 60)
-                .addComponent(btnSaveReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddReceipt)
-                    .addComponent(btnEditReceipt)
-                    .addComponent(btnSaveReceipt))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel9);
-        jPanel9.setBounds(20, 430, 390, 47);
-
         jTableReceipt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -567,13 +435,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Phiếu nhập sách", jPanel2);
 
-        jPanel3.setLayout(null);
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 204));
         jLabel13.setText("QUẢN LÍ CHI TIẾT PHIẾU NHẬP SÁCH");
-        jPanel3.add(jLabel13);
-        jLabel13.setBounds(417, 55, 570, 37);
 
         jPanel10.setOpaque(false);
 
@@ -588,15 +452,36 @@ public class fImportBook extends javax.swing.JInternalFrame {
             }
         });
 
+        jTableBook.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableBook.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableBookMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTableBook);
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txfSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSearchBook)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(txfSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSearchBook))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -606,11 +491,12 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfSearchBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchBook))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel10);
-        jPanel10.setBounds(466, 122, 760, 57);
+        jPanel12.setOpaque(false);
 
         jPanel11.setOpaque(false);
 
@@ -671,7 +557,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txfCost)
-                    .addComponent(cbIDReceiptInfo, 0, 267, Short.MAX_VALUE)
+                    .addComponent(cbIDReceiptInfo, 0, 285, Short.MAX_VALUE)
                     .addComponent(txfAmount, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txfAmountReceiptInfo)
                     .addComponent(txfNameBook))
@@ -691,11 +577,12 @@ public class fImportBook extends javax.swing.JInternalFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(cbIDReceiptInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)))
-                .addGap(10, 10, 10)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel16))
                     .addComponent(txfAmountReceiptInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(txfCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -706,26 +593,12 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel11);
-        jPanel11.setBounds(10, 185, 410, 200);
-
-        jPanel12.setOpaque(false);
-
-        btnAddReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAddReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
-        btnAddReceiptInfo.setText("THÊM");
-        btnAddReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnSaveReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
+        btnSaveReceiptInfo.setText("LƯU");
+        btnSaveReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddReceiptInfoActionPerformed(evt);
-            }
-        });
-
-        btnEditReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
-        btnEditReceiptInfo.setText("CẬP NHẬT");
-        btnEditReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditReceiptInfoActionPerformed(evt);
+                btnSaveReceiptInfoActionPerformed(evt);
             }
         });
 
@@ -738,12 +611,21 @@ public class fImportBook extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSaveReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSaveReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
-        btnSaveReceiptInfo.setText("LƯU");
-        btnSaveReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
+        btnEditReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
+        btnEditReceiptInfo.setText("CẬP NHẬT");
+        btnEditReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveReceiptInfoActionPerformed(evt);
+                btnEditReceiptInfoActionPerformed(evt);
+            }
+        });
+
+        btnAddReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
+        btnAddReceiptInfo.setText("THÊM");
+        btnAddReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddReceiptInfoActionPerformed(evt);
             }
         });
 
@@ -754,28 +636,30 @@ public class fImportBook extends javax.swing.JInternalFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnAddReceiptInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(btnEditReceiptInfo)
                 .addGap(18, 18, 18)
                 .addComponent(btnDelReceiptInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSaveReceiptInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddReceiptInfo)
                     .addComponent(btnEditReceiptInfo)
                     .addComponent(btnDelReceiptInfo)
                     .addComponent(btnSaveReceiptInfo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
-
-        jPanel3.add(jPanel12);
-        jPanel12.setBounds(10, 403, 438, 47);
 
         jTableReceiptInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableReceiptInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -796,30 +680,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTableReceiptInfo);
 
-        jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(470, 520, 760, 130);
-
-        jTableBook.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTableBook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableBookMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(jTableBook);
-
-        jPanel3.add(jScrollPane4);
-        jScrollPane4.setBounds(466, 197, 760, 240);
-
         jPanel13.setOpaque(false);
 
         txfSearchStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -838,10 +698,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(btnSearchReceiptInfo)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -853,12 +714,229 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel13);
-        jPanel13.setBounds(470, 462, 360, 40);
+        jPanel8.setOpaque(false);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(0, 0, 920, 730);
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel8.setText("Ngày nhập");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel10.setText("Tổng tiền");
+
+        txfIDReceipt.setEditable(false);
+        txfIDReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        jDateChooserReceipt.setDateFormatString("dd-MM-yyyy");
+        jDateChooserReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        cbNameDistributorReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        txfTotalReceipt.setEditable(false);
+        txfTotalReceipt.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel11.setText("Tên nhà cung cấp");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel12.setText("Số phiếu nhập");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txfIDReceipt)
+                                .addComponent(jDateChooserReceipt, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                .addComponent(cbNameDistributorReceipt, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jLabel10))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txfIDReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8))
+                            .addComponent(jDateChooserReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(cbNameDistributorReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(txfTotalReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel9.setOpaque(false);
+
+        btnAddReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAddReceipt.setForeground(new java.awt.Color(0, 0, 204));
+        btnAddReceipt.setText("THÊM");
+        btnAddReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddReceiptActionPerformed(evt);
+            }
+        });
+
+        btnEditReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnEditReceipt.setForeground(new java.awt.Color(0, 0, 204));
+        btnEditReceipt.setText("CẬP NHẬT");
+        btnEditReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditReceiptActionPerformed(evt);
+            }
+        });
+
+        btnSaveReceipt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSaveReceipt.setForeground(new java.awt.Color(0, 0, 204));
+        btnSaveReceipt.setText("LƯU");
+        btnSaveReceipt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveReceiptActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAddReceipt)
+                .addGap(31, 31, 31)
+                .addComponent(btnEditReceipt)
+                .addGap(60, 60, 60)
+                .addComponent(btnSaveReceipt, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddReceipt)
+                    .addComponent(btnEditReceipt)
+                    .addComponent(btnSaveReceipt))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel14.setOpaque(false);
+
+        txfSearchReceipt1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        btnSearchReceipt1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchReceipt1.setForeground(new java.awt.Color(0, 0, 204));
+        btnSearchReceipt1.setText("Tìm kiếm");
+        btnSearchReceipt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchReceipt1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txfSearchReceipt1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearchReceipt1)
+                .addContainerGap(98, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txfSearchReceipt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchReceipt1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(36, 36, 36))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(432, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addGap(324, 324, 324))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel13)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 119, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(52, 52, 52))))
+        );
 
         jTabbedPane1.addTab("Chi tiết phiếu nhập sách", jPanel3);
 
@@ -866,11 +944,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 940, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -1158,6 +1236,10 @@ public class fImportBook extends javax.swing.JInternalFrame {
         int row=jTableBook.getSelectedRow();
         txfNameBook.setText(jTableBook.getValueAt(row, 2).toString());
     }//GEN-LAST:event_jTableBookMouseClicked
+
+    private void btnSearchReceipt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReceipt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchReceipt1ActionPerformed
     public void ClearTextDistibutor()
     {
         txfIDDistributorInfo.setText("");
@@ -1373,6 +1455,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSearchBook;
     private javax.swing.JButton btnSearchDistributorReceipt;
     private javax.swing.JButton btnSearchReceipt;
+    private javax.swing.JButton btnSearchReceipt1;
     private javax.swing.JButton btnSearchReceiptInfo;
     private javax.swing.JComboBox<String> cbIDReceiptInfo;
     private javax.swing.JComboBox<String> cbNameDistributorReceipt;
@@ -1395,12 +1478,12 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1430,6 +1513,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfSearchBook;
     private javax.swing.JTextField txfSearchDistributor;
     private javax.swing.JTextField txfSearchReceipt;
+    private javax.swing.JTextField txfSearchReceipt1;
     private javax.swing.JTextField txfSearchStockInfo;
     private javax.swing.JTextField txfTotalReceipt;
     // End of variables declaration//GEN-END:variables
