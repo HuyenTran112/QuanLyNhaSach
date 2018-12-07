@@ -9,6 +9,7 @@ import BLL.BillBLL;
 import BLL.BillInfoBLL;
 import BLL.BookBLL;
 import BLL.CustomerBLL;
+import BLL.StaffBLL;
 import Utilties.ControlFormat;
 import java.awt.print.PrinterException;
 import java.text.SimpleDateFormat;
@@ -33,7 +34,7 @@ public class fSales extends javax.swing.JInternalFrame {
     ControlFormat control = new ControlFormat();
     BillBLL billBLL = new BillBLL();
     BillInfoBLL billinfoBLL = new BillInfoBLL();
-    
+    StaffBLL staffBLL=new StaffBLL();
     public fSales() {
         initComponents();
         txaBill.setVisible(false);
@@ -46,9 +47,15 @@ public class fSales extends javax.swing.JInternalFrame {
         
         txfIDStaffBill.setText("1");
     }
+    public void setUserName(String namestaff){
+         txfNameStaffBill.setText(namestaff);
+    }
 
     public void setNameStaff(String namestaff){
          this.txfNameStaffBill.setText(namestaff);
+         int id=staffBLL.getIDStaff(namestaff);
+         String ID=String.valueOf(id);
+         this.txfIDStaffBill.setText(ID);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -287,6 +294,7 @@ public class fSales extends javax.swing.JInternalFrame {
         txaBill = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableBillInfo = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -298,16 +306,25 @@ public class fSales extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBill = new javax.swing.JTable();
         lbSearch = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setClosable(true);
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
+        jPanel1.setLayout(null);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 204));
         jLabel1.setText("HÓA ĐƠN");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(231, 11, 97, 25);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 204));
         jLabel2.setText("CHI TIẾT HÓA ĐƠN");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(534, 11, 193, 25);
 
         jPanel5.setOpaque(false);
 
@@ -484,6 +501,9 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(10, 42, 379, 446);
+
         jPanel7.setOpaque(false);
 
         btnAddBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -539,7 +559,11 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel7);
+        jPanel7.setBounds(10, 506, 391, 36);
+
         jPanel3.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel3.setOpaque(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 204));
@@ -630,6 +654,11 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(517, 42, 341, 227);
+
+        jPanel8.setOpaque(false);
+
         btnAddBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBillInfo.setForeground(new java.awt.Color(0, 0, 204));
         btnAddBillInfo.setText("THÊM");
@@ -695,6 +724,9 @@ public class fSales extends javax.swing.JInternalFrame {
                     .addComponent(btnSaveBillInfo))
                 .addContainerGap())
         );
+
+        jPanel1.add(jPanel8);
+        jPanel8.setBounds(505, 287, 502, 47);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 204));
@@ -765,9 +797,15 @@ public class fSales extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(912, 52, 355, 131);
+
         txaBill.setColumns(20);
         txaBill.setRows(5);
         jScrollPane4.setViewportView(txaBill);
+
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(988, 228, 37, 18);
 
         jTableBillInfo.setBorder(new javax.swing.border.MatteBorder(null));
         jTableBillInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -789,72 +827,16 @@ public class fSales extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTableBillInfo);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(130, 130, 130)
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel1)
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115)
-                        .addComponent(jScrollPane2)))
-                .addGap(56, 56, 56))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(516, 352, 751, 184);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(0, 0, 1420, 690);
 
         jTabbedPane1.addTab("Hóa đơn", jPanel1);
+
+        jPanel6.setLayout(null);
 
         jPanel9.setOpaque(false);
 
@@ -866,6 +848,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jDChSearchBill.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         btnSearchBill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBill.setForeground(new java.awt.Color(0, 51, 204));
         btnSearchBill.setText("TÌM KIẾM");
         btnSearchBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -873,7 +856,8 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSearchBillInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        btnSearchBillInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchBillInfo.setForeground(new java.awt.Color(0, 51, 204));
         btnSearchBillInfo.setText("TÌM KIẾM");
         btnSearchBillInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -881,10 +865,12 @@ public class fSales extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 51, 204));
         jLabel5.setText("Tra cứu hóa đơn");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 51, 204));
         jLabel9.setText("Tra cứu chi tiết hóa đơn");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -925,8 +911,11 @@ public class fSales extends javax.swing.JInternalFrame {
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jDChSearchBill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        jPanel6.add(jPanel9);
+        jPanel9.setBounds(36, 39, 689, 87);
 
         jTableBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -942,37 +931,18 @@ public class fSales extends javax.swing.JInternalFrame {
         jTableBill.setName("jTableBill"); // NOI18N
         jScrollPane1.setViewportView(jTableBill);
 
-        lbSearch.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        lbSearch.setText("TRA CỨU HÓA ĐƠN");
+        jPanel6.add(jScrollPane1);
+        jScrollPane1.setBounds(27, 202, 1267, 332);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(471, 471, 471)
-                        .addComponent(lbSearch)))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(lbSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
-        );
+        lbSearch.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        lbSearch.setForeground(new java.awt.Color(0, 51, 204));
+        lbSearch.setText("TRA CỨU HÓA ĐƠN");
+        jPanel6.add(lbSearch);
+        lbSearch.setBounds(471, 155, 292, 37);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
+        jPanel6.add(jLabel13);
+        jLabel13.setBounds(0, 0, 1410, 710);
 
         jTabbedPane1.addTab("Tra cứu hóa đơn", jPanel6);
 
@@ -980,11 +950,11 @@ public class fSales extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1404, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
         );
 
         pack();
@@ -1281,8 +1251,10 @@ public class fSales extends javax.swing.JInternalFrame {
     private com.toedter.calendar.JDateChooser jDChBillDate;
     private com.toedter.calendar.JDateChooser jDChSearchBill;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
