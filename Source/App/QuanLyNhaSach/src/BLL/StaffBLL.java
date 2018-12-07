@@ -43,4 +43,9 @@ public class StaffBLL {
     {
         return DAL.getIDStaff(NameStaff);
     }
+    //Hiện thị danh sách nhân viên chưa có tài khản
+    public ArrayList <Staff> LoadStaffNoAccount()
+    {
+        return DAL.LoadStaffNoAccount();
+    }
 }

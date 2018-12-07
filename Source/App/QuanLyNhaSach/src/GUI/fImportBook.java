@@ -870,7 +870,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
 
         pack();
@@ -1086,7 +1086,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
             btnSaveReceiptInfo.setEnabled(false);
         }
     }//GEN-LAST:event_btnSaveReceiptInfoActionPerformed
-
+    Toolkit tk = Toolkit.getDefaultToolkit();
     private void btnSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBookActionPerformed
         // TODO add your handling code here:
         String key =txfSearchBook.getText();
@@ -1095,7 +1095,10 @@ public class fImportBook extends javax.swing.JInternalFrame {
         if(jTableBook.getRowCount()==0)
         {
             fListBook f =new fListBook();
-            jPanel3.add(f);
+            int x = (int) tk.getScreenSize().getWidth();
+            int y = (int) tk.getScreenSize().getHeight();
+            f.setSize(x, y);
+            jTabbedPane1.add(f);
             f.setVisible(true);
             control.bindingBook(jTableBook, bookbll.LoadBook());
             //this.setVisible(false);

@@ -9,6 +9,7 @@ import BLL.StaffBLL;
 import BLL.UserBLL;
 import Entity.Staff;
 import Utilties.ControlFormat;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,11 +28,7 @@ public class fUser extends javax.swing.JInternalFrame {
     public fUser() {
         initComponents();
         control.bindingUser(jTableUser, userBLL.LoadUser());
-        cbNameStaff.removeAllItems();
-        for(Staff staff :staffBLL.LoadStaffNow())
-        {
-            cbNameStaff.addItem(staff.getName());
-        }
+        control.bindingStaff(jTableStaff,staffBLL.LoadStaffNoAccount());
         
     }
 
@@ -53,7 +50,6 @@ public class fUser extends javax.swing.JInternalFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        cbNameStaff = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         btnAddUser = new javax.swing.JButton();
         btnSaveUser = new javax.swing.JButton();
@@ -65,6 +61,11 @@ public class fUser extends javax.swing.JInternalFrame {
         txfDisplayName = new javax.swing.JTextField();
         txfSearchUser = new javax.swing.JTextField();
         btnSeaechUser = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableStaff = new javax.swing.JTable();
+        txfNameStaff = new javax.swing.JTextField();
+        txfSearchStaff = new javax.swing.JTextField();
+        btnSeaechStaff = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/bia7.jpg"))); // NOI18N
@@ -99,40 +100,35 @@ public class fUser extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableUser);
 
         jPanel5.add(jScrollPane3);
-        jScrollPane3.setBounds(541, 128, 709, 486);
+        jScrollPane3.setBounds(37, 504, 902, 259);
 
         txfPassWord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel5.add(txfPassWord);
-        txfPassWord.setBounds(209, 409, 242, 26);
+        txfPassWord.setBounds(217, 296, 242, 26);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 51, 204));
         jLabel15.setText("Tên đăng nhập");
         jPanel5.add(jLabel15);
-        jLabel15.setBounds(30, 326, 110, 17);
+        jLabel15.setBounds(38, 213, 110, 17);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 51, 204));
         jLabel16.setText("Tên hiển thị");
         jPanel5.add(jLabel16);
-        jLabel16.setBounds(30, 369, 90, 17);
+        jLabel16.setBounds(38, 256, 90, 17);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 51, 204));
         jLabel14.setText("Tên nhóm");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(30, 229, 80, 17);
-
-        cbNameStaff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbNameStaff.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(cbNameStaff);
-        cbNameStaff.setBounds(209, 277, 242, 23);
+        jLabel14.setBounds(38, 116, 80, 17);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 51, 204));
         jLabel17.setText("Mật khẩu");
         jPanel5.add(jLabel17);
-        jLabel17.setBounds(30, 416, 70, 17);
+        jLabel17.setBounds(38, 303, 70, 17);
 
         btnAddUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -143,7 +139,7 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnAddUser);
-        btnAddUser.setBounds(30, 509, 90, 25);
+        btnAddUser.setBounds(38, 408, 90, 25);
 
         btnSaveUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -154,12 +150,12 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnSaveUser);
-        btnSaveUser.setBounds(410, 510, 90, 25);
+        btnSaveUser.setBounds(418, 409, 90, 25);
 
         txfUserName.setEditable(false);
         txfUserName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel5.add(txfUserName);
-        txfUserName.setBounds(209, 323, 242, 23);
+        txfUserName.setBounds(217, 210, 242, 23);
 
         btnEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -170,7 +166,7 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnEditUser);
-        btnEditUser.setBounds(149, 509, 110, 25);
+        btnEditUser.setBounds(157, 408, 110, 25);
 
         btnDelUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -181,27 +177,27 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnDelUser);
-        btnDelUser.setBounds(287, 509, 90, 25);
+        btnDelUser.setBounds(295, 408, 90, 25);
 
         cbNameUserCategory_User.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbNameUserCategory_User.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên quản lý", "Nhân viên bán hàng" }));
         jPanel5.add(cbNameUserCategory_User);
-        cbNameUserCategory_User.setBounds(209, 226, 242, 23);
+        cbNameUserCategory_User.setBounds(217, 113, 242, 23);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 51, 204));
         jLabel18.setText("Tên nhân viên");
         jPanel5.add(jLabel18);
-        jLabel18.setBounds(30, 280, 110, 17);
+        jLabel18.setBounds(38, 167, 110, 17);
 
         txfDisplayName.setEditable(false);
         txfDisplayName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel5.add(txfDisplayName);
-        txfDisplayName.setBounds(209, 366, 242, 23);
+        txfDisplayName.setBounds(217, 253, 242, 23);
 
         txfSearchUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel5.add(txfSearchUser);
-        txfSearchUser.setBounds(10, 129, 330, 23);
+        txfSearchUser.setBounds(37, 462, 353, 23);
 
         btnSeaechUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSeaechUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -212,11 +208,53 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnSeaechUser);
-        btnSeaechUser.setBounds(371, 128, 100, 25);
+        btnSeaechUser.setBounds(408, 461, 100, 25);
+
+        jTableStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTableStaff.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã nhân viên", "Tên nhân viên", "Ngày sinh", "Giới tính", "Địa chỉ", "Điện thoại", "Ngày vào làm "
+            }
+        ));
+        jTableStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableStaffMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableStaff);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(564, 130, 787, 356);
+
+        txfNameStaff.setEditable(false);
+        txfNameStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel5.add(txfNameStaff);
+        txfNameStaff.setBounds(217, 163, 242, 25);
+
+        txfSearchStaff.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel5.add(txfSearchStaff);
+        txfSearchStaff.setBounds(564, 95, 367, 23);
+
+        btnSeaechStaff.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSeaechStaff.setForeground(new java.awt.Color(0, 51, 204));
+        btnSeaechStaff.setText("Tìm kiếm");
+        btnSeaechStaff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeaechStaffActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSeaechStaff);
+        btnSeaechStaff.setBounds(966, 94, 100, 25);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel5.add(jLabel1);
-        jLabel1.setBounds(0, 0, 1380, 750);
+        jLabel1.setBounds(0, 0, 1350, 760);
 
         getContentPane().add(jPanel5);
         jPanel5.setBounds(0, 0, 1350, 750);
@@ -226,7 +264,7 @@ public class fUser extends javax.swing.JInternalFrame {
     public void ClearText()
     {
         cbNameUserCategory_User.setSelectedItem(null);
-        cbNameStaff.setSelectedItem(null);
+        txfNameStaff.setText("");
         txfDisplayName.setText("");
         txfUserName.setText("");
         txfPassWord.setText("");
@@ -234,7 +272,7 @@ public class fUser extends javax.swing.JInternalFrame {
     public boolean  Insert()
     {
         String NameCategogy =cbNameUserCategory_User.getSelectedItem().toString();
-        String NameStaff =cbNameStaff.getSelectedItem().toString();
+        String NameStaff =txfNameStaff.getText().toString();
         int IDStaff=staffBLL.getIDStaff(NameStaff);
         int IDCategogy;
         if(NameCategogy.equals("Nhân viên quản lý"))
@@ -264,7 +302,7 @@ public class fUser extends javax.swing.JInternalFrame {
     {
         ClearText();
         String NameCategogy =cbNameUserCategory_User.getSelectedItem().toString();
-        String NameStaff =cbNameStaff.getSelectedItem().toString();
+        String NameStaff =txfNameStaff.getText().toString();
         int IDStaff=staffBLL.getIDStaff(NameStaff);
         int IDCategogy;
         if(NameCategogy.equals("Nhân viên quản lý"))
@@ -293,7 +331,7 @@ public class fUser extends javax.swing.JInternalFrame {
     }
     public boolean  Delete()
     {
-        String NameStaff =cbNameStaff.getSelectedItem().toString();
+        String NameStaff =txfNameStaff.getText().toString();
         int IDStaff=staffBLL.getIDStaff(NameStaff);
         if(userBLL.DeleteUser(IDStaff))
         {
@@ -342,6 +380,7 @@ public class fUser extends javax.swing.JInternalFrame {
             {
                 btnSaveUser.setEnabled(false);
                 control.bindingUser(jTableUser, userBLL.LoadUser());
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
             }
             btnAddUser.setEnabled(true);
@@ -354,6 +393,7 @@ public class fUser extends javax.swing.JInternalFrame {
             {
                 btnSaveUser.setEnabled(false);
                 control.bindingUser(jTableUser, userBLL.LoadUser());
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
             }
             btnAddUser.setEnabled(true);
@@ -366,6 +406,7 @@ public class fUser extends javax.swing.JInternalFrame {
             {
                 btnSaveUser.setEnabled(false);
                 control.bindingUser(jTableUser, userBLL.LoadUser());
+                control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
             }
             btnAddUser.setEnabled(true);
@@ -385,11 +426,26 @@ public class fUser extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int row =jTableUser.getSelectedRow();
         cbNameUserCategory_User.setSelectedItem(jTableUser.getValueAt(row, 0).toString());
-        cbNameStaff.setSelectedItem(jTableUser.getValueAt(row, 1).toString());
+        txfNameStaff.setText(jTableUser.getValueAt(row, 1).toString());
         txfUserName.setText(jTableUser.getValueAt(row, 2).toString());
         txfDisplayName.setText(jTableUser.getValueAt(row, 3).toString());
         txfPassWord.setText(jTableUser.getValueAt(row, 4).toString());
     }//GEN-LAST:event_jTableUserMouseClicked
+
+    private void jTableStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStaffMouseClicked
+        // TODO add your handling code here:
+        int row =jTableStaff.getSelectedRow();
+        txfNameStaff.setText(jTableStaff.getValueAt(row, 1).toString());
+        
+    }//GEN-LAST:event_jTableStaffMouseClicked
+    Toolkit tk = Toolkit.getDefaultToolkit();
+    private void btnSeaechStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeaechStaffActionPerformed
+        // TODO add your handling code here:
+        String namestaff =txfSearchStaff.getText().toString();
+        control.bindingStaff(jTableStaff, staffBLL.arrSearchStaff(namestaff));
+        txfSearchStaff.setText("");
+         
+    }//GEN-LAST:event_btnSeaechStaffActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -397,8 +453,8 @@ public class fUser extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDelUser;
     private javax.swing.JButton btnEditUser;
     private javax.swing.JButton btnSaveUser;
+    private javax.swing.JButton btnSeaechStaff;
     private javax.swing.JButton btnSeaechUser;
-    private javax.swing.JComboBox<String> cbNameStaff;
     private javax.swing.JComboBox<String> cbNameUserCategory_User;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -409,10 +465,14 @@ public class fUser extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTableStaff;
     private javax.swing.JTable jTableUser;
     private javax.swing.JTextField txfDisplayName;
+    private javax.swing.JTextField txfNameStaff;
     private javax.swing.JTextField txfPassWord;
+    private javax.swing.JTextField txfSearchStaff;
     private javax.swing.JTextField txfSearchUser;
     private javax.swing.JTextField txfUserName;
     // End of variables declaration//GEN-END:variables

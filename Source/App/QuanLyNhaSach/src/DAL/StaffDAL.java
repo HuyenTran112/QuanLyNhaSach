@@ -150,6 +150,35 @@ public class StaffDAL extends  DataAccessHelper{
         }
         return 0;
     }
-
+    //Hiện thị nhân viên chưa có tài khoản
+    public ArrayList<Staff> LoadStaffNoAccount()
+    {
+        ArrayList<Staff> temp =new ArrayList<Staff>();
+        String SQL="EXEC SP_LOADSTAFFNOACCOUNT";
+        try {
+            getConnect();
+            Statement st =conn.createStatement();
+            ResultSet rs =st.executeQuery(SQL);
+            if(rs!=null)
+            {
+                while(rs.next())
+                {
+                    Staff staff =new Staff();
+                    staff.setID(rs.getInt("MANV"));
+                    staff.setName(rs.getString("TENNV"));
+                    staff.setBirthDay(rs.getDate("NGAYSINH"));
+                    staff.setSex(rs.getString("GIOITINH"));
+                    staff.setAddress(rs.getString("DIACHI"));
+                    staff.setPhoneNumber(rs.getString("SODT"));
+                    staff.setStartDate(rs.getDate("NGAYVL"));
+                    staff.setStatus(rs.getInt("TRANGTHAI"));
+                    temp.add(staff);
+                }
+            }
+            getClose();
+        } catch (Exception e) {
+        }
+        return temp;
+    }
    
 }
