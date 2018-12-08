@@ -44,6 +44,28 @@ public class BookDAL extends  DataAccessHelper{
         }
         return temp;
     }
+     //Lấy mã sách tên sách
+     public ArrayList<Book> LoadIDNameBook(){
+        ArrayList<Book> temp = new ArrayList<>();
+        String SQL="SELECT MASACH, TENSACH,GIANHAP FROM SACH";
+        try{
+            getConnect();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(SQL);
+            if(rs!=null)
+                while(rs.next()){
+                    Book book = new Book();
+                    book.setIDBook(rs.getInt("MASACH"));
+                    book.setNameBook(rs.getString("TENSACH"));
+                    book.setCost(rs.getFloat("GIANHAP"));
+                    temp.add(book);
+                }
+            getClose();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return temp;
+    }
      //Thêm sách
      public boolean  InsertBook(String BookName ,String Author, String PublisherBook, int PublishingYear, String Brief, float Cost , int SumInventory, int IDBookCategogy )
      {

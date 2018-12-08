@@ -19,6 +19,11 @@ public class BookBLL {
     {
         return DAL.LoadBook();
     }
+    //Lấy danh sách SACH
+    public ArrayList<Book> LoadidNameBook()
+    {
+        return DAL.LoadIDNameBook();
+    }
     //Thêm sách
     public boolean InsertBook(String BookName , String Author ,String PublisherBook, int PublishingYear, String Brief, float Cost , int SumInventory,int IDBookCategogy )
     {

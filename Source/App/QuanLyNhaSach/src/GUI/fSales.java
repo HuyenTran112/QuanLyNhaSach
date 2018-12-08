@@ -728,6 +728,8 @@ public class fSales extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel8);
         jPanel8.setBounds(505, 287, 502, 47);
 
+        jPanel4.setOpaque(false);
+
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 204));
         jLabel11.setText("Tiền mặt thanh toán");

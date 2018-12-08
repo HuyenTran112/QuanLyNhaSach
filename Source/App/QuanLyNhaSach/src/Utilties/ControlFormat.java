@@ -65,6 +65,31 @@ public class ControlFormat {
         };
         name.setModel(dtm);      
     }
+     //Lấy dữ liệu lên bảng Sách
+    public void bindingIDNameBook(JTable name, ArrayList<Book> arrBook)
+    {
+        Vector header = new Vector();
+        header.add("Mã sách");
+        header.add("Tên sách");
+        header.add("Giá nhập");
+        Vector data = new Vector();
+        for(Book book: arrBook)
+        {
+            Vector row=new Vector();
+            row.add(book.getIDBook());
+            row.add(book.getNameBook());
+            row.add(book.getCost());
+            data.add(row);
+        }
+        //DefaultTableModel
+        DefaultTableModel dtm = new DefaultTableModel(data,header){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        name.setModel(dtm);      
+    }
     //Lấy dữ liệu lên bảng thể loại sách
     public void bindingBookCategogy(JTable name , ArrayList<BookCategogy> arrBookCategogy )
     {

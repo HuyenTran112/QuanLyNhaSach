@@ -90,7 +90,7 @@ public class BookReceiptInfoDAL extends DataAccessHelper{
     //Tìm chi tiết phiếu nhập sách theo số phiếu nhập
     public ArrayList<BookReceiptInfo> SearchBookReceiptInfo (int key)
     {
-        String SQL="EXEC SP_SEARCHBOOKSTOCKDETAIL '"+key+"'";
+        String SQL="EXEC SP_SEARCHBOOKSTOCKDETAIL'"+key+"'";
         ArrayList<BookReceiptInfo> temp = new ArrayList<>();
         try {
             getConnect();
