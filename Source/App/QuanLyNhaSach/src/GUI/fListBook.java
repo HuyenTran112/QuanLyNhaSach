@@ -233,7 +233,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txfIDBookInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -282,7 +282,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel2.add(jPanel6);
-        jPanel6.setBounds(40, 130, 490, 420);
+        jPanel6.setBounds(40, 70, 490, 430);
 
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookInfo.setAutoResizeMode(jTableBookInfo.AUTO_RESIZE_OFF);
@@ -307,7 +307,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableBookInfo);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(560, 150, 790, 568);
+        jScrollPane3.setBounds(540, 110, 790, 568);
 
         btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -318,7 +318,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnAddBookInfo);
-        btnAddBookInfo.setBounds(50, 560, 100, 25);
+        btnAddBookInfo.setBounds(70, 510, 100, 25);
 
         btnEditBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -329,7 +329,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnEditBookInfo);
-        btnEditBookInfo.setBounds(190, 560, 110, 25);
+        btnEditBookInfo.setBounds(210, 510, 110, 25);
 
         btnSaveBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -340,7 +340,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSaveBookInfo);
-        btnSaveBookInfo.setBounds(340, 560, 90, 25);
+        btnSaveBookInfo.setBounds(360, 510, 90, 25);
 
         jPanel3.setOpaque(false);
 
@@ -375,7 +375,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(560, 85, 514, 71);
+        jPanel3.setBounds(540, 50, 514, 71);
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel2.add(jLabel13);
@@ -709,6 +709,7 @@ public class fListBook extends javax.swing.JInternalFrame {
             if(InsertBook()==true);
             {
                 control.bindingBook(jTableBookInfo, bookbll.LoadBook());
+                
                 ClearTextBookInfo();
                 btnSaveBookInfo.setEnabled(false);
             }
@@ -788,6 +789,11 @@ public class fListBook extends javax.swing.JInternalFrame {
             {
                 btnSaveBookCategogy.setEnabled(false);
                 control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
+                 cbNameCategogyBookInfo.removeAllItems();
+                for(BookCategogy bookCategogy: categogyBLL.LoadBookCategogy())
+                {
+                    cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
+                }
                 ClearTextBookCategogy();
             }
             btnAddBookCategogy.setEnabled(true);
@@ -800,6 +806,11 @@ public class fListBook extends javax.swing.JInternalFrame {
             {
                 btnSaveBookCategogy.setEnabled(false);
                 control.bindingBookCategogy(jTableBookCategory, categogyBLL.LoadBookCategogy());
+                 cbNameCategogyBookInfo.removeAllItems();
+                for(BookCategogy bookCategogy: categogyBLL.LoadBookCategogy())
+                {
+                    cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
+                }
                 ClearTextBookCategogy();
             }
             btnAddBookCategogy.setEnabled(true);

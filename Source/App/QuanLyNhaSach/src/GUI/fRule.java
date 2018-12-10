@@ -24,6 +24,7 @@ public class fRule extends javax.swing.JInternalFrame {
     public fRule() {
         initComponents();
         control.bindingRule(jTableRule, ruleBLL.LoadRule());
+         btnSaveRule.setEnabled(false);
     }
 
     /**

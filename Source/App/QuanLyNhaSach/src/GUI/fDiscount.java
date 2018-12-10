@@ -32,6 +32,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
     public fDiscount() {
         initComponents(); 
         control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
+        btnSaveDiscount.setEnabled(false);
     }
 
     /**

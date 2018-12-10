@@ -53,7 +53,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
             cbNameDistributorReceipt.addItem(distributor.getNameDistributor());
         }
        
-        
+        btnSaveDistributorInfo.setEnabled(false);
+        btnSaveReceipt.setEnabled(false);
+        btnSaveReceiptInfo.setEnabled(false);
         
     }
    
@@ -209,6 +211,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
         txfIDDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         txfNameDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txfNameDistributorInfo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfNameDistributorInfoKeyTyped(evt);
+            }
+        });
 
         txfAddressDistributorInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
@@ -581,6 +588,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 txfSearchStockInfoActionPerformed(evt);
             }
         });
+        txfSearchStockInfo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfSearchStockInfoKeyTyped(evt);
+            }
+        });
 
         btnSearchReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSearchReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -833,11 +845,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
         );
 
         pack();
@@ -873,6 +885,11 @@ public class fImportBook extends javax.swing.JInternalFrame {
             btnAddDistributorInfo.setEnabled(true);
             btnEditDistributorInfo.setEnabled(true);
             btnSaveDistributorInfo.setEnabled(false);
+        }
+        cbNameDistributorReceipt.removeAllItems();
+        for(Distributor distributor: distributorBLL.LoadDistributor())
+        {
+            cbNameDistributorReceipt.addItem(distributor.getNameDistributor());
         }
     }//GEN-LAST:event_btnSaveDistributorInfoActionPerformed
 
@@ -1086,7 +1103,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
         {
             if(InsertBookReceiptInfo()==true)
             {
-                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.LoadBookReceiptInfo());
+                int IDBooReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
+                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.SearchBookReceiptInfo(IDBooReceipt));
                 control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
                 control.bindingIDNameBook(jTableBook, bookbll.LoadidNameBook());
                 int IDReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
@@ -1103,7 +1121,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
         {
             if(UpdateBookReceiptInfo()==true)
             {
-                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.LoadBookReceiptInfo());
+               int IDBooReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
+                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.SearchBookReceiptInfo(IDBooReceipt));
                 control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
                 control.bindingIDNameBook(jTableBook, bookbll.LoadidNameBook());
                 int IDReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
@@ -1120,7 +1139,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
         {
             if(DeleteBookReceiptInfo()==true)
             {
-                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.LoadBookReceiptInfo());
+                int IDBooReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
+                control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.SearchBookReceiptInfo(IDBooReceipt));
                 control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
                 control.bindingIDNameBook(jTableBook, bookbll.LoadidNameBook());
                 int IDReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
@@ -1138,6 +1158,27 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private void txfSearchBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSearchBookActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfSearchBookActionPerformed
+
+    private void txfNameDistributorInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameDistributorInfoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfNameDistributorInfoKeyTyped
+
+    private void txfSearchStockInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfSearchStockInfoKeyTyped
+        // TODO add your handling code here:
+        char vChar = evt.getKeyChar();
+         if (txfAmountReceiptInfo.getText().equals(""))
+        dot = false;
+        if (dot == false){
+            if (vChar == '.')
+            dot = true;
+            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+            evt.consume();
+        }
+        else {
+            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
+            evt.consume();
+        }
+    }//GEN-LAST:event_txfSearchStockInfoKeyTyped
     public String chuanHoa(String str) {
         str = str.trim();
         str = str.replaceAll("\\s+", " ");

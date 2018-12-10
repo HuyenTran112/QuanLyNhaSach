@@ -38,7 +38,8 @@ public class fSales extends javax.swing.JInternalFrame {
     public fSales() {
         initComponents();
         txaBill.setVisible(false);
-               
+        btnSaveBill.setEnabled(false);
+        btnSaveBillInfo.setEnabled(false);
         jDChBillDate.setDate(Today);
         jDChSearchBill.setDate(Today);
         

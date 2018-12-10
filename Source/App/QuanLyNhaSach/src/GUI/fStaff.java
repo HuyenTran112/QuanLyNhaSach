@@ -28,6 +28,7 @@ public class fStaff extends javax.swing.JInternalFrame {
     private int flag=0;
     public fStaff() {
         initComponents();
+        btnSaveStaff.setEnabled(false);
         control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
         jDChStartStaff.setDate(new Date());
     }

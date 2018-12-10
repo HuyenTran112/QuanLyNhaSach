@@ -35,6 +35,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         setSize(x, y);
         control.BindingCustomer(jTableCustomer, customerBLL.LoadCustomer());
         jDChRegisDateCustomer.setDate(Today);
+        btnSaveCustomer.setEnabled(false);
     }
 
     /**
