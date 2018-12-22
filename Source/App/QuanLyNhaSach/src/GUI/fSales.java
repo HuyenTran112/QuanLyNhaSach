@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -47,6 +49,38 @@ public class fSales extends javax.swing.JInternalFrame {
             cbAmountBillInfo.addItem(String.valueOf(i)); 
         
         txfIDStaffBill.setText("1");
+        
+        txfIDCustomerBill.getDocument().addDocumentListener(new DocumentListener() {
+            int IDCustomer;           
+            @Override
+            
+            public void insertUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(txfIDCustomerBill.getText().equals("") == false)
+                    IDCustomer = Integer.parseInt(txfIDCustomerBill.getText());
+                else IDCustomer = 0;
+                txfNameCustomerBill.setText(customerBLL.getNameCustomerByID(IDCustomer));
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                
+                if(txfIDCustomerBill.getText().equals("") == false)
+                    IDCustomer = Integer.parseInt(txfIDCustomerBill.getText());
+                else IDCustomer = 0;
+                txfNameCustomerBill.setText(customerBLL.getNameCustomerByID(IDCustomer));
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                if(txfIDCustomerBill.getText().equals("") == false)
+                    IDCustomer = Integer.parseInt(txfIDCustomerBill.getText());
+                else IDCustomer = 0;
+                txfNameCustomerBill.setText(customerBLL.getNameCustomerByID(IDCustomer));
+            }
+        });
     }
     public void setUserName(String namestaff){
          txfNameStaffBill.setText(namestaff);
