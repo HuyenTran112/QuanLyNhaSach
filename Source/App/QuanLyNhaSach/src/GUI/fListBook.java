@@ -13,6 +13,7 @@ import DAL.*;
 import BLL.*;
 import javax.swing.JOptionPane;
 import GUI.fManagement;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 //import sun.org.mozilla.javascript.internal.Token;
@@ -49,7 +50,24 @@ public class fListBook extends javax.swing.JInternalFrame {
         {
             cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
         }
-        //cbNameCategogyBookInfo.addItem("Sách cố tích");
+        txfNameBookCategogy.setEnabled(false);
+        cbNameCategogyBookInfo.setEnabled(false);
+        txfNameBookInfo.setEnabled(false);
+        txfAuthorBookInfo.setEnabled(false);
+        txfPublisherBookInfo.setEnabled(false);
+        txfPublishingYearBookInfo.setEnabled(false);
+        txaBriefBookInfo.setEnabled(false);
+        jTableBookInfo.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jTableBookInfo.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jTableBookInfo.getColumnModel().getColumn(2).setPreferredWidth(200);
+        jTableBookInfo.getColumnModel().getColumn(3).setPreferredWidth(150);
+        jTableBookInfo.getColumnModel().getColumn(4).setPreferredWidth(150);
+        jTableBookInfo.getColumnModel().getColumn(5).setPreferredWidth(50);
+        jTableBookInfo.getColumnModel().getColumn(6).setPreferredWidth(100);
+        jTableBookInfo.getColumnModel().getColumn(7).setPreferredWidth(100);
+        jTableBookInfo.getColumnModel().getColumn(8).setPreferredWidth(100);
+        jTableBookInfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableBookCategory.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
     }
     
 
@@ -284,6 +302,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel2.add(jPanel6);
         jPanel6.setBounds(40, 70, 490, 430);
 
+        jTableBookInfo.setAutoCreateRowSorter(true);
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookInfo.setAutoResizeMode(jTableBookInfo.AUTO_RESIZE_OFF);
         jTableBookInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -297,6 +316,8 @@ public class fListBook extends javax.swing.JInternalFrame {
                 "Mã sách", "Mã thể loại sách", "Tên sách", "Nhà xuất bản", "Năm xuất bản", "Tóm tắt", "Giá nhập", "Giá bán"
             }
         ));
+        jTableBookInfo.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableBookInfo.setAutoscrolls(false);
         jTableBookInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableBookInfo.setMaximumSize(new java.awt.Dimension(2147483647, 70));
         jTableBookInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -307,7 +328,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableBookInfo);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(540, 110, 790, 568);
+        jScrollPane3.setBounds(540, 110, 790, 510);
 
         btnAddBookInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddBookInfo.setForeground(new java.awt.Color(0, 0, 204));
@@ -439,7 +460,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(20, 170, 452, 113);
+        jPanel4.setBounds(40, 140, 452, 113);
 
         jPanel5.setOpaque(false);
 
@@ -495,7 +516,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(50, 290, 391, 60);
+        jPanel5.setBounds(70, 270, 391, 60);
 
         jTableBookCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookCategory.setModel(new javax.swing.table.DefaultTableModel(
@@ -517,7 +538,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableBookCategory);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(490, 200, 680, 550);
+        jScrollPane1.setBounds(520, 160, 770, 480);
 
         jPanel7.setOpaque(false);
 
@@ -554,11 +575,11 @@ public class fListBook extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(490, 120, 430, 71);
+        jPanel7.setBounds(490, 90, 430, 71);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(0, 0, 1340, 670);
+        jLabel12.setBounds(0, 0, 1340, 680);
 
         jTabbedPane1.addTab("Thể loại sách", jPanel1);
 
@@ -580,6 +601,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int row =jTableBookCategory.getSelectedRow();
         txfIDBookCategogy.setText(jTableBookCategory.getValueAt(row, 0).toString());
+        txfNameBookCategogy.setEnabled(false);
         txfNameBookCategogy.setText(jTableBookCategory.getValueAt(row, 1).toString());
     }//GEN-LAST:event_jTableBookCategoryMouseClicked
     public void ClearTextBookInfo()
@@ -709,9 +731,14 @@ public class fListBook extends javax.swing.JInternalFrame {
             if(InsertBook()==true);
             {
                 control.bindingBook(jTableBookInfo, bookbll.LoadBook());
-                
                 ClearTextBookInfo();
-                btnSaveBookInfo.setEnabled(false);
+                txfNameBookCategogy.setEnabled(false);
+                cbNameCategogyBookInfo.setEnabled(false);
+                txfNameBookInfo.setEnabled(false);
+                txfAuthorBookInfo.setEnabled(false);
+                txfPublisherBookInfo.setEnabled(false);
+                txfPublishingYearBookInfo.setEnabled(false);
+                txaBriefBookInfo.setEnabled(false);
             }
             btnAddBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
@@ -721,7 +748,13 @@ public class fListBook extends javax.swing.JInternalFrame {
             if(UpdateBook()==true)
             {
                 control.bindingBook(jTableBookInfo, bookbll.LoadBook());
-                btnSaveBookInfo.setEnabled(false);
+                txfNameBookCategogy.setEnabled(false);
+                cbNameCategogyBookInfo.setEnabled(false);
+                txfNameBookInfo.setEnabled(false);
+                txfAuthorBookInfo.setEnabled(false);
+                txfPublisherBookInfo.setEnabled(false);
+                txfPublishingYearBookInfo.setEnabled(false);
+                txaBriefBookInfo.setEnabled(false);
                 ClearTextBookInfo();
             }
             btnAddBookInfo.setEnabled(true);
@@ -738,12 +771,25 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnEditBookInfo.setEnabled(false);
         btnSaveBookInfo.setEnabled(true);
         flag=1;
-
+        txfNameBookCategogy.setEnabled(true);
+        cbNameCategogyBookInfo.setEnabled(true);
+        txfNameBookInfo.setEnabled(true);
+        txfAuthorBookInfo.setEnabled(true);
+        txfPublisherBookInfo.setEnabled(true);
+        txfPublishingYearBookInfo.setEnabled(true);
+        txaBriefBookInfo.setEnabled(true);
     }//GEN-LAST:event_btnAddBookInfoActionPerformed
 
     private void jTableBookInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBookInfoMouseClicked
         // TODO add your handling code here:
         int row=jTableBookInfo.getSelectedRow();
+        txfNameBookCategogy.setEnabled(false);
+        cbNameCategogyBookInfo.setEnabled(false);
+        txfNameBookInfo.setEnabled(false);
+        txfAuthorBookInfo.setEnabled(false);
+        txfPublisherBookInfo.setEnabled(false);
+        txfPublishingYearBookInfo.setEnabled(false);
+        txaBriefBookInfo.setEnabled(false);
         txfIDBookInfo.setText(jTableBookInfo.getValueAt(row, 0).toString());
         String bookcategogy =jTableBookInfo.getValueAt(row, 1).toString();
         if(jTableBookInfo.getValueAt(row, 1).toString().equals(bookcategogy))
@@ -762,6 +808,13 @@ public class fListBook extends javax.swing.JInternalFrame {
 
     private void btnEditBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookInfoActionPerformed
         // TODO add your handling code here:
+        txfNameBookCategogy.setEnabled(true);
+        cbNameCategogyBookInfo.setEnabled(true);
+        txfNameBookInfo.setEnabled(true);
+        txfAuthorBookInfo.setEnabled(true);
+        txfPublisherBookInfo.setEnabled(true);
+        txfPublishingYearBookInfo.setEnabled(true);
+        txaBriefBookInfo.setEnabled(true);
         btnAddBookInfo.setEnabled(false);
         btnEditBookInfo.setEnabled(false);
         btnSaveBookInfo.setEnabled(true);
@@ -775,6 +828,7 @@ public class fListBook extends javax.swing.JInternalFrame {
     private void btnAddBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookCategogyActionPerformed
         // TODO add your handling code here:
         ClearTextBookCategogy();
+        txfNameBookCategogy.setEnabled(true);
         btnAddBookCategogy.setEnabled(false);
         btnEditBookCategogy.setEnabled(false);
         btnSaveBookCategogy.setEnabled(true);
@@ -795,6 +849,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
                 }
                 ClearTextBookCategogy();
+                txfNameBookCategogy.setEnabled(false);
             }
             btnAddBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
@@ -812,6 +867,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
                 }
                 ClearTextBookCategogy();
+                txfNameBookCategogy.setEnabled(false);
             }
             btnAddBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
@@ -821,6 +877,7 @@ public class fListBook extends javax.swing.JInternalFrame {
 
     private void btnEditBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookCategogyActionPerformed
         // TODO add your handling code here:
+        txfNameBookCategogy.setEnabled(true);
         btnAddBookCategogy.setEnabled(false);
         btnEditBookCategogy.setEnabled(false);
         btnSaveBookCategogy.setEnabled(true);

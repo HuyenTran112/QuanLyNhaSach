@@ -13,6 +13,7 @@ import BLL.BookReceiptBLL;
 import BLL.BookReceiptInfoBLL;
 import Entity.Book;
 import Entity.BookReceipt;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
@@ -43,7 +44,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jLabel6.setSize((int)jPanel1.getSize().getWidth(), (int)jPanel1.getSize().getHeight());
         control.bindingDistributor(jTableDistributorInfo,distributorBLL.LoadDistributor());
         control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
-        control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.LoadBookReceiptInfo());
+        //control.bindingBookReceiptInfo(jTableReceiptInfo, bookReceiptInfoBLL.LoadBookReceiptInfo());
         control.bindingIDNameBook(jTableBook, bookbll.LoadidNameBook());
         Date date =new Date();
         jDateChooserReceipt.setDate(date);
@@ -56,7 +57,19 @@ public class fImportBook extends javax.swing.JInternalFrame {
         btnSaveDistributorInfo.setEnabled(false);
         btnSaveReceipt.setEnabled(false);
         btnSaveReceiptInfo.setEnabled(false);
-        
+        jTableDistributorInfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        txfNameDistributorInfo.setEnabled(false);
+        txfAddressDistributorInfo.setEnabled(false);
+        txfPhoneDistributorInfo.setEnabled(false);
+        jTableDistributorInfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableReceipt.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableReceiptInfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableBook.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jDateChooserReceipt.setEnabled(false);
+        cbNameDistributorReceipt.setEnabled(false);
+        txfNameBook.setEnabled(false);
+        txfAmountReceiptInfo.setEnabled(false);
+        txfCost.setEnabled(false);
     }
    
     
@@ -112,9 +125,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
         txfIDReceiptInfo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableReceiptInfo = new javax.swing.JTable();
-        jPanel13 = new javax.swing.JPanel();
-        txfSearchStockInfo = new javax.swing.JTextField();
-        btnSearchReceiptInfo = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -139,7 +149,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setClosable(true);
-        setTitle("QUẢN LÝ NHẬP SÁCH");
 
         jTabbedPane1.setForeground(new java.awt.Color(0, 0, 204));
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -352,7 +361,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableDistributorInfo);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(510, 120, 830, 590);
+        jScrollPane1.setBounds(480, 110, 830, 450);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
@@ -363,7 +372,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel3.setLayout(null);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 204, 102));
+        jLabel13.setForeground(new java.awt.Color(0, 0, 204));
         jLabel13.setText("QUẢN LÝ NHẬP SÁCH");
         jPanel3.add(jLabel13);
         jLabel13.setBounds(464, 11, 323, 37);
@@ -558,7 +567,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel12);
         jPanel12.setBounds(10, 294, 440, 590);
 
-        jTableReceiptInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTableReceiptInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableReceiptInfo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -578,53 +587,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableReceiptInfo);
 
         jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(460, 410, 887, 239);
-
-        jPanel13.setOpaque(false);
-
-        txfSearchStockInfo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txfSearchStockInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfSearchStockInfoActionPerformed(evt);
-            }
-        });
-        txfSearchStockInfo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txfSearchStockInfoKeyTyped(evt);
-            }
-        });
-
-        btnSearchReceiptInfo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnSearchReceiptInfo.setForeground(new java.awt.Color(0, 0, 204));
-        btnSearchReceiptInfo.setText("Tìm kiếm");
-        btnSearchReceiptInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchReceiptInfoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnSearchReceiptInfo)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfSearchStockInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchReceiptInfo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3.add(jPanel13);
-        jPanel13.setBounds(460, 350, 366, 40);
+        jScrollPane3.setBounds(460, 360, 887, 239);
 
         jPanel8.setOpaque(false);
 
@@ -758,6 +721,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel9);
         jPanel9.setBounds(69, 266, 377, 47);
 
+        jTableReceipt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableReceipt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -769,6 +733,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 "Số phiếu nhập", "Ngày nhập", "Mã nhà cung cấp", "Tên nhà cung cấp", "Tổng tiền"
             }
         ));
+        jTableReceipt.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableReceipt.setAutoscrolls(false);
         jTableReceipt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableReceiptMouseClicked(evt);
@@ -779,6 +745,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(464, 101, 452, 240);
 
+        jTableBook.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBook.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -790,6 +757,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 "Mã sách", "Tên sách", "Giá nhập"
             }
         ));
+        jTableBook.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableBook.setAutoscrolls(false);
         jTableBook.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableBookMouseClicked(evt);
@@ -849,7 +818,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
         );
 
         pack();
@@ -857,6 +826,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void jTableDistributorInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDistributorInfoMouseClicked
         // TODO add your handling code here:
+        txfNameDistributorInfo.setEnabled(false);
+        txfAddressDistributorInfo.setEnabled(false);
+        txfPhoneDistributorInfo.setEnabled(false);
         int row=jTableDistributorInfo.getSelectedRow();
         txfIDDistributorInfo.setText(jTableDistributorInfo.getValueAt(row, 0).toString());
         txfNameDistributorInfo.setText(jTableDistributorInfo.getValueAt(row, 1).toString());
@@ -871,6 +843,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
             if(InsertDistributor()==true)
             {
                 control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
+                txfNameDistributorInfo.setEnabled(false);
+                txfAddressDistributorInfo.setEnabled(false);
+                txfPhoneDistributorInfo.setEnabled(false);
             }
             btnAddDistributorInfo.setEnabled(true);
             btnEditDistributorInfo.setEnabled(true);
@@ -881,6 +856,10 @@ public class fImportBook extends javax.swing.JInternalFrame {
             if(UpdateDistributor()==true)
             {
                 control.bindingDistributor(jTableDistributorInfo, distributorBLL.LoadDistributor());
+                txfNameDistributorInfo.setEnabled(false);
+                txfAddressDistributorInfo.setEnabled(false);
+                txfPhoneDistributorInfo.setEnabled(false);
+                ClearTextDistibutor();
             }
             btnAddDistributorInfo.setEnabled(true);
             btnEditDistributorInfo.setEnabled(true);
@@ -895,6 +874,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void btnEditDistributorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDistributorInfoActionPerformed
         // TODO add your handling code here:
+        txfNameDistributorInfo.setEnabled(true);
+        txfAddressDistributorInfo.setEnabled(true);
+        txfPhoneDistributorInfo.setEnabled(true);
         btnAddDistributorInfo.setEnabled(false);
         btnEditDistributorInfo.setEnabled(false);
         btnSaveDistributorInfo.setEnabled(true);
@@ -904,6 +886,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private void btnAddDistributorInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDistributorInfoActionPerformed
         // TODO add your handling code here:
         ClearTextDistibutor();
+        txfNameDistributorInfo.setEnabled(true);
+        txfAddressDistributorInfo.setEnabled(true);
+        txfPhoneDistributorInfo.setEnabled(true);
         btnAddDistributorInfo.setEnabled(false);
         btnEditDistributorInfo.setEnabled(false);
         btnSaveDistributorInfo.setEnabled(true);
@@ -950,6 +935,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void jTableReceiptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableReceiptMouseClicked
         // TODO add your handling code here:
+        jDateChooserReceipt.setEnabled(false);
+        cbNameDistributorReceipt.setEnabled(false);
         int row=jTableReceipt.getSelectedRow();
         txfIDReceipt.setText(jTableReceipt.getValueAt(row, 0).toString());
         int IDBooReceipt=Integer.parseInt(txfIDReceipt.getText().toString());
@@ -976,7 +963,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
             if(InsertBookReceipt()==true)
             {
                 control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
-
+                jDateChooserReceipt.setEnabled(false);
+                cbNameDistributorReceipt.setEnabled(false);
             }
             btnAddReceipt.setEnabled(true);
             btnEditReceipt.setEnabled(true);
@@ -987,6 +975,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
             if(UpdateBookReceipt()==true)
             {
                 control.bindingBookReceipt(jTableReceipt, bookReceiptBLL.LoadBookReceipt());
+                jDateChooserReceipt.setEnabled(false);
+                cbNameDistributorReceipt.setEnabled(false);
             }
             btnAddReceipt.setEnabled(true);
             btnEditReceipt.setEnabled(true);
@@ -996,6 +986,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void btnEditReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditReceiptActionPerformed
         // TODO add your handling code here:
+        jDateChooserReceipt.setEnabled(true);
+        cbNameDistributorReceipt.setEnabled(true);
         btnAddReceipt.setEnabled(false);
         btnEditReceipt.setEnabled(false);
         btnSaveReceipt.setEnabled(true);
@@ -1005,6 +997,8 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private void btnAddReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddReceiptActionPerformed
         // TODO add your handling code here:
         ClearTextBookReceipt();
+        jDateChooserReceipt.setEnabled(true);
+        cbNameDistributorReceipt.setEnabled(true);
         txfIDReceiptInfo.setText(String.valueOf(txfIDReceipt.getText()));
         btnAddReceipt.setEnabled(false);
         btnEditReceipt.setEnabled(false);
@@ -1012,21 +1006,12 @@ public class fImportBook extends javax.swing.JInternalFrame {
         flag=4;
     }//GEN-LAST:event_btnAddReceiptActionPerformed
 
-    private void btnSearchReceiptInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchReceiptInfoActionPerformed
-        // TODO add your handling code here:
-        int key =Integer.parseInt(txfSearchStockInfo.getText().toString());
-        control.bindingBookReceiptInfo(jTableReceiptInfo,bookReceiptInfoBLL.SearchBookReceiptInfo(key));
-        txfSearchStockInfo.setText("");
-    }//GEN-LAST:event_btnSearchReceiptInfoActionPerformed
-
-    private void txfSearchStockInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfSearchStockInfoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfSearchStockInfoActionPerformed
-
     private void jTableReceiptInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableReceiptInfoMouseClicked
         // TODO add your handling code here:
+        txfNameBook.setEnabled(false);
+        txfAmountReceiptInfo.setEnabled(false);
+        txfCost.setEnabled(false);
         int row=jTableReceiptInfo.getSelectedRow();
-
         txfIDReceiptInfo.setText(jTableReceiptInfo.getValueAt(row, 0).toString());
         txfNameBook.setText(jTableReceiptInfo.getValueAt(row, 1).toString());
         txfAmountReceiptInfo.setText(jTableReceiptInfo.getValueAt(row, 2).toString());
@@ -1071,6 +1056,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private void btnAddReceiptInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddReceiptInfoActionPerformed
         // TODO add your handling code here:
         ClearTextReceiptInfo();
+        txfNameBook.setEnabled(true);
+        txfAmountReceiptInfo.setEnabled(true);
+        txfCost.setEnabled(true);
         txfIDReceiptInfo.setText(String.valueOf(txfIDReceipt.getText()));
         btnAddReceiptInfo.setEnabled(false);
         btnEditReceiptInfo.setEnabled(false);
@@ -1081,6 +1069,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void btnEditReceiptInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditReceiptInfoActionPerformed
         // TODO add your handling code here:
+        txfNameBook.setEnabled(true);
+        txfAmountReceiptInfo.setEnabled(true);
+        txfCost.setEnabled(true);
         btnAddReceiptInfo.setEnabled(false);
         btnEditReceiptInfo.setEnabled(false);
         btnDelReceiptInfo.setEnabled(false);
@@ -1090,6 +1081,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
 
     private void btnDelReceiptInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelReceiptInfoActionPerformed
         // TODO add your handling code here:
+        txfNameBook.setEnabled(true);
+        txfAmountReceiptInfo.setEnabled(true);
+        txfCost.setEnabled(true);
         btnAddReceiptInfo.setEnabled(false);
         btnEditReceiptInfo.setEnabled(false);
         btnDelReceiptInfo.setEnabled(false);
@@ -1111,6 +1105,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 txfTotalReceipt.setText(String.valueOf(bookReceiptBLL.getTotalReceipt(IDReceipt)));
                 txfNameDistributorInfo.setText(bookReceiptBLL.getDistributor(IDReceipt));
                 jDateChooserReceipt.setDate(bookReceiptBLL.getDateReceipt(IDReceipt));
+                txfNameBook.setEnabled(false);
+                txfAmountReceiptInfo.setEnabled(false);
+                txfCost.setEnabled(false);
             }
             btnAddReceiptInfo.setEnabled(true);
             btnEditReceiptInfo.setEnabled(true);
@@ -1129,6 +1126,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 txfTotalReceipt.setText(String.valueOf(bookReceiptBLL.getTotalReceipt(IDReceipt)));
                 txfNameDistributorInfo.setText(bookReceiptBLL.getDistributor(IDReceipt));
                 jDateChooserReceipt.setDate(bookReceiptBLL.getDateReceipt(IDReceipt));
+                txfNameBook.setEnabled(false);
+                txfAmountReceiptInfo.setEnabled(false);
+                txfCost.setEnabled(false);
             }
             btnAddReceiptInfo.setEnabled(true);
             btnEditReceiptInfo.setEnabled(true);
@@ -1147,6 +1147,9 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 txfTotalReceipt.setText(String.valueOf(bookReceiptBLL.getTotalReceipt(IDReceipt)));
                 txfNameDistributorInfo.setText(bookReceiptBLL.getDistributor(IDReceipt));
                 jDateChooserReceipt.setDate(bookReceiptBLL.getDateReceipt(IDReceipt));
+                txfNameBook.setEnabled(false);
+                txfAmountReceiptInfo.setEnabled(false);
+                txfCost.setEnabled(false);
             }
             btnAddReceiptInfo.setEnabled(true);
             btnEditReceiptInfo.setEnabled(true);
@@ -1162,23 +1165,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private void txfNameDistributorInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfNameDistributorInfoKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txfNameDistributorInfoKeyTyped
-
-    private void txfSearchStockInfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfSearchStockInfoKeyTyped
-        // TODO add your handling code here:
-        char vChar = evt.getKeyChar();
-         if (txfAmountReceiptInfo.getText().equals(""))
-        dot = false;
-        if (dot == false){
-            if (vChar == '.')
-            dot = true;
-            else if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
-            evt.consume();
-        }
-        else {
-            if (!(Character.isDigit(vChar)|| (vChar == KeyEvent.VK_BACK_SPACE)|| (vChar == KeyEvent.VK_DELETE)))
-            evt.consume();
-        }
-    }//GEN-LAST:event_txfSearchStockInfoKeyTyped
     public String chuanHoa(String str) {
         str = str.trim();
         str = str.replaceAll("\\s+", " ");
@@ -1405,7 +1391,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSearchBook;
     private javax.swing.JButton btnSearchDistributorReceipt;
     private javax.swing.JButton btnSearchReceipt1;
-    private javax.swing.JButton btnSearchReceiptInfo;
     private javax.swing.JComboBox<String> cbNameDistributorReceipt;
     private com.toedter.calendar.JDateChooser jDateChooserReceipt;
     private javax.swing.JLabel jLabel1;
@@ -1429,7 +1414,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1458,7 +1442,6 @@ public class fImportBook extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txfSearchBook;
     private javax.swing.JTextField txfSearchDistributor;
     private javax.swing.JTextField txfSearchReceipt1;
-    private javax.swing.JTextField txfSearchStockInfo;
     private javax.swing.JTextField txfTotalReceipt;
     // End of variables declaration//GEN-END:variables
 }

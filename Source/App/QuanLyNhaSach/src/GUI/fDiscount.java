@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import GUI.fManagement;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 /**
  *
@@ -33,6 +34,18 @@ public class fDiscount extends javax.swing.JInternalFrame {
         initComponents(); 
         control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
         btnSaveDiscount.setEnabled(false);
+        jTableDiscount.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        txfNameDiscount.setEnabled(false);
+        txfDiscount.setEnabled(false);
+        txfMinMoneyDiscount.setEnabled(false);
+        jDChFinishDiscount.setEnabled(false);
+        jDChStartDiscount.setEnabled(false);
+        jTableDiscount.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jTableDiscount.getColumnModel().getColumn(1).setPreferredWidth(200);
+        jTableDiscount.getColumnModel().getColumn(2).setPreferredWidth(150);
+        jTableDiscount.getColumnModel().getColumn(3).setPreferredWidth(150);
+        jTableDiscount.getColumnModel().getColumn(4).setPreferredWidth(150);
+        jTableDiscount.getColumnModel().getColumn(5).setPreferredWidth(150);
     }
 
     /**
@@ -50,7 +63,6 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txfIDDiscount = new java.awt.TextField();
         txfNameDiscount = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jDChStartDiscount = new com.toedter.calendar.JDateChooser();
@@ -59,6 +71,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jDChFinishDiscount = new com.toedter.calendar.JDateChooser();
         txfMinMoneyDiscount = new javax.swing.JTextField();
         txfDiscount = new javax.swing.JTextField();
+        txfIDDiscount = new javax.swing.JTextField();
         btnAddDiscount = new javax.swing.JButton();
         btnEditDiscount = new javax.swing.JButton();
         btnDelDiscount = new javax.swing.JButton();
@@ -97,9 +110,6 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
         jLabel5.setText("Mức tiền hưởng khuyến mãi");
 
-        txfIDDiscount.setEditable(false);
-        txfIDDiscount.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-
         txfNameDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -107,6 +117,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel6.setText("Thời hạn áp dụng khuyến mãi");
 
         jDChStartDiscount.setDateFormatString("dd-MM-yyyy");
+        jDChStartDiscount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
@@ -117,6 +128,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jLabel8.setText("- Ngày kết thúc");
 
         jDChFinishDiscount.setDateFormatString("dd-MM-yyyy");
+        jDChFinishDiscount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         txfMinMoneyDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txfMinMoneyDiscount.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -132,12 +144,17 @@ public class fDiscount extends javax.swing.JInternalFrame {
             }
         });
 
+        txfIDDiscount.setEditable(false);
+        txfIDDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -146,28 +163,27 @@ public class fDiscount extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel7)))
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txfIDDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDChStartDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
-                            .addComponent(txfMinMoneyDiscount)
-                            .addComponent(txfDiscount)
-                            .addComponent(txfNameDiscount)
-                            .addComponent(jDChFinishDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txfIDDiscount)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jDChStartDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                                .addComponent(txfMinMoneyDiscount)
+                                .addComponent(txfDiscount)
+                                .addComponent(txfNameDiscount)
+                                .addComponent(jDChFinishDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txfIDDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(23, 23, 23)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txfIDDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(txfNameDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,11 +207,11 @@ public class fDiscount extends javax.swing.JInternalFrame {
                         .addComponent(jDChStartDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jDChFinishDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 120, 540, 363);
+        jPanel1.setBounds(20, 100, 540, 390);
 
         btnAddDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddDiscount.setForeground(new java.awt.Color(0, 0, 204));
@@ -206,7 +222,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAddDiscount);
-        btnAddDiscount.setBounds(10, 490, 110, 30);
+        btnAddDiscount.setBounds(10, 530, 110, 30);
 
         btnEditDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditDiscount.setForeground(new java.awt.Color(0, 0, 204));
@@ -217,7 +233,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEditDiscount);
-        btnEditDiscount.setBounds(170, 490, 110, 30);
+        btnEditDiscount.setBounds(170, 530, 110, 30);
 
         btnDelDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelDiscount.setForeground(new java.awt.Color(0, 0, 204));
@@ -228,7 +244,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnDelDiscount);
-        btnDelDiscount.setBounds(330, 490, 110, 30);
+        btnDelDiscount.setBounds(330, 530, 110, 30);
 
         btnSaveDiscount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSaveDiscount.setForeground(new java.awt.Color(0, 0, 204));
@@ -239,7 +255,10 @@ public class fDiscount extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnSaveDiscount);
-        btnSaveDiscount.setBounds(480, 490, 110, 30);
+        btnSaveDiscount.setBounds(480, 530, 110, 30);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jTableDiscount.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableDiscount.setModel(new javax.swing.table.DefaultTableModel(
@@ -253,6 +272,8 @@ public class fDiscount extends javax.swing.JInternalFrame {
                 "Mã khuyến mãi", "Tên khuyến mãi", "Hệ số khuyến mãi", "Tổng tiền tối thiểu được hưởng khuyến mãi", "Ngày bắt đầu", "Ngày kết thúc"
             }
         ));
+        jTableDiscount.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableDiscount.setAutoscrolls(false);
         jTableDiscount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableDiscountMouseClicked(evt);
@@ -261,7 +282,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableDiscount);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(600, 170, 760, 680);
+        jScrollPane1.setBounds(600, 170, 730, 450);
 
         jPanel2.setOpaque(false);
 
@@ -319,6 +340,11 @@ public class fDiscount extends javax.swing.JInternalFrame {
             {
                 btnSaveDiscount.setEnabled(false);
                 control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
+                txfNameDiscount.setEnabled(false);
+                txfDiscount.setEnabled(false);
+                txfMinMoneyDiscount.setEnabled(false);
+                jDChFinishDiscount.setEnabled(false);
+                jDChStartDiscount.setEnabled(false);
                 ClearText();
             }
             btnAddDiscount.setEnabled(true);
@@ -333,6 +359,11 @@ public class fDiscount extends javax.swing.JInternalFrame {
                 btnSaveDiscount.setEnabled(false);
                 control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
                 ClearText();
+                txfNameDiscount.setEnabled(false);
+                txfDiscount.setEnabled(false);
+                txfMinMoneyDiscount.setEnabled(false);
+                jDChFinishDiscount.setEnabled(false);
+                jDChStartDiscount.setEnabled(false);
             }
             btnAddDiscount.setEnabled(true);
             btnEditDiscount.setEnabled(true);
@@ -343,8 +374,13 @@ public class fDiscount extends javax.swing.JInternalFrame {
             if(DeleteDiscount())
             {
                 btnSaveDiscount.setEnabled(false);
-            control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
-            ClearText();
+                control.bindingDiscount(jTableDiscount, discountBLL.LoadDiscount());
+                ClearText();
+                txfNameDiscount.setEnabled(false);
+                txfDiscount.setEnabled(false);
+                txfMinMoneyDiscount.setEnabled(false);
+                jDChFinishDiscount.setEnabled(false);
+                jDChStartDiscount.setEnabled(false);
             }
             btnAddDiscount.setEnabled(true);
             btnEditDiscount.setEnabled(true);
@@ -359,6 +395,11 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnDelDiscount.setEnabled(false);
         btnEditDiscount.setEnabled(false);
         btnSaveDiscount.setEnabled(true);
+        txfNameDiscount.setEnabled(true);
+        txfDiscount.setEnabled(true);
+        txfMinMoneyDiscount.setEnabled(true);
+        jDChFinishDiscount.setEnabled(true);
+        jDChStartDiscount.setEnabled(true);
         flag=1;
     }//GEN-LAST:event_btnAddDiscountActionPerformed
 
@@ -368,6 +409,11 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnDelDiscount.setEnabled(false);
         btnEditDiscount.setEnabled(false);
         btnSaveDiscount.setEnabled(true);
+        txfNameDiscount.setEnabled(true);
+        txfDiscount.setEnabled(true);
+        txfMinMoneyDiscount.setEnabled(true);
+        jDChFinishDiscount.setEnabled(true);
+        jDChStartDiscount.setEnabled(true);
         flag=2;
     }//GEN-LAST:event_btnEditDiscountActionPerformed
 
@@ -377,12 +423,22 @@ public class fDiscount extends javax.swing.JInternalFrame {
         btnDelDiscount.setEnabled(false);
         btnEditDiscount.setEnabled(false);
         btnSaveDiscount.setEnabled(true);
+        txfNameDiscount.setEnabled(true);
+        txfDiscount.setEnabled(true);
+        txfMinMoneyDiscount.setEnabled(true);
+        jDChFinishDiscount.setEnabled(true);
+        jDChStartDiscount.setEnabled(true);
         flag=3;
     }//GEN-LAST:event_btnDelDiscountActionPerformed
 
     private void jTableDiscountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDiscountMouseClicked
         // TODO add your handling code here:
         int row=jTableDiscount.getSelectedRow();
+        txfNameDiscount.setEnabled(false);
+        txfDiscount.setEnabled(false);
+        txfMinMoneyDiscount.setEnabled(false);
+        jDChFinishDiscount.setEnabled(false);
+        jDChStartDiscount.setEnabled(false);
         txfIDDiscount.setText(jTableDiscount.getValueAt(row, 0).toString());
         txfNameDiscount.setText(jTableDiscount.getValueAt(row, 1).toString());
         txfDiscount.setText(jTableDiscount.getValueAt(row, 2).toString());
@@ -583,7 +639,7 @@ public class fDiscount extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDiscount;
     private javax.swing.JTextField txfDiscount;
-    private java.awt.TextField txfIDDiscount;
+    private javax.swing.JTextField txfIDDiscount;
     private javax.swing.JTextField txfMinMoneyDiscount;
     private javax.swing.JTextField txfNameDiscount;
     private javax.swing.JTextField txfSearchDiscount;

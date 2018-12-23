@@ -7,6 +7,7 @@ package GUI;
 
 import BLL.CustomerBLL;
 import Utilties.ControlFormat;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
@@ -36,6 +37,13 @@ public class fCustomer extends javax.swing.JInternalFrame {
         control.BindingCustomer(jTableCustomer, customerBLL.LoadCustomer());
         jDChRegisDateCustomer.setDate(Today);
         btnSaveCustomer.setEnabled(false);
+        jTableCustomer.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        txfNameCustomer.setEnabled(false);
+        txfAddressCustomer.setEnabled(false);
+        txfPhoneCustomer.setEnabled(false);
+        txfTurnoverCustomer.setEnabled(false);
+        jDChBirthdayCustomer.setEnabled(false);
+        jDChRegisDateCustomer.setEnabled(false);
     }
 
     /**
@@ -82,7 +90,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
         txfSearchCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(txfSearchCustomer);
-        txfSearchCustomer.setBounds(10, 91, 275, 25);
+        txfSearchCustomer.setBounds(10, 91, 310, 25);
 
         btnSearchCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnSearchCustomer.setForeground(new java.awt.Color(0, 0, 204));
@@ -93,7 +101,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnSearchCustomer);
-        btnSearchCustomer.setBounds(314, 90, 120, 27);
+        btnSearchCustomer.setBounds(350, 90, 120, 27);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 204));
@@ -104,7 +112,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfIDCustomer.setEditable(false);
         txfIDCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(txfIDCustomer);
-        txfIDCustomer.setBounds(140, 151, 260, 25);
+        txfIDCustomer.setBounds(140, 151, 330, 25);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 204));
@@ -127,7 +135,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txfNameCustomer);
-        txfNameCustomer.setBounds(140, 201, 260, 25);
+        txfNameCustomer.setBounds(140, 201, 330, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 204));
@@ -137,7 +145,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
         txfAddressCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(txfAddressCustomer);
-        txfAddressCustomer.setBounds(140, 244, 260, 25);
+        txfAddressCustomer.setBounds(140, 240, 330, 25);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 204));
@@ -152,7 +160,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txfPhoneCustomer);
-        txfPhoneCustomer.setBounds(140, 281, 260, 25);
+        txfPhoneCustomer.setBounds(140, 280, 330, 25);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 204));
@@ -163,7 +171,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChBirthdayCustomer.setDateFormatString("dd-MM-yyyy");
         jDChBirthdayCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(jDChBirthdayCustomer);
-        jDChBirthdayCustomer.setBounds(140, 321, 260, 30);
+        jDChBirthdayCustomer.setBounds(140, 321, 330, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 204));
@@ -174,7 +182,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         jDChRegisDateCustomer.setDateFormatString("dd-MM-yyyy");
         jDChRegisDateCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(jDChRegisDateCustomer);
-        jDChRegisDateCustomer.setBounds(140, 371, 260, 30);
+        jDChRegisDateCustomer.setBounds(140, 370, 330, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 204));
@@ -185,7 +193,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         txfTurnoverCustomer.setEditable(false);
         txfTurnoverCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(txfTurnoverCustomer);
-        txfTurnoverCustomer.setBounds(140, 419, 260, 25);
+        txfTurnoverCustomer.setBounds(140, 419, 320, 25);
 
         btnAddCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         btnAddCustomer.setForeground(new java.awt.Color(0, 0, 204));
@@ -220,7 +228,7 @@ public class fCustomer extends javax.swing.JInternalFrame {
         getContentPane().add(btnSaveCustomer);
         btnSaveCustomer.setBounds(360, 500, 120, 27);
 
-        jTableCustomer.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTableCustomer.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -232,6 +240,8 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 "Mã khách hàng", "Tên khách hàng", "Địa chỉ", "Số điện thoại", "Ngày sinh", "Ngày đăng kí", "Doanh số"
             }
         ));
+        jTableCustomer.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableCustomer.setAutoscrolls(false);
         jTableCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableCustomerMouseClicked(evt);
@@ -380,6 +390,12 @@ public class fCustomer extends javax.swing.JInternalFrame {
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
         // TODO add your handling code here:
         ClearTextCustomer();
+        txfNameCustomer.setEnabled(true);
+        txfAddressCustomer.setEnabled(true);
+        txfPhoneCustomer.setEnabled(true);
+        txfTurnoverCustomer.setEnabled(true);
+        jDChBirthdayCustomer.setEnabled(true);
+        jDChRegisDateCustomer.setEnabled(true);
         btnAddCustomer.setEnabled(false);
         btnEditCustomer.setEnabled(false);
         btnSaveCustomer.setEnabled(true);
@@ -388,6 +404,12 @@ public class fCustomer extends javax.swing.JInternalFrame {
 
     private void btnEditCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCustomerActionPerformed
         // TODO add your handling code here:
+        txfNameCustomer.setEnabled(true);
+        txfAddressCustomer.setEnabled(true);
+        txfPhoneCustomer.setEnabled(true);
+        txfTurnoverCustomer.setEnabled(true);
+        jDChBirthdayCustomer.setEnabled(true);
+        jDChRegisDateCustomer.setEnabled(true);
         btnAddCustomer.setEnabled(false);
         btnEditCustomer.setEnabled(false);
         btnSaveCustomer.setEnabled(true);
@@ -405,6 +427,12 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnSaveCustomer.setEnabled(false);
                 control.BindingCustomer(jTableCustomer, customerBLL.LoadCustomer());
                 ClearTextCustomer();
+                txfNameCustomer.setEnabled(false);
+                txfAddressCustomer.setEnabled(false);
+                txfPhoneCustomer.setEnabled(false);
+                txfTurnoverCustomer.setEnabled(false);
+                jDChBirthdayCustomer.setEnabled(false);
+                jDChRegisDateCustomer.setEnabled(false);
             }
         }
 
@@ -417,12 +445,24 @@ public class fCustomer extends javax.swing.JInternalFrame {
                 btnSaveCustomer.setEnabled(false);
                 control.BindingCustomer(jTableCustomer, customerBLL.LoadCustomer());
                 ClearTextCustomer();
+                txfNameCustomer.setEnabled(false);
+                txfAddressCustomer.setEnabled(false);
+                txfPhoneCustomer.setEnabled(false);
+                txfTurnoverCustomer.setEnabled(false);
+                jDChBirthdayCustomer.setEnabled(false);
+                jDChRegisDateCustomer.setEnabled(false);
             }
         }
     }//GEN-LAST:event_btnSaveCustomerActionPerformed
 
     private void jTableCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCustomerMouseClicked
         // TODO add your handling code here:
+        txfNameCustomer.setEnabled(false);
+        txfAddressCustomer.setEnabled(false);
+        txfPhoneCustomer.setEnabled(false);
+        txfTurnoverCustomer.setEnabled(false);
+        jDChBirthdayCustomer.setEnabled(false);
+        jDChRegisDateCustomer.setEnabled(false);
         int row = jTableCustomer.getSelectedRow();
         txfIDCustomer.setText(jTableCustomer.getValueAt(row, 0).toString());
         txfNameCustomer.setText(jTableCustomer.getValueAt(row, 1).toString());

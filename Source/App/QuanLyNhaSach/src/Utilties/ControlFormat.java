@@ -17,6 +17,7 @@ import Entity.Distributor;
 import Entity.Rule;
 import Entity.Staff;
 import Entity.User;
+import java.awt.Font;
 import javax.swing.JTable;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -64,6 +65,18 @@ public class ControlFormat {
             }
         };
         name.setModel(dtm);      
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(200);
+        name.getColumnModel().getColumn(3).setPreferredWidth(150);
+        name.getColumnModel().getColumn(4).setPreferredWidth(150);
+        name.getColumnModel().getColumn(5).setPreferredWidth(50);
+        name.getColumnModel().getColumn(6).setPreferredWidth(100);
+        name.getColumnModel().getColumn(7).setPreferredWidth(100);
+        name.getColumnModel().getColumn(8).setPreferredWidth(100);
+        name.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        name.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+ 
     }
      //Lấy dữ liệu lên bảng Sách
     public void bindingIDNameBook(JTable name, ArrayList<Book> arrBook)
@@ -89,6 +102,10 @@ public class ControlFormat {
             }
         };
         name.setModel(dtm);      
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(200);
+        
     }
     //Lấy dữ liệu lên bảng thể loại sách
     public void bindingBookCategogy(JTable name , ArrayList<BookCategogy> arrBookCategogy )
@@ -117,9 +134,9 @@ public class ControlFormat {
     public void bindingDiscount(JTable name , ArrayList<Discount> arrDiscount)
     {
         Vector header =new Vector();
-        header.add("Mã khuyến mãi");
+        header.add("Mã KM");
         header.add("Tên khuyến mãi");
-        header.add("Hệ số khuyến mãi");
+        header.add("Hệ số KM");
         header.add("Mức tiền");
         header.add("Ngày bắt đầu");
         header.add("Ngày hết hạn");
@@ -142,19 +159,26 @@ public class ControlFormat {
                 return false;
             }
         };
-        name.setModel(dtm);
+         name.setModel(dtm);
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(150);
+        name.getColumnModel().getColumn(3).setPreferredWidth(150);
+        name.getColumnModel().getColumn(4).setPreferredWidth(150);
+        name.getColumnModel().getColumn(5).setPreferredWidth(150);
+       
     }
     
     //Lấy dữ liệu lên bảng khách hàng
     public void BindingCustomer(JTable name, ArrayList<Customer> arrCustomer)
     {
         Vector header = new Vector();
-        header.add("Mã khách hàng");
+        header.add("Mã KH");
         header.add("Tên khách hàng");
         header.add("Địa chỉ");
         header.add("Số điện thoại");
         header.add("Ngày sinh");
-        header.add("Ngày đăng ký");
+        header.add("Ngày ĐK");
         header.add("Doanh số");
         
         Vector data = new Vector();
@@ -179,6 +203,13 @@ public class ControlFormat {
             }
         };
         name.setModel(dtm);
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(200);
+        name.getColumnModel().getColumn(3).setPreferredWidth(100);
+        name.getColumnModel().getColumn(4).setPreferredWidth(100);
+        name.getColumnModel().getColumn(5).setPreferredWidth(100);
+        
     }
     //Lấy dữ liệu ở bảng nhà cung cấp
     public void bindingDistributor(JTable name, ArrayList<Distributor> arrDistributor) {
@@ -211,7 +242,7 @@ public class ControlFormat {
     public void bindingBookReceipt(JTable name ,ArrayList<BookReceipt> arrBookReceipt )
     {
         Vector header = new Vector();
-        header.add("Số phiếu nhập");
+        header.add("Số PN");
         header.add("Ngày nhập");
         header.add("Tên công ty");
         header.add("Tổng tiền tiền");
@@ -233,12 +264,17 @@ public class ControlFormat {
             }
         };
         name.setModel(dtm);
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(100);
+        name.getColumnModel().getColumn(2).setPreferredWidth(200);
+        name.getColumnModel().getColumn(3).setPreferredWidth(150);
+        
     }
     //Lấy dữ liệu chi tiết phiếu nhập sách
     public void bindingBookReceiptInfo(JTable name , ArrayList<BookReceiptInfo> arrBookReceiptInfo)
     {
         Vector header =new Vector();
-        header.add("Số phiếu nhập");
+        header.add("Số PN");
         header.add("Tên sách");
         header.add("Số lượng nhập");
         header.add("Giá nhập");
@@ -343,7 +379,7 @@ public class ControlFormat {
     public void bindingStaff(JTable name ,ArrayList<Staff> arrStaff)
     {
         Vector header =new Vector();
-        header.add("Mã nhân viên");
+        header.add("Mã NV");
         header.add("Tên nhân viên");
         header.add("Ngày sinh");
         header.add("Giới tính");
@@ -375,7 +411,16 @@ public class ControlFormat {
                 return false;
             }
         };
+         
         name.setModel(dtm);
+        name.getColumnModel().getColumn(0).setPreferredWidth(70);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(100);
+        name.getColumnModel().getColumn(3).setPreferredWidth(100);
+        name.getColumnModel().getColumn(4).setPreferredWidth(150);
+        name.getColumnModel().getColumn(5).setPreferredWidth(150);
+        name.getColumnModel().getColumn(6).setPreferredWidth(150);
+        name.getColumnModel().getColumn(7).setPreferredWidth(150);
     }
     //Lấy dữ liệu quy định
     public void bindingRule(JTable name ,ArrayList<Rule> arrRule)
@@ -437,5 +482,10 @@ public class ControlFormat {
             }
         };
         name.setModel(dtm);
+        name.getColumnModel().getColumn(0).setPreferredWidth(100);
+        name.getColumnModel().getColumn(1).setPreferredWidth(200);
+        name.getColumnModel().getColumn(2).setPreferredWidth(200);
+        name.getColumnModel().getColumn(3).setPreferredWidth(100);
+        name.getColumnModel().getColumn(4).setPreferredWidth(100);
     }
 }
