@@ -11,6 +11,7 @@ import BLL.BookBLL;
 import BLL.CustomerBLL;
 import BLL.StaffBLL;
 import Utilties.ControlFormat;
+import java.awt.Font;
 import java.awt.print.PrinterException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -44,12 +45,14 @@ public class fSales extends javax.swing.JInternalFrame {
         btnSaveBillInfo.setEnabled(false);
         jDChBillDate.setDate(Today);
         jDChSearchBill.setDate(Today);
-        
+        jTableBill.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableBillInfo.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
         for(int i=1; i<=20; i++)
             cbAmountBillInfo.addItem(String.valueOf(i)); 
         
         txfIDStaffBill.setText("1");
-        
+        txfIDBookBillInfo.setEnabled(false);
+        cbAmountBillInfo.setEnabled(false);
         txfIDCustomerBill.getDocument().addDocumentListener(new DocumentListener() {
             int IDCustomer;           
             @Override
@@ -865,7 +868,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTableBillInfo);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(516, 352, 751, 184);
+        jScrollPane2.setBounds(516, 352, 751, 190);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
         jPanel1.add(jLabel10);
@@ -969,7 +972,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableBill);
 
         jPanel6.add(jScrollPane1);
-        jScrollPane1.setBounds(27, 202, 1267, 332);
+        jScrollPane1.setBounds(0, 200, 1267, 332);
 
         lbSearch.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         lbSearch.setForeground(new java.awt.Color(0, 51, 204));
@@ -999,6 +1002,8 @@ public class fSales extends javax.swing.JInternalFrame {
 
     private void jTableBillInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBillInfoMouseClicked
         // TODO add your handling code here:
+        txfIDBookBillInfo.setEnabled(false);
+        cbAmountBillInfo.setEnabled(false);
         int row = jTableBillInfo.getSelectedRow();
         txfIDBookBillInfo.setText(jTableBillInfo.getValueAt(row, 1).toString());
         txfNameBook.setText(jTableBillInfo.getValueAt(row, 2).toString());
@@ -1084,6 +1089,8 @@ public class fSales extends javax.swing.JInternalFrame {
         {
             if(InsertBillInfo())
             {
+                txfIDBookBillInfo.setEnabled(false);
+                cbAmountBillInfo.setEnabled(false);
                 btnAddBillInfo.setEnabled(true);
                 btnDelBillInfo.setEnabled(true);
                 btnEditBillInfo.setEnabled(true);
@@ -1101,6 +1108,8 @@ public class fSales extends javax.swing.JInternalFrame {
         {
             if(UpdateBillInfo())
             {
+                txfIDBookBillInfo.setEnabled(false);
+                cbAmountBillInfo.setEnabled(false);
                 btnAddBillInfo.setEnabled(true);
                 btnDelBillInfo.setEnabled(true);
                 btnEditBillInfo.setEnabled(true);
@@ -1116,6 +1125,8 @@ public class fSales extends javax.swing.JInternalFrame {
         }
         if(flag == 6)
         {
+            txfIDBookBillInfo.setEnabled(false);
+            cbAmountBillInfo.setEnabled(false);
             DeleteBillInfo();
             btnAddBillInfo.setEnabled(true);
             btnDelBillInfo.setEnabled(true);
@@ -1133,6 +1144,8 @@ public class fSales extends javax.swing.JInternalFrame {
 
     private void btnDelBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelBillInfoActionPerformed
         // TODO add your handling code here:
+        txfIDBookBillInfo.setEnabled(true);
+        cbAmountBillInfo.setEnabled(true);
         int IDBill = Integer.parseInt(txfIDBill.getText());
         if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))
         JOptionPane.showMessageDialog(this, "Không được xóa khi hóa đơn đã thanh toán");
@@ -1161,6 +1174,10 @@ public class fSales extends javax.swing.JInternalFrame {
 
     private void btnAddBillInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBillInfoActionPerformed
         // TODO add your handling code here:
+        txfIDBookBillInfo.setEnabled(true);
+        cbAmountBillInfo.setEnabled(true);
+        txfIDBookBillInfo.setEnabled(true);
+        cbAmountBillInfo.setEnabled(true);
         ClearTextBillInfo();
         int IDBill = Integer.parseInt(txfIDBill.getText());
         if (billBLL.getStatusBill(IDBill).equals("Đã thanh toán"))

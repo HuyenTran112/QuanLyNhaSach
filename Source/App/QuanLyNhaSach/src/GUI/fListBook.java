@@ -50,13 +50,13 @@ public class fListBook extends javax.swing.JInternalFrame {
         {
             cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
         }
-        txfNameBookCategogy.setEditable(false);
-        cbNameCategogyBookInfo.setEditable(false);
-        txfNameBookInfo.setEditable(false);
-        txfAuthorBookInfo.setEditable(false);
-        txfPublisherBookInfo.setEditable(false);
-        txfPublishingYearBookInfo.setEditable(false);
-        txaBriefBookInfo.setEditable(false);
+        txfNameBookCategogy.setEnabled(false);
+        cbNameCategogyBookInfo.setEnabled(false);
+        txfNameBookInfo.setEnabled(false);
+        txfAuthorBookInfo.setEnabled(false);
+        txfPublisherBookInfo.setEnabled(false);
+        txfPublishingYearBookInfo.setEnabled(false);
+        txaBriefBookInfo.setEnabled(false);
         jTableBookInfo.getColumnModel().getColumn(0).setPreferredWidth(70);
         jTableBookInfo.getColumnModel().getColumn(1).setPreferredWidth(200);
         jTableBookInfo.getColumnModel().getColumn(2).setPreferredWidth(200);
@@ -302,6 +302,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         jPanel2.add(jPanel6);
         jPanel6.setBounds(40, 70, 490, 430);
 
+        jTableBookInfo.setAutoCreateRowSorter(true);
         jTableBookInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableBookInfo.setAutoResizeMode(jTableBookInfo.AUTO_RESIZE_OFF);
         jTableBookInfo.setModel(new javax.swing.table.DefaultTableModel(
@@ -600,8 +601,7 @@ public class fListBook extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int row =jTableBookCategory.getSelectedRow();
         txfIDBookCategogy.setText(jTableBookCategory.getValueAt(row, 0).toString());
-        txfIDBookCategogy.setEditable(false);
-        txfNameBookCategogy.setEditable(false);
+        txfNameBookCategogy.setEnabled(false);
         txfNameBookCategogy.setText(jTableBookCategory.getValueAt(row, 1).toString());
     }//GEN-LAST:event_jTableBookCategoryMouseClicked
     public void ClearTextBookInfo()
@@ -732,14 +732,13 @@ public class fListBook extends javax.swing.JInternalFrame {
             {
                 control.bindingBook(jTableBookInfo, bookbll.LoadBook());
                 ClearTextBookInfo();
-                btnSaveBookInfo.setEnabled(false);
-                txfNameBookCategogy.setEditable(true);
-                cbNameCategogyBookInfo.setEditable(false);
-                txfNameBookInfo.setEditable(false);
-                txfAuthorBookInfo.setEditable(false);
-                txfPublisherBookInfo.setEditable(false);
-                txfPublishingYearBookInfo.setEditable(false);
-                txaBriefBookInfo.setEditable(false);
+                txfNameBookCategogy.setEnabled(false);
+                cbNameCategogyBookInfo.setEnabled(false);
+                txfNameBookInfo.setEnabled(false);
+                txfAuthorBookInfo.setEnabled(false);
+                txfPublisherBookInfo.setEnabled(false);
+                txfPublishingYearBookInfo.setEnabled(false);
+                txaBriefBookInfo.setEnabled(false);
             }
             btnAddBookInfo.setEnabled(true);
             btnEditBookInfo.setEnabled(true);
@@ -749,15 +748,13 @@ public class fListBook extends javax.swing.JInternalFrame {
             if(UpdateBook()==true)
             {
                 control.bindingBook(jTableBookInfo, bookbll.LoadBook());
-                btnSaveBookInfo.setEnabled(false);
-                btnSaveBookInfo.setEnabled(false);
-                txfNameBookCategogy.setEditable(true);
-                cbNameCategogyBookInfo.setEditable(false);
-                txfNameBookInfo.setEditable(false);
-                txfAuthorBookInfo.setEditable(false);
-                txfPublisherBookInfo.setEditable(false);
-                txfPublishingYearBookInfo.setEditable(false);
-                txaBriefBookInfo.setEditable(false);
+                txfNameBookCategogy.setEnabled(false);
+                cbNameCategogyBookInfo.setEnabled(false);
+                txfNameBookInfo.setEnabled(false);
+                txfAuthorBookInfo.setEnabled(false);
+                txfPublisherBookInfo.setEnabled(false);
+                txfPublishingYearBookInfo.setEnabled(false);
+                txaBriefBookInfo.setEnabled(false);
                 ClearTextBookInfo();
             }
             btnAddBookInfo.setEnabled(true);
@@ -774,25 +771,25 @@ public class fListBook extends javax.swing.JInternalFrame {
         btnEditBookInfo.setEnabled(false);
         btnSaveBookInfo.setEnabled(true);
         flag=1;
-        txfNameBookCategogy.setEditable(true);
-        cbNameCategogyBookInfo.setEditable(true);
-        txfNameBookInfo.setEditable(true);
-        txfAuthorBookInfo.setEditable(true);
-        txfPublisherBookInfo.setEditable(true);
-        txfPublishingYearBookInfo.setEditable(true);
-        txaBriefBookInfo.setEditable(true);
+        txfNameBookCategogy.setEnabled(true);
+        cbNameCategogyBookInfo.setEnabled(true);
+        txfNameBookInfo.setEnabled(true);
+        txfAuthorBookInfo.setEnabled(true);
+        txfPublisherBookInfo.setEnabled(true);
+        txfPublishingYearBookInfo.setEnabled(true);
+        txaBriefBookInfo.setEnabled(true);
     }//GEN-LAST:event_btnAddBookInfoActionPerformed
 
     private void jTableBookInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableBookInfoMouseClicked
         // TODO add your handling code here:
         int row=jTableBookInfo.getSelectedRow();
-        txfNameBookCategogy.setEditable(false);
-        cbNameCategogyBookInfo.setEditable(false);
-        txfNameBookInfo.setEditable(false);
-        txfAuthorBookInfo.setEditable(false);
-        txfPublisherBookInfo.setEditable(false);
-        txfPublishingYearBookInfo.setEditable(false);
-        txaBriefBookInfo.setEditable(false);
+        txfNameBookCategogy.setEnabled(false);
+        cbNameCategogyBookInfo.setEnabled(false);
+        txfNameBookInfo.setEnabled(false);
+        txfAuthorBookInfo.setEnabled(false);
+        txfPublisherBookInfo.setEnabled(false);
+        txfPublishingYearBookInfo.setEnabled(false);
+        txaBriefBookInfo.setEnabled(false);
         txfIDBookInfo.setText(jTableBookInfo.getValueAt(row, 0).toString());
         String bookcategogy =jTableBookInfo.getValueAt(row, 1).toString();
         if(jTableBookInfo.getValueAt(row, 1).toString().equals(bookcategogy))
@@ -811,13 +808,13 @@ public class fListBook extends javax.swing.JInternalFrame {
 
     private void btnEditBookInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookInfoActionPerformed
         // TODO add your handling code here:
-        txfNameBookCategogy.setEditable(true);
-        cbNameCategogyBookInfo.setEditable(true);
-        txfNameBookInfo.setEditable(true);
-        txfAuthorBookInfo.setEditable(true);
-        txfPublisherBookInfo.setEditable(true);
-        txfPublishingYearBookInfo.setEditable(true);
-        txaBriefBookInfo.setEditable(true);
+        txfNameBookCategogy.setEnabled(true);
+        cbNameCategogyBookInfo.setEnabled(true);
+        txfNameBookInfo.setEnabled(true);
+        txfAuthorBookInfo.setEnabled(true);
+        txfPublisherBookInfo.setEnabled(true);
+        txfPublishingYearBookInfo.setEnabled(true);
+        txaBriefBookInfo.setEnabled(true);
         btnAddBookInfo.setEnabled(false);
         btnEditBookInfo.setEnabled(false);
         btnSaveBookInfo.setEnabled(true);
@@ -831,8 +828,7 @@ public class fListBook extends javax.swing.JInternalFrame {
     private void btnAddBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddBookCategogyActionPerformed
         // TODO add your handling code here:
         ClearTextBookCategogy();
-        txfIDBookCategogy.setEditable(false);
-        txfNameBookCategogy.setEditable(true);
+        txfNameBookCategogy.setEnabled(true);
         btnAddBookCategogy.setEnabled(false);
         btnEditBookCategogy.setEnabled(false);
         btnSaveBookCategogy.setEnabled(true);
@@ -853,7 +849,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
                 }
                 ClearTextBookCategogy();
-                txfNameBookCategogy.setEditable(false);
+                txfNameBookCategogy.setEnabled(false);
             }
             btnAddBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
@@ -871,7 +867,7 @@ public class fListBook extends javax.swing.JInternalFrame {
                     cbNameCategogyBookInfo.addItem(bookCategogy.getNameBookCategogy());
                 }
                 ClearTextBookCategogy();
-                txfNameBookCategogy.setEditable(false);
+                txfNameBookCategogy.setEnabled(false);
             }
             btnAddBookCategogy.setEnabled(true);
             btnEditBookCategogy.setEnabled(true);
@@ -881,12 +877,10 @@ public class fListBook extends javax.swing.JInternalFrame {
 
     private void btnEditBookCategogyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditBookCategogyActionPerformed
         // TODO add your handling code here:
+        txfNameBookCategogy.setEnabled(true);
         btnAddBookCategogy.setEnabled(false);
         btnEditBookCategogy.setEnabled(false);
         btnSaveBookCategogy.setEnabled(true);
-        txfIDBookCategogy.setEditable(true);
-        txfNameBookCategogy.setEditable(true);
-        txfIDBookCategogy.setEditable(false);
         flag=5;
     }//GEN-LAST:event_btnEditBookCategogyActionPerformed
       boolean dot = false;

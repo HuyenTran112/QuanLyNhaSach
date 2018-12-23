@@ -7,6 +7,7 @@ package GUI;
 
 import BLL.StaffBLL;
 import Utilties.ControlFormat;
+import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.accessibility.AccessibleRole;
@@ -31,6 +32,16 @@ public class fStaff extends javax.swing.JInternalFrame {
         btnSaveStaff.setEnabled(false);
         control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
         jDChStartStaff.setDate(new Date());
+        jTableStaff.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        txfNameStaff.setEnabled(false);
+        txfAddressStaff.setEnabled(false);
+        jDChBirthdayStaff.setEnabled(false);
+        jDChStartStaff.setEnabled(false);
+        txfPhoneStaff.setEnabled(false);
+        cbStatus.setEnabled(false);
+        rbFemaleStaff.setEnabled(false);
+        rbMaleStaff.setEnabled(false);
+        
     }
 
     /**
@@ -104,7 +115,7 @@ public class fStaff extends javax.swing.JInternalFrame {
                 .addComponent(txfSearchStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearchStaff)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,10 +181,12 @@ public class fStaff extends javax.swing.JInternalFrame {
         buttonGroup1.add(rbFemaleStaff);
         rbFemaleStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         rbFemaleStaff.setText("Nữ");
+        rbFemaleStaff.setOpaque(false);
 
         buttonGroup1.add(rbMaleStaff);
         rbMaleStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         rbMaleStaff.setText("Nam");
+        rbMaleStaff.setOpaque(false);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 204));
@@ -329,6 +342,8 @@ public class fStaff extends javax.swing.JInternalFrame {
                 "Mã nhân viên", "Tên nhân viên", "Ngày sinh", "Giới tính", "Địa chỉ", "Điện thoại", "Ngày vào làm "
             }
         ));
+        jTableStaff.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableStaff.setAutoscrolls(false);
         jTableStaff.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableStaffMouseClicked(evt);
@@ -337,7 +352,7 @@ public class fStaff extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableStaff);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(470, 120, 720, 510);
+        jScrollPane1.setBounds(450, 120, 870, 540);
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/anhbia7.jpg"))); // NOI18N
@@ -366,6 +381,14 @@ public class fStaff extends javax.swing.JInternalFrame {
     } 
     private void jTableStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableStaffMouseClicked
         // TODO add your handling code here:
+        txfNameStaff.setEnabled(false);
+        txfAddressStaff.setEnabled(false);
+        jDChBirthdayStaff.setEnabled(false);
+        jDChStartStaff.setEnabled(false);
+        txfPhoneStaff.setEnabled(false);
+        cbStatus.setEnabled(false);
+        rbFemaleStaff.setEnabled(false);
+        rbMaleStaff.setEnabled(false);
         int row =jTableStaff.getSelectedRow();
         txfIDStaff.setText(jTableStaff.getValueAt(row, 0).toString());
         txfNameStaff.setText(jTableStaff.getValueAt(row, 1).toString());
@@ -395,6 +418,14 @@ public class fStaff extends javax.swing.JInternalFrame {
     private void btnAddStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStaffActionPerformed
         // TODO add your handling code here:
          Cleartext();
+        txfNameStaff.setEnabled(true);
+        txfAddressStaff.setEnabled(true);
+        jDChBirthdayStaff.setEnabled(true);
+        jDChStartStaff.setEnabled(true);
+        txfPhoneStaff.setEnabled(true);
+        cbStatus.setEnabled(true);
+        rbFemaleStaff.setEnabled(true);
+        rbMaleStaff.setEnabled(true);
         btnEditStaff.setEnabled(false);
         btnAddStaff.setEnabled(false);
         btnSaveStaff.setEnabled(true);
@@ -403,6 +434,14 @@ public class fStaff extends javax.swing.JInternalFrame {
 
     private void btnEditStaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditStaffActionPerformed
         // TODO add your handling code here:
+        txfNameStaff.setEnabled(true);
+        txfAddressStaff.setEnabled(true);
+        jDChBirthdayStaff.setEnabled(true);
+        jDChStartStaff.setEnabled(true);
+        txfPhoneStaff.setEnabled(true);
+        cbStatus.setEnabled(true);
+        rbFemaleStaff.setEnabled(true);
+        rbMaleStaff.setEnabled(true);
         btnEditStaff.setEnabled(false);
         btnAddStaff.setEnabled(false);
         btnSaveStaff.setEnabled(true);
@@ -418,6 +457,14 @@ public class fStaff extends javax.swing.JInternalFrame {
                 Cleartext();
                 btnSaveStaff.setEnabled(false);
                 control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+                txfNameStaff.setEnabled(false);
+                txfAddressStaff.setEnabled(false);
+                jDChBirthdayStaff.setEnabled(false);
+                jDChStartStaff.setEnabled(false);
+                txfPhoneStaff.setEnabled(false);
+                cbStatus.setEnabled(false);
+                rbFemaleStaff.setEnabled(false);
+                rbMaleStaff.setEnabled(false);
             }
             btnAddStaff.setEnabled(true);
             btnEditStaff.setEnabled(true);
@@ -430,6 +477,14 @@ public class fStaff extends javax.swing.JInternalFrame {
                 Cleartext();
                 btnSaveStaff.setEnabled(false);
                 control.bindingStaff(jTableStaff, staffBLL.LoadStaff());
+                txfNameStaff.setEnabled(false);
+                txfAddressStaff.setEnabled(false);
+                jDChBirthdayStaff.setEnabled(false);
+                jDChStartStaff.setEnabled(false);
+                txfPhoneStaff.setEnabled(false);
+                cbStatus.setEnabled(false);
+                rbFemaleStaff.setEnabled(false);
+                rbMaleStaff.setEnabled(false);
             }
             btnAddStaff.setEnabled(true);
             btnEditStaff.setEnabled(true);

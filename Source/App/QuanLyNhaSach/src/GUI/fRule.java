@@ -6,6 +6,7 @@
 package GUI;
 import BLL.RuleBLL;
 import Utilties.ControlFormat;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 /**
@@ -24,6 +25,7 @@ public class fRule extends javax.swing.JInternalFrame {
     public fRule() {
         initComponents();
         control.bindingRule(jTableRule, ruleBLL.LoadRule());
+        jTableRule.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
          btnSaveRule.setEnabled(false);
     }
 

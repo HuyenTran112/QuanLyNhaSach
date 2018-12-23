@@ -9,6 +9,7 @@ import BLL.StaffBLL;
 import BLL.UserBLL;
 import Entity.Staff;
 import Utilties.ControlFormat;
+import java.awt.Font;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -30,7 +31,13 @@ public class fUser extends javax.swing.JInternalFrame {
         btnSaveUser.setEnabled(false);
         control.bindingUser(jTableUser, userBLL.LoadUser());
         control.bindingStaff(jTableStaff,staffBLL.LoadStaffNoAccount());
-        
+        jTableUser.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableStaff.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        cbNameUserCategory_User.setEnabled(false);
+        txfNameStaff.setEnabled(false);
+        txfUserName.setEnabled(false);
+        txfDisplayName.setEnabled(false);
+        txfPassWord.setEnabled(false);
     }
 
     /**
@@ -82,6 +89,7 @@ public class fUser extends javax.swing.JInternalFrame {
         jPanel5.add(jLabel11);
         jLabel11.setBounds(432, 39, 352, 37);
 
+        jTableUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -101,7 +109,7 @@ public class fUser extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTableUser);
 
         jPanel5.add(jScrollPane3);
-        jScrollPane3.setBounds(37, 504, 902, 259);
+        jScrollPane3.setBounds(70, 490, 1170, 170);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 51, 204));
@@ -194,7 +202,7 @@ public class fUser extends javax.swing.JInternalFrame {
 
         txfSearchUser.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel5.add(txfSearchUser);
-        txfSearchUser.setBounds(37, 462, 353, 23);
+        txfSearchUser.setBounds(200, 460, 353, 23);
 
         btnSeaechUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnSeaechUser.setForeground(new java.awt.Color(0, 51, 204));
@@ -205,7 +213,7 @@ public class fUser extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnSeaechUser);
-        btnSeaechUser.setBounds(408, 461, 100, 25);
+        btnSeaechUser.setBounds(570, 460, 100, 25);
 
         jTableStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTableStaff.setModel(new javax.swing.table.DefaultTableModel(
@@ -219,6 +227,8 @@ public class fUser extends javax.swing.JInternalFrame {
                 "Mã nhân viên", "Tên nhân viên", "Ngày sinh", "Giới tính", "Địa chỉ", "Điện thoại", "Ngày vào làm "
             }
         ));
+        jTableStaff.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTableStaff.setAutoscrolls(false);
         jTableStaff.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableStaffMouseClicked(evt);
@@ -227,7 +237,7 @@ public class fUser extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableStaff);
 
         jPanel5.add(jScrollPane1);
-        jScrollPane1.setBounds(564, 130, 787, 356);
+        jScrollPane1.setBounds(564, 130, 787, 300);
 
         txfNameStaff.setEditable(false);
         txfNameStaff.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -302,7 +312,6 @@ public class fUser extends javax.swing.JInternalFrame {
     }
     public boolean  Update()
     {
-        ClearText();
         String NameCategogy =cbNameUserCategory_User.getSelectedItem().toString();
         String NameStaff =txfNameStaff.getText().toString();
         int IDStaff=staffBLL.getIDStaff(NameStaff);
@@ -348,6 +357,11 @@ public class fUser extends javax.swing.JInternalFrame {
     }
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // TODO add your handling code here:
+        cbNameUserCategory_User.setEnabled(true);
+        txfNameStaff.setEnabled(true);
+        txfUserName.setEnabled(true);
+        txfDisplayName.setEnabled(true);
+        txfPassWord.setEnabled(true);
         ClearText();
         btnAddUser.setEnabled(false);
         btnEditUser.setEnabled(false);
@@ -358,6 +372,11 @@ public class fUser extends javax.swing.JInternalFrame {
 
     private void btnEditUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditUserActionPerformed
         // TODO add your handling code here:
+        cbNameUserCategory_User.setEnabled(true);
+        txfNameStaff.setEnabled(true);
+        txfUserName.setEnabled(true);
+        txfDisplayName.setEnabled(true);
+        txfPassWord.setEnabled(true);
         btnAddUser.setEnabled(false);
         btnEditUser.setEnabled(false);
         btnDelUser.setEnabled(false);
@@ -367,6 +386,11 @@ public class fUser extends javax.swing.JInternalFrame {
 
     private void btnDelUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelUserActionPerformed
         // TODO add your handling code here:
+        cbNameUserCategory_User.setEnabled(true);
+        txfNameStaff.setEnabled(true);
+        txfUserName.setEnabled(true);
+        txfDisplayName.setEnabled(true);
+        txfPassWord.setEnabled(true);
         btnAddUser.setEnabled(false);
         btnEditUser.setEnabled(false);
         btnDelUser.setEnabled(false);
@@ -384,6 +408,11 @@ public class fUser extends javax.swing.JInternalFrame {
                 control.bindingUser(jTableUser, userBLL.LoadUser());
                 control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
+                cbNameUserCategory_User.setEnabled(false);
+                txfNameStaff.setEnabled(false);
+                txfUserName.setEnabled(false);
+                txfDisplayName.setEnabled(false);
+                txfPassWord.setEnabled(false);
             }
             btnAddUser.setEnabled(true);
             btnEditUser.setEnabled(true);
@@ -397,6 +426,11 @@ public class fUser extends javax.swing.JInternalFrame {
                 control.bindingUser(jTableUser, userBLL.LoadUser());
                 control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
+                cbNameUserCategory_User.setEnabled(false);
+                txfNameStaff.setEnabled(false);
+                txfUserName.setEnabled(false);
+                txfDisplayName.setEnabled(false);
+                txfPassWord.setEnabled(false);
             }
             btnAddUser.setEnabled(true);
             btnEditUser.setEnabled(true);
@@ -410,6 +444,11 @@ public class fUser extends javax.swing.JInternalFrame {
                 control.bindingUser(jTableUser, userBLL.LoadUser());
                 control.bindingStaff(jTableStaff, staffBLL.LoadStaffNoAccount());
                 ClearText();
+                cbNameUserCategory_User.setEnabled(false);
+                txfNameStaff.setEnabled(false);
+                txfUserName.setEnabled(false);
+                txfDisplayName.setEnabled(false);
+                txfPassWord.setEnabled(false);
             }
             btnAddUser.setEnabled(true);
             btnEditUser.setEnabled(true);
@@ -426,6 +465,11 @@ public class fUser extends javax.swing.JInternalFrame {
 
     private void jTableUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableUserMouseClicked
         // TODO add your handling code here:
+        cbNameUserCategory_User.setEnabled(false);
+        txfNameStaff.setEnabled(false);
+        txfUserName.setEnabled(false);
+        txfDisplayName.setEnabled(false);
+        txfPassWord.setEnabled(false);
         int row =jTableUser.getSelectedRow();
         cbNameUserCategory_User.setSelectedItem(jTableUser.getValueAt(row, 0).toString());
         txfNameStaff.setText(jTableUser.getValueAt(row, 1).toString());
