@@ -47,7 +47,7 @@ public class BookDAL extends  DataAccessHelper{
      //Lấy mã sách tên sách
      public ArrayList<Book> LoadIDNameBook(){
         ArrayList<Book> temp = new ArrayList<>();
-        String SQL="SELECT MASACH, TENSACH,GIANHAP FROM SACH";
+        String SQL="SELECT MASACH, TENSACH FROM SACH";
         try{
             getConnect();
             Statement st = conn.createStatement();
@@ -57,7 +57,6 @@ public class BookDAL extends  DataAccessHelper{
                     Book book = new Book();
                     book.setIDBook(rs.getInt("MASACH"));
                     book.setNameBook(rs.getString("TENSACH"));
-                    book.setCost(rs.getFloat("GIANHAP"));
                     temp.add(book);
                 }
             getClose();

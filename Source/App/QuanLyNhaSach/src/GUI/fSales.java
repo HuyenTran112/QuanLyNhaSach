@@ -845,7 +845,7 @@ public class fSales extends javax.swing.JInternalFrame {
         jScrollPane4.setViewportView(txaBill);
 
         jPanel1.add(jScrollPane4);
-        jScrollPane4.setBounds(988, 228, 37, 18);
+        jScrollPane4.setBounds(988, 228, 100, 18);
 
         jTableBillInfo.setBorder(new javax.swing.border.MatteBorder(null));
         jTableBillInfo.setModel(new javax.swing.table.DefaultTableModel(
