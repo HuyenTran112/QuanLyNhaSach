@@ -38,10 +38,10 @@ public class ControlFormat {
         header.add("Tên sách");
         header.add("Tác giả");
         header.add("Nhà xuất bản");
-        header.add("Năm xuất bản");
+        header.add("Năm XB");
         header.add("Tóm tắt");
         header.add("Giá bán");
-        header.add("Tổng sách tồn");
+        header.add("Tổng sách");
         Vector data = new Vector();
         for(Book book: arrBook)
         {

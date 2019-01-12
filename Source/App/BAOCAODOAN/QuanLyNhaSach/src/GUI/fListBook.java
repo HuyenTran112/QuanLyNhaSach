@@ -174,7 +174,7 @@ public class fListBook extends javax.swing.JInternalFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel20.setText("Giá nhập");
+        jLabel20.setText("Giá bán");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel21.setText("Tổng sách tồn");
@@ -634,12 +634,8 @@ public class fListBook extends javax.swing.JInternalFrame {
         String Author =txfAuthorBookInfo.getText().toString();
         String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
         String PublisherBook=txfPublisherBookInfo.getText();
-        int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
-        String Brief=txaBriefBookInfo.getText();
-        float Cost =Float.parseFloat(txfCostBookInfo.getText());
-        int SumInventory=Integer.parseInt(txfSumInventory.getText());
-        int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
-        if(BookName.equals("") | Author.equals("") || CategogyName.equals("") || PublisherBook.equals("") || txfPublishingYearBookInfo.equals("") ||
+        
+        if(BookName.equals("") | Author.equals("") || CategogyName.equals("") || PublisherBook.equals("") || txfPublishingYearBookInfo.getText().equals("") ||
                 txfCostBookInfo.equals("") || txfSumInventory.equals("") )
         {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập đầy đủ thông tin");
@@ -647,6 +643,11 @@ public class fListBook extends javax.swing.JInternalFrame {
         }
         else
         {
+            int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
+            String Brief=txaBriefBookInfo.getText();
+            float Cost =Float.parseFloat(txfCostBookInfo.getText());
+            int SumInventory=Integer.parseInt(txfSumInventory.getText());
+            int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
             BookName=chuanHoa(BookName);
             PublisherBook=chuanHoa(PublisherBook);
             Brief=chuanHoa(Brief);
@@ -669,12 +670,6 @@ public class fListBook extends javax.swing.JInternalFrame {
         String Author =txfAuthorBookInfo.getText().toString();
         String CategogyName =cbNameCategogyBookInfo.getSelectedItem().toString();
         String PublisherBook=txfPublisherBookInfo.getText();
-        int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
-        String Brief=txaBriefBookInfo.getText();
-        float Cost =Float.parseFloat(txfCostBookInfo.getText());
-        int SumInventory=Integer.parseInt(txfSumInventory.getText());
-        int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
-        int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
         if(BookName.equals("") | Author.equals("") || CategogyName.equals("") || PublisherBook.equals("") || txfPublishingYearBookInfo.equals("") ||
                 txfCostBookInfo.equals("") || txfSumInventory.equals("") )
         {
@@ -683,6 +678,12 @@ public class fListBook extends javax.swing.JInternalFrame {
         }
         else
         {
+            int PublishingYearBook =Integer.parseInt(txfPublishingYearBookInfo.getText());
+        String Brief=txaBriefBookInfo.getText();
+        float Cost =Float.parseFloat(txfCostBookInfo.getText());
+        int SumInventory=Integer.parseInt(txfSumInventory.getText());
+        int IDBookCategogy=categogyBLL.getIDBookCategogy(CategogyName);
+        int IDBookName=Integer.parseInt(txfIDBookInfo.getText());
             BookName=chuanHoa(BookName);
             PublisherBook=chuanHoa(PublisherBook);
             Brief=chuanHoa(Brief);

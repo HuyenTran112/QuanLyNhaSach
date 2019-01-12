@@ -601,7 +601,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Số phiếu nhập", "Mã sách", "Số lượng", "Thành tiền"
+                "Mã sách", "Số lượng", "Title 3", "Thành tiền"
             }
         ));
         jTableReceiptInfo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1060,11 +1060,10 @@ public class fImportBook extends javax.swing.JInternalFrame {
         txfAmountReceiptInfo.setEnabled(false);
         txfCost.setEnabled(false);
         int row=jTableReceiptInfo.getSelectedRow();
-        txfIDReceiptInfo.setText(jTableReceiptInfo.getValueAt(row, 0).toString());
-        txfNameBook.setText(jTableReceiptInfo.getValueAt(row, 1).toString());
-        txfAmountReceiptInfo.setText(jTableReceiptInfo.getValueAt(row, 2).toString());
-        txfCost.setText(jTableReceiptInfo.getValueAt(row, 3).toString());
-        txfAmount.setText(jTableReceiptInfo.getValueAt(row, 4).toString());
+        txfNameBook.setText(jTableReceiptInfo.getValueAt(row, 0).toString());
+        txfAmountReceiptInfo.setText(jTableReceiptInfo.getValueAt(row, 1).toString());
+        txfCost.setText(jTableReceiptInfo.getValueAt(row, 2).toString());
+        txfAmount.setText(jTableReceiptInfo.getValueAt(row,3).toString());
     }//GEN-LAST:event_jTableReceiptInfoMouseClicked
 
     private void txfCostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfCostKeyTyped
@@ -1269,6 +1268,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
         txfAmountReceiptInfo.setText("");
         txfCost.setText("");
         txfAmount.setText("");
+        txfNameBook.setText("");
     }    Toolkit tk = Toolkit.getDefaultToolkit();    boolean dot = false;    public void ClearTextDistibutor()
     {
         txfIDDistributorInfo.setText("");
@@ -1334,6 +1334,7 @@ public class fImportBook extends javax.swing.JInternalFrame {
     {
         txfIDReceipt.setText("");
         txfTotalReceipt.setText("");
+        jDateChooserReceipt.setDate(new Date());
     }
     public boolean InsertBookReceipt()
     {
@@ -1400,19 +1401,21 @@ public class fImportBook extends javax.swing.JInternalFrame {
    
     public boolean InsertBookReceiptInfo()
     {
-        int IDBookReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
-        int row =jTableBook.getSelectedRow();
-        String NameBook=jTableBook.getValueAt(row, 1).toString();
-        int IDBook=bookbll.getIDBook(NameBook);
-        int AmountReceipt=Integer.parseInt(txfAmountReceiptInfo.getText().toString());
-        float Cost =Float.parseFloat(txfCost.getText().toString());
-        if(String.valueOf(IDBookReceipt).equals("")|| NameBook.equals("") ||txfAmountReceiptInfo.equals("")|| txfCost.equals(""))
+        
+        if(txfIDReceiptInfo.getText().equals("")|| txfNameBook.getText().equals("") ||txfAmountReceiptInfo.getText().equals("")|| txfCost.getText().equals(""))
         {
             JOptionPane.showMessageDialog(this, "Nhập thông tin chưa đầy đủ");
             return false;
         }
        else
         {
+            int IDBookReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
+            int row =jTableBook.getSelectedRow();
+            String NameBook="";
+            NameBook=jTableBook.getValueAt(row, 1).toString();
+            int IDBook=bookbll.getIDBook(NameBook);
+            int AmountReceipt=Integer.parseInt(txfAmountReceiptInfo.getText().toString());
+            float Cost =Float.parseFloat(txfCost.getText().toString());
             if(bookReceiptInfoBLL.InsertBookReceiptInfo(IDBookReceipt, IDBook, AmountReceipt,Cost))
             {
                 JOptionPane.showMessageDialog(this, "Thêm thành công chi tiết phiếu nhập sách");
@@ -1427,19 +1430,20 @@ public class fImportBook extends javax.swing.JInternalFrame {
     }
     public boolean  UpdateBookReceiptInfo()
     {
-        int IDBookReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
-        int row =jTableBook.getSelectedRow();
-        String NameBook=txfNameBook.getText().toString();
-        int IDBook=bookbll.getIDBook(NameBook);
-        int AmountReceipt=Integer.parseInt(txfAmountReceiptInfo.getText());
-        float Cost=Float.parseFloat(txfCost.getText());
-        if(String.valueOf(IDBookReceipt).equals("")|| NameBook.equals("")||txfAmountReceiptInfo.equals("")|| txfCost.equals(""))
+        
+        if(txfIDReceiptInfo.equals("")||txfNameBook.equals("")||txfAmountReceiptInfo.equals("")|| txfCost.equals(""))
         {
             JOptionPane.showMessageDialog(this, "Nhập thông tin chưa đầy đủ");
             return false;
         }
        else
         {
+            int IDBookReceipt=Integer.parseInt(txfIDReceiptInfo.getText().toString());
+        int row =jTableBook.getSelectedRow();
+        String NameBook=txfNameBook.getText().toString();
+        int IDBook=bookbll.getIDBook(NameBook);
+        int AmountReceipt=Integer.parseInt(txfAmountReceiptInfo.getText());
+        float Cost=Float.parseFloat(txfCost.getText());
             if(bookReceiptInfoBLL.UpdateBookReceiptInfo(IDBookReceipt, IDBook, AmountReceipt,Cost))
             {
                 JOptionPane.showMessageDialog(this, "Cập nhật thành công chi tiết phiếu nhập sách");
